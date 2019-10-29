@@ -14,15 +14,15 @@ client.profil = profil
 
 client.ayarlar = {
   "prefix": "!", //prefix
-  "oauthSecret": "VRb_u8OwCUadNDLekL8XP_PMaZargQZi", //bot secreti
-	"callbackURL": "https://esbotslist.glitch.me/callback", //benim sitenin urlsini kendin ile değiş "/callback" kalacak!
+  "oauthSecret": "Uaa1jBLQqoi4oTQaZMS7ZHz5rLS1s_Tg", //bot secreti
+	"callbackURL": "https://selfbotslist.glitch.me/callback", //benim sitenin urlsini kendin ile değiş "/callback" kalacak!
 	"kayıt": "638767121467441152", //onaylandı, reddedildi, başvuru yapıldı falan kayıtların gideceği kanalın ID'ini yazacaksın
   "renk": "RANDOM" //embedların rengini burdan alıo can sıkıntısdna yapılmış bişe falan fln
 };
 
-client.yetkililer = ["617729641620176901", "587972133460770837"]//tüm yetkililerin ıdleri gelcek array
-client.webyetkililer = ["617729641620176901", "587972133460770837"]//web yetkililerin ıdleri gelcek array
-client.sunucuyetkililer = ["617729641620176901", "587972133460770837"]//sunucu yetkililerin ıdleri gelcek array
+client.yetkililer = ["617729641620176901"]//tüm yetkililerin ıdleri gelcek array
+client.webyetkililer = ["617729641620176901"]//web yetkililerin ıdleri gelcek array
+client.sunucuyetkililer = ["617729641620176901"]//sunucu yetkililerin ıdleri gelcek array
 
 //["id", "id2"]
 
