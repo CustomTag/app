@@ -14,9 +14,9 @@ client.profil = profil
 
 client.ayarlar = {
   "prefix": "!", //prefix
-  "oauthSecret": "i5YUFxEi59DYlXT5lOp9sU3pQ3B07BeH", //bot secreti
-	"callbackURL": "https://disscordbots-trs.glitch.me/callback", //benim sitenin urlsini kendin ile değiş "/callback" kalacak!
-	"kayıt": "", //onaylandı, reddedildi, başvuru yapıldı falan kayıtların gideceği kanalın ID'ini yazacaksın
+  "oauthSecret": "VRb_u8OwCUadNDLekL8XP_PMaZargQZi", //bot secreti
+	"callbackURL": "https://esbotslist.glitch.me/callback", //benim sitenin urlsini kendin ile değiş "/callback" kalacak!
+	"kayıt": "638767121467441152", //onaylandı, reddedildi, başvuru yapıldı falan kayıtların gideceği kanalın ID'ini yazacaksın
   "renk": "RANDOM" //embedların rengini burdan alıo can sıkıntısdna yapılmış bişe falan fln
 };
 
@@ -175,7 +175,7 @@ client.on("message", async message => {
 	}
 });
 
-client.login("NTg0NzYzMjk4NzA5MjQxODY2.XPPpSA.mQ6HKg0itqWGCAkibsxgXEbFkK8") //tokeni yaz işte
+client.login("NjM4NzU3NjEwMjA3ODM4MjMx.Xbhi6w.IzrglUjAQOWD-vUeROntPPX3qpk") //tokeni yaz işte
 
 process.env = {}
-process.env.TOKEN = "NTg0NzYzMjk4NzA5MjQxODY2.XPPpSA.mQ6HKg0itqWGCAkibsxgXEbFkK8";
+process.env.TOKEN = "NjM4NzU3NjEwMjA3ODM4MjMx.Xbhi6w.IzrglUjAQOWD-vUeROntPPX3qpk";
