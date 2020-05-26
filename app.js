@@ -590,12 +590,12 @@ sahipid: db.fetch(`botlar.${id}.sahipid`),
 kisa_aciklama: db.fetch(`botlar.${id}.kisaaciklama`),
 uzun_aciklama: db.fetch(`botlar.${id}.uzunaciklama`),
 etiketler: db.fetch(`botlar.${id}.etiket`),
-destek_sunucusu: db.fetch(`botlar.${id}.destek`) || 'Belirtilmemiş',
-web_sitesi: db.fetch(`botlar.${id}.site`) || 'Belirtilmemiş',
-github: db.fetch(`botlar.${id}.github`) || 'Belirtilmemiş',
-durum: db.has(`botlar.${id}.durum`) ? db.fetch(`botlar.${id}.durum`) : 'Beklemede',
+destek_sunucusu: db.fetch(`botlar.${id}.destek`) || 'Unspecified',
+web_sitesi: db.fetch(`botlar.${id}.site`) || 'Unspecified',
+github: db.fetch(`botlar.${id}.github`) || 'Unspecified',
+durum: db.has(`botlar.${id}.durum`) ? db.fetch(`botlar.${id}.durum`) : 'Pending',
 oy_sayisi: db.fetch(`botlar.${id}.oy`) || 0,
-sertifika: db.fetch(`botlar.${id}.sertifika`) || 'Bulunmuyor'
+sertifika: db.fetch(`botlar.${id}.sertifika`) || 'no'
     });
 });
 
