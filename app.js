@@ -521,10 +521,10 @@ db.set(`botlar.${id}.durum`, 'Beklemede')
 
 res.redirect("/yetkili")
 
-client.channels.get(client.ayarlar.kayıt).send(`\`${req.user.username}#${req.user.discriminator}\` named by \`${db.fetch(`botlar.${id}.sahip`)}\` 's \`${db.fetch(`botlar.${id}.id`)}\` Has ID \`${db.fetch(`botlar.${id}.isim`)}\` The bot named has been put on standby!`)
+client.channels.get(client.ayarlar.kayıt).send(`\`${req.user.username}#${req.user.discriminator}\` Add Bot \`${db.fetch(`botlar.${id}.sahip`)}\` Are Waiting \`${db.fetch(`botlar.${id}.id`)}\` With ID \`${db.fetch(`botlar.${id}.isim`)}\` The bot named has been put on standby!`)
 
 if (client.users.has(db.fetch(`botlar.${id}.sahipid`)) === true) {
-client.users.get(db.fetch(`botlar.${id}.sahipid`)).send(`\`${db.fetch(`botlar.${id}.isim`)}\` Your bot is on hold / under review! Your bot is on hold / under review!`)
+client.users.get(db.fetch(`botlar.${id}.sahipid`)).send(`\`${db.fetch(`botlar.${id}.isim`)}\` Your bot is under review!`)
 }
 
 });
@@ -542,10 +542,10 @@ app.post("/botyonetici/reddet/:botID", checkAuth, (req, res) => {
   
   res.redirect("/yetkili")
   
-  client.channels.get(client.ayarlar.kayıt).send(`\`${req.user.username}#${req.user.discriminator}\` named by \`${db.fetch(`botlar.${id}.sahip`)}\` 's \`${db.fetch(`botlar.${id}.id`)}\` Has ID \`${db.fetch(`botlar.${id}.isim`)}\` named boat \`${req.body['red-sebep']}\` rejected due to!`)
+  client.channels.get(client.ayarlar.kayıt).send(`\`${req.user.username}#${req.user.discriminator}\` Bot Name \`${db.fetch(`botlar.${id}.sahip`)}\` Got \`${db.fetch(`botlar.${id}.id`)}\` With the ID \`${db.fetch(`botlar.${id}.isim`)}\` Bot Was \`${req.body['red-sebep']}\` rejected due to!`)
   
   if (client.users.has(db.fetch(`botlar.${id}.sahipid`)) === true) {
-  client.users.get(db.fetch(`botlar.${id}.sahipid`)).send(`\`${db.fetch(`botlar.${id}.isim`)}\` Your boat named \`${req.body['red-sebep']}\` rejected due to!`)
+  client.users.get(db.fetch(`botlar.${id}.sahipid`)).send(`\`${db.fetch(`botlar.${id}.isim`)}\` Your Bot \`${req.body['red-sebep']}\` Was rejected due to!`)
   }
 
   });
@@ -558,7 +558,7 @@ app.get("/api", (req, res) => {
 
 app.get("/api/botlar", (req, res) => {
   res.json({
-    hata: 'Bir bot ID yazınız.'
+    hata: 'Write a bot ID.'
   });
 });
 
