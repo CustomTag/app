@@ -217,10 +217,10 @@ db.set(`kbotlar.${req.user.id}.${ID}`, db.fetch(`botlar.${ID}`))
 
 res.redirect("/kullanici/"+req.params.userID+"/panel");
 
-client.channels.get(client.ayarlar.kayıt).send(`\`${req.user.username}#${req.user.discriminator}\` user \`${sistem.id}\` Has ID \`${sistem.username}#${sistem.discriminator}\` He applied with his boat!`)
+client.channels.get(client.ayarlar.kayıt).send(`\`${req.user.username}#${req.user.discriminator}\` User Name \`${sistem.id}\` With The ID \`${sistem.username}#${sistem.discriminator}\` He applied with his bot!`)
 
 if (client.users.has(req.user.id) === true) {
-  client.users.get(req.user.id).send(`\`${sistem.username}#${sistem.discriminator}\` Your bot has been successfully added to our system! Now, all you have to do is sit down and wait for the boat to be approved alongside a hot coffee. \ N Good luck! 🎉`)
+  client.users.get(req.user.id).send(`\`${sistem.username}#${sistem.discriminator}\` Your bot has been successfully added to our system! Now, all you have to do is sit down and wait for the bot to be approved alongside a hot coffee. \ N Good luck! 🎉`)
 }
 
 }})
@@ -391,7 +391,7 @@ db.set(`botlar.${ID}.destek`, ayar['botdestek'])
 
 res.redirect("/kullanici/"+req.params.userID+"/panel");
 
-client.channels.get(client.ayarlar.kayıt).send(`\`${req.user.username}#${req.user.discriminator}\` user \`${sistem.id}\` Has ID \`${sistem.username}#${sistem.discriminator}\` Application / profile of the boat has been edited!`)
+client.channels.get(client.ayarlar.kayıt).send(`\`${req.user.username}#${req.user.discriminator}\` User Name \`${sistem.id}\` With The Name \`${sistem.username}#${sistem.discriminator}\` Application / profile of the boat has been edited!`)
 
 if (client.users.has(req.user.id) === true) {
 client.users.get(req.user.id).send(`\`${sistem.username}#${sistem.discriminator}\` Your bot's profile / application has been successfully edited!`)
@@ -413,11 +413,11 @@ let ayar = req.body
 
 if(ayar['mesaj-1']) {
 db.push(`botlar.${req.params.botID}.raporlar`, JSON.parse(`{ "rapor":"${ayar['mesaj-1']}" }`))
-client.channels.get('714504798560583701').send(`\`${req.user.username}#${req.user.discriminator}\` user \`${db.fetch(`botlar.${req.params.botID}.isim`)}\` Reported bot! \n**Reason:** \`${ayar['mesaj-1']}\``)
+client.channels.get('714504798560583701').send(`\`${req.user.username}#${req.user.discriminator}\` User Name \`${db.fetch(`botlar.${req.params.botID}.isim`)}\` Reported bot! \n**Reason:** \`${ayar['mesaj-1']}\``)
 }
 if(ayar['mesaj-2']) {
 db.push(`botlar.${req.params.botID}.raporlar`, JSON.parse(`{ "rapor":"${ayar['mesaj-2']}" }`))
-client.channels.get('714504798560583701').send(`\`${req.user.username}#${req.user.discriminator}\` user \`${db.fetch(`botlar.${req.params.botID}.isim`)}\` Reported bot! \n**Reason:** \`${ayar['mesaj-2']}\``)
+client.channels.get('714504798560583701').send(`\`${req.user.username}#${req.user.discriminator}\` User Name \`${db.fetch(`botlar.${req.params.botID}.isim`)}\` Reported bot! \n**Reason:** \`${ayar['mesaj-2']}\``)
 }
 
 res.redirect('/bot/'+req.params.botID);
@@ -505,10 +505,10 @@ db.set(`botlar.${id}.durum`, 'Onaylı')
 
 res.redirect("/yetkili")
 
-client.channels.get(client.ayarlar.kayıt).send(`\`${req.user.username}#${req.user.discriminator}\` named by \`${db.fetch(`botlar.${id}.sahip`)}\` 's \`${db.fetch(`botlar.${id}.id`)}\` Has ID \`${db.fetch(`botlar.${id}.isim`)}\` Bot has been approved!`)
+client.channels.get(client.ayarlar.kayıt).send(`\`${req.user.username}#${req.user.discriminator}\` With Owner Name \`${db.fetch(`botlar.${id}.sahip`)}\` With the ID \`${db.fetch(`botlar.${id}.id`)}\` Added Bot to Website \`${db.fetch(`botlar.${id}.isim`)}\` Bot has been approved!`)
 
 if (client.users.has(db.fetch(`botlar.${id}.sahipid`)) === true) {
-client.users.get(db.fetch(`botlar.${id}.sahipid`)).send(`\`${db.fetch(`botlar.${id}.isim`)}\` Your bot has been approved! \n https://discords-bot-list.glitch.me/bot/${db.fetch(`botlar.${id}.id`)}`)
+client.users.get(db.fetch(`botlar.${id}.sahipid`)).send(`\`${db.fetch(`botlar.${id}.isim`)}\` Your bot has been approved! \n https://discords-bot-list.glitch.me/botlar/${db.fetch(`botlar.${id}.id`)}`)
 }
 
 });
@@ -521,7 +521,7 @@ db.set(`botlar.${id}.durum`, 'Beklemede')
 
 res.redirect("/yetkili")
 
-client.channels.get(client.ayarlar.kayıt).send(`\`${req.user.username}#${req.user.discriminator}\` Add Bot \`${db.fetch(`botlar.${id}.sahip`)}\` Are Waiting \`${db.fetch(`botlar.${id}.id`)}\` With ID \`${db.fetch(`botlar.${id}.isim`)}\` The bot named has been put on standby!`)
+client.channels.get(client.ayarlar.kayıt).send(`\`${req.user.username}#${req.user.discriminator}\` Bot Are Now Wating \`${db.fetch(`botlar.${id}.sahip`)}\` With The Name \`${db.fetch(`botlar.${id}.id`)}\` With Bot Name \`${db.fetch(`botlar.${id}.isim`)}\` The Bot has been put on standby!`)
 
 if (client.users.has(db.fetch(`botlar.${id}.sahipid`)) === true) {
 client.users.get(db.fetch(`botlar.${id}.sahipid`)).send(`\`${db.fetch(`botlar.${id}.isim`)}\` Your bot is under review!`)
