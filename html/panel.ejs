@@ -18,7 +18,7 @@
      <div align="center" class="card-img">
          <a href="/bot/<%=idd%>"><img src="<%=bot.ayar.fetch(`botlar.${idd}.avatar`)%>" class="card-img-top" alt="Bot Avatar"></a>
        <% if (bot.ayar.has(`botlar.${idd}.sertifika`) === true) { %>
-       <br><br><a style="color:darkorange"><img src="https://cdn.discordapp.com/emojis/522886304615366676.png" width="30px" height="30px"> certified</a><br>
+       <br><br><a style="color:darkorange"><img src="https://cdn.discordapp.com/emojis/522886304615366676.png" width="30px" height="30px">Certified</a><br>
        <% } %>
 
       <%  if(bot.ayar.fetch(`botlar.${idd}.durum`) === 'Pending' || !bot.ayar.has(`botlar.${idd}.durum`)) { %>
@@ -54,13 +54,11 @@
 </div>
       
       <% } else if (!bot.ayar.has(`kbotlar.${user.id}`)) {%>
-           <h5 style="color:#222">
-             There are no bots for you in the system.
+           <h5 style="color:#222"> Sorry you didn't add your bot here!
       </h5>
       <% } %>
       <% } else if (!bot.ayar.has('botlar')) {%>
-           <h5 style="color:#222">
-             There are no bots in the system.
+           <h5 style="color:#222"> Sorry you didn't add your bot here!
       </h5>
       <% } %>
       

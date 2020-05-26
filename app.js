@@ -217,10 +217,10 @@ db.set(`kbotlar.${req.user.id}.${ID}`, db.fetch(`botlar.${ID}`))
 
 res.redirect("/kullanici/"+req.params.userID+"/panel");
 
-client.channels.get(client.ayarlar.kayıt).send(`\`${req.user.username}#${req.user.discriminator}\` adlı kullanıcı \`${sistem.id}\` ID'ine sahip \`${sistem.username}#${sistem.discriminator}\` adlı botu ile başvuru yaptı!`)
+client.channels.get(client.ayarlar.kayıt).send(`\`${req.user.username}#${req.user.discriminator}\` user \`${sistem.id}\` Has ID \`${sistem.username}#${sistem.discriminator}\` He applied with his boat!`)
 
 if (client.users.has(req.user.id) === true) {
-  client.users.get(req.user.id).send(`\`${sistem.username}#${sistem.discriminator}\` adlı botunuz başarıyla sistemimize eklendi! Şimdi, tek yapmanız gereken şey oturup sıcak bir kahvenin yanında botun onaylanmasını beklemektir.\n İyi şanslar! 🎉`)
+  client.users.get(req.user.id).send(`\`${sistem.username}#${sistem.discriminator}\` Your bot has been successfully added to our system! Now, all you have to do is sit down and wait for the boat to be approved alongside a hot coffee. \ N Good luck! 🎉`)
 }
 
 }})
@@ -391,10 +391,10 @@ db.set(`botlar.${ID}.destek`, ayar['botdestek'])
 
 res.redirect("/kullanici/"+req.params.userID+"/panel");
 
-client.channels.get(client.ayarlar.kayıt).send(`\`${req.user.username}#${req.user.discriminator}\` adlı kullanıcı \`${sistem.id}\` ID'ine sahip \`${sistem.username}#${sistem.discriminator}\` adlı botunun başvurusunu/profilini düzenlendi!`)
+client.channels.get(client.ayarlar.kayıt).send(`\`${req.user.username}#${req.user.discriminator}\` user \`${sistem.id}\` Has ID \`${sistem.username}#${sistem.discriminator}\` Application / profile of the boat has been edited!`)
 
 if (client.users.has(req.user.id) === true) {
-client.users.get(req.user.id).send(`\`${sistem.username}#${sistem.discriminator}\` adlı botunuzun profili/başvurusu başarıyla düzenlendi!`)
+client.users.get(req.user.id).send(`\`${sistem.username}#${sistem.discriminator}\` Your bot's profile / application has been successfully edited!`)
 }
 
 }})
@@ -413,11 +413,11 @@ let ayar = req.body
 
 if(ayar['mesaj-1']) {
 db.push(`botlar.${req.params.botID}.raporlar`, JSON.parse(`{ "rapor":"${ayar['mesaj-1']}" }`))
-client.channels.get('547345613969162254').send(`\`${req.user.username}#${req.user.discriminator}\` adlı kullanıcı \`${db.fetch(`botlar.${req.params.botID}.isim`)}\` adlı botu raporladı! \n**Sebep:** \`${ayar['mesaj-1']}\``)
+client.channels.get('714504798560583701').send(`\`${req.user.username}#${req.user.discriminator}\` user \`${db.fetch(`botlar.${req.params.botID}.isim`)}\` Reported bot! \n**Reason:** \`${ayar['mesaj-1']}\``)
 }
 if(ayar['mesaj-2']) {
 db.push(`botlar.${req.params.botID}.raporlar`, JSON.parse(`{ "rapor":"${ayar['mesaj-2']}" }`))
-client.channels.get('547345613969162254').send(`\`${req.user.username}#${req.user.discriminator}\` adlı kullanıcı \`${db.fetch(`botlar.${req.params.botID}.isim`)}\` adlı botu raporladı! \n**Sebep:** \`${ayar['mesaj-2']}\``)
+client.channels.get('714504798560583701').send(`\`${req.user.username}#${req.user.discriminator}\` user \`${db.fetch(`botlar.${req.params.botID}.isim`)}\` Reported bot! \n**Reason:** \`${ayar['mesaj-2']}\``)
 }
 
 res.redirect('/bot/'+req.params.botID);
@@ -505,10 +505,10 @@ db.set(`botlar.${id}.durum`, 'Onaylı')
 
 res.redirect("/yetkili")
 
-client.channels.get(client.ayarlar.kayıt).send(`\`${req.user.username}#${req.user.discriminator}\` adlı yetkili tarafından \`${db.fetch(`botlar.${id}.sahip`)}\` adlı kullanıcının \`${db.fetch(`botlar.${id}.id`)}\` ID'ine sahip \`${db.fetch(`botlar.${id}.isim`)}\` adlı botu onaylandı!`)
+client.channels.get(client.ayarlar.kayıt).send(`\`${req.user.username}#${req.user.discriminator}\` named by \`${db.fetch(`botlar.${id}.sahip`)}\` 's \`${db.fetch(`botlar.${id}.id`)}\` Has ID \`${db.fetch(`botlar.${id}.isim`)}\` Bot has been approved!`)
 
 if (client.users.has(db.fetch(`botlar.${id}.sahipid`)) === true) {
-client.users.get(db.fetch(`botlar.${id}.sahipid`)).send(`\`${db.fetch(`botlar.${id}.isim`)}\` adlı botunuz onaylandı! \n https://discordbotstr.xyz/bot/${db.fetch(`botlar.${id}.id`)}`)
+client.users.get(db.fetch(`botlar.${id}.sahipid`)).send(`\`${db.fetch(`botlar.${id}.isim`)}\` Your bot has been approved! \n https://discords-bot-list.glitch.me/bot/${db.fetch(`botlar.${id}.id`)}`)
 }
 
 });
@@ -521,10 +521,10 @@ db.set(`botlar.${id}.durum`, 'Beklemede')
 
 res.redirect("/yetkili")
 
-client.channels.get(client.ayarlar.kayıt).send(`\`${req.user.username}#${req.user.discriminator}\` adlı yetkili tarafından \`${db.fetch(`botlar.${id}.sahip`)}\` adlı kullanıcının \`${db.fetch(`botlar.${id}.id`)}\` ID'ine sahip \`${db.fetch(`botlar.${id}.isim`)}\` adlı botu bekleme moduna alındı!`)
+client.channels.get(client.ayarlar.kayıt).send(`\`${req.user.username}#${req.user.discriminator}\` named by \`${db.fetch(`botlar.${id}.sahip`)}\` 's \`${db.fetch(`botlar.${id}.id`)}\` Has ID \`${db.fetch(`botlar.${id}.isim`)}\` The bot named has been put on standby!`)
 
 if (client.users.has(db.fetch(`botlar.${id}.sahipid`)) === true) {
-client.users.get(db.fetch(`botlar.${id}.sahipid`)).send(`\`${db.fetch(`botlar.${id}.isim`)}\` adlı botunuz beklemeye/incelenmeye alındı!`)
+client.users.get(db.fetch(`botlar.${id}.sahipid`)).send(`\`${db.fetch(`botlar.${id}.isim`)}\` Your bot is on hold / under review! Your bot is on hold / under review!`)
 }
 
 });
@@ -542,10 +542,10 @@ app.post("/botyonetici/reddet/:botID", checkAuth, (req, res) => {
   
   res.redirect("/yetkili")
   
-  client.channels.get(client.ayarlar.kayıt).send(`\`${req.user.username}#${req.user.discriminator}\` adlı yetkili tarafından \`${db.fetch(`botlar.${id}.sahip`)}\` adlı kullanıcının \`${db.fetch(`botlar.${id}.id`)}\` ID'ine sahip \`${db.fetch(`botlar.${id}.isim`)}\` adlı botu \`${req.body['red-sebep']}\` sebebi ile reddedildi!`)
+  client.channels.get(client.ayarlar.kayıt).send(`\`${req.user.username}#${req.user.discriminator}\` named by \`${db.fetch(`botlar.${id}.sahip`)}\` 's \`${db.fetch(`botlar.${id}.id`)}\` Has ID \`${db.fetch(`botlar.${id}.isim`)}\` named boat \`${req.body['red-sebep']}\` rejected due to!`)
   
   if (client.users.has(db.fetch(`botlar.${id}.sahipid`)) === true) {
-  client.users.get(db.fetch(`botlar.${id}.sahipid`)).send(`\`${db.fetch(`botlar.${id}.isim`)}\` adlı botunuz \`${req.body['red-sebep']}\` sebebi ile reddedildi!`)
+  client.users.get(db.fetch(`botlar.${id}.sahipid`)).send(`\`${db.fetch(`botlar.${id}.isim`)}\` Your boat named \`${req.body['red-sebep']}\` rejected due to!`)
   }
 
   });
@@ -564,7 +564,7 @@ app.get("/api/botlar", (req, res) => {
 
 app.get("/api/botlar/:botID/oylar", (req, res) => {
   res.json({
-    hata: 'Bir kullanıcı ID yazınız.'
+    hata: 'Write a user ID.'
   });
 });
 
@@ -574,7 +574,7 @@ app.get("/api/botlar/:botID", (req, res) => {
    if (db.has('botlar')) {
       if (Object.keys(db.fetch('botlar')).includes(id) === false) {
      res.json({
-       hata: 'Yazdığınız ID\'e sahip bir bot sistemde bulunmuyor.'
+       hata: 'A bot with the ID you typed is not in the system.'
      });
    }
   }
@@ -610,7 +610,7 @@ app.get("/api/botlar/:botID/oylar/:kullaniciID", (req, res) => {
   if (db.has('botlar')) {
       if (Object.keys(db.fetch('botlar')).includes(id) === false) {
      res.json({
-       hata: 'Yazdığınız ID\'e sahip bir bot sistemde bulunmuyor.'
+       hata: 'A bot with the ID you typed is not in the system.'
      });
    }
   }

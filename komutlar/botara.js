@@ -5,7 +5,7 @@ const request = require('request')
 exports.run = async (client, msg, args) => {
     let prefix = await db.fetch(`${msg.guild.id}.prefix`) || client.ayarlar.prefix
     if(!args[0]) {
-      return msg.channel.send(new Discord.RichEmbed().setDescription('Lütfen bir bot ID\'i giriniz!').setColor("RANDOM"))
+      return msg.channel.send(new Discord.RichEmbed().setDescription('Please enter a bot ID!').setColor("RANDOM"))
     }
     request(`https://fiboxbotlist.glitch.me/api/botlar/${args[0]}`, function (error, response, body) {
     if (error) return msg.channel.send('Hata:', error);
@@ -18,18 +18,18 @@ exports.run = async (client, msg, args) => {
       var f = `${JSON.parse(body).sahip} (${JSON.parse(body).sahipid})`
       var g = JSON.parse(body).kisa_aciklama
       var h = JSON.parse(body).etiketler
-      if(JSON.parse(body).destek_sunucusu === 'Belirtilmemiş') {
-        var i = 'Belirtilmemiş'
+      if(JSON.parse(body).destek_sunucusu === 'Unspecified') {
+        var i = 'Unspecified'
       } else {
         var i = `[${a} Destek Sunucusu](${JSON.parse(body).destek_sunucusu})`
       }
-      if(JSON.parse(body).web_sitesi === 'Belirtilmemiş') {
-        var j = 'Belirtilmemiş'
+      if(JSON.parse(body).web_sitesi === 'Unspecified') {
+        var j = 'Unspecified'
       } else {
       var j = JSON.parse(body).web_sitesi
       }
-      if(JSON.parse(body).github === 'Belirtilmemiş')  {
-        var k = 'Belirtilmemiş'
+      if(JSON.parse(body).github === 'Unspecified')  {
+        var k = 'Unspecified'
       } else {
         var k = `[Github](${JSON.parse(body).github})`
       }
@@ -41,25 +41,25 @@ exports.run = async (client, msg, args) => {
       request(`https://fiboxbotlist.glitch.me/api/tumbotlar`, function (errorr, responsee, bodyy) {
     if (errorr) return msg.channel.send('Hata:', errorr);
     else if (!errorr) {
-    if (bodyy.includes(args[0])=== false) return msg.reply("Bu ID'de bir bot sistemde bulunmamaktadır!")
+    if (bodyy.includes(args[0])=== false) return msg.reply("There is no bot in this ID system!")
     }
        })
       
     const embed = new Discord.RichEmbed()
     .setColor("RANDOM")
     .setThumbnail(c)
-    .setTitle(`DiscordBotsTR - Bot Arama`)
+    .setTitle(`Discord Bots - Bot Search`)
     .setDescription(`${a} (${b}) [${n} oy]`, c)
     .addField('Prefix', d)
-    .addField('Sahip', f)
-    .addField('Kısa Açıklama', g)
-    .addField('Etiketler', h)
-    .addField('Sertifika', l)
-    .addField('Onay Durumu', m)
-    .addField("Web Sitesi", j)
+    .addField('Owner', f)
+    .addField('Short Description', g)
+    .addField('labels', h)
+    .addField('Certificate', l)
+    .addField('Approval Status', m)
+    .addField("Website", j)
     .addField('Github', k)
-    .addField('Destek Sunucusu', i)
-    .setFooter('https://tr-discordbotlar.cf sisteminde bot aramaktadır.')
+    .addField('Support Server', i)
+    .setFooter('https://discords-bot-list.glitch.me is looking for bots in the system.')
     msg.channel.send({embed})
   })
 };
@@ -73,7 +73,7 @@ exports.conf = {
 };
 
 exports.help = {
-  name: 'bot-ara',
-  description: 'DiscordBotsTR sistemindeki botları aramanızı sağlar.',
-  usage: 'bot-ara [bot id]'
+  name: 'Search bots',
+  description: 'Allows you to search for bots in the Discord Bots system.',
+  usage: 'Search bots [bot id]'
 };

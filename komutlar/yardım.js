@@ -4,12 +4,12 @@ exports.run = async (client, message, args) => {
 	//kendi URL'lerini eklersn :D
   var embed = new Discord.RichEmbed()
   .setColor('RANDOM')
-  .setAuthor("DiscordBotsTR", client.user.avatarURL)
-  .addField("Sistemin amacı nedir? Sistem ne işe yaramaktadır?", "Gerekli bilgiyi [buraya tıklayarak](https://discordbotstr.xyz/hakkimizda) görebilirsiniz.")
-	.addField("Bot nasıl ekleyeceğim?", "[Buraya tıklayarak](https://discordbotstr.xyz/botekle) bot ekleyebileceğiniz yere ışınlanabilirsiniz.")
-  .addField("Sistemdeki tüm botları nereden görebilirim?", "[Buraya tıklayarak](https://discordbotstr.xyz/botlar) görebilirsiniz.")
-  .addField("Sertifika ne işe yarar? Nasıl alınır?", "[Buraya tıklayarak](https://discordbotstr.xyz/sertifika) görebilirsiniz.")
-  .addField("Kullanıcı panelinde neler yapılabilir?", "Kullanıcı panelinde sistemdeki botlarınızın profilini/başvurusunu düzenleyebilir ve botlarınızı sistemden silebilirsiniz. \nKullanıcı paneline gitmek için [buraya tıklayabilirsiniz.](https://discordbotstr.xyz/panel)")
+  .setAuthor("Discord Bots", client.user.avatarURL)
+  .addField("What is the purpose of the system? What does the system do? "," You can see the required information [by clicking here](https://discords-bot-list.glitch.me/hakkimizda).")
+	.addField("How do I add a bot? "," [Click here](https://discords-bot-list.glitch.me/botekle) You can teleport to the place where you can add a bot.")
+  .addField("Where can I see all the bots in the system? "," [Click here](https://discords-bot-list.glitch.me/botlar) You can see.")
+  .addField("What does the certificate do? How to get it? "," [Click here](https://discords-bot-list.glitch.me/sertifika) You can see.")
+  .addField("What can be done in the user panel? "," In the user panel, you can edit the profile / application of your bots in the system and delete your bots from the system. \ n [Click here to go to the user panel.](https://discords-bot-list.glitch.me/panel)")
   message.channel.send({embed: embed})
   
 };
@@ -19,11 +19,11 @@ exports.conf = {
 	guildOnly: true,
 	aliases: ['y', 'help', 'h', 'bilgi', 'info'],
 	permLevel: 0,
-	kategori: 'genel'
+	kategori: 'general'
 }
 
 exports.help = {
-	name: 'yardım',
-	description: 'Sistem hakkında bilgi gösterir.',
-	usage: 'yardım'
+	name: 'help',
+	description: 'Shows information about the system.',
+	usage: 'help'
 }

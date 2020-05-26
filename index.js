@@ -13,16 +13,16 @@ let profil = JSON.parse(fs.readFileSync('./profil.json', 'utf8'))
 client.profil = profil
 
 client.ayarlar = {
-  "prefix": "!", //prefix
-  "oauthSecret": "Uaa1jBLQqoi4oTQaZMS7ZHz5rLS1s_Tg", //bot secreti
-	"callbackURL": "https://selfbotslist.glitch.me/callback", //benim sitenin urlsini kendin ile değiş "/callback" kalacak!
-	"kayıt": "638767121467441152", //onaylandı, reddedildi, başvuru yapıldı falan kayıtların gideceği kanalın ID'ini yazacaksın
+  "prefix": "?", //prefix
+  "oauthSecret": "Vprtv_bdgk3-jKeY_5-8UfsO60S7gKxm", // bot secreti
+	"callbackURL": "https://discords-bot-list.glitch.me/callback", // change the urls of my site with "/ callback"!
+	"kayıt": "714504216370085929", // approved, rejected, you have applied, you will write the ID of the channel where the recordings will go
   "renk": "RANDOM" //embedların rengini burdan alıo can sıkıntısdna yapılmış bişe falan fln
 };
 
-client.yetkililer = ["617729641620176901", "630371620883529729", "587972133460770837"]//tüm yetkililerin ıdleri gelcek array
-client.webyetkililer = ["617729641620176901", "630371620883529729", "587972133460770837"]//web yetkililerin ıdleri gelcek array
-client.sunucuyetkililer = ["617729641620176901", "630371620883529729", "587972133460770837"]//sunucu yetkililerin ıdleri gelcek array
+client.yetkililer = ["484010160981934100", "343793233815535626", "676710146277113877", "434721364507885568"]// ids of all authorities gelece array // ids of all authorities gelcek array
+client.webyetkililer = ["484010160981934100", "343793233815535626", "676710146277113877", "434721364507885568"]// ids of web officials future array
+client.sunucuyetkililer = ["484010160981934100", "343793233815535626", "676710146277113877", "434721364507885568"]// ids of server authorities future array
 
 //["id", "id2"]
 
@@ -34,9 +34,9 @@ client.on('ready', async () => {
   
    require("./app.js")(client);
   
-  client.user.setActivity(`${client.ayarlar.prefix}yardım`, { type:"PLAYING" })
+  client.user.setActivity(`${client.ayarlar.prefix}help`, { type:"PLAYING" })
   
-  console.log("Aktif!")
+  console.log("Active!")
 });
 
 setInterval(() => {
@@ -67,12 +67,12 @@ fs.readdir(`./komutlar/`, (err, files) => {
 	let jsfiles = files.filter(f => f.split(".").pop() === "js")
 
 	if(jsfiles.length <= 0) {
-		console.log("Olamazz! Hiç komut dosyası bulamadım!")
+		console.log("Olamazz! I couldn't find any scripts!")
 	} else {
 		if (err) {
-			console.error("Hata! Bir komutun name veya aliases kısmı yok!")
+			console.error("Error! There is no name or aliases part of a command!")
 		}
-		console.log(`${jsfiles.length} komut yüklenecek.`)
+		console.log(`${jsfiles.length} command will be loaded`)
 
 		jsfiles.forEach(f => {
 			let props = require(`./komutlar/${f}`)
@@ -80,7 +80,7 @@ fs.readdir(`./komutlar/`, (err, files) => {
 			props.conf.aliases.forEach(alias => {
 				client.aliases.set(alias, props.help.name)
 			})
-			console.log(`Yüklenen komut: ${props.help.name}`)
+			console.log(`Installed command: ${props.help.name}`)
 		})
 	}
 });
@@ -88,8 +88,8 @@ fs.readdir(`./komutlar/`, (err, files) => {
 client.on("message", async message => {
 
 	if (message.author.bot) return
-	if (!message.content.startsWith('!')) return
-	var command = message.content.split(' ')[0].slice('!'.length)
+	if (!message.content.startsWith('?')) return
+	var command = message.content.split(' ')[0].slice('?'.length)
 	var args = message.content.split(' ').slice(1)
 	var cmd = ''
 
@@ -100,13 +100,13 @@ client.on("message", async message => {
 	}
 
 	if (cmd) {
-    if (cmd.conf.permLevel === 'ozel') { //o komutu web yetkilileri kullanabsiln sadece diye yaptıgım bişe 
+    if (cmd.conf.permLevel === 'special') { // you can use that command just by web officials
       if (client.yetkililer.includes(message.author.id) === false) {
         const embed = new Discord.RichEmbed()
-					.setDescription(`Kardeşim sen WebSite yetkilisi değilsin saçma saçma işlerle uğraşma!`)
+					.setDescription(`My brother, you are not a WebSite officer. Do not deal with silly things!`)
 					.setColor(client.ayarlar.renk)
 					.setTimestamp()
-				message.channel.send("Yetersiz Yetki.")
+				message.channel.send("Insufficient Authority.")
 				return
       }
     }
@@ -114,60 +114,60 @@ client.on("message", async message => {
 		if (cmd.conf.permLevel === 1) {
 			if (!message.member.hasPermission("MANAGE_MESSAGES")) {
 				const embed = new Discord.RichEmbed()
-					.setDescription(`Sen önce mesajları yönetmeyi öğren sonra bu komutu kullanırsın.`)
+					.setDescription(`You learn to manage messages first and then use this command.`)
 					.setColor(client.ayarlar.renk)
 					.setTimestamp()
-				message.channel.send("Yetersiz yetki.")
+				message.channel.send("Insufficient authority.")
 				return
 			}
 		}
 		if (cmd.conf.permLevel === 2) {
 			if (!message.member.hasPermission("KICK_MEMBERS")) {
 				const embed = new Discord.RichEmbed()
-					.setDescription(`Üyeleri atma yetkin yok.`)
+					.setDescription(`You are not competent to discard members.`)
 					.setColor(client.ayarlar.renk)
 					.setTimestamp()
-				message.channel.send("Üyeleri atma yetkin yok.")
+				message.channel.send("You are not competent to discard members.")
 				return
 			}
 		}
 		if (cmd.conf.permLevel === 3) {
 			if (!message.member.hasPermission("ADMINISTRATOR")) {
 				const embed = new Discord.RichEmbed()
-					.setDescription(`Yetersiz yetki.`)
+					.setDescription(`Insufficient authority.`)
 					.setColor(client.ayarlar.renk)
 					.setTimestamp()
-				message.channel.send("Yetersiz yetki.")
+				message.channel.send("Insufficient authority.")
 				return
 			}
 		}
 		if (cmd.conf.permLevel === 4) {
 			const x = await client.fetchApplication()
-      var arr = [x.owner.id, '430011871555223553']
+      var arr = [x.owner.id, '484010160981934100']
 			if (!arr.includes(message.author.id)) {
 				const embed = new Discord.RichEmbed()
-					.setDescription(`Yetkin yetersiz.`)
+					.setDescription(`Your competence is insufficient.`)
 					.setColor(client.ayarlar.renk)
 					.setTimestamp()
-				message.channel.send("Yetersiz yetki.")
+				message.channel.send("Insufficient authority.")
 				return
 			}
 		}
 		if (cmd.conf.enabled === false) {
 			const embed = new Discord.RichEmbed()
-				.setDescription(`Bu komut devre dışı.`)
+				.setDescription(`This command is disabled.`)
 				.setColor(client.ayarlar.renk)
 				.setTimestamp()
-			message.channel.send("Bu komut devre dışı.")
+			message.channel.send("This command is disabled.")
 			return
 		}
 		if(message.channel.type === "dm") {
 			if (cmd.conf.guildOnly === true) {
 				const embed = new Discord.RichEmbed()
-					.setDescription(`Bu komutu özel mesajlarda kullanamazsın.`)
+					.setDescription(`You cannot use this command in private messages.`)
 					.setColor(client.ayarlar.renk)
 					.setTimestamp()
-				message.channel.send("Bu komutu özel mesajlarda kullanamazsın.")
+				message.channel.send("You cannot use this command in private messages.")
 				return
 			}
 		}
@@ -175,7 +175,7 @@ client.on("message", async message => {
 	}
 });
 
-client.login("") //tokeni yaz işte
+client.login("NzEzNzM2Njk0ODU1MTA2NTYw.Xs0h4w.gZdpBMXPHUAdksjiYmZ2SjpAU2w") // write your token here
 
 process.env = {}
-process.env.TOKEN = "";
+process.env.TOKEN = "NzEzNzM2Njk0ODU1MTA2NTYw.Xs0h4w.gZdpBMXPHUAdksjiYmZ2SjpAU2w";
