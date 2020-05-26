@@ -175,7 +175,7 @@ client.on("message", async message => {
 	}
 });
 
-client.login("NjM4NzU3NjEwMjA3ODM4MjMx.Xbhi6w.IzrglUjAQOWD-vUeROntPPX3qpk") //tokeni yaz işte
+client.login("") //tokeni yaz işte
 
 process.env = {}
-process.env.TOKEN = "NjM4NzU3NjEwMjA3ODM4MjMx.Xbhi6w.IzrglUjAQOWD-vUeROntPPX3qpk";
+process.env.TOKEN = "";

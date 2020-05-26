@@ -1,21 +1,21 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="msapplication-TileColor" content="#00a1ff">
 <meta name="msapplication-TileImage" content="<%=bot.user.avatarURL%>">
 <meta name="theme-color" content="#00a1ff">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="Türkiye'deki Discord botlarının toplandığı aynı zamanda da reklamlarının yapıldığı DiscordBotsTR Sistemi!">
+<meta name="description" content="also Discord Bots System of Discord boat where their ads are collected in English!">
 <meta name="keywords" content="bot, botlar, sunucu, discord, botlar Türkiye, Türkiye">
-<meta property="og:title" content="DiscordBotsTR" />
+<meta property="og:title" content="Discord Bots" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="" />
-<meta property="og:description" content="Türkiye'deki Discord botlarının toplandığı aynı zamanda da reklamlarının yapıldığı DiscordBotsTR Sistemi!" />
+<meta property="og:description" content="also Discord Bots System of Discord boat where their ads are collected in English!" />
 <meta property="og:image" content="<%=bot.user.avatarURL%>" />
-<meta property="og:site_name" content="DiscordBotsTR">
-<meta itemprop="name" content="DiscordBotsTR">
-<meta itemprop="description" content="Türkiye'deki Discord botlarının toplandığı aynı zamanda da reklamlarının yapıldığı DiscordBotsTR Sistemi!">
+<meta property="og:site_name" content="Discord Bots">
+<meta itemprop="name" content="Discord Bots">
+<meta itemprop="description" content="also Discord Bots System of Discord boat where their ads are collected in English!">
 <meta itemprop="image" content="<%=bot.user.avatarURL%>">
 
   <meta charset="UTF-8">
@@ -40,7 +40,7 @@
   <link rel="stylesheet" href="/css/genel.css" />
 
 	<link rel="icon" href="<%=bot.user.avatarURL%>">
-	<title>DiscordBotsTR</title>
+	<title>Discord Bots</title>
   <style>
     .cities {
     background-color: black;
@@ -140,22 +140,22 @@
      <a id="top" name="top"></a>
  
 <div class="topnav" id="myTopnav">
-			<a href="/" class="active">Ana Sayfa</a>
-      <a href="/botlar">Botlar</a>
+			<a href="/" class="active">Discord Bots</a>
+      <a href="/botlar">bots</a>
 			<a href="/api">API</a>
-			<a href="/blog" onclick="alert('Blog henüz bulunmamaktadır. Yapım aşamasındadır.')">Blog</a>
-			<a href="/hakkimizda">Hakkımızda</a>
+			<a href="/blog" onclick="alert('The blog does not yet exist. It is under construction.')">Blog</a>
+			<a href="/hakkimizda">About Us</a>
 			<% if (!user) { %>
-      <a href="/giris">Giriş Yap</a>
+      <a href="/giris">Login</a>
       <% } else { %>
-      <a href="/botekle">Bot Ekle</a>
-			<a href="/cikis">Çıkış Yap</a>
+      <a href="/botekle">Add Bot</a>
+			<a href="/cikis">Sign out</a>
 			<a href="/kullanici/<%=user.id%>">
       <img src="https://cdn.discordapp.com/avatars/<%=user.id%>/<%=user.avatar%>.png?size=32" width="25" height="25" class="d-inline-block align-middle rounded-circle" alt="Kullanıcı Avatar">
       <%=user.username%>
       </a>
       <% if (bot.yetkililer.includes(user.id) === true) { %>
-      <a href="/yetkili">Yetkili Paneli</a>
+      <a href="/yetkili">Authorized Panel</a>
       <% } %>
       <% } %>	
 			<a href="javascript:void(0);" class="icon" onclick="myFunction()">
