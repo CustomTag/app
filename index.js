@@ -14,7 +14,7 @@ client.profil = profil
 
 client.ayarlar = {
   "prefix": "?", //prefix
-  "oauthSecret": "Vprtv_bdgk3-jKeY_5-8UfsO60S7gKxm", // bot secreti
+  "oauthSecret": "rXncM4hPEgVyoQhWyuqBfXHMr3OZRN2l", // bot secreti
 	"callbackURL": "https://www.discords-bot-list.cf/callback", // change the urls of my site with "/ callback"!
 	"kayıt": "714504216370085929", // approved, rejected, you have applied, you will write the ID of the channel where the recordings will go
   "color": "RANDOM" // get the color of the embeds from here, something like that
@@ -175,7 +175,7 @@ client.on("message", async message => {
 	}
 });
 
-client.login("NzEzNzM2Njk0ODU1MTA2NTYw.Xs0h4w.gZdpBMXPHUAdksjiYmZ2SjpAU2w") // write your token here
+client.login("NzEzNzM2Njk0ODU1MTA2NTYw.Xs6uMw.3_RVIfHxCm5VxPqnDetMiGiiAOA") // write your token here
 
 process.env = {}
-process.env.TOKEN = "NzEzNzM2Njk0ODU1MTA2NTYw.Xs0h4w.gZdpBMXPHUAdksjiYmZ2SjpAU2w";
+process.env.TOKEN = "NzEzNzM2Njk0ODU1MTA2NTYw.Xs6uMw.3_RVIfHxCm5VxPqnDetMiGiiAOA";
