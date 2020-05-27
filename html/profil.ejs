@@ -20,7 +20,7 @@
 
   </div>
 
-  <h3 style="color:#222"><%=kisi.tag%> 's bots</h3>
+  <h3 style="color:#222"><%=kisi.tag%> Your Discord Bot's</h3>
 <br>
   <% if (bot.ayar.has('botlar')) { %>
     <% if (bot.ayar.has(`kbotlar.${user.id}`)) { %>   
@@ -33,7 +33,7 @@
   <div align="center" class="card-img">
       <a href="/bot/<%=idd%>"><img src="<%=bot.ayar.fetch(`botlar.${idd}.avatar`)%>" class="card-img-top" alt="Bot Avatar"></a>
     <% if (bot.ayar.has(`botlar.${idd}.certificate`) === true) { %>
-    <br><br><a style="color:darkorange"><img src="https://cdn.discordapp.com/emojis/522886304615366676.png" width="30px" height="30px"> certified</a><br>
+    <br><br><a style="color:darkorange"><img src="https://cdn.discordapp.com/emojis/522886304615366676.png" width="30px" height="30px"> Certificate Bot</a><br>
     <% } %>
 
    <%  if(bot.ayar.fetch(`botlar.${idd}.status`) === 'Pending' || !bot.ayar.has(`botlar.${idd}.status`)) { %>

@@ -50,7 +50,7 @@ exports.conf = {
 }
 
 exports.help = {
-	name: 'Add-certificate',
+	name: 'certificate',
 	description: 'Makes the bot in the written ID certified.',
-	usage: 'Add-certificate [ID]'
+	usage: 'certificate [ID]'
 }
