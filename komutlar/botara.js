@@ -10,12 +10,12 @@ exports.run = async (client, msg, args) => {
     request(`https://fiboxbotlist.glitch.me/api/botlar/${args[0]}`, function (error, response, body) {
     if (error) return msg.channel.send('Hata:', error);
     else if (!error) {
-      var a = JSON.parse(body).isim
+      var a = JSON.parse(body).name
       var b = JSON.parse(body).id
       var c = `${JSON.parse(body).avatar}`
       var d = JSON.parse(body).prefix
-      var e = JSON.parse(body).kütüphane
-      var f = `${JSON.parse(body).sahip} (${JSON.parse(body).sahipid})`
+      var e = JSON.parse(body).library
+      var f = `${JSON.parse(body).owner} (${JSON.parse(body).ownerid})`
       var g = JSON.parse(body).kisa_aciklama
       var h = JSON.parse(body).etiketler
       if(JSON.parse(body).destek_sunucusu === 'Unspecified') {
@@ -33,9 +33,9 @@ exports.run = async (client, msg, args) => {
       } else {
         var k = `[Github](${JSON.parse(body).github})`
       }
-      var l = JSON.parse(body).sertifika
-      var m = JSON.parse(body).durum
-      var n = JSON.parse(body).oy_sayisi
+      var l = JSON.parse(body).certificate
+      var m = JSON.parse(body).status
+      var n = JSON.parse(body).vote_sayisi
     }
       
       request(`https://fiboxbotlist.glitch.me/api/tumbotlar`, function (errorr, responsee, bodyy) {

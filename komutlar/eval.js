@@ -6,7 +6,7 @@ const db = require('quick.db');
 exports.run = async (client, message, args) => {
 	if(!args[0]) {
 		const embed = new Discord.RichEmbed()
-			.setDescription(`Kod yaz!`)
+			.setDescription(`Write code!`)
 			.setColor(client.ayarlar.renk)
 			.setTimestamp()
 		message.channel.send({embed})
@@ -37,13 +37,13 @@ exports.run = async (client, message, args) => {
 		if (evaled.constructor.name === 'Promise') evalEmbed.setDescription(`\`\`\`\n${evaled}\n\`\`\``)
 		else evalEmbed.setDescription(`\`\`\`js\n${evaled}\n\`\`\``)
 		const newEmbed = new Discord.RichEmbed()
-			.addField('📥 Giriş', `\`\`\`javascript\n${code}\n\`\`\``)
-			.addField('📤 Çıkış', `\`\`\`js\n${evaled}\`\`\``)
+			.addField('📥 Login', `\`\`\`javascript\n${code}\n\`\`\``)
+			.addField('📤 Exit', `\`\`\`js\n${evaled}\`\`\``)
 			.setColor(client.ayarlar.renk)
 		message.channel.send(newEmbed);
 	}
 	catch (err) {
-		evalEmbed.addField('Hata çıktı;', `\`\`\`js\n${err}\n\`\`\``);
+		evalEmbed.addField('There was an error;', `\`\`\`js\n${err}\n\`\`\``);
 		evalEmbed.setColor('#FF0000');
 		message.channel.send(evalEmbed);
 	}
@@ -54,11 +54,11 @@ exports.conf = {
 	guildOnly: true,
 	aliases: [],
 	permLevel: 4,
-	kategori: 'yapımcı'
+	kategori: 'producer'
 }
 
 exports.help = {
 	name: 'eval',
-	description: 'Yazılan kodu çalıştırır.',
+	description: 'Runs the typed code.',
 	usage: 'eval [kod]'
 }

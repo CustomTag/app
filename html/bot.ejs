@@ -1,135 +1,103 @@
 <%- include('ek/header', {bot, user, path}) %>
-<div class="container is-fullhd">
-	<div class="row justify-content-md-center">
-		<h2 style="color: #ffffff;">Adding Bot</h2>
-	</div>
- <form method="post">
-				
-   <div align="center" class="jumbotron" style="color:#fff; font-size:20px;">
-     <br>
-		<div><i aria-hidden="true"></i>ClientID<a style="color:red">*</a></div>
-		<div>
-      <input type="text" style="text-align: center;" name="botid" id="botid"
-									placeholder="for example; <%=bot.user.id%>" required="required">
-     </div>
-   <br>
-		<div><i aria-hidden="true"></i>Prefix<a style="color:red">*</a></div>
-		<div>
-      <input type="text" style="text-align: center;" name="botprefix" id="botprefix"
-									placeholder="!" required="required">
-     </div>
-     
-     <div><i aria-hidden="true"></i>Library<a style="color:red">*</a></div>
-    <div class="select-style">
-     <select id="library" name="library" required="required">
-       <option disabled selected>Please select a library.</option>
-       <option value="discordcr" >discordcr</option>
-        
-          <option value="Nyxx" >Nyxx</option>
-        
-          <option value="Discord.Net" >Discord.Net</option>
-        
-          <option value="DSharpPlus" >DSharpPlus</option>
-        
-          <option value="Nostrum" >Nostrum</option>
-        
-          <option value="coxir" >coxir</option>
-        
-          <option value="DiscordGo" >DiscordGo</option>
-        
-          <option value="Discord4J" >Discord4J</option>
-        
-          <option value="Javacord" >Javacord</option>
-        
-          <option value="JDA" >JDA</option>
-        
-          <option value="discord.js" >discord.js</option>
-        
-          <option value="Eris" >Eris</option>
-        
-          <option value="Discordia" >Discordia</option>
-        
-          <option value="RestCord" >RestCord</option>
-        
-          <option value="Yasmin" >Yasmin</option>
-        
-          <option value="disco" >disco</option>
-        
-          <option value="discord.py" >discord.py</option>
-        
-          <option value="discordrb" >discordrb</option>
-        
-          <option value="serenity" >serenity</option>
-        
-          <option value="SwiftDiscord" >SwiftDiscord</option>
-        
-          <option value="Sword" >Sword</option>
-        
-        <option value="Other" >Other</option>
-     </select>
-     </div>
-      
-     <div><i aria-hidden="true"></i>Bot OwnerID<a style="color:red">*</a></div>
-     <input type="text" style="color:lightgrey; text-align: center;" name="owner" id="owner"
-                  value="" required="required">
-     
-     <div><i aria-hidden="true"></i>Short Description<a style="color:red">*</a></div>
-		<div>
-      <input type="text" style="text-align: center; height:60px" name="kisa-aciklama" id="kisa-aciklama"
-                placeholder="Write a short description of your boat." maxlength="50" required="required">
-     </div>
-     <br>
-     <div><i aria-hidden="true"></i>Long Description<a style="color:red">*</a></div>
-		<div>
-      <textarea style="text-align: center; background-color:#222; hight:150px" name="uzun-aciklama" id="uzun-aciklama"
-                placeholder="Please write the long description of your boat." minlength="50" required="required"></textarea>
-     </div>
-     <br>
-     <div><i aria-hidden="true"></i>labels<a style="color:red">*</a></div>
-     <div>
-      <select multiple id="etikett" name="etikett" style="border-radius:4px; background-color:#222; color:#fff">
-        <option value="Moderation">Moderation</option>
-        <option value="Music">Music</option>
-        <option value="Settings">Settings</option>
-        <option value="Entertainment">Entertainment</option>
-        <option value="Web Panel">Web Panel</option>
-       </select>
-       <p>
-         <a style="color:red">Not: </a><a style="color:lightgrey">multiple labels can be selected. If you are on the computer <i>ctrl</i> Select the labels by holding down the key.</a>
-       </p>
-     </div>
-     <br>
-     <div><i aria-hidden="true"></i>Web Site URL</div>
-		<div>
-      <input type="url" style="text-align: center;" name="botsite" id="botsite"
-                placeholder="If applicable, type in the website url.">
-     </div>
-     <br>
-     <div><i aria-hidden="true"></i>Github URL</div>
-		<div>
-      <input type="url" style="text-align: center;" name="github" id="github"
-                placeholder="If available, type github url.">
-     </div>
-     <br>
-     <div><i aria-hidden="true"></i>Support Server URL</div>
-		<div>
-      <input type="url" style="text-align: center;" name="botdestek" id="botdestek"
-                placeholder="If you have a bot, write the URL of the Discord support server.">
-     </div>
-	
-   
-   <h6 style="color:red">
-    Those with * are mandatory and those without are optional.
-   </h6>
 
-				<div style="width: 100%; text-align: center; margin-top: 20px;">
-					<button style="border-radius: 100px; background-color:#00a1ff" type="submit" class="btn btn-primary"><i class="fa fa-save fa-fw"></i>Submit Application<i aria-hidden='true'></i></button>
-				</div>
-   </div>
-			</form>
-		</div>
-	</div>
-</div>
-</div>
+<div class="container">
 
+<h3 align="center" style="color:#222">
+    <strong>All bots
+    </strong></h3>
+  <div align="center"><p>Here are all the bots in the system. <br> (The bots are ranked according to the number of votes.)</p></div>
+  <br>
+    
+  <div align="center">
+    <input type="search" placeholder="Bot Search..." id="Search" name="Search">
+    <br>
+     <div class="select-style">
+    <select id="etiketselect">
+      <option disabled selected>Choose a label.</option>
+      <option value="noneFilter">Close filter</option>
+      <option value="Moderation">Moderation</option>
+      <option value="Music">Music</option>
+      <option value="Settings">Settings</option>
+      <option value="Entertainment">Entertainment</option>
+      <option value="Web Panel">Web Panel</option>
+    </select>
+</div>
+    
+    <p style="color:#333">
+      <a style="color:red">Not:</a> You can search for bots by typing the bot name, library, short description, owner name and tags. <br> You can search for bots by selecting the bots' tags. 
+    </p>
+    
+  </div>
+  <br><br><br>
+    
+  <div class="row">
+  
+   <% if (bot.ayar.has('botlar')) { %>
+  <% const sorted = Object.keys(bot.ayar.fetch('botlar')).sort((a, b) => { return (bot.ayar.fetch(`botlar.${b}.vote`) || 0) - (bot.ayar.fetch(`botlar.${a}.vote`) || 0) }) %>
+  <% const top = sorted.splice(0, Object.keys(bot.ayar.fetch('botlar')).length) %>
+  <% const map = top.map(x=>x) %>
+	<% for(var i = 0; i < Object.keys(bot.ayar.fetch('botlar')).length; i++) { %>
+  <% let idd = map[i] %>
+   <% if(bot.ayar.has(`botlar.${idd}.status`) === true) { %>
+		<% if (bot.ayar.fetch(`botlar.${idd}.status`) === "Approved") { %>
+    <div class="col-12 col-sm-6 col-md-4">
+        <div class="card card-lg botcard" style="background-color:#fff; width:16rem;">
+    <div value="<%=bot.useful.seg(bot.ayar.fetch(`botlar.${idd}.name`), 5)%>" align="center" class="card-img">
+  
+          <a name="aramaResim" id="aramaResim" href="/bot/<%=idd%>" style="color:#fff"><img value="<%=bot.ayar.fetch(`botlar.${idd}.name`)%>" src="<%=bot.ayar.fetch(`botlar.${idd}.avatar`)%>" style="width:100%" alt="<%=bot.ayar.fetch(`botlar.${idd}.name`)%>"><%=bot.useful.seg(bot.ayar.fetch(`botlar.${idd}.isim`), 5)%></a>
+        
+          <% if(bot.ayar.has(`botlar.${idd}.sertifika`) === true) { %>
+       
+       <br><a style="color:darkorange"><img src="https://cdn.discordapp.com/emojis/522886304615366676.png" width="30px" height="30px"> Sertifikalı</a><br>
+       <% } %>
+       <div class="badge badge-primary"><strong style='color: white;'>Oy: </strong><span style='color:whitesmoke;text-transform: none;'><%=bot.ayar.fetch(`botlar.${idd}.oy`)||0%></span></div>
+                    <div class="badge badge-success"><%=bot.ayar.fetch(`botlar.${idd}.kutuphane`)%></div>
+                     
+          </div>
+      <div align="center" style="background-color:#fff" class="card-body">
+                               <div class="card-title">
+                                  <h4><a style="color:#222"><%=bot.useful.seg(bot.ayar.fetch(`botlar.${idd}.isim`), 5)%></a></h4>
+                                <h6 style="font-size:17px; color:#222"><%=bot.ayar.fetch(`botlar.${idd}.sahip`)%></h6></div>         
+                        
+                              <p class="card-text" style="color:#222"><%=bot.ayar.fetch(`botlar.${idd}.kisaaciklama`)%></p>
+                              <span id="etiketler"><%=bot.ayar.fetch(`botlar.${idd}.etiket`).join(' | ')%></span>
+                               <hr>
+                              <h6 align="center"><a href="/bot/<%=idd%>" style="font-size:20px; color:#222; background-color:#fff">Görüntüle</a> <b style="color:grey">|</b> 
+                              <a href="https://discordapp.com/oauth2/authorize?client_id=<%=idd%>&scope=bot&permissions=8" style="font-size:20px; color:#222; background-color:#fff">Davet Et</a></h6>
+                            </div>
+                       </div><br>
+    </div>
+      <% } %>
+    <% } %>
+   <% } %>
+   <% } else {%>
+   <center><h5 style="color:#222">
+     Sistemde hiç bot bulunmuyor.
+     </h5></center>
+   <% } %>
+   </div></div></div></div>
+
+<script>
+$(document).ready(function(){
+ $("#ara").keyup(function(){
+    var value = $(this).val().toLowerCase();
+    $(".col-12, .col-sm-6, .col-md-4 .card").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+  //etiket filtresi
+  $("#etiketselect").change(function(){
+    var value = $(this).val();
+    if (value === 'noneFilter') {
+      window.location.reload(true);
+      return
+    }
+    $(".col-12, .col-sm-6, .col-md-4 .card").filter(function(){
+      $(this).toggle($(this).text().indexOf(value) > -1)
+    });
+  })
+  ;
+});
+</script>
+  
 <% include ./ek/footer %>
