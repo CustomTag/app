@@ -59,7 +59,7 @@ exports.run = async (client, msg, args) => {
     .addField("Website", j)
     .addField('Github', k)
     .addField('Support Server', i)
-    .setFooter('https://discords-bot-list.glitch.me is looking for bots in the system.')
+    .setFooter('https://www.discords-bot-list.cf/ is looking for bots in the system.')
     msg.channel.send({embed})
   })
 };
@@ -73,7 +73,7 @@ exports.conf = {
 };
 
 exports.help = {
-  name: 'Search bots',
+  name: 'search',
   description: 'Allows you to search for bots in the Discord Bots system.',
-  usage: 'Search bots [bot id]'
+  usage: 'search [bot id]'
 };
