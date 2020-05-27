@@ -16,7 +16,7 @@ client.ayarlar = {
   "prefix": "?", //prefix
   "oauthSecret": "Vprtv_bdgk3-jKeY_5-8UfsO60S7gKxm", // bot secreti
 	"callbackURL": "https://discords-bot-list.glitch.me/callback", // change the urls of my site with "/ callback"!
-	"record": "714504216370085929", // approved, rejected, you have applied, you will write the ID of the channel where the recordings will go
+	"kayıt": "714504216370085929", // approved, rejected, you have applied, you will write the ID of the channel where the recordings will go
   "color": "RANDOM" // get the color of the embeds from here, something like that
 };
 

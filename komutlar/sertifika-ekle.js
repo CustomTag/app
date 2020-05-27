@@ -35,7 +35,7 @@ exports.run = async (client, message, args) => {
   }
   
   message.channel.send(`Successfully \`${args[0]}\` ID bot is Certified!`)
-  client.channels.get(client.ayarlar.kayıt).send(`A Administrator Named: \`${message.author.tag}\` With Bot Owner: \`${db.fetch(`botlar.${args[0]}.owner`)}\` With BotID \`${args[0]}\` Just Added Bot: \`${db.fetch(`botlar.${args[0]}.name`)}\` Just Approved The Bot To Be Certificates!:Certificate_Icon:`)
+  client.channels.get(client.ayarlar.kayıt).send(`Administrator Named: \`${message.author.tag}\` With Bot Owner: \`${db.fetch(`botlar.${args[0]}.owner`)}\` With BotID \`${args[0]}\` Just Added Bot: \`${db.fetch(`botlar.${args[0]}.name`)}\` Just Approved The Bot To Be Certificates! :Certificate_Icon:`)
 	
   db.set(`botlar.${args[0]}.certificate`, "Bulunuyor")
   
