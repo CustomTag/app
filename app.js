@@ -505,7 +505,7 @@ db.set(`botlar.${id}.status`, 'Approved')
 
 res.redirect("/yetkili")
 
-client.channels.get(client.ayarlar.kayıt).send(`\`${req.user.username}#${req.user.discriminator}\` With Owner Name \`${db.fetch(`botlar.${id}.owner`)}\` With the ID \`${db.fetch(`botlar.${id}.id`)}\` Added Bot to Website \`${db.fetch(`botlar.${id}.name`)}\` Bot has been approved!`)
+client.channels.get(client.ayarlar.kayıt).send(`Administrator With the Name\`${req.user.username}#${req.user.discriminator}\` Bot Owner Name \`${db.fetch(`botlar.${id}.owner`)}\` Added the BotID \`${db.fetch(`botlar.${id}.id`)}\` Just Added Bot  \`${db.fetch(`botlar.${id}.name`)}\` Bot has been Approved & Added On Website!`)
 
 if (client.users.has(db.fetch(`botlar.${id}.owner`)) === true) {
 client.users.get(db.fetch(`botlar.${id}.ownerid`)).send(`\`${db.fetch(`botlar.${id}.name`)}\` Your bot has been approved! \n https://discords-bot-list.glitch.me/botlar/${db.fetch(`botlar.${id}.id`)}`)
@@ -521,10 +521,10 @@ db.set(`botlar.${id}.status`, 'Pending')
 
 res.redirect("/yetkili")
 
-client.channels.get(client.ayarlar.kayıt).send(`\`${req.user.username}#${req.user.discriminator}\` Bot Are Now Wating \`${db.fetch(`botlar.${id}.owner`)}\` With The Name \`${db.fetch(`botlar.${id}.id`)}\` With Bot Name \`${db.fetch(`botlar.${id}.name`)}\` The Bot has been put on standby!`)
+client.channels.get(client.ayarlar.kayıt).send(`\`${req.user.username}#${req.user.discriminator}\` Bot Owner Name \`${db.fetch(`botlar.${id}.owner`)}\` With the BotID \`${db.fetch(`botlar.${id}.id`)}\` Just Added The Bot \`${db.fetch(`botlar.${id}.name`)}\`  Jut But The Bot On standby!`)
 
 if (client.users.has(db.fetch(`botlar.${id}.ownerid`)) === true) {
-client.users.get(db.fetch(`botlar.${id}.ownerid`)).send(`\`${db.fetch(`botlar.${id}.name`)}\` Your bot is under review!`)
+client.users.get(db.fetch(`botlar.${id}.ownerid`)).send(`\`${db.fetch(`botlar.${id}.name`)}\` Your bot is under Review!`)
 }
 
 });

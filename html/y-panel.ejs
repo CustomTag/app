@@ -22,7 +22,7 @@
 <%for(var i = 0; i < Object.keys(bot.ayar.fetch('botlar')).length; i++) {%>
 <% let id = Object.keys(bot.ayar.fetch('botlar'))[i] %>
 
-<td scope="row"><%=bot.ayar.fetch(`botlar.${id}.isim`)%></td>
+<td scope="row"><%=bot.ayar.fetch(`botlar.${id}.name`)%></td>
 <td><%=bot.ayar.fetch(`botlar.${id}.id`)%></td>
 <td><%=bot.ayar.fetch(`botlar.${id}.prefix`)%></td>
 <td><%=bot.ayar.fetch(`botlar.${id}.owner`)%></td>
