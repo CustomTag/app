@@ -2,10 +2,10 @@
 <div class="container">
   <div align="center" class="jumbotron">
     <%
-    var txt = `${kisi.username}#${kisi.discriminator} Click to see 's profile`
+    var txt = `${kisi.username}#${kisi.discriminator} Open Profile`
     if (user) {
       if (user.id === kisi.id) {
-        var txt = `Click to see your profile`
+        var txt = `Open Profile`
       }
     }
     %>
@@ -14,7 +14,7 @@
        <a href="/kullanici/<%=kisi.id%>/profil" class="btn btn-default" style="background-color:#333; color:#fff"><%=txt%></a>
        <% if (user) { %>
        <% if (user.id === kisi.id) { %>
-       <a href="/kullanici/<%=kisi.id%>/panel" class="btn btn-default" style="background-color:#333; color:#fff">Click to go to the panel</a>
+       <a href="/kullanici/<%=kisi.id%>/panel" class="btn btn-default" style="background-color:#333; color:#fff">Open Panel</a>
        <% } %>
        <% } %>
   </div>
