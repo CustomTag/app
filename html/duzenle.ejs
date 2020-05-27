@@ -1,7 +1,7 @@
 <%- include('ek/header', {bot, user, path}) %>
 <div class="container is-fullhd">
 	<div class="row justify-content-md-center">
-		<h2 style="color: #ffffff;">Bot Düzenleme</h2>
+		<h2 style="color: #ffffff;">Bot Editing</h2>
 	</div>
  <form method="post">
 				
@@ -9,14 +9,14 @@
    <br>
 		<div><i aria-hidden="true"></i>Prefix</div>
 		<div>
-      <input type="text" style="text-align: center;" name="botprefix" id="botprefix"
+      <input type="text" style="text-align: center;" name="prefix" id="prefix"
 									value="<%=bot.ayar.fetch(`botlar.${id}.prefix`)%>" required="required">
      </div>
      
      <div><i aria-hidden="true"></i>Library</div>
       <div class="select-style">
-     <select id="kutuphane" name="kutuphane" required="required">
-       <option value="<%=bot.ayar.fetch(`botlar.${id}.kutuphane`)%>" selected><%=bot.ayar.fetch(`botlar.${id}.kutuphane`)%></option>
+     <select id="library" name="library" required="required">
+       <option value="<%=bot.ayar.fetch(`botlar.${id}.library`)%>" selected><%=bot.ayar.fetch(`botlar.${id}.library`)%></option>
        <option value="discordcr" >discordcr</option>
         
           <option value="Nyxx" >Nyxx</option>
