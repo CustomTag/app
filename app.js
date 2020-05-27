@@ -156,7 +156,7 @@ app.post("/botekle", checkAuth, (req, res) => {
 
 let ayar = req.body
 
-if (ayar === {} || !ayar['botid'] || !ayar['botprefix'] || !ayar['kutuphane'] || !ayar['kisa-aciklama'] || !ayar['uzun-aciklama'] || !ayar['etikett']) return res.redirect('/botyonetim/hata')
+if (ayar === {} || !ayar['botid'] || !ayar['prefix'] || !ayar['library'] || !ayar['kisa-aciklama'] || !ayar['uzun-aciklama'] || !ayar['etikett']) return res.redirect('/botyonetim/hata')
 
 let ID = ayar['botid']
 
@@ -182,7 +182,7 @@ else if (!error) {
 var sistem = JSON.parse(body)
 
 db.set(`botlar.${ID}.id`, sistem.id)
-db.set(`botlar.${ID}.isim`, sistem.username+"#"+sistem.discriminator)
+db.set(`botlar.${ID}.name`, sistem.username+"#"+sistem.discriminator)
 
 db.set(`botlar.${ID}.avatar`, `https://cdn.discordapp.com/avatars/${sistem.id}/${sistem.avatar}.png`)
 
@@ -194,15 +194,15 @@ headers: {
 }, function(error, response, body) {
 if (error) return console.log(error)
 else if (!error) {
-var sahip = JSON.parse(body)
+var owner = JSON.parse(body)
 
-db.set(`botlar.${ID}.prefix`, ayar['botprefix'])
-db.set(`botlar.${ID}.kutuphane`, ayar['kutuphane'])
-db.set(`botlar.${ID}.sahip`, sahip.username+"#"+sahip.discriminator)
-db.set(`botlar.${ID}.sahipid`, sahip.id)
-db.set(`botlar.${ID}.kisaaciklama`, ayar['kisa-aciklama'])
+db.set(`botlar.${ID}.prefix`, ayar['prefix'])
+db.set(`botlar.${ID}.library`, ayar['library'])
+db.set(`botlar.${ID}.owner`, owner.username+"#"+owner.discriminator)
+db.set(`botlar.${ID}.ownerid`, owner.id)
+db.set(`botlar.${ID}.ShortDesc`, ayar['kisa-aciklama'])
 db.set(`botlar.${ID}.uzunaciklama`, ayar['uzun-aciklama'])
-db.set(`botlar.${ID}.etiket`, tag)
+db.set(`botlar.${ID}.tag`, tag)
 if (ayar['botsite']) {
 db.set(`botlar.${ID}.site`, ayar['botsite'])
 }
@@ -299,9 +299,9 @@ app.post("/kullanici/:userID/profil/ayarla", checkAuth, (req, res) => {
 
   var veri = JSON.parse(`{
   "tag": "${kisi.username}#${kisi.discriminator}",
-  "isim": "${req.body['isim']}",
-  "yas": "${req.body['yas']}",
-  "biyo": "${req.body['biyo']}",
+  "name": "${req.body['name']}",
+  "age": "${req.body['age']}",
+  "bio": "${req.body['bio']}",
   "favlib": "${req.body['favlib']}",
   "libs": "${libs}",
   "avatar": "https://cdn.discordapp.com/avatars/${kisi.id}/${kisi.avatar}.png"
@@ -359,7 +359,7 @@ if (error) return console.log(error)
 else if (!error) {
 var sistem = JSON.parse(body)
 
-db.set(`botlar.${ID}.isim`, sistem.username+"#"+sistem.discriminator)
+db.set(`botlar.${ID}.name`, sistem.username+"#"+sistem.discriminator)
 
 db.set(`botlar.${ID}.avatar`, `https://cdn.discordapp.com/avatars/${sistem.id}/${sistem.avatar}.png`)
 

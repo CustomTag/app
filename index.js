@@ -47,10 +47,10 @@ for (var i = 0; i < Object.keys(db.fetch('kbotlar')).length; i++) {
 for (var x = 0; x < Object.keys(db.fetch('botlar')).length; x++) {
 var bot = Object.keys(db.fetch('botlar'))[x]
 var user = Object.keys(db.fetch('kbotlar'))[i]
-if (db.has(`oylar.${bot}.${user}`)) {
+if (db.has(`votes.${bot}.${user}`)) {
    setTimeout(() => {
-        db.delete(`oylar.${bot}.${user}`)
-    }, require('ms')(`${client.useful.seg(db.fetch(`oylar.${bot}.${user}`), 6)}h`));
+        db.delete(`votes.${bot}.${user}`)
+    }, require('ms')(`${client.useful.seg(db.fetch(`votes.${bot}.${user}`), 6)}h`));
 }
 }
 }
@@ -67,7 +67,7 @@ fs.readdir(`./komutlar/`, (err, files) => {
 	let jsfiles = files.filter(f => f.split(".").pop() === "js")
 
 	if(jsfiles.length <= 0) {
-		console.log("Olamazz! I couldn't find any scripts!")
+		console.log("Discord Bots! I couldn't find any scripts!")
 	} else {
 		if (err) {
 			console.error("Error! There is no name or aliases part of a command!")

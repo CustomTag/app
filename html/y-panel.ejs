@@ -25,9 +25,9 @@
 <td scope="row"><%=bot.ayar.fetch(`botlar.${id}.isim`)%></td>
 <td><%=bot.ayar.fetch(`botlar.${id}.id`)%></td>
 <td><%=bot.ayar.fetch(`botlar.${id}.prefix`)%></td>
-<td><%=bot.ayar.fetch(`botlar.${id}.sahip`)%></td>
-<td><%=bot.ayar.fetch(`botlar.${id}.sahipid`)%></td>
-<td><%=bot.ayar.has(`botlar.${id}.durum`) ? bot.ayar.fetch(`botlar.${id}.durum`) : 'Pending'%></td>
+<td><%=bot.ayar.fetch(`botlar.${id}.owner`)%></td>
+<td><%=bot.ayar.fetch(`botlar.${id}.ownerid`)%></td>
+<td><%=bot.ayar.has(`botlar.${id}.status`) ? bot.ayar.fetch(`botlar.${id}.status`) : 'Pending'%></td>
 </tr>
 <% } %>
 
@@ -49,13 +49,13 @@
 
 <%for(var i = 0; i < Object.keys(bot.ayar.fetch('botlar')).length; i++) {%>
 <% let id = Object.keys(bot.ayar.fetch('botlar'))[i] %>
-<% if (bot.ayar.fetch(`botlar.${id}.durum`) === 'Pending' || bot.ayar.has(`botlar.${id}.durum`) === false) { %>
+<% if (bot.ayar.fetch(`botlar.${id}.status`) === 'Pending' || bot.ayar.has(`botlar.${id}.status`) === false) { %>
 <tr>
 <td><a class="btn btn-success" href="/botyonetici/onayla/<%=id%>">Approve<i aria-hidden="true"></i></a>
 <a class="btn btn-danger" href="/botyonetici/reddet/<%=id%>">reject<i aria-hidden="true"></i></a>
 <a class="btn btn-primary" href="https://discordapp.com/oauth2/authorize?client_id=<%=id%>&scope=bot&permissions=0">Invite (Perm: 0)</a>
 <a class="btn btn-primary" href="https://discordapp.com/oauth2/authorize?client_id=<%=id%>&scope=bot&permissions=8">Invite (Perm: 8)</a></td>
-<td><%=bot.ayar.fetch(`botlar.${id}.isim`)%></td>
+<td><%=bot.ayar.fetch(`botlar.${id}.name`)%></td>
 <td><%=bot.ayar.fetch(`botlar.${id}.id`)%></td>
 <td><%=bot.ayar.fetch(`botlar.${id}.prefix`)%></td>
 </tr>
@@ -80,13 +80,13 @@
       
 		<%for(var i = 0; i < Object.keys(bot.ayar.fetch('botlar')).length; i++) {%>
 		<% let id = Object.keys(bot.ayar.fetch('botlar'))[i] %>
-		<% if (bot.ayar.fetch(`botlar.${id}.durum`) === 'Approved') { %>
+		<% if (bot.ayar.fetch(`botlar.${id}.status`) === 'Approved') { %>
 	  <tr>
 		<td><a class="btn btn-warning" href="/botyonetici/bekleme/<%=id%>">Put on hold<i aria-hidden="true"></i></a>
 		<a class="btn btn-danger" href="/botyonetici/reddet/<%=id%>">Reddet<i aria-hidden="true"></i></a>
 		<a class="btn btn-primary" href="https://discordapp.com/oauth2/authorize?client_id=<%=id%>&scope=bot&permissions=0">Invite (Perm: 0)</a>
 		<a class="btn btn-primary" href="https://discordapp.com/oauth2/authorize?client_id=<%=id%>&scope=bot&permissions=8">Invite (Perm: 8)</a></td>
-		<td><%=bot.ayar.fetch(`botlar.${id}.isim`)%></td>
+		<td><%=bot.ayar.fetch(`botlar.${id}.name`)%></td>
 		<td><%=bot.ayar.fetch(`botlar.${id}.id`)%></td>
 		<td><%=bot.ayar.fetch(`botlar.${id}.prefix`)%></td>
 		</tr>
@@ -110,13 +110,13 @@
 		</tr>	
 		<%for(var i = 0; i < Object.keys(bot.ayar.fetch('botlar')).length; i++) {%>
 		<% let id = Object.keys(bot.ayar.fetch('botlar'))[i] %>
-		<% if (bot.ayar.fetch(`botlar.${id}.durum`) === 'castaway') { %>
+		<% if (bot.ayar.fetch(`botlar.${id}.status`) === 'castaway') { %>
 		<tr>
 		<td><a class="btn btn-success" href="/botyonetici/onayla/<%=id%>">Approve<i aria-hidden="true"></i></a>
 		<a class="btn btn-warning" href="/botyonetici/bekleme/<%=id%>">Put on hold<i aria-hidden="true"></i></a>
 		<a class="btn btn-primary" href="https://discordapp.com/oauth2/authorize?client_id=<%=id%>&scope=bot&permissions=0">Invite (Perm: 0)</a>
 		<a class="btn btn-primary" href="https://discordapp.com/oauth2/authorize?client_id=<%=id%>&scope=bot&permissions=8">Invite (Perm: 8)</a></td>
-		<td><%=bot.ayar.fetch(`botlar.${id}.isim`)%></td>
+		<td><%=bot.ayar.fetch(`botlar.${id}.name`)%></td>
 		<td><%=bot.ayar.fetch(`botlar.${id}.id`)%></td>
 		<td><%=bot.ayar.fetch(`botlar.${id}.prefix`)%></td>
 		</tr>
