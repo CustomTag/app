@@ -4,7 +4,7 @@ exports.run = async (client, message, args) => {
 	//kendi URL'lerini eklersn :D
   var embed = new Discord.RichEmbed()
   .setColor('RANDOM')
-  .setAuthor("Discord Bots", client.user.avatarURL)
+  .setAuthor("Discord Bot List", client.user.avatarURL)
   .addField("What is the purpose of the system? What does the system do? "," You can see the required information [by clicking here](https://www.discords-bot-list.cf/hakkimizda).")
 	.addField("How do I add a bot? "," [Click here](https://www.discords-bot-list.cf/botekle) You can teleport to the place where you can add a bot.")
   .addField("Where can I see all the bots in the system? "," [Click here](https://www.discords-bot-list.cf/botlar) You can see.")
@@ -19,7 +19,7 @@ exports.conf = {
 	guildOnly: true,
 	aliases: ['y', 'help', 'h', 'bilgi', 'info'],
 	permLevel: 0,
-	kategori: 'general'
+	kategori: 'testing-1'
 }
 
 exports.help = {

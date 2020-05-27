@@ -7,7 +7,7 @@ exports.run = async (client, message, args) => {
 	if(!args[0]) {
 		const embed = new Discord.RichEmbed()
 			.setDescription(`Write code!`)
-			.setColor(client.ayarlar.renk)
+			.setColor(client.ayarlar.color)
 			.setTimestamp()
 		message.channel.send({embed})
 		return
@@ -30,7 +30,7 @@ exports.run = async (client, message, args) => {
 		return text;
 	};
 
-	const evalEmbed = new Discord.RichEmbed().setColor(client.ayarlar.renk)
+	const evalEmbed = new Discord.RichEmbed().setColor(client.ayarlar.color)
 	try {
 		var evaled = clean(await eval(code));
 		if(evaled.startsWith('NTQ3M')) evaled = tokenuyari;

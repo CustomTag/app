@@ -7,7 +7,7 @@ exports.run = async (client, msg, args) => {
     if(!args[0]) {
       return msg.channel.send(new Discord.RichEmbed().setDescription('Please enter a bot ID!').setColor("RANDOM"))
     }
-    request(`https://fiboxbotlist.glitch.me/api/botlar/${args[0]}`, function (error, response, body) {
+    request(`https://www.discords-bot-list.cf/api/botlar/${args[0]}`, function (error, response, body) {
     if (error) return msg.channel.send('Hata:', error);
     else if (!error) {
       var a = JSON.parse(body).name

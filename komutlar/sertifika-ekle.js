@@ -5,7 +5,7 @@ exports.run = async (client, message, args) => {
 	if(!args[0]) {
 		const embed = new Discord.RichEmbed()
 			.setDescription(`You must write an ID!`)
-			.setColor(client.ayarlar.renk)
+			.setColor(client.ayarlar.color)
 		message.channel.send({embed})
 		return
 	}
@@ -13,7 +13,7 @@ exports.run = async (client, message, args) => {
   if(!client.users.has(args[0])) {
 		const embed = new Discord.RichEmbed()
 			.setDescription(`Invalid ID!`)
-			.setColor(client.ayarlar.renk)
+			.setColor(client.ayarlar.color)
 		message.channel.send({embed})
 		return
 	}
@@ -21,7 +21,7 @@ exports.run = async (client, message, args) => {
   if(!client.users.get(args[0]).bot) {
 		const embed = new Discord.RichEmbed()
 			.setDescription(`My dear, this person is not a boat, what's the head ?!`)
-			.setColor(client.ayarlar.renk)
+			.setColor(client.ayarlar.color)
 		message.channel.send({embed})
 		return
 	}
