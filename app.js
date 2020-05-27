@@ -47,7 +47,7 @@ process.nextTick(() => done(null, profile));
 app.use(session({
 secret: '123',
 resave: false,
-saveUninitialized: false,
+saveUninitialized: true,
 }));
 
 app.use(passport.initialize());
