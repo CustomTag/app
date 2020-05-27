@@ -4,15 +4,15 @@
                   <br>
                         <div class="post-meta">
                             <div align="center"><span class="Owner"><i class="fa fa-clock-o"></i> <strong>Owner: </strong><%=bot.ayar.fetch(`botlar.${id}.owner`)%></span><a style="color:#222"> | </a>
-                            <span class="Vote"><a class="Votes"><i class="fa fa-star"></i> <%=bot.ayar.fetch(`botlar.${id}.vote`) || 0%> Oy</a></span>
+                            <span class="Vote"><a class="Votes"><i class="fa fa-star"></i> <%=bot.ayar.fetch(`botlar.${id}.vote`) || 0%> Votes</a></span>
                         <% if(bot.ayar.has(`botlar.${id}.certificate`) === true) { %>
-                            | <span><img src="https://cdn2.iconfinder.com/data/icons/rewards-1/512/medal-512.png" width="20px" height="20px"> <a style="color:darkorange">certified</a></span>
+                    | <span><img src="https://cdn2.iconfinder.com/data/icons/rewards-1/512/medal-512.png" width="20px" height="20px"> <a style="color:darkorange">Certified Bot</a></span>
                          <% } %>
                           </div>
                         </div><br>
                         <div class="post-thumbnail">
                             <div align="center"><img src="<%=bot.ayar.fetch(`botlar.${id}.avatar`)%>"
-                                width="300" height="300" class="botavatar"><h3 class="botisim"><%=bot.ayar.fetch(`botlar.${id}.name`)%></h3><h5 class="kisaaciklama"><%=bot.ayar.fetch(`botlar.${id}.kisaaciklama`)%></h5></div>
+                                width="300" height="300" class="Avatar"><h3 class="Name"><%=bot.ayar.fetch(`botlar.${id}.name`)%></h3><h5 class="ShortDesc"><%=bot.ayar.fetch(`botlar.${id}.ShortDesc`)%></h5></div>
                           
         <div alig ="left">
           <button class="botprefix btn btn-default"><%=bot.ayar.fetch(`botlar.${id}.prefix`)%></button>

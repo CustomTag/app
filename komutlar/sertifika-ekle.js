@@ -4,7 +4,7 @@ const db = require('quick.db');
 exports.run = async (client, message, args) => {
 	if(!args[0]) {
 		const embed = new Discord.RichEmbed()
-			.setDescription(`Bir ID yazmalısın!`)
+			.setDescription(`You must write an ID!`)
 			.setColor(client.ayarlar.renk)
 		message.channel.send({embed})
 		return
@@ -12,7 +12,7 @@ exports.run = async (client, message, args) => {
   
   if(!client.users.has(args[0])) {
 		const embed = new Discord.RichEmbed()
-			.setDescription(`Geçersiz ID!`)
+			.setDescription(`Invalid ID!`)
 			.setColor(client.ayarlar.renk)
 		message.channel.send({embed})
 		return
@@ -31,13 +31,13 @@ exports.run = async (client, message, args) => {
 	}
   
   if (db.has('botlar')) {
-  if (db.has(`botlar.${args[0]}.sertifika`) === true) return message.reply("Dear, there are already Certified bots with this ID.")
+  if (db.has(`botlar.${args[0]}.certificate`) === true) return message.reply("Dear, there are already Certified bots with this ID.")
   }
   
   message.channel.send(`Successfully \`${args[0]}\` ID bot is Certified!`)
-  client.channels.get(client.ayarlar.kayıt).send(`\`${message.author.tag}\` adlı yetkili tarafından \`${db.fetch(`botlar.${args[0]}.sahip`)}\` adlı kullanıcının \`${args[0]}\` ID'ine sahip \`${db.fetch(`botlar.${args[0]}.isim`)}\` adlı botuna sertifika verildi!`)
+  client.channels.get(client.ayarlar.kayıt).send(`A Administrator Named: \`${message.author.tag}\` With Bot Owner: \`${db.fetch(`botlar.${args[0]}.owner`)}\` With BotID \`${args[0]}\` Just Added Bot: \`${db.fetch(`botlar.${args[0]}.name`)}\` Just Approved The Bot To Be Certificates!:Certificate_Icon:`)
 	
-  db.set(`botlar.${args[0]}.sertifika`, "Bulunuyor")
+  db.set(`botlar.${args[0]}.certificate`, "Bulunuyor")
   
 };
 
@@ -45,12 +45,12 @@ exports.conf = {
 	enabled: true,
 	guildOnly: true,
 	aliases: [],
-	permLevel: 'ozel',
-	kategori: 'yetkili'
+	permLevel: 'special',
+	kategori: 'authorized'
 }
 
 exports.help = {
-	name: 'sertifika-ekle',
-	description: 'Yazılan ID\'deki botu sertifikalı yapar.',
-	usage: 'sertifika-ekle [ID]'
+	name: 'Add-certificate',
+	description: 'Makes the bot in the written ID certified.',
+	usage: 'Add-certificate [ID]'
 }
