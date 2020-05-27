@@ -371,14 +371,14 @@ headers: {
 }, function(error, response, body) {
 if (error) return console.log(error)
 else if (!error) {
-var sahip = JSON.parse(body)
-db.set(`botlar.${ID}.prefix`, ayar['botprefix'])
-db.set(`botlar.${ID}.kutuphane`, ayar['kutuphane'])
-db.set(`botlar.${ID}.sahip`, sahip.username+"#"+sahip.discriminator)
-db.set(`botlar.${ID}.sahipid`, sahip.id)
-db.set(`botlar.${ID}.kisaaciklama`, ayar['kisa-aciklama'])
+var owner = JSON.parse(body)
+db.set(`botlar.${ID}.prefix`, ayar['prefix'])
+db.set(`botlar.${ID}.library`, ayar['library'])
+db.set(`botlar.${ID}.owner`, owner.username+"#"+owner.discriminator)
+db.set(`botlar.${ID}.ownerid`, owner.id)
+db.set(`botlar.${ID}.ShortDesc`, ayar['kisa-aciklama'])
 db.set(`botlar.${ID}.uzunaciklama`, ayar['uzun-aciklama'])
-db.set(`botlar.${ID}.etiket`, tag)
+db.set(`botlar.${ID}.tag`, tag)
 if (ayar['botsite']) {
 db.set(`botlar.${ID}.site`, ayar['botsite'])
 }
@@ -473,17 +473,17 @@ let user = req.user.id
 
 var saat = `${new Date().getHours() + 3}:${new Date().getMinutes()}:${new Date().getSeconds()}`
 
-if (db.has(`oylar.${id}.${user}`) === true) {
-  if (db.fetch(`oylar.${id}.${user}`) !== saat) {
+if (db.has(`votes.${id}.${user}`) === true) {
+  if (db.fetch(`votes.${id}.${user}`) !== saat) {
     res.redirect('/bot/'+req.params.botID+'/hata')
     return
-  } else if (db.fetch(`oylar.${id}.${user}`) === saat) {
-  db.add(`botlar.${id}.oy`, 1)
-  db.set(`oylar.${id}.${user}`, saat)
+  } else if (db.fetch(`votes.${id}.${user}`) === saat) {
+  db.add(`botlar.${id}.vote`, 1)
+  db.set(`votes.${id}.${user}`, saat)
   }
 } else {
-  db.add(`botlar.${id}.oy`, 1)
-  db.set(`oylar.${id}.${user}`, saat)
+  db.add(`botlar.${id}.vote`, 1)
+  db.set(`votes.${id}.${user}`, saat)
 }
 
 res.redirect('/bot/'+req.params.botID)
@@ -501,14 +501,14 @@ app.get("/botyonetici/onayla/:botID", checkAuth, (req, res) => {
   if(!client.yetkililer.includes(req.user.id) ) return res.redirect('/yetkili/hata')
 let id = req.params.botID
 
-db.set(`botlar.${id}.durum`, 'Onaylı')
+db.set(`botlar.${id}.status`, 'Approved')
 
 res.redirect("/yetkili")
 
-client.channels.get(client.ayarlar.kayıt).send(`\`${req.user.username}#${req.user.discriminator}\` With Owner Name \`${db.fetch(`botlar.${id}.sahip`)}\` With the ID \`${db.fetch(`botlar.${id}.id`)}\` Added Bot to Website \`${db.fetch(`botlar.${id}.isim`)}\` Bot has been approved!`)
+client.channels.get(client.ayarlar.kayıt).send(`\`${req.user.username}#${req.user.discriminator}\` With Owner Name \`${db.fetch(`botlar.${id}.owner`)}\` With the ID \`${db.fetch(`botlar.${id}.id`)}\` Added Bot to Website \`${db.fetch(`botlar.${id}.name`)}\` Bot has been approved!`)
 
-if (client.users.has(db.fetch(`botlar.${id}.sahipid`)) === true) {
-client.users.get(db.fetch(`botlar.${id}.sahipid`)).send(`\`${db.fetch(`botlar.${id}.isim`)}\` Your bot has been approved! \n https://discords-bot-list.glitch.me/botlar/${db.fetch(`botlar.${id}.id`)}`)
+if (client.users.has(db.fetch(`botlar.${id}.owner`)) === true) {
+client.users.get(db.fetch(`botlar.${id}.ownerid`)).send(`\`${db.fetch(`botlar.${id}.name`)}\` Your bot has been approved! \n https://discords-bot-list.glitch.me/botlar/${db.fetch(`botlar.${id}.id`)}`)
 }
 
 });
@@ -517,14 +517,14 @@ app.get("/botyonetici/bekleme/:botID", checkAuth, (req, res) => {
   if(!client.yetkililer.includes(req.user.id) ) return res.redirect('/yetkili/hata')
 let id = req.params.botID
 
-db.set(`botlar.${id}.durum`, 'Beklemede')
+db.set(`botlar.${id}.status`, 'Pending')
 
 res.redirect("/yetkili")
 
-client.channels.get(client.ayarlar.kayıt).send(`\`${req.user.username}#${req.user.discriminator}\` Bot Are Now Wating \`${db.fetch(`botlar.${id}.sahip`)}\` With The Name \`${db.fetch(`botlar.${id}.id`)}\` With Bot Name \`${db.fetch(`botlar.${id}.isim`)}\` The Bot has been put on standby!`)
+client.channels.get(client.ayarlar.kayıt).send(`\`${req.user.username}#${req.user.discriminator}\` Bot Are Now Wating \`${db.fetch(`botlar.${id}.owner`)}\` With The Name \`${db.fetch(`botlar.${id}.id`)}\` With Bot Name \`${db.fetch(`botlar.${id}.name`)}\` The Bot has been put on standby!`)
 
-if (client.users.has(db.fetch(`botlar.${id}.sahipid`)) === true) {
-client.users.get(db.fetch(`botlar.${id}.sahipid`)).send(`\`${db.fetch(`botlar.${id}.isim`)}\` Your bot is under review!`)
+if (client.users.has(db.fetch(`botlar.${id}.ownerid`)) === true) {
+client.users.get(db.fetch(`botlar.${id}.ownerid`)).send(`\`${db.fetch(`botlar.${id}.name`)}\` Your bot is under review!`)
 }
 
 });
@@ -538,14 +538,14 @@ app.post("/botyonetici/reddet/:botID", checkAuth, (req, res) => {
   if(!client.yetkililer.includes(req.user.id) ) return res.redirect('/yetkili/hata')
   let id = req.params.botID
   
-  db.set(`botlar.${id}.durum`, 'Reddedilmiş')
+  db.set(`botlar.${id}.status`, 'castaway')
   
   res.redirect("/yetkili")
   
-  client.channels.get(client.ayarlar.kayıt).send(`\`${req.user.username}#${req.user.discriminator}\` Bot Name \`${db.fetch(`botlar.${id}.sahip`)}\` Got \`${db.fetch(`botlar.${id}.id`)}\` With the ID \`${db.fetch(`botlar.${id}.isim`)}\` Bot Was \`${req.body['red-sebep']}\` rejected due to!`)
+  client.channels.get(client.ayarlar.kayıt).send(`\`${req.user.username}#${req.user.discriminator}\` Bot Name \`${db.fetch(`botlar.${id}.owner`)}\` Got \`${db.fetch(`botlar.${id}.id`)}\` With the ID \`${db.fetch(`botlar.${id}.name`)}\` Bot Was \`${req.body['red-sebep']}\` rejected due to!`)
   
-  if (client.users.has(db.fetch(`botlar.${id}.sahipid`)) === true) {
-  client.users.get(db.fetch(`botlar.${id}.sahipid`)).send(`\`${db.fetch(`botlar.${id}.isim`)}\` Your Bot \`${req.body['red-sebep']}\` Was rejected due to!`)
+  if (client.users.has(db.fetch(`botlar.${id}.ownerid`)) === true) {
+  client.users.get(db.fetch(`botlar.${id}.ownerid`)).send(`\`${db.fetch(`botlar.${id}.name`)}\` Your Bot \`${req.body['red-sebep']}\` Was rejected due to!`)
   }
 
   });
@@ -562,7 +562,7 @@ app.get("/api/botlar", (req, res) => {
   });
 });
 
-app.get("/api/botlar/:botID/oylar", (req, res) => {
+app.get("/api/botlar/:botID/votes", (req, res) => {
   res.json({
     hata: 'Write a user ID.'
   });
@@ -584,18 +584,18 @@ app.get("/api/botlar/:botID", (req, res) => {
        id: id,
 avatar: db.fetch(`botlar.${id}.avatar`),
 prefix: db.fetch(`botlar.${id}.prefix`),
-kütüphane: db.fetch(`botlar.${id}.kutuphane`),
-sahip: db.fetch(`botlar.${id}.sahip`),
-sahipid: db.fetch(`botlar.${id}.sahipid`),
-kisa_aciklama: db.fetch(`botlar.${id}.kisaaciklama`),
+library: db.fetch(`botlar.${id}.library`),
+owner: db.fetch(`botlar.${id}.owner`),
+ownerid: db.fetch(`botlar.${id}.ownerid`),
+kisa_aciklama: db.fetch(`botlar.${id}.ShortDesc`),
 uzun_aciklama: db.fetch(`botlar.${id}.uzunaciklama`),
-etiketler: db.fetch(`botlar.${id}.etiket`),
+etiketler: db.fetch(`botlar.${id}.tag`),
 destek_sunucusu: db.fetch(`botlar.${id}.destek`) || 'Unspecified',
 web_sitesi: db.fetch(`botlar.${id}.site`) || 'Unspecified',
 github: db.fetch(`botlar.${id}.github`) || 'Unspecified',
-durum: db.has(`botlar.${id}.durum`) ? db.fetch(`botlar.${id}.durum`) : 'Pending',
-oy_sayisi: db.fetch(`botlar.${id}.oy`) || 0,
-sertifika: db.fetch(`botlar.${id}.sertifika`) || 'no'
+status: db.has(`botlar.${id}.status`) ? db.fetch(`botlar.${id}.status`) : 'Pending',
+oy_sayisi: db.fetch(`botlar.${id}.vote`) || 0,
+certificate: db.fetch(`botlar.${id}.certificate`) || 'no'
     });
 });
 
@@ -603,7 +603,7 @@ sertifika: db.fetch(`botlar.${id}.sertifika`) || 'no'
     res.json(Object.keys(db.fetch('botlar')));
   });
   
-app.get("/api/botlar/:botID/oylar/:kullaniciID", (req, res) => {
+app.get("/api/botlar/:botID/votes/:kullaniciID", (req, res) => {
   var id = req.params.botID
   var userr = req.params.kullaniciID
 
@@ -616,8 +616,8 @@ app.get("/api/botlar/:botID/oylar/:kullaniciID", (req, res) => {
   }
  
    res.json({
-     oy_durum: db.has(`oylar.${id}.${userr}`) ? `Bugün oy vermiş.` : null,
-     oy_sayisi: db.fetch(`botlar.${id}.oy`) || 0
+     vote_durum: db.has(`votes.${id}.${userr}`) ? `Voted today.` : null,
+     vote_sayisi: db.fetch(`botlar.${id}.vote`) || 0
    });
 
 });

@@ -79,7 +79,7 @@
 
 <script>
 $(document).ready(function(){
- $("#ara").keyup(function(){
+ $("#Search").keyup(function(){
     var value = $(this).val().toLowerCase();
     $(".col-12, .col-sm-6, .col-md-4 .card").filter(function() {
       $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
