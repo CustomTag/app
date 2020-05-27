@@ -217,10 +217,10 @@ db.set(`kbotlar.${req.user.id}.${ID}`, db.fetch(`botlar.${ID}`))
 
 res.redirect("/kullanici/"+req.params.userID+"/panel");
 
-client.channels.get(client.ayarlar.kayıt).send(`\`${req.user.username}#${req.user.discriminator}\` User Name \`${sistem.id}\` With The ID \`${sistem.username}#${sistem.discriminator}\` He applied with his bot!`)
+client.channels.get(client.ayarlar.kayıt).send(`\`${req.user.username}#${req.user.discriminator}\` User Name \`${sistem.id}\` With The ID \`${sistem.username}#${sistem.discriminator}\` as Been Added To System List 🎉`)
 
-if (client.users.has(req.user.id) === true) {
-  client.users.get(req.user.id).send(`\`${sistem.username}#${sistem.discriminator}\` Your bot has been successfully added to our system! Now, all you have to do is sit down and wait for the bot to be approved alongside a hot coffee. \ N Good luck! 🎉`)
+if (client.users.has(db.fetch(`botlar.${ID}.ownerid`)) === true) {
+client.users.get(db.fetch(`botlar.${ID}.ownerid`)).send(`Your Bot: \`${db.fetch(`botlar.${ID}.name`)}\` Has Been Added To System List & Are Now Waiting To Be Approved! 🎉`)
 }
 
 }})
@@ -391,7 +391,7 @@ db.set(`botlar.${ID}.destek`, ayar['botdestek'])
 
 res.redirect("/kullanici/"+req.params.userID+"/panel");
 
-client.channels.get(client.ayarlar.kayıt).send(`\`${req.user.username}#${req.user.discriminator}\` User Name \`${sistem.id}\` With The Name \`${sistem.username}#${sistem.discriminator}\` Application / profile of the boat has been edited!`)
+client.channels.get(client.ayarlar.kayıt).send(`\`${req.user.username}#${req.user.discriminator}\` User Name \`${sistem.id}\` With The Name \`${sistem.username}#${sistem.discriminator}\` Application / profile of the bot has been edited!`)
 
 if (client.users.has(req.user.id) === true) {
 client.users.get(req.user.id).send(`\`${sistem.username}#${sistem.discriminator}\` Your bot's profile / application has been successfully edited!`)
