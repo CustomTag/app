@@ -1,103 +1,94 @@
 <%- include('ek/header', {bot, user, path}) %>
 
-<div class="container">
-
-<h3 align="center" style="color:#222">
-    <strong>All bots
-    </strong></h3>
-  <div align="center"><p>Here are all the bots in the system. <br> (The bots are ranked according to the number of votes.)</p></div>
-  <br>
-    
-  <div align="center">
-    <input type="search" placeholder="Bot Search..." id="Search" name="Search">
-    <br>
-     <div class="select-style">
-    <select id="etiketselect">
-      <option disabled selected>Choose a label.</option>
-      <option value="noneFilter">Close filter</option>
-      <option value="Moderation">Moderation</option>
-      <option value="Music">Music</option>
-      <option value="Settings">Settings</option>
-      <option value="Entertainment">Entertainment</option>
-      <option value="Web Panel">Web Panel</option>
-    </select>
-</div>
-    
-    <p style="color:#333">
-      <a style="color:red">Not:</a> You can search for bots by typing the bot name, library, short description, owner name and tags. <br> You can search for bots by selecting the bots' tags. 
-    </p>
-    
-  </div>
-  <br><br><br>
-    
-  <div class="row">
-  
-   <% if (bot.ayar.has('botlar')) { %>
-  <% const sorted = Object.keys(bot.ayar.fetch('botlar')).sort((a, b) => { return (bot.ayar.fetch(`botlar.${b}.vote`) || 0) - (bot.ayar.fetch(`botlar.${a}.vote`) || 0) }) %>
-  <% const top = sorted.splice(0, Object.keys(bot.ayar.fetch('botlar')).length) %>
-  <% const map = top.map(x=>x) %>
-	<% for(var i = 0; i < Object.keys(bot.ayar.fetch('botlar')).length; i++) { %>
-  <% let idd = map[i] %>
-   <% if(bot.ayar.has(`botlar.${idd}.status`) === true) { %>
-		<% if (bot.ayar.fetch(`botlar.${idd}.status`) === "Approved") { %>
-    <div class="col-12 col-sm-6 col-md-4">
-        <div class="card card-lg botcard" style="background-color:#fff; width:16rem;">
-    <div value="<%=bot.useful.seg(bot.ayar.fetch(`botlar.${idd}.name`), 5)%>" align="center" class="card-img">
-  
-          <a name="aramaResim" id="aramaResim" href="/bot/<%=idd%>" style="color:#fff"><img value="<%=bot.ayar.fetch(`botlar.${idd}.name`)%>" src="<%=bot.ayar.fetch(`botlar.${idd}.avatar`)%>" style="width:100%" alt="<%=bot.ayar.fetch(`botlar.${idd}.name`)%>"><%=bot.useful.seg(bot.ayar.fetch(`botlar.${idd}.name`), 5)%></a>
-        
-          <% if(bot.ayar.has(`botlar.${idd}.certificate`) === true) { %>
-       
-       <br><a style="color:darkorange"><img src="https://cdn.discordapp.com/emojis/522886304615366676.png" width="30px" height="30px">certified</a><br>
-       <% } %>
-       <div class="badge badge-primary"><strong style='color: white;'>Votes: </strong><span style='color:whitesmoke;text-transform: none;'><%=bot.ayar.fetch(`botlar.${idd}.vote`)||0%></span></div>
-                    <div class="badge badge-success"><%=bot.ayar.fetch(`botlar.${idd}.library`)%></div>
-                     
+<div class="post post-single">
+                  <br>
+                        <div class="post-meta">
+                            <div align="center"><span class="Owner"><i class="fa fa-clock-o"></i> <strong>Owner: </strong><%=bot.ayar.fetch(`botlar.${id}.owner`)%></span><a style="color:#222"> | </a>
+                            <span class="Vote"><a class="Votes"><i class="fa fa-star"></i> <%=bot.ayar.fetch(`botlar.${id}.vote`) || 0%> Oy</a></span>
+                        <% if(bot.ayar.has(`botlar.${id}.certificate`) === true) { %>
+                            | <span><img src="https://cdn2.iconfinder.com/data/icons/rewards-1/512/medal-512.png" width="20px" height="20px"> <a style="color:darkorange">certified</a></span>
+                         <% } %>
+                          </div>
+                        </div><br>
+                        <div class="post-thumbnail">
+                            <div align="center"><img src="<%=bot.ayar.fetch(`botlar.${id}.avatar`)%>"
+                                width="300" height="300" class="botavatar"><h3 class="botisim"><%=bot.ayar.fetch(`botlar.${id}.name`)%></h3><h5 class="kisaaciklama"><%=bot.ayar.fetch(`botlar.${id}.kisaaciklama`)%></h5></div>
+                          
+        <div alig ="left">
+          <button class="botprefix btn btn-default"><%=bot.ayar.fetch(`botlar.${id}.prefix`)%></button>
+          
+      <%if (bot.ayar.has(`botlar.${id}.destek`)){%>
+                 <a href="<%=bot.ayar.fetch(`botlar.${id}.destek`)%>"><button class="btn btn-warning destek">Support Server</button></a>
+            <%} %>
+          
+          <%if (bot.ayar.has(`botlar.${id}.site`)){%>
+                 <a href="<%=bot.ayar.fetch(`botlar.${id}.site`)%>"><button class="btn btn-warning website">Website</button></a>
+            <%} %>
+          
+          <%if (bot.ayar.has(`botlar.${id}.github`)){%>
+                 <a href="<%=bot.ayar.fetch(`botlar.${id}.github`)%>"><button class="btn btn-warning github">Github</button></a>
+            <%} %>
           </div>
-      <div align="center" style="background-color:#fff" class="card-body">
-                               <div class="card-title">
-                                  <h4><a style="color:#222"><%=bot.useful.seg(bot.ayar.fetch(`botlar.${idd}.name`), 5)%></a></h4>
-                                <h6 style="font-size:17px; color:#222"><%=bot.ayar.fetch(`botlar.${idd}.owner`)%></h6></div>         
-                        
-                              <p class="card-text" style="color:#222"><%=bot.ayar.fetch(`botlar.${idd}.ShortDesc`)%></p>
-                              <span id="etiketler"><%=bot.ayar.fetch(`botlar.${idd}.tag`).join(' | ')%></span>
-                               <hr>
-                              <h6 align="center"><a href="/bot/<%=idd%>" style="font-size:20px; color:#222; background-color:#fff">view</a> <b style="color:grey">|</b> 
-                              <a href="https://discordapp.com/oauth2/authorize?client_id=<%=idd%>&scope=bot&permissions=8" style="font-size:20px; color:#222; background-color:#fff">Invite</a></h6>
-                            </div>
-                       </div><br>
-    </div>
-      <% } %>
+      <div align="center">                    
+  <% if (!user) { %>
+        <a href="/giris"><button class="oyy btn btn-primary oyver">You must log in to vote <i class="fa fa-lock"></i></button></a>
+                    <% } else { %>
+        <a href="/bot/<%=id%>/oyver"><button id="oy" href="/bot/<%=id%>/oyver" class="btn btn-primary oyver" type="sumbit"><i aria-hidden="true"></i>Vote</button></a>
+                      <% } %><br>
+            
+          <a href="https://discordapp.com/oauth2/authorize?client_id=<%=id%>&scope=bot&permissions=8"><button class="btn btn-success davetet"><i aria-hiddden="true"></i>Invite</button></a>
+        <a href="/bot/<%=id%>/rapor"><button class="btn btn-danger rapor"><i aria-hidden="true"></i>Report</button></a>
+        
+          <% if (user) { %>
+          <% if(bot.ayar.fetch(`botlar.${id}.ownerid`) === user.id) { %>
+          <a href="/kullanici/<%=user.id%>/panel/<%=id%>/duzenle"><button class="btn btn-primary duzenle"><i aria-hiddden="true"></i>Edit</button></a>
+        <a href="/kullanici/<%=user.id%>/panel/<%=id%>/sil"><button class="sil btn btn-danger"><i aria-hidden="true"></i>Clear</button></a>
+          <% } %>
+        <% } %>
+                      
+                </div>  
+  </div>
+  <br>
+  <div class="uzunaciklama" class="jimbotron" align="center"><br>
+    <% if (bot.ayar.has(`botlar.${id}.uzunaciklama`) || bot.ayar.fetch(`botlar.${id}.uzunaciklama`) !== undefined || bot.ayar.fetch(`botlar.${id}.uzunaciklama`) !== null) { %>
+<% var xx %>
+<% for (var ii = 0; ii < bot.tags.length; ii++) { %>
+  <% if(bot.ayar.fetch(`botlar.${id}.uzunaciklama`).includes(bot.tags[ii]) === false) {%>
+    <% xx = false %>
+ <% } %>
+    <% if (bot.ayar.fetch(`botlar.${id}.uzunaciklama`).includes(bot.tags[ii]) === true) { %>
+     <% x = true %>
     <% } %>
-   <% } %>
-   <% } else {%>
-   <center><h5 style="color:#222">
-     There are no bots in the system.
-     </h5></center>
-   <% } %>
-   </div></div></div></div>
+<% } %>
 
-<script>
-$(document).ready(function(){
- $("#Search").keyup(function(){
-    var value = $(this).val().toLowerCase();
-    $(".col-12, .col-sm-6, .col-md-4 .card").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-    });
-  });
-  //etiket filtresi
-  $("#etiketselect").change(function(){
-    var value = $(this).val();
-    if (value === 'noneFilter') {
-      window.location.reload(true);
-      return
-    }
-    $(".col-12, .col-sm-6, .col-md-4 .card").filter(function(){
-      $(this).toggle($(this).text().indexOf(value) > -1)
-    });
-  })
-  ;
-});
-</script>
-  
+<% if (x === false) { %>
+  <p><%=bot.ayar.fetch(`botlar.${id}.uzunaciklama`)%></p>
+<% } else if (x === true) { %>
+    <% let $ = bot.htmll.load(bot.ayar.fetch(`botlar.${id}.uzunaciklama`)) %>
+  <%- $.html() %>
+    <% } %>
+    
+    <% } else { %>
+    <p>Here's a Discord bot!</p>
+    <% } %>
+    
+  <br></div>
+        
+        </div><br>
+          <div class="post-actions">
+                  <div class="post-tags">
+                    <div align="center">
+                      <%if(Array.isArray(bot.ayar.fetch(`botlar.${id}.tag`)) === false) {%>
+                      <span class="etiket btn-btn-default"><a><%=bot.ayar.fetch(`botlar.${id}.tag`)%></a></span>
+                      <% } else { %>
+                      <% for(var xx = 0; xx < bot.ayar.fetch(`botlar.${id}.tag`).length; xx++) {%>
+                      <span class="etiket btn btn-default"><a><%=bot.ayar.fetch(`botlar.${id}.tag`)[xx]%></a></span>
+                    <% }%>
+                      <% }%>
+                    </div>
+                   </div>
+              </div>
+      </div>
+</div>
+
 <% include ./ek/footer %>

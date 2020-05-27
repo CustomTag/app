@@ -48,9 +48,9 @@
         
           <% if(bot.ayar.has(`botlar.${idd}.certificate`) === true) { %>
        
-       <br><a style="color:darkorange"><img src="https://cdn.discordapp.com/emojis/522886304615366676.png" width="30px" height="30px"> certified</a><br>
+       <br><a style="color:darkorange"><img src="https://cdn.discordapp.com/emojis/522886304615366676.png" width="30px" height="30px"> Certified Bot</a><br>
        <% } %>
-       <div class="badge badge-primary"><strong style='color: white;'>Vote: </strong><span style='color:whitesmoke;text-transform: none;'><%=bot.ayar.fetch(`botlar.${idd}.vote`)||0%></span></div>
+    <div class="badge badge-primary"><strong style='color: white;'>Vote: </strong><span style='color:whitesmoke;text-transform: none;'><%=bot.ayar.fetch(`botlar.${idd}.vote`)||0%></span></div>
                     <div class="badge badge-success"><%=bot.ayar.fetch(`botlar.${idd}.library`)%></div>
                      
           </div>

@@ -1,64 +1,56 @@
-const Discord = require('discord.js')
-const util = require('util');
-const tokenuyari = `SyntaxError: Unexpected token (token protect heçkırs and ayyildiztim veleds)`
+const Discord = require('discord.js');
 const db = require('quick.db');
 
 exports.run = async (client, message, args) => {
 	if(!args[0]) {
 		const embed = new Discord.RichEmbed()
-			.setDescription(`Write code!`)
+			.setDescription(`Bir ID yazmalısın!`)
 			.setColor(client.ayarlar.renk)
-			.setTimestamp()
 		message.channel.send({embed})
 		return
 	}
-	const code = args.join(' ');
-	/*if(code.match(/(client.token)/g)) {
-		const newEmbed = new Discord.RichEmbed()
-			.addField('Hata çıktı;', `\`\`\`xl\n${tokenuyari}\`\`\``)
-			.setColor('#FF0000');
-		message.channel.send(newEmbed);
-		return
-	}*/
-
-	function clean(text) {
-		if (typeof text !== 'string')
-			text = require('util').inspect(text, { depth: 0 })
-		text = text
-			.replace(/`/g, '`' + String.fromCharCode(8203))
-			.replace(/@/g, '@' + String.fromCharCode(8203))
-		return text;
-	};
-
-	const evalEmbed = new Discord.RichEmbed().setColor(client.ayarlar.renk)
-	try {
-		var evaled = clean(await eval(code));
-		if(evaled.startsWith('NTQ3M')) evaled = tokenuyari;
-		if (evaled.constructor.name === 'Promise') evalEmbed.setDescription(`\`\`\`\n${evaled}\n\`\`\``)
-		else evalEmbed.setDescription(`\`\`\`js\n${evaled}\n\`\`\``)
-		const newEmbed = new Discord.RichEmbed()
-			.addField('📥 Login', `\`\`\`javascript\n${code}\n\`\`\``)
-			.addField('📤 Exit', `\`\`\`js\n${evaled}\`\`\``)
+  
+  if(!client.users.has(args[0])) {
+		const embed = new Discord.RichEmbed()
+			.setDescription(`Geçersiz ID!`)
 			.setColor(client.ayarlar.renk)
-		message.channel.send(newEmbed);
+		message.channel.send({embed})
+		return
 	}
-	catch (err) {
-		evalEmbed.addField('There was an error;', `\`\`\`js\n${err}\n\`\`\``);
-		evalEmbed.setColor('#FF0000');
-		message.channel.send(evalEmbed);
+  
+  if(!client.users.get(args[0]).bot) {
+		const embed = new Discord.RichEmbed()
+			.setDescription(`My dear, this person is not a boat, what's the head ?!`)
+			.setColor(client.ayarlar.renk)
+		message.channel.send({embed})
+		return
 	}
-}
+  
+	if (db.has('botlar')) {
+			if (Object.keys(db.fetch('botlar')).includes(args[0]) === false)  return message.reply("My dear, my dear, the bot that wrote the ID is missing in the system!")
+	}
+  
+  if (db.has('botlar')) {
+  if (db.has(`botlar.${args[0]}.sertifika`) === true) return message.reply("Dear, there are already Certified bots with this ID.")
+  }
+  
+  message.channel.send(`Successfully \`${args[0]}\` ID bot is Certified!`)
+  client.channels.get(client.ayarlar.kayıt).send(`\`${message.author.tag}\` adlı yetkili tarafından \`${db.fetch(`botlar.${args[0]}.sahip`)}\` adlı kullanıcının \`${args[0]}\` ID'ine sahip \`${db.fetch(`botlar.${args[0]}.isim`)}\` adlı botuna sertifika verildi!`)
+	
+  db.set(`botlar.${args[0]}.sertifika`, "Bulunuyor")
+  
+};
 
 exports.conf = {
 	enabled: true,
 	guildOnly: true,
 	aliases: [],
-	permLevel: 4,
-	kategori: 'Owner'
+	permLevel: 'ozel',
+	kategori: 'yetkili'
 }
 
 exports.help = {
-	name: 'eval',
-	description: 'Runs the typed code.',
-	usage: 'eval [kod]'
+	name: 'sertifika-ekle',
+	description: 'Yazılan ID\'deki botu sertifikalı yapar.',
+	usage: 'sertifika-ekle [ID]'
 }
