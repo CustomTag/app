@@ -1,11 +1,11 @@
 body {
-	background: #fff;
+	background: #6AA4E9;
 }
 
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600');
 
 .jumbotron {
-  background-color:#555; 
+  background-color:#36517C; 
   width:100%;
 }
 
@@ -22,7 +22,7 @@ h6:link, h6:visited {
 .topnav a {
 	float: left;
 	display: block;
-	color: #f2f2f2;
+	color: #CDCDCD;
 	text-align: center;
 	padding: 14px 16px;
 	text-decoration: none;
@@ -72,7 +72,7 @@ h6:link, h6:visited {
 }
 
 .footer {
-	background: #222222;
+	background: #444444;
 	width: 100%;
 	height: 269px;
 	float: left;
@@ -117,7 +117,7 @@ h6:link, h6:visited {
 	font-size: 12px;
 	margin-bottom: 8px;
 	clear: left;
-	color: #949798;
+	color: #78B6CB;
 }
 
 .footer ul li a {
@@ -136,15 +136,15 @@ input[type=text], input[type=url] {
     margin: 8px 0;
     box-sizing: border-box;
     border: none;
-    border-bottom: 2px solid #0066c6;
+    border-bottom: 2px solid #4784FC;
   border-radius: 40px;
   background-color: #555;
-  color: #fff;
+  color: #3F60E8;
 }
 
 input[type=text]:focus, input[type=url]:focus {
-  border: 2px solid #0066c6;
-  color: #fff;
+  border: 2px solid #4784FC;
+  color: #3F60E8;
 }
 
 textarea {
@@ -153,19 +153,19 @@ textarea {
     margin: 8px 0;
     box-sizing: border-box;
     border: none;
-    border-bottom: 2px solid #0066c6;
+    border-bottom: 2px solid #4784FC;
   border-radius: 40px;
   background-color: #555;
-  color: #fff;
+  color: #3F60E8;
 }
 
 textarea:focus {
-  border: 2px solid #0066c6;
-  color: #fff;
+  border: 2px solid #4784FC;
+  color: #3F60E8;
 }
 
 .select-style {
-    border: 1px solid #ccc;
+    border: 1px solid #EB783B;
     width: 50%;
     border-radius: 3px;
     overflow: hidden;
@@ -186,7 +186,7 @@ textarea:focus {
 }
 
 ::placeholder {
-    color: #dbdbdb;
+    color: #F39E9E;
     opacity: 1;
 }
 
@@ -199,7 +199,7 @@ textarea:focus {
 table {
   border-collapse: collapse;
   width: 100%;
-  color:#333;
+  color:#7A72A5;
 }
 
 th, td {
@@ -207,7 +207,7 @@ th, td {
   padding: 8px;
 }
 
-tr:nth-child(even) {background-color: #f2f2f2;}
+tr:nth-child(even) {background-color: #6E72C5;}
 
 .card-space-10 {
     margin-left: 50px;
@@ -247,15 +247,15 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 /*Bot Sayfası CSS'si*/
 
 .yapimci {
-  color:#00b229;
+  color:#38C859;
 }
 
 .oy {
-  color:#00d8ff;
+  color:#519DF9;
 }
 
 .botisim {
-  color:#222;
+  color:#8973B5;
 }
 
 .kisaaciklama { 
