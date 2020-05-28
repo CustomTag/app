@@ -1,11 +1,11 @@
 body {
-	background: #6AA4E9;
+	background: #6C84D4;
 }
 
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600');
 
 .jumbotron {
-  background-color:#36517C; 
+  background-color:#4568A0; 
   width:100%;
 }
 
@@ -16,13 +16,13 @@ h6:link, h6:visited {
 
 .topnav {
 	overflow: hidden;	
-	background-color: #4772C7;
+	background-color: #5F89DE;
 }
 
 .topnav a {
 	float: left;
 	display: block;
-	color: #CDCDCD;
+	color: #DCDBDB;
 	text-align: center;
 	padding: 14px 16px;
 	text-decoration: none;
@@ -30,12 +30,12 @@ h6:link, h6:visited {
 }
 
 .topnav a:hover {
-	background-color: #222;
+	background-color: #6481C7;
 	color: white;
 }
 
 .active {
-	background-color: #00a1ff;
+	background-color: #638FFC;
 	color: white;
 }
 
@@ -136,14 +136,14 @@ input[type=text], input[type=url] {
     margin: 8px 0;
     box-sizing: border-box;
     border: none;
-    border-bottom: 2px solid #4784FC;
+    border-bottom: 2px solid #8E8E8E;
   border-radius: 40px;
-  background-color: #555;
+  background-color: #706E82;
   color: #3F60E8;
 }
 
 input[type=text]:focus, input[type=url]:focus {
-  border: 2px solid #4784FC;
+  border: 2px solid #D0D0D0;
   color: #3F60E8;
 }
 
@@ -153,19 +153,19 @@ textarea {
     margin: 8px 0;
     box-sizing: border-box;
     border: none;
-    border-bottom: 2px solid #4784FC;
+    border-bottom: 2px solid #D0D0D0;
   border-radius: 40px;
   background-color: #555;
   color: #3F60E8;
 }
 
 textarea:focus {
-  border: 2px solid #4784FC;
+  border: 2px solid #D0D0D0;
   color: #3F60E8;
 }
 
 .select-style {
-    border: 1px solid #EB783B;
+    border: 1px solid #E88F61;
     width: 50%;
     border-radius: 3px;
     overflow: hidden;

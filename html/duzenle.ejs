@@ -70,7 +70,7 @@
      <div><i aria-hidden="true"></i>Short Description</div>
 		<div>
       <input type="text" style="text-align: center; height:60px" name="kisa-aciklama" id="kisa-aciklama"
-                value="<%=bot.ayar.fetch(`botlar.${id}.kisaaciklama`)%>" maxlength="50" required="required">
+                value="<%=bot.ayar.fetch(`botlar.${id}.ShortDesc`)%>" maxlength="50" required="required">
      </div>
      <br>
      <div><i aria-hidden="true"></i>Long Description<a</div>
@@ -97,27 +97,27 @@
      <div><i aria-hidden="true"></i>labels <a style="color:red">*</a></div>
      <div>
       <select multiple id="etikett" name="etikett" style="border-radius:4px; background-color:#222; color:#fff">
-        <% if(bot.ayar.fetch(`botlar.${id}.etiket`).includes('Moderation')) { %>
+        <% if(bot.ayar.fetch(`botlar.${id}.tag`).includes('Moderation')) { %>
         <option value="Moderation" selected>Moderation</option>
         <% } else { %>
         <option value="Moderation">Moderation</option>
         <% } %>
-        <% if(bot.ayar.fetch(`botlar.${id}.etiket`).includes('Music')) { %>
+        <% if(bot.ayar.fetch(`botlar.${id}.tag`).includes('Music')) { %>
         <option value="Music" selected>Music</option>
         <% } else { %>
         <option value="Music">Music</option>
         <% } %>
-        <% if(bot.ayar.fetch(`botlar.${id}.etiket`).includes('Settings')) { %>
+        <% if(bot.ayar.fetch(`botlar.${id}.tag`).includes('Settings')) { %>
         <option value="Settings" selected>Settings</option>
         <% } else { %>
         <option value="Settings">Settings</option>
         <% } %>
-        <% if(bot.ayar.fetch(`botlar.${id}.etiket`).includes('Entertainment')) { %>
+        <% if(bot.ayar.fetch(`botlar.${id}.tag`).includes('Entertainment')) { %>
         <option value="Entertainment" selected>Entertainment</option>
         <% } else { %>
         <option value="Entertainment">Entertainment</option>
         <% } %>
-        <% if(bot.ayar.fetch(`botlar.${id}.etiket`).includes('Web Panel')) { %>
+        <% if(bot.ayar.fetch(`botlar.${id}.tag`).includes('Web Panel')) { %>
         <option value="Web Panel" selected>Web Panel</option>
         <% } else { %>
         <option value="Web Panel">Web Panel</option>
