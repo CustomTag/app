@@ -259,19 +259,19 @@ tr:nth-child(even) {background-color: #6E72C5;}
 }
 
 .kisaaciklama { 
-  color:#222; 
+  color:#8973B5; 
 }
 
 .uzunaciklama {
-  color:#222; 
-  background-color:#d7e0df;
+  color:#8973B5; 
+  background-color:#8BA1DC;
   border-radius:40px;
   padding:0px 0px 15px;
 }
 
 .etiket {
-  color:white;
-  background-color:grey; 
+  color:#6C9CD1;
+  background-color:#99B5D5; 
 }
 
 .duzenle {
@@ -318,7 +318,7 @@ tr:nth-child(even) {background-color: #6E72C5;}
 section{
   text-align: center;
   margin-top: 100px;
-  color: #333;
+  color: #AA99DE;
 }
 p{font-size: 12px;}
 
