@@ -14,7 +14,7 @@
 <meta property="og:description" content="Discord Bot List is a Website there you can add our own discord bot then get more to use it!" />
 <meta property="og:image" content="<%=bot.user.avatarURL%>" />
 <meta property="og:site_name" content="Discord Bot List">
-<meta itemprop="name" content="Discord Bot List">
+<meta itemprop="name" content="DBL">
 <meta itemprop="description" content="Discord Bot List is a Website there you can add our own discord bot then get more to use it!">
 <meta itemprop="image" content="<%=bot.user.avatarURL%>">
 
@@ -61,10 +61,10 @@
 			float:left;
 			width:150px;
 			padding:8px;
-			background: white;
+			background: #475A86;
 			border-radius: 42px;
 			margin-right:8px;
-			color: white;
+			color: #475A86;
 			text-align: center;
 		}
 		.navigation ul li:hover {
@@ -140,7 +140,7 @@
      <a id="top" name="top"></a>
  
 <div class="topnav" id="myTopnav">
-			<a href="/" class="active">Discord Bots</a>
+			<a href="/" class="active">Discord Bot List</a>
       <a href="/botlar">bots</a>
 			<a href="/api">API</a>
 			<a href="/blog" onclick="alert('The blog does not yet exist. It is under construction.')">Blog</a>
@@ -151,7 +151,7 @@
       <a href="/botekle">Add Bot</a>
 			<a href="/cikis">Sign out</a>
 			<a href="/kullanici/<%=user.id%>">
-      <img src="https://cdn.discordapp.com/avatars/<%=user.id%>/<%=user.avatar%>.png?size=32" width="25" height="25" class="d-inline-block align-middle rounded-circle" alt="Kullanıcı Avatar">
+      <img src="https://cdn.discordapp.com/avatars/<%=user.id%>/<%=user.avatar%>.png?size=32" width="25" height="25" class="d-inline-block align-middle rounded-circle" alt="User Avatar">
       <%=user.username%>
       </a>
       <% if (bot.yetkililer.includes(user.id) === true) { %>
