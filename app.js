@@ -217,10 +217,10 @@ db.set(`kbotlar.${req.user.id}.${ID}`, db.fetch(`botlar.${ID}`))
 
 res.redirect("/kullanici/"+req.params.userID+"/panel");
 
-client.channels.get(client.ayarlar.kayıt).send(`\`${req.user.username}#${req.user.discriminator}\` Just Added Bot: \`${sistem.username}#${sistem.discriminator}\` To System List 🎉`)
+client.channels.get(client.ayarlar.kayıt).send(`\`${req.user.username}#${req.user.discriminator}\` Just Added Bot: \`${sistem.username}#${sistem.discriminator}\` To Pending System List 🎉`)
 
 if (client.users.has(db.fetch(`botlar.${ID}.ownerid`)) === true) {
-client.users.get(db.fetch(`botlar.${ID}.ownerid`)).send(`Your Bot: \`${db.fetch(`botlar.${ID}.name`)}\` Has Been Added To System List & Are Now Waiting To Be Approved! 🎉`)
+client.users.get(db.fetch(`botlar.${ID}.ownerid`)).send(`Your Bot: \`${db.fetch(`botlar.${ID}.name`)}\` Has Been Added To The Pending System List 🎉`)
 }
 
 }})
@@ -505,7 +505,7 @@ db.set(`botlar.${id}.status`, 'Approved')
 
 res.redirect("/yetkili")
 
-client.channels.get(client.ayarlar.kayıt).send(`Owner Name: \`${db.fetch(`botlar.${id}.owner`)}\` Just Added Bot:  \`${db.fetch(`botlar.${id}.name`)}\` Got Approved & Added On Website!`)
+client.channels.get(client.ayarlar.kayıt).send(`\`${db.fetch(`botlar.${id}.owner`)}\` Bot: \`${db.fetch(`botlar.${id}.name`)}\` Got Approved by: \`${req.user.username}#${req.user.discriminator}\` Are Added On Website!`)
 
 if (client.users.has(db.fetch(`botlar.${id}.owner`)) === true) {
 client.users.get(db.fetch(`botlar.${id}.ownerid`)).send(`\`${db.fetch(`botlar.${id}.name`)}\` Your bot has been approved! https://discords-bot-list.glitch.me/bot/${db.fetch(`botlar.${id}.id`)}`)
@@ -521,7 +521,7 @@ db.set(`botlar.${id}.status`, 'Pending')
 
 res.redirect("/yetkili")
 
-client.channels.get(client.ayarlar.kayıt).send(`Administrator Name: \`${req.user.username}#${req.user.discriminator}\` Owner Name: \`${db.fetch(`botlar.${id}.owner`)}\` Just Added The Bot: \`${db.fetch(`botlar.${id}.name`)}\`  On standby!`)
+client.channels.get(client.ayarlar.kayıt).send(`\`${db.fetch(`botlar.${id}.owner`)}\` Bot: \`${db.fetch(`botlar.${id}.name`)}\` Added It On standby By: \`${req.user.username}#${req.user.discriminator}\``)
 
 if (client.users.has(db.fetch(`botlar.${id}.ownerid`)) === true) {
 client.users.get(db.fetch(`botlar.${id}.ownerid`)).send(`\`${db.fetch(`botlar.${id}.name`)}\` Your bot is under Review!`)
