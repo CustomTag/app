@@ -20,14 +20,14 @@ exports.run = async (client, message, args) => {
   
   if(!client.users.get(args[0]).bot) {
 		const embed = new Discord.RichEmbed()
-			.setDescription(`My dear, this person is not a boat, what's the head ?!`)
+			.setDescription(`My dear, this person is not a boat, what's the head?!`)
 			.setColor(client.ayarlar.color)
 		message.channel.send({embed})
 		return
 	}
   
 	if (db.has('botlar')) {
-			if (Object.keys(db.fetch('botlar')).includes(args[0]) === false)  return message.reply("My dear, my dear, the bot that wrote the ID is missing in the system!")
+			if (Object.keys(db.fetch('botlar')).includes(args[0]) === false)  return message.reply("My dear, the bot that wrote the ID is missing in the system!")
 	}
   
   if (db.has('botlar')) {

@@ -17,7 +17,7 @@ exports.run = async (client, msg, args) => {
       var e = JSON.parse(body).library
       var f = `${JSON.parse(body).owner} (${JSON.parse(body).ownerid})`
       var g = JSON.parse(body).kisa_aciklama
-      var h = JSON.parse(body).etiketler
+      var h = JSON.parse(body).labels
       if(JSON.parse(body).destek_sunucusu === 'Unspecified') {
         var i = 'Unspecified'
       } else {
@@ -48,8 +48,8 @@ exports.run = async (client, msg, args) => {
     const embed = new Discord.RichEmbed()
     .setColor("RANDOM")
     .setThumbnail(c)
-    .setTitle(`Discord Bots - Bot Search`)
-    .setDescription(`${a} (${b}) [${n} oy]`, c)
+    .setTitle(`Discord - Bot Search`)
+    .setDescription(`${a} (${b}) [${n} votes]`, c)
     .addField('Prefix', d)
     .addField('Owner', f)
     .addField('Short Description', g)
