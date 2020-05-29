@@ -38,7 +38,7 @@ exports.run = async (client, msg, args) => {
       var n = JSON.parse(body).vote_sayisi
     }
       
-      request(`https://fiboxbotlist.glitch.me/api/tumbotlar`, function (errorr, responsee, bodyy) {
+      request(`https://www.discords-bot-list.cf/api/tumbotlar`, function (errorr, responsee, bodyy) {
     if (errorr) return msg.channel.send('Hata:', errorr);
     else if (!errorr) {
     if (bodyy.includes(args[0])=== false) return msg.reply("There is no bot in this ID system!")
@@ -69,7 +69,7 @@ exports.conf = {
   guildOnly: false,
   aliases: ['search-bot', 'find-bot', 'botara'],
   permLevel: 0,
-  kategori: 'genel'
+  kategori: 'general'
 };
 
 exports.help = {

@@ -54,7 +54,7 @@ exports.conf = {
 	guildOnly: true,
 	aliases: [],
 	permLevel: 4,
-	kategori: 'producer'
+	kategori: 'owner'
 }
 
 exports.help = {
