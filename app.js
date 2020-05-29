@@ -505,10 +505,10 @@ db.set(`botlar.${id}.status`, 'Approved')
 
 res.redirect("/yetkili")
 
-client.channels.get(client.ayarlar.kayıt).send(`\`${db.fetch(`botlar.${id}.owner`)}\` Bot: \`${db.fetch(`botlar.${id}.name`)}\` Got Approved by: \`${req.user.username}#${req.user.discriminator}\` Are Added On Website!`)
+client.channels.get(client.ayarlar.kayıt).send(`\`${db.fetch(`botlar.${id}.owner`)}\` Bot: \`${db.fetch(`botlar.${id}.name`)}\` Got Approved by: \`${req.user.username}#${req.user.discriminator}\` The bot is added on the website!`)
 
 if (client.users.has(db.fetch(`botlar.${id}.owner`)) === true) {
-client.users.get(db.fetch(`botlar.${id}.ownerid`)).send(`\`${db.fetch(`botlar.${id}.name`)}\` Your bot has been approved! https://discords-bot-list.glitch.me/bot/${db.fetch(`botlar.${id}.id`)}`)
+client.users.get(db.fetch(`botlar.${id}.ownerid`)).send(`\`${db.fetch(`botlar.${id}.name`)}\` Your bot has been approved! https://www.discords-bot-list.cf/bot/${db.fetch(`botlar.${id}.id`)}`)
 }
 
 });
