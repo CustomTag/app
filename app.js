@@ -46,7 +46,7 @@ process.nextTick(() => done(null, profile));
 
 app.use(session({
 secret: '123',
-resave: true,
+resave: false,
 saveUninitialized: false,
 }));
 
