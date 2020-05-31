@@ -217,10 +217,10 @@ db.set(`kbotlar.${req.user.id}.${ID}`, db.fetch(`botlar.${ID}`))
 
 res.redirect("/kullanici/"+req.params.userID+"/panel");
 
-client.channels.get(client.ayarlar.kayıt).send(`\`${req.user.username}#${req.user.discriminator}\` Just Added Bot: \`${sistem.username}#${sistem.discriminator}\` To Pending System List 🎉`)
+client.channels.get(client.ayarlar.kayıt).send(`\`${req.user.username}#${req.user.discriminator}\` Just Added Bot: \`${sistem.username}#${sistem.discriminator}\` To Pending List`)
 
 if (client.users.has(db.fetch(`botlar.${ID}.ownerid`)) === true) {
-client.users.get(db.fetch(`botlar.${ID}.ownerid`)).send(`Your Bot: \`${db.fetch(`botlar.${ID}.name`)}\` Has Been Added To The Pending System List 🎉`)
+client.users.get(db.fetch(`botlar.${ID}.ownerid`)).send(`Your Bot: \`${db.fetch(`botlar.${ID}.name`)}\` Has Been Added To The Pending List`)
 }
 
 }})
@@ -391,7 +391,7 @@ db.set(`botlar.${ID}.destek`, ayar['botdestek'])
 
 res.redirect("/kullanici/"+req.params.userID+"/panel");
 
-client.channels.get(client.ayarlar.kayıt).send(`\`${req.user.username}#${req.user.discriminator}\` Just Edited Bot: \`${sistem.username}#${sistem.discriminator}\``)
+client.channels.get(client.ayarlar.kayıt).send(`Owner: \`${req.user.username}#${req.user.discriminator}\` Just Edited Bot: \`${sistem.username}#${sistem.discriminator}\``)
 
 if (client.users.has(req.user.id) === true) {
 client.users.get(req.user.id).send(`\`${sistem.username}#${sistem.discriminator}\` Your bot's profile / application has been successfully edited!`)
@@ -413,11 +413,11 @@ let ayar = req.body
 
 if(ayar['mesaj-1']) {
 db.push(`botlar.${req.params.botID}.raporlar`, JSON.parse(`{ "rapor":"${ayar['mesaj-1']}" }`))
-client.channels.get('714504798560583701').send(`\`${req.user.username}#${req.user.discriminator}\` User Name: \`${db.fetch(`botlar.${req.params.botID}.name`)}\` Reported bot: \n**Reason:** \`${ayar['mesaj-1']}\``)
+client.channels.get('714504798560583701').send(`User Name: \`${req.user.username}#${req.user.discriminator}\` Reported bot: \`${db.fetch(`botlar.${req.params.botID}.name`)}\` For Reason: \n**Reason:** \`${ayar['mesaj-1']}\``)
 }
 if(ayar['mesaj-2']) {
 db.push(`botlar.${req.params.botID}.raporlar`, JSON.parse(`{ "rapor":"${ayar['mesaj-2']}" }`))
-client.channels.get('714504798560583701').send(`\`${req.user.username}#${req.user.discriminator}\` User Name: \`${db.fetch(`botlar.${req.params.botID}.name`)}\` Reported bot: \n**Reason:** \`${ayar['mesaj-2']}\``)
+client.channels.get('714504798560583701').send(`User Name: \`${req.user.username}#${req.user.discriminator}\` Reported bot: \`${db.fetch(`botlar.${req.params.botID}.name`)}\` For Reason: \n**Reason:** \`${ayar['mesaj-2']}\``)
 }
 
 res.redirect('/bot/'+req.params.botID);
@@ -505,7 +505,7 @@ db.set(`botlar.${id}.status`, 'Approved')
 
 res.redirect("/yetkili")
 
-client.channels.get(client.ayarlar.kayıt).send(`\`${db.fetch(`botlar.${id}.owner`)}\` Bot: \`${db.fetch(`botlar.${id}.name`)}\` Got Approved by: \`${req.user.username}#${req.user.discriminator}\` The bot is added on the website!`)
+client.channels.get(client.ayarlar.kayıt).send(`Owner: \`${db.fetch(`botlar.${id}.owner`)}\` Bot: \`${db.fetch(`botlar.${id}.name`)}\` Admin: \`${req.user.username}#${req.user.discriminator}\` Approved The Bot!`)
 
 if (client.users.has(db.fetch(`botlar.${id}.owner`)) === true) {
 client.users.get(db.fetch(`botlar.${id}.ownerid`)).send(`\`${db.fetch(`botlar.${id}.name`)}\` Your bot has been approved! https://www.discords-bot-list.cf/bot/${db.fetch(`botlar.${id}.id`)}`)
@@ -521,7 +521,7 @@ db.set(`botlar.${id}.status`, 'Pending')
 
 res.redirect("/yetkili")
 
-client.channels.get(client.ayarlar.kayıt).send(`\`${db.fetch(`botlar.${id}.owner`)}\` Bot: \`${db.fetch(`botlar.${id}.name`)}\` Added It On standby By: \`${req.user.username}#${req.user.discriminator}\``)
+client.channels.get(client.ayarlar.kayıt).send(`Owner: \`${db.fetch(`botlar.${id}.owner`)}\` Bot: \`${db.fetch(`botlar.${id}.name`)}\` Added It On Standby By: \`${req.user.username}#${req.user.discriminator}\``)
 
 if (client.users.has(db.fetch(`botlar.${id}.ownerid`)) === true) {
 client.users.get(db.fetch(`botlar.${id}.ownerid`)).send(`\`${db.fetch(`botlar.${id}.name`)}\` Your bot is under Review!`)
@@ -542,10 +542,10 @@ app.post("/botyonetici/reddet/:botID", checkAuth, (req, res) => {
   
   res.redirect("/yetkili")
   
-  client.channels.get(client.ayarlar.kayıt).send(`Admin: \`${req.user.username}#${req.user.discriminator}\` Owner Name: \`${db.fetch(`botlar.${id}.owner`)}\` Bot Name: \`${db.fetch(`botlar.${id}.name`)}\` Bot Was rejected due to!: \`${req.body['red-sebep']}\``)
+  client.channels.get(client.ayarlar.kayıt).send(`Admin: \`${req.user.username}#${req.user.discriminator}\` declined Bot: \`${db.fetch(`botlar.${id}.name`)}\` Bot Was declined due to!: \`${req.body['red-sebep']}\``)
   
   if (client.users.has(db.fetch(`botlar.${id}.ownerid`)) === true) {
-  client.users.get(db.fetch(`botlar.${id}.ownerid`)).send(`Your Bot: \`${db.fetch(`botlar.${id}.name`)}\` Was rejected due to: \`${req.body['red-sebep']}\``)
+  client.users.get(db.fetch(`botlar.${id}.ownerid`)).send(`Your Bot: \`${db.fetch(`botlar.${id}.name`)}\` Was declined due to: \`${req.body['red-sebep']}\``)
   }
 
   });
