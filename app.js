@@ -542,7 +542,7 @@ app.post("/botyonetici/reddet/:botID", checkAuth, (req, res) => {
   
   res.redirect("/yetkili")
   
-  client.channels.get(client.ayarlar.kayıt).send(`Admin: \`${req.user.username}#${req.user.discriminator}\` declined Bot: \`${db.fetch(`botlar.${id}.name`)}\` Bot Was declined due to!: \`${req.body['red-sebep']}\``)
+  client.channels.get(client.ayarlar.kayıt).send(`Admin: \`${req.user.username}#${req.user.discriminator}\` declined Bot: \`${db.fetch(`botlar.${id}.name`)}\` Reason: \`${req.body['red-sebep']}\``)
   
   if (client.users.has(db.fetch(`botlar.${id}.ownerid`)) === true) {
   client.users.get(db.fetch(`botlar.${id}.ownerid`)).send(`Your Bot: \`${db.fetch(`botlar.${id}.name`)}\` Was declined due to: \`${req.body['red-sebep']}\``)
