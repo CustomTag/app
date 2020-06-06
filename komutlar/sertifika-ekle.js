@@ -34,8 +34,8 @@ exports.run = async (client, message, args) => {
   if (db.has(`botlar.${args[0]}.certificate`) === true) return message.reply("Dear, there are already Certified bots with this ID.")
   }
   
-  message.channel.send(`Successfully Added BotID: \`${args[0]}\` To Certificate!`)
-  client.channels.get(client.ayarlar.kayıt).send(`\`${db.fetch(`botlar.${args[0]}.owner`)}\` Just Added Bot: \`${db.fetch(`botlar.${args[0]}.name`)}\` Just Got Certificate By: \`${message.author.tag}\``)
+  message.channel.send(`Successfully Added BotID: \`${args[0]}\` To Certificate System List!`)
+  client.channels.get(client.ayarlar.kayıt).send(`Admin: \`${message.author.tag}\` Just Added Bot: \`${db.fetch(`botlar.${args[0]}.name`)}\` To Certificate System List!`)
 	
   db.set(`botlar.${args[0]}.certificate`, "Bulunuyor")
   
@@ -51,6 +51,6 @@ exports.conf = {
 
 exports.help = {
 	name: 'certificate',
-	description: 'Makes the bot in the written ID certified.',
+	description: 'Makes the bot in the written ID certified!',
 	usage: 'certificate [ID]'
 }
