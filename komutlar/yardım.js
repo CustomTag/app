@@ -5,7 +5,7 @@ exports.run = async (client, message, args) => {
   var embed = new Discord.RichEmbed()
   .setColor('RANDOM')
   .setAuthor("Discord bot list Page", client.user.avatarURL)
-  .addField("Website Creator","Discords bot list, Created by CustomTag#0001")
+  .addField("Website Creator","CustomTag#0001")
 	.addField("Add a bot?","[Click here](https://www.discords-bot-list.cf/botekle)")
   .addField("Hosted by","[Glitch](https://glitch.com)")
   .addField("Website","[Click here](https://www.discords-bot-list.cf)")

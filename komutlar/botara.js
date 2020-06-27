@@ -59,7 +59,7 @@ exports.run = async (client, msg, args) => {
     .addField("Website", j)
     .addField('Github', k)
     .addField('Support Server', i)
-    .setFooter('https://www.discords-bot-list.cf/ is looking for bots in the system.')
+    .setFooter('https://www.discords-bot-list.cf/ is looking for bots in the system!')
     msg.channel.send({embed})
   })
 };
@@ -67,7 +67,7 @@ exports.run = async (client, msg, args) => {
 exports.conf = {
   enabled: true,
   guildOnly: true,
-  aliases: ['search-bot', 'find-bot', 'botara'],
+  aliases: ['search-bot', 'find-bot', 'search'],
   permLevel: 0,
   kategori: 'general'
 };
