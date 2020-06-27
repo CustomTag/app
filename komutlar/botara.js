@@ -66,7 +66,7 @@ exports.run = async (client, msg, args) => {
 
 exports.conf = {
   enabled: true,
-  guildOnly: false,
+  guildOnly: true,
   aliases: ['search-bot', 'find-bot', 'botara'],
   permLevel: 0,
   kategori: 'general'
