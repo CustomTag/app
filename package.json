@@ -2,7 +2,7 @@
   "//1": "Discord Bot List there you can add our own discord bots!",
   "//2": "https://docs.npmjs.com/files/package.json",
   "//3": "updating this file will download and update your packages",
-  "name": "discords-bot-list",
+  "name": "discord4bots",
   "version": "0.0.1",
   "description": "Discord Bot List for my new Server!",
   "main": "app.js",
