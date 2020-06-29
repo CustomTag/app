@@ -12,7 +12,7 @@ client.tags = require('html-tags');
 let profil = JSON.parse(fs.readFileSync('./profil.json', 'utf8'))
 client.profil = profil
 
-client.ayarlar = {
+client.settings = {
   "prefix": "?", //prefix
   "oauthSecret": "rXncM4hPEgVyoQhWyuqBfXHMr3OZRN2l", // bot secreti
 	"callbackURL": "https://www.discords-bot-list.cf/callback", // change the urls of my site with "/ callback"!
@@ -34,7 +34,7 @@ client.on('ready', async () => {
   
    require("./app.js")(client);
   
-  client.user.setActivity(`${client.ayarlar.prefix}help`, { type:"PLAYING" })
+  client.user.setActivity(`${client.settings.prefix}help`, { type:"PLAYING" })
   
   console.log("Active!")
 });

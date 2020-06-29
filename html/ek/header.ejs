@@ -6,16 +6,16 @@
 <meta name="msapplication-TileImage" content="<%=bot.user.avatarURL%>">
 <meta name="theme-color" content="#4679FF">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="Discord Bot List is a Website there you can add our own discord bot then get more to use it!">
-<meta name="keywords" content="bot, botlar, sunucu, discord, botlar English, English">
-<meta property="og:title" content="Discord Bots List" />
+<meta name="description" content="Discord4Bots is a Website there you can add our own discord bot then get more to use it!">
+<meta name="keywords" content="bot, bots, sunucu, discord, bots English">
+<meta property="og:title" content="Discord4Bots" />
 <meta property="og:type" content="Website" />
 <meta property="og:url" content="" />
-<meta property="og:description" content="Discord Bot List is a Website there you can add our own discord bot then get more to use it!" />
+<meta property="og:description" content="Discord4Bots is a Website there you can add our own discord bot then get more to use it!" />
 <meta property="og:image" content="<%=bot.user.avatarURL%>" />
-<meta property="og:site_name" content="Discord Bot List">
-<meta itemprop="name" content="DBL">
-<meta itemprop="description" content="Discord Bot List is a Website there you can add our own discord bot then get more to use it!">
+<meta property="og:site_name" content="Discord4Bots">
+<meta itemprop="name" content="D4B">
+<meta itemprop="description" content="Discord4Bots is a Website there you can add our own discord bot then get more to use it!">
 <meta itemprop="image" content="<%=bot.user.avatarURL%>">
 
   <meta charset="UTF-8">
@@ -40,7 +40,7 @@
   <link rel="stylesheet" href="/css/genel.css" />
 
 	<link rel="icon" href="<%=bot.user.avatarURL%>">
-	<title>Discord Bot List</title>
+	<title>Discord4Bots</title>
   <style>
     .cities {
     background-color: black;
@@ -140,21 +140,21 @@
      <a id="top" name="top"></a>
  
 <div class="topnav" id="myTopnav">
-			<a href="/" class="active">Discord Bot List</a>
-      <a href="/botlar">bots</a>
+			<a href="/" class="active">Discord4Bots</a>
+      <a href="/bots">bots</a>
 			<a href="/api">API</a>
 			<a href="/blog" onclick="alert('The blog does not yet exist. It is under construction.')">Blog</a>
-			<a href="/hakkimizda">About Us</a>
+			<a href="/about">About Us</a>
 			<% if (!user) { %>
-      <a href="/giris">Login</a>
+      <a href="/login">Login</a>
       <% } else { %>
-      <a href="/botekle">Add Bot</a>
-			<a href="/cikis">Sign out</a>
-			<a href="/kullanici/<%=user.id%>">
+      <a href="/addbot">Add Bot</a>
+			<a href="/logout">Sign out</a>
+			<a href="/user/<%=user.id%>">
       <img src="https://cdn.discordapp.com/avatars/<%=user.id%>/<%=user.avatar%>.png?size=32" width="25" height="25" class="d-inline-block align-middle rounded-circle" alt="User Avatar">
       <%=user.username%>
       </a>
-      <% if (bot.yetkililer.includes(user.id) === true) { %>
+      <% if (bot.authorities.includes(user.id) === true) { %>
       <a href="/yetkili">Authorized Panel</a>
       <% } %>
       <% } %>	

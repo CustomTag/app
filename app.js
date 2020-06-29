@@ -36,8 +36,8 @@ done(null, obj);
 
 passport.use(new Strategy({
 clientID: client.user.id,
-clientSecret: client.ayarlar.oauthSecret,
-callbackURL: client.ayarlar.callbackURL,
+clientSecret: client.settings.oauthSecret,
+callbackURL: client.settings.callbackURL,
 scope: ["identify"]
 },
 (accessToken, refreshToken, profile, done) => {
@@ -68,7 +68,7 @@ extended: true
 function checkAuth(req, res, next) {
 if (req.isAuthenticated()) return next();
 req.session.backURL = req.url;
-res.redirect("/giris");
+res.redirect("/login");
 }
 
 const renderTemplate = (res, req, template, data = {}) => {
@@ -80,7 +80,7 @@ user: req.isAuthenticated() ? req.user : null
 res.render(path.resolve(`${templateDir}${path.sep}${template}`), Object.assign(baseData, data));
 };
 
-app.get("/giris", (req, res, next) => {
+app.get("/login", (req, res, next) => {
 if (req.session.backURL) {
 req.session.backURL = req.session.backURL;
 } else if (req.headers.referer) {
@@ -95,7 +95,7 @@ next();
 },
 passport.authenticate("discord"));
 
-app.get("/baglanti-hatası", (req, res) => {
+app.get("/connection-error", (req, res) => {
 renderTemplate(res, req, "autherror.ejs");
 });
 
@@ -109,7 +109,7 @@ res.redirect("/");
 }
 });
 
-app.get("/cikis", function(req, res) {
+app.get("/exit", function(req, res) {
 req.session.destroy(() => {
 req.logout();
 res.redirect("/");
@@ -120,48 +120,48 @@ app.get("/", (req, res) => {
 renderTemplate(res, req, "index.ejs");
 });
   
-  app.get("/alim", (req, res) => { renderTemplate (res, req, "alim.ejs") });
+  app.get("/purchase", (req, res) => { renderTemplate (res, req, "purchase.ejs") });
 
-app.get("/sertifika", (req, res) => {
+app.get("/certificate", (req, res) => {
 
-renderTemplate (res, req, "sertifika.ejs");
+renderTemplate (res, req, "certificate.ejs");
 });
 
-app.get("/hakkimizda", (req, res) => {
+app.get("/about", (req, res) => {
   
-renderTemplate(res, req, "hakkımızda.ejs");
+renderTemplate(res, req, "about.ejs");
 });
 
-app.get("/botlar", (req, res) => {
+app.get("/bots", (req, res) => {
  
-renderTemplate(res, req, "botlar.ejs")
+renderTemplate(res, req, "bots.ejs")
 });
 
-app.get("/botyonetim/hata", (req, res) => {
+app.get("/management/error", (req, res) => {
   
-renderTemplate(res, req, "hataa.ejs")
+renderTemplate(res, req, "fault.ejs")
 });
 
-app.get("/botekle/hata", (req, res) => {
+app.get("/addbot/error", (req, res) => {
  
-renderTemplate(res, req, "hataaa.ejs")
+renderTemplate(res, req, "failed.ejs")
 });
 
-app.get("/botekle", checkAuth, (req, res) => {
+app.get("/addbot", checkAuth, (req, res) => {
  
-renderTemplate(res, req, "botekle.ejs")
+renderTemplate(res, req, "addbot.ejs")
 });
 
-app.post("/botekle", checkAuth, (req, res) => {
+app.post("/addbot", checkAuth, (req, res) => {
 
 let ayar = req.body
 
-if (ayar === {} || !ayar['botid'] || !ayar['prefix'] || !ayar['library'] || !ayar['kisa-aciklama'] || !ayar['uzun-aciklama'] || !ayar['etikett']) return res.redirect('/botyonetim/hata')
+if (ayar === {} || !ayar['botid'] || !ayar['prefix'] || !ayar['library'] || !ayar['kisa-aciklama'] || !ayar['uzun-aciklama'] || !ayar['label']) return res.redirect('/management/error')
 
 let ID = ayar['botid']
 
-if (db.has('botlar')) {
-    if (Object.keys(db.fetch('botlar')).includes(ID) === true) return res.redirect('/botekle/hata')
+if (db.has('bots')) {
+    if (Object.keys(db.fetch('bots')).includes(ID) === true) return res.redirect('/botekle/hata')
 }
   
   var tag = ''
