@@ -88,8 +88,8 @@ fs.readdir(`./komutlar/`, (err, files) => {
 client.on("message", async message => {
 
 	if (message.author.bot) return
-	if (!message.content.startsWith('?')) return
-	var command = message.content.split(' ')[0].slice('?'.length)
+	if (!message.content.startsWith('c!')) return
+	var command = message.content.split(' ')[0].slice('c!'.length)
 	var args = message.content.split(' ').slice(1)
 	var cmd = ''
 
