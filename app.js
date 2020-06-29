@@ -605,7 +605,7 @@ certificate: db.fetch(`bots.${id}.certificate`) || 'no'
   
 app.get("/api/bots/:botID/votes/:userID", (req, res) => {
   var id = req.params.botID
-  var userr = req.params.userID
+  var user = req.params.userID
 
   if (db.has('bots')) {
       if (Object.keys(db.fetch('bots')).includes(id) === false) {
@@ -616,7 +616,7 @@ app.get("/api/bots/:botID/votes/:userID", (req, res) => {
   }
  
    res.json({
-     vote_status: db.has(`votes.${id}.${userr}`) ? `Voted today` : null,
+     vote_status: db.has(`votes.${id}.${user}`) ? `Voted today` : null,
      number_of_votes: db.fetch(`bots.${id}.vote`) || 0
    });
 
