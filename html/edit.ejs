@@ -64,12 +64,12 @@
      </div>
      
      <div><i aria-hidden="true"></i>Bot OwnerID</div>
-     <input type="text" style="color:lightgrey; text-align: center;" name="sahip" id="sahip"
+     <input type="text" style="color:lightgrey; text-align: center;" name="owner" id="owner"
                   value="<%=user.id%>" disabled>
      
      <div><i aria-hidden="true"></i>Short Description</div>
 		<div>
-      <input type="text" style="text-align: center; height:60px" name="kisa-aciklama" id="kisa-aciklama"
+      <input type="text" style="text-align: center; height:60px" name="short-description" id="short-description"
                 value="<%=bot.ayar.fetch(`bots.${id}.ShortDesc`)%>" maxlength="50" required="required">
      </div>
      <br>
@@ -89,7 +89,7 @@
         <%= //bot.ayar.fetch(`${id}.longexplanation`) %>
         </code></pre>-->
       
-      <textarea style="height:150px; background-color:#222; color:#fff;" name="uzun-aciklama" id="uzun-aciklama" value="<%=bot.ayar.fetch(`${id}.longexplanation`)%>" minlength="50" required="required">      
+      <textarea style="height:150px; background-color:#222; color:#fff;" name="long-description" id="long-description" value="<%=bot.ayar.fetch(`${id}.longexplanation`)%>" minlength="50" required="required">      
         <%= bot.ayar.fetch(`bots.${id}.longexplanation`) %>
       </textarea>
      </div>
@@ -152,12 +152,12 @@
      <br>
      <div><i aria-hidden="true"></i>Support Server URL</div>
 		<div>
-      <% if(!bot.ayar.has(`bots.${id}.destek`)) { %>
-      <input type="url" style="text-align: center;" name="botdestek" id="botdestek"
+      <% if(!bot.ayar.has(`bots.${id}.support`)) { %>
+      <input type="url" style="text-align: center;" name="botsupport" id="botsupport"
                 placeholder="If you have a bot, write the Discord support server URL.">
                 <% } else { %>
-                    <input type="url" style="text-align: center;" name="botdestek" id="botdestek"
-                value="<%=bot.ayar.fetch(`bots.${id}.destek`)%>">
+                    <input type="url" style="text-align: center;" name="botsupport" id="botsupport"
+                value="<%=bot.ayar.fetch(`bots.${id}.support`)%>">
                 <% } %>
      </div>
    

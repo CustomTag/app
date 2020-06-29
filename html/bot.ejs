@@ -3,30 +3,30 @@
 <div class="post post-single">
                   <br>
                         <div class="post-meta">
-                            <div align="center"><span class="Owner"><i class="fa fa-clock-o"></i> <strong>Owner: </strong><%=bot.ayar.fetch(`botlar.${id}.owner`)%></span><a style="color:#222"> | </a>
-                            <span class="Vote"><a class="Votes"><i class="fa fa-star"></i> <%=bot.ayar.fetch(`botlar.${id}.vote`) || 0%> Votes</a></span>
-                        <% if(bot.ayar.has(`botlar.${id}.certificate`) === true) { %>
+                            <div align="center"><span class="Owner"><i class="fa fa-clock-o"></i> <strong>Owner: </strong><%=bot.ayar.fetch(`bots.${id}.owner`)%></span><a style="color:#222"> | </a>
+                            <span class="Vote"><a class="Votes"><i class="fa fa-star"></i> <%=bot.ayar.fetch(`bots.${id}.vote`) || 0%> Votes</a></span>
+                        <% if(bot.ayar.has(`bots.${id}.certificate`) === true) { %>
                          | <span><img src="https://cdn2.iconfinder.com/data/icons/rewards-1/512/medal-512.png" width="20px" height="20px"> <a style="color:darkorange">Certified Bot</a></span>
                          <% } %>
                           </div>
                         </div><br>
                         <div class="post-thumbnail">
-                            <div align="center"><img src="<%=bot.ayar.fetch(`botlar.${id}.avatar`)%>"
-                                width="300" height="300" class="Bot avatar"><h3 class="Bot name"><%=bot.ayar.fetch(`botlar.${id}.name`)%></h3><h5 class="ShortDesc"><%=bot.ayar.fetch(`botlar.${id}.ShortDesc`)%></h5></div>
+                            <div align="center"><img src="<%=bot.ayar.fetch(`bots.${id}.avatar`)%>"
+                                width="300" height="300" class="Bot avatar"><h3 class="Bot name"><%=bot.ayar.fetch(`bots.${id}.name`)%></h3><h5 class="ShortDesc"><%=bot.ayar.fetch(`bots.${id}.ShortDesc`)%></h5></div>
                           
         <div alig ="left">
-          <button class="botprefix btn btn-default"><%=bot.ayar.fetch(`botlar.${id}.prefix`)%></button>
+          <button class="botprefix btn btn-default"><%=bot.ayar.fetch(`bots.${id}.prefix`)%></button>
           
-      <%if (bot.ayar.has(`botlar.${id}.destek`)){%>
-                 <a href="<%=bot.ayar.fetch(`botlar.${id}.destek`)%>"><button class="btn btn-warning destek">Support Server</button></a>
+      <%if (bot.ayar.has(`bots.${id}.destek`)){%>
+                 <a href="<%=bot.ayar.fetch(`bots.${id}.destek`)%>"><button class="btn btn-warning destek">Support Server</button></a>
             <%} %>
           
-          <%if (bot.ayar.has(`botlar.${id}.site`)){%>
-                 <a href="<%=bot.ayar.fetch(`botlar.${id}.site`)%>"><button class="btn btn-warning website">Website</button></a>
+          <%if (bot.ayar.has(`bots.${id}.site`)){%>
+                 <a href="<%=bot.ayar.fetch(`bots.${id}.site`)%>"><button class="btn btn-warning website">Website</button></a>
             <%} %>
           
-          <%if (bot.ayar.has(`botlar.${id}.github`)){%>
-                 <a href="<%=bot.ayar.fetch(`botlar.${id}.github`)%>"><button class="btn btn-warning github">Github</button></a>
+          <%if (bot.ayar.has(`bots.${id}.github`)){%>
+                 <a href="<%=bot.ayar.fetch(`bots.${id}.github`)%>"><button class="btn btn-warning github">Github</button></a>
             <%} %>
           </div>
       <div align="center">                    
@@ -40,7 +40,7 @@
         <a href="/bot/<%=id%>/rapor"><button class="btn btn-danger rapor"><i aria-hidden="true"></i>Report</button></a>
         
           <% if (user) { %>
-          <% if(bot.ayar.fetch(`botlar.${id}.ownerid`) === user.id) { %>
+          <% if(bot.ayar.fetch(`bots.${id}.ownerid`) === user.id) { %>
           <a href="/kullanici/<%=user.id%>/panel/<%=id%>/duzenle"><button class="btn btn-primary duzenle"><i aria-hiddden="true"></i>Edit</button></a>
         <a href="/kullanici/<%=user.id%>/panel/<%=id%>/sil"><button class="sil btn btn-danger"><i aria-hidden="true"></i>Clear</button></a>
           <% } %>
@@ -49,27 +49,27 @@
                 </div>  
   </div>
   <br>
-  <div class="uzunaciklama" class="jimbotron" align="center"><br>
-    <% if (bot.ayar.has(`botlar.${id}.uzunaciklama`) || bot.ayar.fetch(`botlar.${id}.uzunaciklama`) !== undefined || bot.ayar.fetch(`botlar.${id}.uzunaciklama`) !== null) { %>
+  <div class="longexplanation" class="jimbotron" align="center"><br>
+    <% if (bot.ayar.has(`bots.${id}.longexplanation`) || bot.ayar.fetch(`bots.${id}.longexplanation`) !== undefined || bot.ayar.fetch(`bots.${id}.longexplanation`) !== null) { %>
 <% var xx %>
 <% for (var ii = 0; ii < bot.tags.length; ii++) { %>
-  <% if(bot.ayar.fetch(`botlar.${id}.uzunaciklama`).includes(bot.tags[ii]) === false) {%>
+  <% if(bot.ayar.fetch(`bots.${id}.longexplanation`).includes(bot.tags[ii]) === false) {%>
     <% xx = false %>
  <% } %>
-    <% if (bot.ayar.fetch(`botlar.${id}.uzunaciklama`).includes(bot.tags[ii]) === true) { %>
+    <% if (bot.ayar.fetch(`bots.${id}.longexplanation`).includes(bot.tags[ii]) === true) { %>
      <% x = true %>
     <% } %>
 <% } %>
 
 <% if (x === false) { %>
-  <p><%=bot.ayar.fetch(`botlar.${id}.uzunaciklama`)%></p>
+  <p><%=bot.ayar.fetch(`bots.${id}.longexplanation`)%></p>
 <% } else if (x === true) { %>
-    <% let $ = bot.htmll.load(bot.ayar.fetch(`botlar.${id}.uzunaciklama`)) %>
+    <% let $ = bot.htmll.load(bot.ayar.fetch(`bots.${id}.longexplanation`)) %>
   <%- $.html() %>
     <% } %>
     
     <% } else { %>
-    <p>Here's a Discord bot!</p>
+    <p>Here is all Discord4Bots</p>
     <% } %>
     
   <br></div>
@@ -78,11 +78,11 @@
           <div class="post-actions">
                   <div class="post-tags">
                     <div align="center">
-                      <%if(Array.isArray(bot.ayar.fetch(`botlar.${id}.tag`)) === false) {%>
-                      <span class="etiket btn-btn-default"><a><%=bot.ayar.fetch(`botlar.${id}.tag`)%></a></span>
+                      <%if(Array.isArray(bot.ayar.fetch(`bots.${id}.tag`)) === false) {%>
+                      <span class="etiket btn-btn-default"><a><%=bot.ayar.fetch(`bots.${id}.tag`)%></a></span>
                       <% } else { %>
-                      <% for(var xx = 0; xx < bot.ayar.fetch(`botlar.${id}.tag`).length; xx++) {%>
-                      <span class="etiket btn btn-default"><a><%=bot.ayar.fetch(`botlar.${id}.tag`)[xx]%></a></span>
+                      <% for(var xx = 0; xx < bot.ayar.fetch(`bots.${id}.tag`).length; xx++) {%>
+                      <span class="etiket btn btn-default"><a><%=bot.ayar.fetch(`bots.${id}.tag`)[xx]%></a></span>
                     <% }%>
                       <% }%>
                     </div>
