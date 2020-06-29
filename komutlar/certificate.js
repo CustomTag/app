@@ -1,7 +1,8 @@
 const Discord = require('discord.js');
 const db = require('quick.db');
 
-exports.run = async (client, message, args) => {
+exports.run = async (client, message, args, msg) => {
+  let prefix = await db.fetch(`${client.settings.prefix}`)
 	if(!args[0]) {
 		const embed = new Discord.RichEmbed()
 			.setDescription(`You must write an ID!`)
@@ -20,7 +21,7 @@ exports.run = async (client, message, args) => {
   
   if(!client.users.get(args[0]).bot) {
 		const embed = new Discord.RichEmbed()
-			.setDescription(`My dear, this person is not a boat, what's the head?!`)
+			.setDescription(`My dear, this person is not a bot, what's the head?!`)
 			.setColor(client.settings.color)
 		message.channel.send({embed})
 		return

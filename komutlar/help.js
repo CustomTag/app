@@ -1,9 +1,8 @@
 const Discord = require('discord.js');
 const db = require('quick.db')
-const request = require('request')
 
 exports.run = async (client, message, args, msg) => {
-  let prefix = await db.fetch(`${msg.guild.id}.prefix`) || client.settings.prefix
+  let prefix = await db.fetch(`${client.settings.prefix}`)
 	// add your own URLs: D
   var embed = new Discord.RichEmbed()
   .setColor('RANDOM')

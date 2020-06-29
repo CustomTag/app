@@ -3,7 +3,7 @@ const db = require('quick.db')
 const request = require('request')
 
 exports.run = async (client, msg, args) => {
-    let prefix = await db.fetch(`${msg.guild.id}.prefix`) || client.settings.prefix
+    let prefix = await db.fetch(`${client.settings.prefix}`)
     if(!args[0]) {
       return msg.channel.send(new Discord.RichEmbed().setDescription('Please enter a bot ID!').setColor("RANDOM"))
     }

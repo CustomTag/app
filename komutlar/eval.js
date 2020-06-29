@@ -3,7 +3,8 @@ const util = require('util');
 const tokenwarning = `SyntaxError: Unexpected token`
 const db = require('quick.db');
 
-exports.run = async (client, message, args) => {
+exports.run = async (client, message, args, msg) => {
+  let prefix = await db.fetch(`${client.settings.prefix}`)
 	if(!args[0]) {
 		const embed = new Discord.RichEmbed()
 			.setDescription(`Write code!`)
