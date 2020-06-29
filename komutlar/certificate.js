@@ -5,7 +5,7 @@ exports.run = async (client, message, args) => {
 	if(!args[0]) {
 		const embed = new Discord.RichEmbed()
 			.setDescription(`You must write an ID!`)
-			.setColor(client.ayarlar.color)
+			.setColor(client.settings.color)
 		message.channel.send({embed})
 		return
 	}
@@ -13,7 +13,7 @@ exports.run = async (client, message, args) => {
   if(!client.users.has(args[0])) {
 		const embed = new Discord.RichEmbed()
 			.setDescription(`Invalid ID!`)
-			.setColor(client.ayarlar.color)
+			.setColor(client.settings.color)
 		message.channel.send({embed})
 		return
 	}
@@ -21,23 +21,23 @@ exports.run = async (client, message, args) => {
   if(!client.users.get(args[0]).bot) {
 		const embed = new Discord.RichEmbed()
 			.setDescription(`My dear, this person is not a boat, what's the head?!`)
-			.setColor(client.ayarlar.color)
+			.setColor(client.settings.color)
 		message.channel.send({embed})
 		return
 	}
   
-	if (db.has('botlar')) {
-			if (Object.keys(db.fetch('botlar')).includes(args[0]) === false)  return message.reply("My dear, the bot that wrote the ID is missing in the system!")
+	if (db.has('bots')) {
+			if (Object.keys(db.fetch('bots')).includes(args[0]) === false)  return message.reply("My dear, the bot that wrote the ID is missing in the system!")
 	}
   
-  if (db.has('botlar')) {
-  if (db.has(`botlar.${args[0]}.certificate`) === true) return message.reply("Dear, there are already Certified bots with this ID.")
+  if (db.has('bots')) {
+  if (db.has(`bots.${args[0]}.certificate`) === true) return message.reply("Dear, there are already Certified bots with this ID.")
   }
   
   message.channel.send(`Successfully Added BotID: \`${args[0]}\` To Certificate System List!`)
-  client.channels.get(client.ayarlar.kayıt).send(`Admin: \`${message.author.tag}\` Just Added Bot: \`${db.fetch(`botlar.${args[0]}.name`)}\` To Certificate System List https://www.discords-bot-list.cf/bot/${db.fetch(`botlar.${args[0]}}.id`)}`)
+  client.channels.get(client.ayarlar.kayıt).send(`Admin: \`${message.author.tag}\` Just Added Bot: \`${db.fetch(`bots.${args[0]}.name`)}\` To Certificate System List https://www.discords-bot-list.cf/bot/${db.fetch(`bots.${args[0]}}.id`)}`)
 	
-  db.set(`botlar.${args[0]}.certificate`, "Bulunuyor")
+  db.set(`bots.${args[0]}.certificate`, "Bulunuyor")
   
 };
 

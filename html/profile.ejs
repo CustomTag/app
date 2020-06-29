@@ -6,21 +6,21 @@
        <h3 style="color:#fff"><%=kisi.username%>#<%=kisi.discriminator%></h3>
        <h5 style="color:#fff">Profile Info</h5>
 
-       <% if (bot.profil[kisi.id]) { %>
-        <h6 style="color:#fff">Name: <%= bot.profil[kisi.id].isim || "Unknown" %></h6><br>
-        <h6 style="color:#fff">Age: <%= bot.profil[kisi.id].yas || "Unknown" %></h6><br>
-        <h6 style="color:#fff">Biography: <%= bot.profil[kisi.id].biyo %></h6>
-        <h6 style="color:#ffff">Favorite coding language: <%= bot.profil[kisi.id].favlib || "No" %></h6><br>
-        <h6 style="color:#fff">Coding languages it knows: <%= bot.profil[kisi.id].libs || "No" %></h6>
+       <% if (bot.profile[kisi.id]) { %>
+        <h6 style="color:#fff">Name: <%= bot.profile[kisi.id].isim || "Unknown" %></h6><br>
+        <h6 style="color:#fff">Age: <%= bot.profile[kisi.id].yas || "Unknown" %></h6><br>
+        <h6 style="color:#fff">Biography: <%= bot.profile[kisi.id].biyo %></h6>
+        <h6 style="color:#ffff">Favorite coding language: <%= bot.profile[kisi.id].favlib || "No" %></h6><br>
+        <h6 style="color:#fff">Coding languages it knows: <%= bot.profile[kisi.id].libs || "No" %></h6>
        <% } else { %>
         <h6 style="color:#fff">Profile information is not set.</h6>
        <% } %>
     
-     <a href="/kullanici/<%=kisi.id%>/profil/ayarla" class="btn btn-default" style="background-color:#333; color:#fff">Edit Profile</a>
+     <a href="/user/<%=kisi.id%>/profile/adjust" class="btn btn-default" style="background-color:#333; color:#fff">Edit Profile</a>
 
   </div>
 
-  <h3 style="color:#222"><%=kisi.tag%> Your Discord Bot's</h3>
+  <h3 style="color:#222"><%=kisi.tag%> Your Discord4Bots</h3>
 <br>
   <% if (bot.ayar.has('bots')) { %>
     <% if (bot.ayar.has(`kbots.${user.id}`)) { %>   
@@ -69,12 +69,12 @@
    
    <% } else if (!bot.ayar.has(`kbots.${user.id}`)) {%>
         <h5 style="color:#222">
-          Sorry you didn't add your bot on Discord4Bots!
+          Sorry, you didn't add your bot on Discord4Bots!
    </h5>
    <% } %>
    <% } else if (!bot.ayar.has('bots')) {%>
         <h5 style="color:#222">
-          Sorry you didn't add your bot on Discord4Bots!
+          Sorry, you didn't add your bot on Discord4Bots!
    </h5>
    <% } %>
 

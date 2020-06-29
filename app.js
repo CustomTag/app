@@ -201,7 +201,7 @@ db.set(`bots.${ID}.library`, ayar['library'])
 db.set(`bots.${ID}.owner`, owner.username+"#"+owner.discriminator)
 db.set(`bots.${ID}.ownerid`, owner.id)
 db.set(`bots.${ID}.ShortDesc`, ayar['short-description'])
-db.set(`bots.${ID}.uzunaciklama`, ayar['long-description'])
+db.set(`bots.${ID}.longexplanation`, ayar['long-description'])
 db.set(`bots.${ID}.tag`, tag)
 if (ayar['botsite']) {
 db.set(`bots.${ID}.site`, ayar['botsite'])
@@ -209,18 +209,18 @@ db.set(`bots.${ID}.site`, ayar['botsite'])
 if (ayar['github']) {
 db.set(`bots.${ID}.github`, ayar['github'])
 }
-if (ayar['botdestek']) {
-db.set(`bots.${ID}.destek`, ayar['botdestek'])
+if (ayar['botsupport']) {
+db.set(`bots.${ID}.support`, ayar['botsupport'])
 }
 
 db.set(`kbots.${req.user.id}.${ID}`, db.fetch(`bots.${ID}`))
 
 res.redirect("/user/"+req.params.userID+"/panel");
 
-client.channels.get(client.settings.kayıt).send(`\`${req.user.username}#${req.user.discriminator}\` Just Added Bot: \`${sistem.username}#${sistem.discriminator}\` To Pending List https://www.discords-bot-list.cf/bot/${db.fetch(`botlar.${ID}.id`)}`)
+client.channels.get(client.settings.kayıt).send(`\`${req.user.username}#${req.user.discriminator}\` Just Added Bot: \`${sistem.username}#${sistem.discriminator}\` To Pending List https://www.discords-bot-list.cf/bot/${db.fetch(`bots.${ID}.id`)}`)
 
-if (client.users.has(db.fetch(`botlar.${ID}.ownerid`)) === true) {
-client.users.get(db.fetch(`botlar.${ID}.ownerid`)).send(`Your Bot: \`${db.fetch(`botlar.${ID}.name`)}\` Has Been Added To The Pending List https://www.discords-bot-list.cf/bot/${db.fetch(`botlar.${ID}.id`)}`)
+if (client.users.has(db.fetch(`bots.${ID}.ownerid`)) === true) {
+client.users.get(db.fetch(`bots.${ID}.ownerid`)).send(`Your Bot: \`${db.fetch(`bots.${ID}.name`)}\` Has Been Added To The Pending List https://www.discords-bot-list.cf/bot/${db.fetch(`bots.${ID}.id`)}`)
 }
 
 }})
@@ -307,9 +307,9 @@ app.post("/user/:userID/profile/adjust", checkAuth, (req, res) => {
   "avatar": "https://cdn.discordapp.com/avatars/${kisi.id}/${kisi.avatar}.png"
   }`)
 
-  profile[req.user.id] = veri;
+  profil[req.user.id] = veri;
 
-  var obj = JSON.stringify(profile)
+  var obj = JSON.stringify(profil)
 
   fs.writeFile('./profile.json', obj)
 
@@ -494,7 +494,7 @@ res.redirect('/bot/'+req.params.botID)
 
 app.get("/authorized", checkAuth, (req, res) => {
   if(!client.authorities.includes(req.user.id) ) return res.redirect('/authorized/error')
-renderTemplate(res, req, "y-panel.ejs") 
+renderTemplate(res, req, "authorized.ejs") 
 });
 
 app.get("/botyonetici/vote/:botID", checkAuth, (req, res) => {
