@@ -217,10 +217,10 @@ db.set(`kbots.${req.user.id}.${ID}`, db.fetch(`bots.${ID}`))
 
 res.redirect("/user/"+req.params.userID+"/panel");
 
-client.channels.get(client.settings.kayıt).send(`\`${req.user.username}#${req.user.discriminator}\` Just Added Bot: \`${sistem.username}#${sistem.discriminator}\` To Pending List https://www.discords-bot-list.cf/bot/${db.fetch(`bots.${ID}.id`)}`)
+client.channels.get(client.settings.kayıt).send(`\${req.user.username}#${req.user.discriminator}\ just added \${sistem.username}#${sistem.discriminator}\ https://www.discords-bot-list.cf/bot/${db.fetch(`bots.${ID}.id`)}`)
 
 if (client.users.has(db.fetch(`bots.${ID}.ownerid`)) === true) {
-client.users.get(db.fetch(`bots.${ID}.ownerid`)).send(`Your Bot: \`${db.fetch(`bots.${ID}.name`)}\` Has Been Added To The Pending List https://www.discords-bot-list.cf/bot/${db.fetch(`bots.${ID}.id`)}`)
+client.users.get(db.fetch(`bots.${ID}.ownerid`)).send(`\`${db.fetch(`bots.${ID}.name`)}\ Has Been Added To The Pending List https://www.discords-bot-list.cf/bot/${db.fetch(`bots.${ID}.id`)}`)
 }
 
 }})
@@ -391,7 +391,7 @@ db.set(`bots.${ID}.support`, ayar['botsupport'])
 
 res.redirect("/user/"+req.params.userID+"/panel");
 
-client.channels.get(client.settings.kayıt).send(`Owner: \`${req.user.username}#${req.user.discriminator}\` Just Edited Bot: \`${sistem.username}#${sistem.discriminator}\` https://www.discords-bot-list.cf/bot/${db.fetch(`bots.${ID}.id`)}`)
+client.channels.get(client.settings.kayıt).send(`\`${req.user.username}#${req.user.discriminator}\` Has Edited: \`${sistem.username}#${sistem.discriminator}\` https://www.discords-bot-list.cf/bot/${db.fetch(`bots.${ID}.id`)}`)
 
 if (client.users.has(req.user.id) === true) {
 client.users.get(req.user.id).send(`\`${sistem.username}#${sistem.discriminator}\` Your bot's profile / application has been successfully edited!`)

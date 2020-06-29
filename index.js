@@ -20,9 +20,9 @@ client.settings = {
   "color": "RANDOM" // get the color of the embeds from here, something like that
 };
 
-client.authorities = ["484010160981934100", "343793233815535626", "676710146277113877", "434721364507885568", "422456282948042753"]// ids of all authorities gelece array // ids of all authorities gelcek array
-client.web_officials = ["484010160981934100", "343793233815535626", "676710146277113877", "434721364507885568", "422456282948042753"]// ids of web officials future array
-client.server_authorities = ["484010160981934100", "343793233815535626", "676710146277113877", "434721364507885568", "422456282948042753"]// ids of server authorities future array
+client.authorities = ["484010160981934100", "600743415948509216", "343793233815535626", "422456282948042753"]// ids of all authorities gelece array // ids of all authorities gelcek array
+client.web_officials = ["484010160981934100", "600743415948509216", "343793233815535626", "422456282948042753"]// ids of web officials future array
+client.server_authorities = ["484010160981934100", "600743415948509216", "343793233815535626", "422456282948042753"]// ids of server authorities future array
 
 //["id", "id2"]
 
@@ -34,7 +34,7 @@ client.on('ready', async () => {
   
    require("./app.js")(client);
   
-  client.user.setActivity(`${client.settings.prefix}help & ${client.bots.cache.size}`, { type:"WATCHING" })
+  client.user.setActivity(`${client.settings.prefix}help & ${client.bots} Bots`, { type:"WATCHING" })
   
   console.log("Active!")
 });
