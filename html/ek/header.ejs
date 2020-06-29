@@ -91,7 +91,7 @@
 		.navigation li ul li a {
 			display: block;
 		}
-		.basarili {
+		.successful {
 			background:url(http://4.bp.blogspot.com/-jeu83lGlWHs/T5uOBF3BUmI/AAAAAAAACn4/NbgkRV3RqNM/s1600/buton-sprite.png) #eefec2 no-repeat left;
 			background-position: left -11px;
 			height:60px;
@@ -103,7 +103,7 @@
 			-moz-border-radius: 3px;  
 			border-radius: 3px;
 		}
-		.hata {
+		.error {
 			background:url(http://4.bp.blogspot.com/-jeu83lGlWHs/T5uOBF3BUmI/AAAAAAAACn4/NbgkRV3RqNM/s1600/buton-sprite.png) #ffe59d no-repeat left;
 			background-position: left -11px;
 			height:60px;
@@ -155,7 +155,7 @@
       <%=user.username%>
       </a>
       <% if (bot.authorities.includes(user.id) === true) { %>
-      <a href="/yetkili">Authorized Panel</a>
+      <a href="/authorized">Authorized Panel</a>
       <% } %>
       <% } %>	
 			<a href="javascript:void(0);" class="icon" onclick="myFunction()">

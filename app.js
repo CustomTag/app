@@ -413,11 +413,11 @@ let ayar = req.body
 
 if(ayar['mesaj-1']) {
 db.push(`bots.${req.params.botID}.reports`, JSON.parse(`{ "report":"${ayar['mesaj-1']}" }`))
-client.channels.get('714504798560583701').send(`User Name: \`${req.user.username}#${req.user.discriminator}\` Reported bot: \`${db.fetch(`bots.${req.params.botID}.name`)}\` For Reason: \n**Reason:** \`${ayar['mesaj-1']}\``)
+client.channels.get('715618857946972191').send(`User Name: \`${req.user.username}#${req.user.discriminator}\` Reported bot: \`${db.fetch(`bots.${req.params.botID}.name`)}\` For Reason: \n**Reason:** \`${ayar['mesaj-1']}\``)
 }
 if(ayar['mesaj-2']) {
 db.push(`bots.${req.params.botID}.reports`, JSON.parse(`{ "report":"${ayar['mesaj-2']}" }`))
-client.channels.get('714504798560583701').send(`User Name: \`${req.user.username}#${req.user.discriminator}\` Reported bot: \`${db.fetch(`bots.${req.params.botID}.name`)}\` For Reason: \n**Reason:** \`${ayar['mesaj-2']}\``)
+client.channels.get('715618857946972191').send(`User Name: \`${req.user.username}#${req.user.discriminator}\` Reported bot: \`${db.fetch(`bots.${req.params.botID}.name`)}\` For Reason: \n**Reason:** \`${ayar['mesaj-2']}\``)
 }
 
 res.redirect('/bot/'+req.params.botID);
@@ -477,13 +477,13 @@ if (db.has(`votes.${id}.${user}`) === true) {
   if (db.fetch(`votes.${id}.${user}`) !== saat) {
     res.redirect('/bot/'+req.params.botID+'/error')
     return
-  } else if (db.fetch(`votes.${id}.${user}`) === saat) {
+  } else if (db.fetch(`votes.${id}.${user}`) === hour) {
   db.add(`bots.${id}.vote`, 1)
-  db.set(`votes.${id}.${user}`, saat)
+  db.set(`votes.${id}.${user}`, hour)
   }
 } else {
   db.add(`bots.${id}.vote`, 1)
-  db.set(`votes.${id}.${user}`, saat)
+  db.set(`votes.${id}.${user}`, hour)
 }
 
 res.redirect('/bot/'+req.params.botID)
