@@ -156,19 +156,19 @@ app.post("/addbot", checkAuth, (req, res) => {
 
 let ayar = req.body
 
-if (ayar === {} || !ayar['botid'] || !ayar['prefix'] || !ayar['library'] || !ayar['kisa-aciklama'] || !ayar['uzun-aciklama'] || !ayar['label']) return res.redirect('/management/error')
+if (ayar === {} || !ayar['botid'] || !ayar['prefix'] || !ayar['library'] || !ayar['short-description'] || !ayar['long-description'] || !ayar['label']) return res.redirect('/management/error')
 
 let ID = ayar['botid']
 
 if (db.has('bots')) {
-    if (Object.keys(db.fetch('bots')).includes(ID) === true) return res.redirect('/botekle/hata')
+    if (Object.keys(db.fetch('bots')).includes(ID) === true) return res.redirect('/addbot/error')
 }
   
   var tag = ''
-  if (Array.isArray(ayar['etikett']) === true) {
-    var tag = ayar['etikett']
+  if (Array.isArray(ayar['label']) === true) {
+    var tag = ayar['label']
   } else {
-    var tag = new Array(ayar['etikett'])
+    var tag = new Array(ayar['label'])
   }
 
 request({
@@ -181,10 +181,10 @@ if (error) return console.log(error)
 else if (!error) {
 var sistem = JSON.parse(body)
 
-db.set(`botlar.${ID}.id`, sistem.id)
-db.set(`botlar.${ID}.name`, sistem.username+"#"+sistem.discriminator)
+db.set(`bots.${ID}.id`, sistem.id)
+db.set(`bots.${ID}.name`, sistem.username+"#"+sistem.discriminator)
 
-db.set(`botlar.${ID}.avatar`, `https://cdn.discordapp.com/avatars/${sistem.id}/${sistem.avatar}.png`)
+db.set(`bots.${ID}.avatar`, `https://cdn.discordapp.com/avatars/${sistem.id}/${sistem.avatar}.png`)
 
 request({
 url: `https://discordapp.com/api/v7/users/${req.user.id}`,
@@ -196,28 +196,28 @@ if (error) return console.log(error)
 else if (!error) {
 var owner = JSON.parse(body)
 
-db.set(`botlar.${ID}.prefix`, ayar['prefix'])
-db.set(`botlar.${ID}.library`, ayar['library'])
-db.set(`botlar.${ID}.owner`, owner.username+"#"+owner.discriminator)
-db.set(`botlar.${ID}.ownerid`, owner.id)
-db.set(`botlar.${ID}.ShortDesc`, ayar['kisa-aciklama'])
-db.set(`botlar.${ID}.uzunaciklama`, ayar['uzun-aciklama'])
-db.set(`botlar.${ID}.tag`, tag)
+db.set(`bots.${ID}.prefix`, ayar['prefix'])
+db.set(`bots.${ID}.library`, ayar['library'])
+db.set(`bots.${ID}.owner`, owner.username+"#"+owner.discriminator)
+db.set(`bots.${ID}.ownerid`, owner.id)
+db.set(`bots.${ID}.ShortDesc`, ayar['short-description'])
+db.set(`bots.${ID}.uzunaciklama`, ayar['long-description'])
+db.set(`bots.${ID}.tag`, tag)
 if (ayar['botsite']) {
-db.set(`botlar.${ID}.site`, ayar['botsite'])
+db.set(`bots.${ID}.site`, ayar['botsite'])
 }
 if (ayar['github']) {
-db.set(`botlar.${ID}.github`, ayar['github'])
+db.set(`bots.${ID}.github`, ayar['github'])
 }
 if (ayar['botdestek']) {
-db.set(`botlar.${ID}.destek`, ayar['botdestek'])
+db.set(`bots.${ID}.destek`, ayar['botdestek'])
 }
 
-db.set(`kbotlar.${req.user.id}.${ID}`, db.fetch(`botlar.${ID}`))
+db.set(`kbots.${req.user.id}.${ID}`, db.fetch(`bots.${ID}`))
 
-res.redirect("/kullanici/"+req.params.userID+"/panel");
+res.redirect("/user/"+req.params.userID+"/panel");
 
-client.channels.get(client.ayarlar.kayıt).send(`\`${req.user.username}#${req.user.discriminator}\` Just Added Bot: \`${sistem.username}#${sistem.discriminator}\` To Pending List https://www.discords-bot-list.cf/bot/${db.fetch(`botlar.${ID}.id`)}`)
+client.channels.get(client.settings.kayıt).send(`\`${req.user.username}#${req.user.discriminator}\` Just Added Bot: \`${sistem.username}#${sistem.discriminator}\` To Pending List https://www.discords-bot-list.cf/bot/${db.fetch(`botlar.${ID}.id`)}`)
 
 if (client.users.has(db.fetch(`botlar.${ID}.ownerid`)) === true) {
 client.users.get(db.fetch(`botlar.${ID}.ownerid`)).send(`Your Bot: \`${db.fetch(`botlar.${ID}.name`)}\` Has Been Added To The Pending List https://www.discords-bot-list.cf/bot/${db.fetch(`botlar.${ID}.id`)}`)
@@ -391,7 +391,7 @@ db.set(`botlar.${ID}.destek`, ayar['botdestek'])
 
 res.redirect("/kullanici/"+req.params.userID+"/panel");
 
-client.channels.get(client.ayarlar.kayıt).send(`Owner: \`${req.user.username}#${req.user.discriminator}\` Just Edited Bot: \`${sistem.username}#${sistem.discriminator}\` https://www.discords-bot-list.cf/bot/${db.fetch(`botlar.${ID}.id`)}`)
+client.channels.get(client.settings.kayıt).send(`Owner: \`${req.user.username}#${req.user.discriminator}\` Just Edited Bot: \`${sistem.username}#${sistem.discriminator}\` https://www.discords-bot-list.cf/bot/${db.fetch(`botlar.${ID}.id`)}`)
 
 if (client.users.has(req.user.id) === true) {
 client.users.get(req.user.id).send(`\`${sistem.username}#${sistem.discriminator}\` Your bot's profile / application has been successfully edited!`)
@@ -493,19 +493,19 @@ res.redirect('/bot/'+req.params.botID)
   app.get("/yetkili/hata", (req, res) => {renderTemplate(res, req, "hate.ejs")})
 
 app.get("/yetkili", checkAuth, (req, res) => {
-  if(!client.yetkililer.includes(req.user.id) ) return res.redirect('/yetkili/hata')
+  if(!client.authorities.includes(req.user.id) ) return res.redirect('/yetkili/hata')
 renderTemplate(res, req, "y-panel.ejs") 
 });
 
 app.get("/botyonetici/onayla/:botID", checkAuth, (req, res) => {
-  if(!client.yetkililer.includes(req.user.id) ) return res.redirect('/yetkili/hata')
+  if(!client.authorities.includes(req.user.id) ) return res.redirect('/yetkili/hata')
 let id = req.params.botID
 
 db.set(`botlar.${id}.status`, 'Approved')
 
 res.redirect("/yetkili")
 
-client.channels.get(client.ayarlar.kayıt).send(`Owner: \`${db.fetch(`botlar.${id}.owner`)}\` Bot: \`${db.fetch(`botlar.${id}.name`)}\` Admin: \`${req.user.username}#${req.user.discriminator}\` Approved The Bot! https://www.discords-bot-list.cf/bot/${db.fetch(`botlar.${id}.id`)}`)
+client.channels.get(client.settings.kayıt).send(`Owner: \`${db.fetch(`botlar.${id}.owner`)}\` Bot: \`${db.fetch(`botlar.${id}.name`)}\` Admin: \`${req.user.username}#${req.user.discriminator}\` Approved The Bot! https://www.discords-bot-list.cf/bot/${db.fetch(`botlar.${id}.id`)}`)
 
 if (client.users.has(db.fetch(`botlar.${id}.owner`)) === true) {
 client.users.get(db.fetch(`botlar.${id}.ownerid`)).send(`\`${db.fetch(`botlar.${id}.name`)}\` Your bot has been approved! https://www.discords-bot-list.cf/bot/${db.fetch(`botlar.${id}.id`)}`)
@@ -514,38 +514,38 @@ client.users.get(db.fetch(`botlar.${id}.ownerid`)).send(`\`${db.fetch(`botlar.${
 });
 
 app.get("/botyonetici/bekleme/:botID", checkAuth, (req, res) => {
-  if(!client.yetkililer.includes(req.user.id) ) return res.redirect('/yetkili/hata')
+  if(!client.authorities.includes(req.user.id) ) return res.redirect('/yetkili/hata')
 let id = req.params.botID
 
 db.set(`botlar.${id}.status`, 'Pending')
 
 res.redirect("/yetkili")
 
-client.channels.get(client.ayarlar.kayıt).send(`Owner: \`${db.fetch(`botlar.${id}.owner`)}\` Bot: \`${db.fetch(`botlar.${id}.name`)}\` Added It On Standby By: \`${req.user.username}#${req.user.discriminator}\` https://www.discords-bot-list.cf/bot/${db.fetch(`botlar.${id}.id`)}`)
+client.channels.get(client.settings.kayıt).send(`Owner: \`${db.fetch(`bots.${id}.owner`)}\` Bot: \`${db.fetch(`bots.${id}.name`)}\` Added It On Standby By: \`${req.user.username}#${req.user.discriminator}\` https://www.discords-bot-list.cf/bot/${db.fetch(`bots.${id}.id`)}`)
 
-if (client.users.has(db.fetch(`botlar.${id}.ownerid`)) === true) {
-client.users.get(db.fetch(`botlar.${id}.ownerid`)).send(`\`${db.fetch(`botlar.${id}.name`)}\` Your bot is under Review!`)
+if (client.users.has(db.fetch(`bots.${id}.ownerid`)) === true) {
+client.users.get(db.fetch(`bots.${id}.ownerid`)).send(`\`${db.fetch(`bots.${id}.name`)}\` Your bot is under Review!`)
 }
 
 });
 
 app.get("/botyonetici/reddet/:botID", checkAuth, (req, res) => {
-  if(!client.yetkililer.includes(req.user.id) ) return res.redirect('/yetkili/hata')
+  if(!client.authorities.includes(req.user.id) ) return res.redirect('/yetkili/hata')
   renderTemplate(res, req, "reddet.ejs")
 });
 
 app.post("/botyonetici/reddet/:botID", checkAuth, (req, res) => {
-  if(!client.yetkililer.includes(req.user.id) ) return res.redirect('/yetkili/hata')
+  if(!client.authorities.includes(req.user.id) ) return res.redirect('/yetkili/hata')
   let id = req.params.botID
   
-  db.set(`botlar.${id}.status`, 'castaway')
+  db.set(`bots.${id}.status`, 'castaway')
   
   res.redirect("/yetkili")
   
-  client.channels.get(client.ayarlar.kayıt).send(`Admin: \`${req.user.username}#${req.user.discriminator}\` declined Bot: \`${db.fetch(`botlar.${id}.name`)}\` Reason: \`${req.body['red-sebep']}\``)
+  client.channels.get(client.settings.kayıt).send(`Admin: \`${req.user.username}#${req.user.discriminator}\` declined Bot: \`${db.fetch(`bots.${id}.name`)}\` Reason: \`${req.body['red-sebep']}\``)
   
-  if (client.users.has(db.fetch(`botlar.${id}.ownerid`)) === true) {
-  client.users.get(db.fetch(`botlar.${id}.ownerid`)).send(`Your Bot: \`${db.fetch(`botlar.${id}.name`)}\` Was declined due to: \`${req.body['red-sebep']}\``)
+  if (client.users.has(db.fetch(`bots.${id}.ownerid`)) === true) {
+  client.users.get(db.fetch(`bots.${id}.ownerid`)).send(`Your Bot: \`${db.fetch(`bots.${id}.name`)}\` Was declined due to: \`${req.body['red-sebep']}\``)
   }
 
   });
@@ -556,23 +556,23 @@ app.get("/api", (req, res) => {
   renderTemplate(res, req, "api.ejs")
 });
 
-app.get("/api/botlar", (req, res) => {
+app.get("/api/bots", (req, res) => {
   res.json({
     hata: 'Write a bot ID.'
   });
 });
 
-app.get("/api/botlar/:botID/votes", (req, res) => {
+app.get("/api/bots/:botID/votes", (req, res) => {
   res.json({
     hata: 'Write a user ID.'
   });
 });
 
-app.get("/api/botlar/:botID", (req, res) => {
+app.get("/api/bots/:botID", (req, res) => {
    var id = req.params.botID
 
-   if (db.has('botlar')) {
-      if (Object.keys(db.fetch('botlar')).includes(id) === false) {
+   if (db.has('bots')) {
+      if (Object.keys(db.fetch('bots')).includes(id) === false) {
      res.json({
        hata: 'A bot with the ID you typed is not in the system.'
      });
@@ -580,35 +580,35 @@ app.get("/api/botlar/:botID", (req, res) => {
   }
 
     res.json({
-       name: db.fetch(`botlar.${id}.name`),
+       name: db.fetch(`bots.${id}.name`),
        id: id,
-avatar: db.fetch(`botlar.${id}.avatar`),
-prefix: db.fetch(`botlar.${id}.prefix`),
-library: db.fetch(`botlar.${id}.library`),
-owner: db.fetch(`botlar.${id}.owner`),
-ownerid: db.fetch(`botlar.${id}.ownerid`),
-kisa_aciklama: db.fetch(`botlar.${id}.ShortDesc`),
-uzun_aciklama: db.fetch(`botlar.${id}.uzunaciklama`),
-etiketler: db.fetch(`botlar.${id}.tag`),
-destek_sunucusu: db.fetch(`botlar.${id}.destek`) || 'Unspecified',
-web_sitesi: db.fetch(`botlar.${id}.site`) || 'Unspecified',
-github: db.fetch(`botlar.${id}.github`) || 'Unspecified',
-status: db.has(`botlar.${id}.status`) ? db.fetch(`botlar.${id}.status`) : 'Pending',
-oy_sayisi: db.fetch(`botlar.${id}.vote`) || 0,
-certificate: db.fetch(`botlar.${id}.certificate`) || 'no'
+avatar: db.fetch(`bots.${id}.avatar`),
+prefix: db.fetch(`bots.${id}.prefix`),
+library: db.fetch(`bots.${id}.library`),
+owner: db.fetch(`bots.${id}.owner`),
+ownerid: db.fetch(`bots.${id}.ownerid`),
+short_description: db.fetch(`bots.${id}.ShortDesc`),
+long_explanation: db.fetch(`bots.${id}.longexplanation`),
+labels: db.fetch(`bots.${id}.tag`),
+support_server: db.fetch(`bots.${id}.destek`) || 'Unspecified',
+web_sitesi: db.fetch(`bots.${id}.site`) || 'Unspecified',
+github: db.fetch(`bots.${id}.github`) || 'Unspecified',
+status: db.has(`bots.${id}.status`) ? db.fetch(`bots.${id}.status`) : 'Pending',
+number_of_votes: db.fetch(`bots.${id}.vote`) || 0,
+certificate: db.fetch(`bots.${id}.certificate`) || 'no'
     });
 });
 
-  app.get("/api/tumbotlar", (req, res) => {
-    res.json(Object.keys(db.fetch('botlar')));
+  app.get("/api/tumbots", (req, res) => {
+    res.json(Object.keys(db.fetch('bots')));
   });
   
-app.get("/api/botlar/:botID/votes/:kullaniciID", (req, res) => {
+app.get("/api/bots/:botID/votes/:userID", (req, res) => {
   var id = req.params.botID
-  var userr = req.params.kullaniciID
+  var userr = req.params.userID
 
-  if (db.has('botlar')) {
-      if (Object.keys(db.fetch('botlar')).includes(id) === false) {
+  if (db.has('bots')) {
+      if (Object.keys(db.fetch('bots')).includes(id) === false) {
      res.json({
        hata: 'A bot with the ID you typed is not in the system.'
      });
@@ -617,7 +617,7 @@ app.get("/api/botlar/:botID/votes/:kullaniciID", (req, res) => {
  
    res.json({
      vote_durum: db.has(`votes.${id}.${userr}`) ? `Voted today` : null,
-     vote_sayisi: db.fetch(`botlar.${id}.vote`) || 0
+     number_of_votes: db.fetch(`bots.${id}.vote`) || 0
    });
 
 });
