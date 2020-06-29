@@ -262,7 +262,7 @@ app.get("/kullanici/:userID/profil", (req, res) => {
     else if (!error) {
       var kisi = JSON.parse(body)
 
-      renderTemplate(res, req, "profil.ejs", {kisi})
+      renderTemplate(res, req, "profile.ejs", {kisi})
     };
   });
 
@@ -274,11 +274,11 @@ app.get("/kullanici/:userID/profil/ayarla", checkAuth, (req, res) => {
 
 });
 
-app.post("/kullanici/:userID/profil/ayarla", checkAuth, (req, res) => {
+app.post("/kullanici/:userID/profile/ayarla", checkAuth, (req, res) => {
 
   if (req.params.userID !== req.user.id) return res.redirect('/');
 
-  var profil = JSON.parse(fs.readFileSync('./profil.json', 'utf8'));
+  var profil = JSON.parse(fs.readFileSync('./profile.json', 'utf8'));
 
   var libs = ''
   if (Array.isArray(req.body['libs']) === true) {
@@ -307,46 +307,46 @@ app.post("/kullanici/:userID/profil/ayarla", checkAuth, (req, res) => {
   "avatar": "https://cdn.discordapp.com/avatars/${kisi.id}/${kisi.avatar}.png"
   }`)
 
-  profil[req.user.id] = veri;
+  profile[req.user.id] = veri;
 
-  var obj = JSON.stringify(profil)
+  var obj = JSON.stringify(profile)
 
-  fs.writeFile('./profil.json', obj)
+  fs.writeFile('./profile.json', obj)
 
-  res.redirect('/kullanici/'+req.user.id)
+  res.redirect('/user/'+req.user.id)
 
     }
   })
 
 });
 
-app.get("/kullanici/:userID/panel", checkAuth, (req, res) => {
+app.get("/user/:userID/panel", checkAuth, (req, res) => {
 
 renderTemplate(res, req, "panel.ejs")
 
 });
 
-app.get("/kullanici/:userID/panel/:botID/duzenle", checkAuth, (req, res) => {
+app.get("/user/:userID/panel/:botID/edit", checkAuth, (req, res) => {
 
 var id = req.params.botID
 
 
-renderTemplate(res, req, "duzenle.ejs", {id})
+renderTemplate(res, req, "edit.ejs", {id})
 
 });
 
 
-app.post("/kullanici/:userID/panel/:botID/duzenle", checkAuth, (req, res) => {
+app.post("/user/:userID/panel/:botID/edit", checkAuth, (req, res) => {
 
 let ayar = req.body
 let ID = req.params.botID
 let s = req.user.id
 
 var tag = ''
-  if (Array.isArray(ayar['etikett']) === true) {
-    var tag = ayar['etikett']
+  if (Array.isArray(ayar['label']) === true) {
+    var tag = ayar['label']
   } else {
-    var tag = new Array(ayar['etikett'])
+    var tag = new Array(ayar['label'])
   }
 
 request({
@@ -359,9 +359,9 @@ if (error) return console.log(error)
 else if (!error) {
 var sistem = JSON.parse(body)
 
-db.set(`botlar.${ID}.name`, sistem.username+"#"+sistem.discriminator)
+db.set(`bots.${ID}.name`, sistem.username+"#"+sistem.discriminator)
 
-db.set(`botlar.${ID}.avatar`, `https://cdn.discordapp.com/avatars/${sistem.id}/${sistem.avatar}.png`)
+db.set(`bots.${ID}.avatar`, `https://cdn.discordapp.com/avatars/${sistem.id}/${sistem.avatar}.png`)
 
 request({
 url: `https://discordapp.com/api/v7/users/${req.user.id}`,
@@ -372,26 +372,26 @@ headers: {
 if (error) return console.log(error)
 else if (!error) {
 var owner = JSON.parse(body)
-db.set(`botlar.${ID}.prefix`, ayar['prefix'])
-db.set(`botlar.${ID}.library`, ayar['library'])
-db.set(`botlar.${ID}.owner`, owner.username+"#"+owner.discriminator)
-db.set(`botlar.${ID}.ownerid`, owner.id)
-db.set(`botlar.${ID}.ShortDesc`, ayar['kisa-aciklama'])
-db.set(`botlar.${ID}.uzunaciklama`, ayar['uzun-aciklama'])
-db.set(`botlar.${ID}.tag`, tag)
+db.set(`bots.${ID}.prefix`, ayar['prefix'])
+db.set(`bots.${ID}.library`, ayar['library'])
+db.set(`bots.${ID}.owner`, owner.username+"#"+owner.discriminator)
+db.set(`bots.${ID}.ownerid`, owner.id)
+db.set(`bots.${ID}.ShortDesc`, ayar['short-description'])
+db.set(`bots.${ID}.longexplanation`, ayar['long-description'])
+db.set(`bots.${ID}.tag`, tag)
 if (ayar['botsite']) {
-db.set(`botlar.${ID}.site`, ayar['botsite'])
+db.set(`bots.${ID}.site`, ayar['botsite'])
 }
 if (ayar['github']) {
-db.set(`botlar.${ID}.github`, ayar['github'])
+db.set(`bots.${ID}.github`, ayar['github'])
 }
 if (ayar['botdestek']) {
-db.set(`botlar.${ID}.destek`, ayar['botdestek'])
+db.set(`bots.${ID}.destek`, ayar['botdestek'])
 }
 
-res.redirect("/kullanici/"+req.params.userID+"/panel");
+res.redirect("/user/"+req.params.userID+"/panel");
 
-client.channels.get(client.settings.kayıt).send(`Owner: \`${req.user.username}#${req.user.discriminator}\` Just Edited Bot: \`${sistem.username}#${sistem.discriminator}\` https://www.discords-bot-list.cf/bot/${db.fetch(`botlar.${ID}.id`)}`)
+client.channels.get(client.settings.kayıt).send(`Owner: \`${req.user.username}#${req.user.discriminator}\` Just Edited Bot: \`${sistem.username}#${sistem.discriminator}\` https://www.discords-bot-list.cf/bot/${db.fetch(`bots.${ID}.id`)}`)
 
 if (client.users.has(req.user.id) === true) {
 client.users.get(req.user.id).send(`\`${sistem.username}#${sistem.discriminator}\` Your bot's profile / application has been successfully edited!`)
@@ -412,30 +412,30 @@ app.post("/bot/:botID/rapor", checkAuth, (req, res) => {
 let ayar = req.body
 
 if(ayar['mesaj-1']) {
-db.push(`botlar.${req.params.botID}.raporlar`, JSON.parse(`{ "rapor":"${ayar['mesaj-1']}" }`))
-client.channels.get('714504798560583701').send(`User Name: \`${req.user.username}#${req.user.discriminator}\` Reported bot: \`${db.fetch(`botlar.${req.params.botID}.name`)}\` For Reason: \n**Reason:** \`${ayar['mesaj-1']}\``)
+db.push(`bots.${req.params.botID}.reports`, JSON.parse(`{ "report":"${ayar['mesaj-1']}" }`))
+client.channels.get('714504798560583701').send(`User Name: \`${req.user.username}#${req.user.discriminator}\` Reported bot: \`${db.fetch(`bots.${req.params.botID}.name`)}\` For Reason: \n**Reason:** \`${ayar['mesaj-1']}\``)
 }
 if(ayar['mesaj-2']) {
-db.push(`botlar.${req.params.botID}.raporlar`, JSON.parse(`{ "rapor":"${ayar['mesaj-2']}" }`))
-client.channels.get('714504798560583701').send(`User Name: \`${req.user.username}#${req.user.discriminator}\` Reported bot: \`${db.fetch(`botlar.${req.params.botID}.name`)}\` For Reason: \n**Reason:** \`${ayar['mesaj-2']}\``)
+db.push(`bots.${req.params.botID}.reports`, JSON.parse(`{ "report":"${ayar['mesaj-2']}" }`))
+client.channels.get('714504798560583701').send(`User Name: \`${req.user.username}#${req.user.discriminator}\` Reported bot: \`${db.fetch(`bots.${req.params.botID}.name`)}\` For Reason: \n**Reason:** \`${ayar['mesaj-2']}\``)
 }
 
 res.redirect('/bot/'+req.params.botID);
 });
 
-app.get("/kullanici/:userID/panel/:botID/sil", checkAuth, (req, res) => {
+app.get("/user/:userID/panel/:botID/delete", checkAuth, (req, res) => {
   var id = req.params.botID
-  renderTemplate(res, req, "sil.ejs", {id}) 
+  renderTemplate(res, req, "delete.ejs", {id}) 
 });
 
-app.post("/kullanici/:userID/panel/:botID/sil", checkAuth, (req, res) => {
+app.post("/user/:userID/panel/:botID/delete", checkAuth, (req, res) => {
 
 let ID = req.params.botID
 
-db.delete(`botlar.${ID}`) 
-db.delete(`kbotlar.${req.user.id}.${ID}`)
+db.delete(`bots.${ID}`) 
+db.delete(`kbots.${req.user.id}.${ID}`)
 
-res.redirect("/kullanici/"+req.params.userID+"/panel");
+res.redirect("/user/"+req.params.userID+"/panel");
 });
 
 app.get("/bot/:botID", (req, res) => {
@@ -462,11 +462,11 @@ renderTemplate(res, req, 'bot.ejs', {id})
 
 });
 
-app.get("/bot/:botID/hata", (req, res) => {
-renderTemplate(res, req, "hata.ejs")
+app.get("/bot/:botID/error", (req, res) => {
+renderTemplate(res, req, "error.ejs")
 });
 
-app.get("/bot/:botID/oyver", checkAuth, (req, res) => {
+app.get("/bot/:botID/vote", checkAuth, (req, res) => {
 
 var id = req.params.botID
 let user = req.user.id
@@ -475,14 +475,14 @@ var saat = `${new Date().getHours() + 3}:${new Date().getMinutes()}:${new Date()
 
 if (db.has(`votes.${id}.${user}`) === true) {
   if (db.fetch(`votes.${id}.${user}`) !== saat) {
-    res.redirect('/bot/'+req.params.botID+'/hata')
+    res.redirect('/bot/'+req.params.botID+'/error')
     return
   } else if (db.fetch(`votes.${id}.${user}`) === saat) {
-  db.add(`botlar.${id}.vote`, 1)
+  db.add(`bots.${id}.vote`, 1)
   db.set(`votes.${id}.${user}`, saat)
   }
 } else {
-  db.add(`botlar.${id}.vote`, 1)
+  db.add(`bots.${id}.vote`, 1)
   db.set(`votes.${id}.${user}`, saat)
 }
 
@@ -490,36 +490,36 @@ res.redirect('/bot/'+req.params.botID)
 
 });
   
-  app.get("/yetkili/hata", (req, res) => {renderTemplate(res, req, "hate.ejs")})
+  app.get("/authorized/error", (req, res) => {renderTemplate(res, req, "error.ejs")})
 
-app.get("/yetkili", checkAuth, (req, res) => {
-  if(!client.authorities.includes(req.user.id) ) return res.redirect('/yetkili/hata')
+app.get("/authorized", checkAuth, (req, res) => {
+  if(!client.authorities.includes(req.user.id) ) return res.redirect('/authorized/error')
 renderTemplate(res, req, "y-panel.ejs") 
 });
 
-app.get("/botyonetici/onayla/:botID", checkAuth, (req, res) => {
-  if(!client.authorities.includes(req.user.id) ) return res.redirect('/yetkili/hata')
+app.get("/botyonetici/vote/:botID", checkAuth, (req, res) => {
+  if(!client.authorities.includes(req.user.id) ) return res.redirect('/authorized/error')
 let id = req.params.botID
 
-db.set(`botlar.${id}.status`, 'Approved')
+db.set(`bots.${id}.status`, 'Approved')
 
-res.redirect("/yetkili")
+res.redirect("/authorized")
 
-client.channels.get(client.settings.kayıt).send(`Owner: \`${db.fetch(`botlar.${id}.owner`)}\` Bot: \`${db.fetch(`botlar.${id}.name`)}\` Admin: \`${req.user.username}#${req.user.discriminator}\` Approved The Bot! https://www.discords-bot-list.cf/bot/${db.fetch(`botlar.${id}.id`)}`)
+client.channels.get(client.settings.kayıt).send(`Owner: \`${db.fetch(`bots.${id}.owner`)}\` Bot: \`${db.fetch(`bots.${id}.name`)}\` Admin: \`${req.user.username}#${req.user.discriminator}\` Approved The Bot! https://www.discords-bot-list.cf/bot/${db.fetch(`bots.${id}.id`)}`)
 
-if (client.users.has(db.fetch(`botlar.${id}.owner`)) === true) {
-client.users.get(db.fetch(`botlar.${id}.ownerid`)).send(`\`${db.fetch(`botlar.${id}.name`)}\` Your bot has been approved! https://www.discords-bot-list.cf/bot/${db.fetch(`botlar.${id}.id`)}`)
+if (client.users.has(db.fetch(`bots.${id}.owner`)) === true) {
+client.users.get(db.fetch(`bots.${id}.ownerid`)).send(`\`${db.fetch(`bots.${id}.name`)}\` Your bot has been approved! https://www.discords-bot-list.cf/bot/${db.fetch(`bots.${id}.id`)}`)
 }
 
 });
 
 app.get("/botyonetici/bekleme/:botID", checkAuth, (req, res) => {
-  if(!client.authorities.includes(req.user.id) ) return res.redirect('/yetkili/hata')
+  if(!client.authorities.includes(req.user.id) ) return res.redirect('/authorized/error')
 let id = req.params.botID
 
-db.set(`botlar.${id}.status`, 'Pending')
+db.set(`bots.${id}.status`, 'Pending')
 
-res.redirect("/yetkili")
+res.redirect("/authorized")
 
 client.channels.get(client.settings.kayıt).send(`Owner: \`${db.fetch(`bots.${id}.owner`)}\` Bot: \`${db.fetch(`bots.${id}.name`)}\` Added It On Standby By: \`${req.user.username}#${req.user.discriminator}\` https://www.discords-bot-list.cf/bot/${db.fetch(`bots.${id}.id`)}`)
 
@@ -530,17 +530,17 @@ client.users.get(db.fetch(`bots.${id}.ownerid`)).send(`\`${db.fetch(`bots.${id}.
 });
 
 app.get("/botyonetici/reddet/:botID", checkAuth, (req, res) => {
-  if(!client.authorities.includes(req.user.id) ) return res.redirect('/yetkili/hata')
+  if(!client.authorities.includes(req.user.id) ) return res.redirect('/authorized/error')
   renderTemplate(res, req, "reddet.ejs")
 });
 
 app.post("/botyonetici/reddet/:botID", checkAuth, (req, res) => {
-  if(!client.authorities.includes(req.user.id) ) return res.redirect('/yetkili/hata')
+  if(!client.authorities.includes(req.user.id) ) return res.redirect('/authorized/error')
   let id = req.params.botID
   
   db.set(`bots.${id}.status`, 'castaway')
   
-  res.redirect("/yetkili")
+  res.redirect("/authorized")
   
   client.channels.get(client.settings.kayıt).send(`Admin: \`${req.user.username}#${req.user.discriminator}\` declined Bot: \`${db.fetch(`bots.${id}.name`)}\` Reason: \`${req.body['red-sebep']}\``)
   
