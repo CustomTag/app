@@ -1,15 +1,16 @@
 const Discord = require('discord.js');
 
 exports.run = async (client, message, args) => {
-	//kendi URL'lerini eklersn :D
+	// add your own URLs: D
   var embed = new Discord.RichEmbed()
   .setColor('RANDOM')
-  .setAuthor("Discord bot list Page", client.user.avatarURL)
+  .setAuthor("Discord4Bots - information", client.user.avatarURL)
   .addField("Website Creator","CustomTag#0001")
-	.addField("Add a bot?","[Click here](https://www.discords-bot-list.cf/botekle)")
+	.addField("Add a bot?","[Click here](https://www.discords-bot-list.cf/botekle/)")
   .addField("Hosted by","[Glitch](https://glitch.com)")
-  .addField("Website","[Click here](https://www.discords-bot-list.cf)")
+  .addField("Website","[Click here](https://www.discords-bot-list.cf/)")
   .addField("Search Bot","?search (botid)")
+  .addField("Help Cmds","?help")
   message.channel.send({embed: embed})
   
 };
@@ -17,7 +18,7 @@ exports.run = async (client, message, args) => {
 exports.conf = {
 	enabled: true,
 	guildOnly: true,
-	aliases: ['y', 'help', 'h', 'bilgi', 'info'],
+	aliases: ['y', 'help', 'h', 'information', 'info'],
 	permLevel: 0,
 	kategori: 'general'
 }

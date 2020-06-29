@@ -59,6 +59,6 @@ exports.conf = {
 
 exports.help = {
 	name: 'eval',
-	description: 'Runs the typed code.',
+	description: 'Runs the typed code!',
 	usage: 'eval [kod]'
 }

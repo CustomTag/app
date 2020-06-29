@@ -74,6 +74,6 @@ exports.conf = {
 
 exports.help = {
   name: 'search',
-  description: 'Allows you to search for bots in the Discord Bots system.',
+  description: 'Allows you to search for bots in the Discord Bots system!',
   usage: 'search [bot id]'
 };
