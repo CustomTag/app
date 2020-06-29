@@ -7,19 +7,19 @@
 				
    <div align="center" class="jumbotron" style="color:#fff; font-size:20px;">
      <br>
-		<div><i aria-hidden="true"></i>ClientID<a style="color:red">*</a></div>
+		<div><i aria-hidden="true"></i>ClientID<a style="color:red"></a></div>
 		<div>
       <input type="text" style="text-align: center;" name="botid" id="botid"
 									placeholder="for example; <%=bot.user.id%>" required="required">
      </div>
    <br>
-		<div><i aria-hidden="true"></i>Prefix<a style="color:red">*</a></div>
+		<div><i aria-hidden="true"></i>Prefix<a style="color:red"></a></div>
 		<div>
       <input type="text" style="text-align: center;" name="prefix" id="prefix"
 									placeholder="!" required="required">
      </div>
      
-     <div><i aria-hidden="true"></i>Library<a style="color:red">*</a></div>
+     <div><i aria-hidden="true"></i>Library<a style="color:red"></a></div>
     <div class="select-style">
      <select id="library" name="library" required="required">
        <option disabled selected>Please select a library.</option>
@@ -69,23 +69,23 @@
      </select>
      </div>
       
-     <div><i aria-hidden="true"></i>Bot OwnerID<a style="color:red">*</a></div>
+     <div><i aria-hidden="true"></i>Bot OwnerID<a style="color:red"></a></div>
      <input type="text" style="color:lightgrey; text-align: center;" name="owner" id="owner"
                   value="" required="required">
      
-     <div><i aria-hidden="true"></i>Short Description<a style="color:red">*</a></div>
+     <div><i aria-hidden="true"></i>Short Description<a style="color:red"></a></div>
 		<div>
       <input type="text" style="text-align: center; height:60px" name="short-description" id="short-description"
-                placeholder="Write a short description of your bot." maxlength="100" required="required">
+                placeholder="Write a short description of your bot." maxlength="70" required="required">
      </div>
      <br>
-     <div><i aria-hidden="true"></i>Long Description<a style="color:red">*</a></div>
+     <div><i aria-hidden="true"></i>Long Description<a style="color:red"></a></div>
 		<div>
       <textarea style="text-align: center; background-color:#222; hight:150px" name="long-description" id="long-description"
-                placeholder="Please write the long description of your bot." minlength="150" required="required"></textarea>
+                placeholder="Please write the long description of your bot." minlength="70" required="required"></textarea>
      </div>
      <br>
-     <div><i aria-hidden="true"></i>labels<a style="color:red">*</a></div>
+     <div><i aria-hidden="true"></i>labels<a style="color:red"></a></div>
      <div>
       <select multiple id="etikett" name="etikett" style="border-radius:4px; background-color:#222; color:#fff">
         <option value="Moderation">Moderation</option>
@@ -117,10 +117,6 @@
                 placeholder="If you have a bot, write the URL of the Discord support server.">
      </div>
 	
-   
-   <h6 style="color:red">
-    Those with * are mandatory and those without are optional.
-   </h6>
 
 				<div style="width: 100%; text-align: center; margin-top: 20px;">
 					<button style="border-radius: 100px; background-color:#00a1ff" type="submit" class="btn btn-primary"><i class="fa fa-save fa-fw"></i>Submit Application<i aria-hidden='true'></i></button>
