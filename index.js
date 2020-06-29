@@ -41,12 +41,12 @@ client.on('ready', async () => {
 
 setInterval(() => {
 
-	if (db.has('botlar') && db.has('kbotlar')) {
+	if (db.has('bots') && db.has('kbots')) {
 
-for (var i = 0; i < Object.keys(db.fetch('kbotlar')).length; i++) {
-for (var x = 0; x < Object.keys(db.fetch('botlar')).length; x++) {
-var bot = Object.keys(db.fetch('botlar'))[x]
-var user = Object.keys(db.fetch('kbotlar'))[i]
+for (var i = 0; i < Object.keys(db.fetch('kbots')).length; i++) {
+for (var x = 0; x < Object.keys(db.fetch('bots')).length; x++) {
+var bot = Object.keys(db.fetch('bots'))[x]
+var user = Object.keys(db.fetch('kbots'))[i]
 if (db.has(`votes.${bot}.${user}`)) {
    setTimeout(() => {
         db.delete(`votes.${bot}.${user}`)
@@ -101,10 +101,10 @@ client.on("message", async message => {
 
 	if (cmd) {
     if (cmd.conf.permLevel === 'special') { // you can use that command just by web officials
-      if (client.yetkililer.includes(message.author.id) === false) {
+      if (client.authorities.includes(message.author.id) === false) {
         const embed = new Discord.RichEmbed()
-					.setDescription(`My brother, you are not a WebSite officer. Do not deal with silly things!`)
-					.setColor(client.ayarlar.color)
+					.setDescription(`Sorry, you are not a WebSite officer. Do not deal with silly things!`)
+					.setColor(client.settings.color)
 					.setTimestamp()
 				message.channel.send("Insufficient Authority.")
 				return
@@ -115,7 +115,7 @@ client.on("message", async message => {
 			if (!message.member.hasPermission("MANAGE_MESSAGES")) {
 				const embed = new Discord.RichEmbed()
 					.setDescription(`You learn to manage messages first and then use this command.`)
-					.setColor(client.ayarlar.color)
+					.setColor(client.settings.color)
 					.setTimestamp()
 				message.channel.send("Insufficient authority.")
 				return
@@ -125,7 +125,7 @@ client.on("message", async message => {
 			if (!message.member.hasPermission("KICK_MEMBERS")) {
 				const embed = new Discord.RichEmbed()
 					.setDescription(`You are not competent to discard members.`)
-					.setColor(client.ayarlar.color)
+					.setColor(client.settings.color)
 					.setTimestamp()
 				message.channel.send("You are not competent to discard members.")
 				return
@@ -135,7 +135,7 @@ client.on("message", async message => {
 			if (!message.member.hasPermission("ADMINISTRATOR")) {
 				const embed = new Discord.RichEmbed()
 					.setDescription(`Insufficient authority.`)
-					.setColor(client.ayarlar.color)
+					.setColor(client.settings.color)
 					.setTimestamp()
 				message.channel.send("Insufficient authority.")
 				return
@@ -147,7 +147,7 @@ client.on("message", async message => {
 			if (!arr.includes(message.author.id)) {
 				const embed = new Discord.RichEmbed()
 					.setDescription(`Your competence is insufficient.`)
-					.setColor(client.ayarlar.color)
+					.setColor(client.settings.color)
 					.setTimestamp()
 				message.channel.send("Insufficient authority.")
 				return
@@ -156,7 +156,7 @@ client.on("message", async message => {
 		if (cmd.conf.enabled === false) {
 			const embed = new Discord.RichEmbed()
 				.setDescription(`This command is disabled.`)
-				.setColor(client.ayarlar.color)
+				.setColor(client.settings.color)
 				.setTimestamp()
 			message.channel.send("This command is disabled.")
 			return
@@ -165,7 +165,7 @@ client.on("message", async message => {
 			if (cmd.conf.guildOnly === true) {
 				const embed = new Discord.RichEmbed()
 					.setDescription(`You cannot use this command in private messages.`)
-					.setColor(client.ayarlar.color)
+					.setColor(client.settings.color)
 					.setTimestamp()
 				message.channel.send("You cannot use this command in private messages.")
 				return

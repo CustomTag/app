@@ -1,13 +1,13 @@
 const Discord = require('discord.js')
 const util = require('util');
-const tokenuyari = `SyntaxError: Unexpected token (token protect heçkırs and ayyildiztim veleds)`
+const tokenwarning = `SyntaxError: Unexpected token`
 const db = require('quick.db');
 
 exports.run = async (client, message, args) => {
 	if(!args[0]) {
 		const embed = new Discord.RichEmbed()
 			.setDescription(`Write code!`)
-			.setColor(client.ayarlar.color)
+			.setColor(client.settings.color)
 			.setTimestamp()
 		message.channel.send({embed})
 		return
@@ -15,7 +15,7 @@ exports.run = async (client, message, args) => {
 	const code = args.join(' ');
 	/*if(code.match(/(client.token)/g)) {
 		const newEmbed = new Discord.RichEmbed()
-			.addField('Hata çıktı;', `\`\`\`xl\n${tokenuyari}\`\`\``)
+			.addField('Hata çıktı;', `\`\`\`xl\n${tokenwarning}\`\`\``)
 			.setColor('#FF0000');
 		message.channel.send(newEmbed);
 		return
@@ -30,16 +30,16 @@ exports.run = async (client, message, args) => {
 		return text;
 	};
 
-	const evalEmbed = new Discord.RichEmbed().setColor(client.ayarlar.color)
+	const evalEmbed = new Discord.RichEmbed().setColor(client.settings.color)
 	try {
 		var evaled = clean(await eval(code));
-		if(evaled.startsWith('NTQ3M')) evaled = tokenuyari;
+		if(evaled.startsWith('NTQ3M')) evaled = tokenwarning;
 		if (evaled.constructor.name === 'Promise') evalEmbed.setDescription(`\`\`\`\n${evaled}\n\`\`\``)
 		else evalEmbed.setDescription(`\`\`\`js\n${evaled}\n\`\`\``)
 		const newEmbed = new Discord.RichEmbed()
 			.addField('📥 Login', `\`\`\`javascript\n${code}\n\`\`\``)
 			.addField('📤 Exit', `\`\`\`js\n${evaled}\`\`\``)
-			.setColor(client.ayarlar.renk)
+			.setColor(client.settings.color)
 		message.channel.send(newEmbed);
 	}
 	catch (err) {

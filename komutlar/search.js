@@ -3,11 +3,11 @@ const db = require('quick.db')
 const request = require('request')
 
 exports.run = async (client, msg, args) => {
-    let prefix = await db.fetch(`${msg.guild.id}.prefix`) || client.ayarlar.prefix
+    let prefix = await db.fetch(`${msg.guild.id}.prefix`) || client.settings.prefix
     if(!args[0]) {
       return msg.channel.send(new Discord.RichEmbed().setDescription('Please enter a bot ID!').setColor("RANDOM"))
     }
-    request(`https://www.discords-bot-list.cf/api/botlar/${args[0]}`, function (error, response, body) {
+    request(`https://www.discords-bot-list.cf/api/bots/${args[0]}`, function (error, response, body) {
     if (error) return msg.channel.send('Error:', error);
     else if (!error) {
       var a = JSON.parse(body).name
@@ -38,7 +38,7 @@ exports.run = async (client, msg, args) => {
       var n = JSON.parse(body).number_of_votes
     }
       
-      request(`https://www.discords-bot-list.cf/api/tumbotlar`, function (error, response, body) {
+      request(`https://www.discords-bot-list.cf/api/tumbots`, function (error, response, body) {
     if (error) return msg.channel.send('Error:', error);
     else if (!error) {
     if (body.includes(args[0])=== false) return msg.reply("There is no bot in this ID system!")
