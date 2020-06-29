@@ -34,7 +34,7 @@ client.on('ready', async () => {
   
    require("./app.js")(client);
   
-  client.user.setActivity(`${client.settings.prefix}help`, { type:"PLAYING" })
+  client.user.setActivity(`${client.settings.prefix}help & ${client.bots.cache.size}`, { type:"WATCHING" })
   
   console.log("Active!")
 });

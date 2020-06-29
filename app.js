@@ -385,8 +385,8 @@ db.set(`bots.${ID}.site`, ayar['botsite'])
 if (ayar['github']) {
 db.set(`bots.${ID}.github`, ayar['github'])
 }
-if (ayar['botdestek']) {
-db.set(`bots.${ID}.destek`, ayar['botdestek'])
+if (ayar['botsupport']) {
+db.set(`bots.${ID}.support`, ayar['botsupport'])
 }
 
 res.redirect("/user/"+req.params.userID+"/panel");
@@ -471,10 +471,10 @@ app.get("/bot/:botID/vote", checkAuth, (req, res) => {
 var id = req.params.botID
 let user = req.user.id
 
-var saat = `${new Date().getHours() + 3}:${new Date().getMinutes()}:${new Date().getSeconds()}`
+var hour = `${new Date().getHours() + 3}:${new Date().getMinutes()}:${new Date().getSeconds()}`
 
 if (db.has(`votes.${id}.${user}`) === true) {
-  if (db.fetch(`votes.${id}.${user}`) !== saat) {
+  if (db.fetch(`votes.${id}.${user}`) !== hour) {
     res.redirect('/bot/'+req.params.botID+'/error')
     return
   } else if (db.fetch(`votes.${id}.${user}`) === hour) {
@@ -497,7 +497,7 @@ app.get("/authorized", checkAuth, (req, res) => {
 renderTemplate(res, req, "authorized.ejs") 
 });
 
-app.get("/botyonetici/vote/:botID", checkAuth, (req, res) => {
+app.get("/botmanager/vote/:botID", checkAuth, (req, res) => {
   if(!client.authorities.includes(req.user.id) ) return res.redirect('/authorized/error')
 let id = req.params.botID
 
@@ -513,7 +513,7 @@ client.users.get(db.fetch(`bots.${id}.ownerid`)).send(`\`${db.fetch(`bots.${id}.
 
 });
 
-app.get("/botyonetici/wait/:botID", checkAuth, (req, res) => {
+app.get("/botmanager/wait/:botID", checkAuth, (req, res) => {
   if(!client.authorities.includes(req.user.id) ) return res.redirect('/authorized/error')
 let id = req.params.botID
 
@@ -529,12 +529,12 @@ client.users.get(db.fetch(`bots.${id}.ownerid`)).send(`\`${db.fetch(`bots.${id}.
 
 });
 
-app.get("/botyonetici/rejected/:botID", checkAuth, (req, res) => {
+app.get("/botmanager/rejected/:botID", checkAuth, (req, res) => {
   if(!client.authorities.includes(req.user.id) ) return res.redirect('/authorized/error')
   renderTemplate(res, req, "rejected.ejs")
 });
 
-app.post("/botyonetici/rejected/:botID", checkAuth, (req, res) => {
+app.post("/botmanager/rejected/:botID", checkAuth, (req, res) => {
   if(!client.authorities.includes(req.user.id) ) return res.redirect('/authorized/error')
   let id = req.params.botID
   
@@ -542,10 +542,10 @@ app.post("/botyonetici/rejected/:botID", checkAuth, (req, res) => {
   
   res.redirect("/authorized")
   
-  client.channels.get(client.settings.kayıt).send(`Admin: \`${req.user.username}#${req.user.discriminator}\` declined Bot: \`${db.fetch(`bots.${id}.name`)}\` Reason: \`${req.body['red-sebep']}\``)
+  client.channels.get(client.settings.kayıt).send(`Admin: \`${req.user.username}#${req.user.discriminator}\` declined/removed Bot: \`${db.fetch(`bots.${id}.name`)}\` Reason: \`${req.body['red-sebep']}\``)
   
   if (client.users.has(db.fetch(`bots.${id}.ownerid`)) === true) {
-  client.users.get(db.fetch(`bots.${id}.ownerid`)).send(`Your Bot: \`${db.fetch(`bots.${id}.name`)}\` Was declined due to: \`${req.body['red-sebep']}\``)
+  client.users.get(db.fetch(`bots.${id}.ownerid`)).send(`Your Bot: \`${db.fetch(`bots.${id}.name`)}\` Was declined/removed due to: \`${req.body['red-sebep']}\``)
   }
 
   });
@@ -616,7 +616,7 @@ app.get("/api/bots/:botID/votes/:userID", (req, res) => {
   }
  
    res.json({
-     vote_durum: db.has(`votes.${id}.${userr}`) ? `Voted today` : null,
+     vote_status: db.has(`votes.${id}.${userr}`) ? `Voted today` : null,
      number_of_votes: db.fetch(`bots.${id}.vote`) || 0
    });
 
