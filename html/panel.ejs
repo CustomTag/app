@@ -7,41 +7,41 @@
       <h6 style="color:#fff">Your Discord Bots:</h6>
   </div>
   
-  <% if (bot.ayar.has('botlar')) { %>
-       <% if (bot.ayar.has(`kbotlar.${user.id}`)) { %>   
+  <% if (bot.ayar.has('bots')) { %>
+       <% if (bot.ayar.has(`kbots.${user.id}`)) { %>   
 
-<%for(var i = 0; i < Object.keys(bot.ayar.fetch('botlar')).length; i++) {%>
-<% var idd = Object.keys(bot.ayar.fetch('botlar'))[i] %>
- <%  if (bot.ayar.fetch(`botlar.${idd}.sahipid`) === user.id) { %>
+<%for(var i = 0; i < Object.keys(bot.ayar.fetch('bots')).length; i++) {%>
+<% var idd = Object.keys(bot.ayar.fetch('bots'))[i] %>
+ <%  if (bot.ayar.fetch(`bots.${idd}.sahipid`) === user.id) { %>
   <div class="col-12 col-sm-6 col-md-4">
         <div class="card card-lg botcard" style="background-color:#fff; width:16rem;">
      <div align="center" class="card-img">
-         <a href="/bot/<%=idd%>"><img src="<%=bot.ayar.fetch(`botlar.${idd}.avatar`)%>" class="card-img-top" alt="Bot Avatar"></a>
-       <% if (bot.ayar.has(`botlar.${idd}.certificate`) === true) { %>
+         <a href="/bot/<%=idd%>"><img src="<%=bot.ayar.fetch(`bots.${idd}.avatar`)%>" class="card-img-top" alt="Bot Avatar"></a>
+       <% if (bot.ayar.has(`bots.${idd}.certificate`) === true) { %>
        <br><br><a style="color:darkorange"><img src="https://cdn.discordapp.com/emojis/522886304615366676.png" width="30px" height="30px">Certified</a><br>
        <% } %>
 
-      <%  if(bot.ayar.fetch(`botlar.${idd}.status`) === 'Pending' || !bot.ayar.has(`botlar.${idd}.status`)) { %>
+      <%  if(bot.ayar.fetch(`bots.${idd}.status`) === 'Pending' || !bot.ayar.has(`bots.${idd}.status`)) { %>
        <div class="badge badge-warning">Pending</div>
        <% } %>
 
-       <%  if(bot.ayar.fetch(`botlar.${idd}.status`) === 'castaway') { %>
+       <%  if(bot.ayar.fetch(`bots.${idd}.status`) === 'castaway') { %>
        <div class="badge badge-danger">castaway</div>
        <% } %>
 
-       <%  if(bot.ayar.fetch(`botlar.${idd}.status`) === 'Notified') { %>
+       <%  if(bot.ayar.fetch(`bots.${idd}.status`) === 'Notified') { %>
        <div class="badge badge-success">Notified</div>
        <% } %>
 
-       <div class="badge badge-primary"><strong style='color: white;'>Vote: </strong><span style='color:whitesmoke;text-transform: none;'><%=bot.ayar.fetch(`botlar.${idd}.vote`)||0%></span></div>
-                    <div style="background-color:grey; color:#fff" class="badge badge-default"><%=bot.ayar.fetch(`botlar.${idd}.library`)%></div>
+       <div class="badge badge-primary"><strong style='color: white;'>Vote: </strong><span style='color:whitesmoke;text-transform: none;'><%=bot.ayar.fetch(`bots.${idd}.vote`)||0%></span></div>
+                    <div style="background-color:grey; color:#fff" class="badge badge-default"><%=bot.ayar.fetch(`bots.${idd}.library`)%></div>
                             </div>
                              <div align="center" style="background-color:#fff" class="card-block">
                                 <div class="card-title">
-                                  <h4><a style="color:#222"><%=bot.useful.seg(bot.ayar.fetch(`botlar.${idd}.name`), 5)%></a></h4>
-                                <h6 style="font-size:17px; color:#222"><%=bot.ayar.fetch(`botlar.${idd}.name`)%></h6></div>         
+                                  <h4><a style="color:#222"><%=bot.useful.seg(bot.ayar.fetch(`bots.${idd}.name`), 5)%></a></h4>
+                                <h6 style="font-size:17px; color:#222"><%=bot.ayar.fetch(`bots.${idd}.name`)%></h6></div>         
                         
-                              <p class="card-text" style="color:#222"><%=bot.ayar.fetch(`botlar.${idd}.ShortDesc`)%></p>
+                              <p class="card-text" style="color:#222"><%=bot.ayar.fetch(`bots.${idd}.ShortDesc`)%></p>
                                <hr>
                                <h6 align="center"><a href="/bot/<%=idd%>" style="font-size:20px; color:#222; background-color:#fff">view</a> <b style="color:grey">|</b> 
                                 <a href="/kullanici/<%=user.id%>/panel/<%=idd%>/duzenle" style="font-size:20px; color:#222; background-color:#fff">Edit</a> <b style="color:grey">|</b> 
@@ -53,7 +53,7 @@
   <% } %>
 </div>
       
-      <% } else if (!bot.ayar.has(`kbotlar.${user.id}`)) {%>
+      <% } else if (!bot.ayar.has(`kbots.${user.id}`)) {%>
            <h5 style="color:#222">
              Sorry you didn't add your bot here!
       </h5>

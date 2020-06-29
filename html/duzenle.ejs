@@ -10,13 +10,13 @@
 		<div><i aria-hidden="true"></i>Prefix</div>
 		<div>
       <input type="text" style="text-align: center;" name="prefix" id="prefix"
-									value="<%=bot.ayar.fetch(`botlar.${id}.prefix`)%>" required="required">
+									value="<%=bot.ayar.fetch(`bots.${id}.prefix`)%>" required="required">
      </div>
      
      <div><i aria-hidden="true"></i>Library</div>
       <div class="select-style">
      <select id="library" name="library" required="required">
-       <option value="<%=bot.ayar.fetch(`botlar.${id}.library`)%>" selected><%=bot.ayar.fetch(`botlar.${id}.library`)%></option>
+       <option value="<%=bot.ayar.fetch(`bots.${id}.library`)%>" selected><%=bot.ayar.fetch(`bots.${id}.library`)%></option>
        <option value="discordcr" >discordcr</option>
         
           <option value="Nyxx" >Nyxx</option>
@@ -70,54 +70,54 @@
      <div><i aria-hidden="true"></i>Short Description</div>
 		<div>
       <input type="text" style="text-align: center; height:60px" name="kisa-aciklama" id="kisa-aciklama"
-                value="<%=bot.ayar.fetch(`botlar.${id}.ShortDesc`)%>" maxlength="50" required="required">
+                value="<%=bot.ayar.fetch(`bots.${id}.ShortDesc`)%>" maxlength="50" required="required">
      </div>
      <br>
      <div><i aria-hidden="true"></i>Long Description<a</div>
 		<div>
       <% var xx %>
 <% for (var ii = 0; ii < bot.tags.length; ii++) { %>
-  <% if(bot.ayar.fetch(`botlar.${id}.uzunaciklama`).includes(bot.tags[ii]) === false) {%>
+  <% if(bot.ayar.fetch(`bots.${id}.longexplanation`).includes(bot.tags[ii]) === false) {%>
     <% xx = false %>
  <% } %>
-    <% if (bot.ayar.fetch(`botlar.${id}.uzunaciklama`).includes(bot.tags[ii]) === true) { %>
+    <% if (bot.ayar.fetch(`bots.${id}.longexplanation`).includes(bot.tags[ii]) === true) { %>
      <% x = true %>
     <% } %>
 <% } %>
       
         <!--<pre style="height:150px; background-color:#222; color:#fff;" name="uzun-aciklama" id="uzun-aciklama"><code>
-        <%= //bot.ayar.fetch(`${id}.uzunaciklama`) %>
+        <%= //bot.ayar.fetch(`${id}.longexplanation`) %>
         </code></pre>-->
       
-      <textarea style="height:150px; background-color:#222; color:#fff;" name="uzun-aciklama" id="uzun-aciklama" value="<%=bot.ayar.fetch(`${id}.uzunaciklama`)%>" minlength="50" required="required">      
-        <%= bot.ayar.fetch(`botlar.${id}.uzunaciklama`) %>
+      <textarea style="height:150px; background-color:#222; color:#fff;" name="uzun-aciklama" id="uzun-aciklama" value="<%=bot.ayar.fetch(`${id}.longexplanation`)%>" minlength="50" required="required">      
+        <%= bot.ayar.fetch(`bots.${id}.longexplanation`) %>
       </textarea>
      </div>
      <br>
      <div><i aria-hidden="true"></i>labels <a style="color:red">*</a></div>
      <div>
       <select multiple id="etikett" name="etikett" style="border-radius:4px; background-color:#222; color:#fff">
-        <% if(bot.ayar.fetch(`botlar.${id}.tag`).includes('Moderation')) { %>
+        <% if(bot.ayar.fetch(`bots.${id}.tag`).includes('Moderation')) { %>
         <option value="Moderation" selected>Moderation</option>
         <% } else { %>
         <option value="Moderation">Moderation</option>
         <% } %>
-        <% if(bot.ayar.fetch(`botlar.${id}.tag`).includes('Music')) { %>
+        <% if(bot.ayar.fetch(`bots.${id}.tag`).includes('Music')) { %>
         <option value="Music" selected>Music</option>
         <% } else { %>
         <option value="Music">Music</option>
         <% } %>
-        <% if(bot.ayar.fetch(`botlar.${id}.tag`).includes('Settings')) { %>
+        <% if(bot.ayar.fetch(`bots.${id}.tag`).includes('Settings')) { %>
         <option value="Settings" selected>Settings</option>
         <% } else { %>
         <option value="Settings">Settings</option>
         <% } %>
-        <% if(bot.ayar.fetch(`botlar.${id}.tag`).includes('Entertainment')) { %>
+        <% if(bot.ayar.fetch(`bots.${id}.tag`).includes('Entertainment')) { %>
         <option value="Entertainment" selected>Entertainment</option>
         <% } else { %>
         <option value="Entertainment">Entertainment</option>
         <% } %>
-        <% if(bot.ayar.fetch(`botlar.${id}.tag`).includes('Web Panel')) { %>
+        <% if(bot.ayar.fetch(`bots.${id}.tag`).includes('Web Panel')) { %>
         <option value="Web Panel" selected>Web Panel</option>
         <% } else { %>
         <option value="Web Panel">Web Panel</option>
@@ -130,34 +130,34 @@
      <br>
      <div><i aria-hidden="true"></i>Website URL</div>
 		<div>
-		<% if(!bot.ayar.has(`botlar.${id}.site`)) { %>
+		<% if(!bot.ayar.has(`bots.${id}.site`)) { %>
       <input type="url" style="text-align: center;" name="botsite" id="botsite"
                 placeholder="If applicable, type in the website url.">
                 <% } else { %>
                     <input type="url" style="text-align: center;" name="botsite" id="botsite"
-                value="<%=bot.ayar.fetch(`botlar.${id}.site`)%>">
+                value="<%=bot.ayar.fetch(`bots.${id}.site`)%>">
                 <% } %>
      </div>
      <br>
      <div><i aria-hidden="true"></i>Github URL</div>
 		<div>
-      <% if(!bot.ayar.has(`botlar.${id}.github`)) { %>
+      <% if(!bot.ayar.has(`bots.${id}.github`)) { %>
       <input type="url" style="text-align: center;" name="github" id="github"
                 placeholder="If available, type github url.">
                 <% } else { %>
                     <input type="url" style="text-align: center;" name="github" id="github"
-                value="<%=bot.ayar.fetch(`botlar.${id}.github`)%>">
+                value="<%=bot.ayar.fetch(`bots.${id}.github`)%>">
                 <% } %>
      </div>
      <br>
      <div><i aria-hidden="true"></i>Support Server URL</div>
 		<div>
-      <% if(!bot.ayar.has(`botlar.${id}.destek`)) { %>
+      <% if(!bot.ayar.has(`bots.${id}.destek`)) { %>
       <input type="url" style="text-align: center;" name="botdestek" id="botdestek"
                 placeholder="If you have a bot, write the Discord support server URL.">
                 <% } else { %>
                     <input type="url" style="text-align: center;" name="botdestek" id="botdestek"
-                value="<%=bot.ayar.fetch(`botlar.${id}.destek`)%>">
+                value="<%=bot.ayar.fetch(`bots.${id}.destek`)%>">
                 <% } %>
      </div>
    
