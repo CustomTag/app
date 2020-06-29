@@ -521,7 +521,7 @@ db.set(`bots.${id}.status`, 'Pending')
 
 res.redirect("/authorized")
 
-client.channels.get(client.settings.kayıt).send(`Owner: \`${db.fetch(`bots.${id}.owner`)}\` Bot: \`${db.fetch(`bots.${id}.name`)}\` Added It On Standby By: \`${req.user.username}#${req.user.discriminator}\` https://www.discords-bot-list.cf/bot/${db.fetch(`bots.${id}.id`)}`)
+client.channels.get(client.settings.kayıt).send(`\`${db.fetch(`bots.${id}.owner`)}\ just added \`${db.fetch(`bots.${id}.name`)}\ To standby https://www.discords-bot-list.cf/bot/${db.fetch(`bots.${id}.id`)}`)
 
 if (client.users.has(db.fetch(`bots.${id}.ownerid`)) === true) {
 client.users.get(db.fetch(`bots.${id}.ownerid`)).send(`\`${db.fetch(`bots.${id}.name`)}\` Your bot is under Review!`)
@@ -542,10 +542,10 @@ app.post("/botmanager/rejected/:botID", checkAuth, (req, res) => {
   
   res.redirect("/authorized")
   
-  client.channels.get(client.settings.kayıt).send(`Admin: \`${req.user.username}#${req.user.discriminator}\` declined/removed Bot: \`${db.fetch(`bots.${id}.name`)}\` Reason: \`${req.body['red-sebep']}\``)
+  client.channels.get(client.settings.kayıt).send(`\${req.user.username}#${req.user.discriminator}\ declined/removed Bot: \`${db.fetch(`bots.${id}.name`)}\ Reason: \`${req.body['red-sebep']}\``)
   
   if (client.users.has(db.fetch(`bots.${id}.ownerid`)) === true) {
-  client.users.get(db.fetch(`bots.${id}.ownerid`)).send(`Your Bot: \`${db.fetch(`bots.${id}.name`)}\` Was declined/removed due to: \`${req.body['red-sebep']}\``)
+  client.users.get(db.fetch(`bots.${id}.ownerid`)).send(`\`${db.fetch(`bots.${id}.name`)}\ Was declined/removed due to: \`${req.body['red-sebep']}\``)
   }
 
   });
