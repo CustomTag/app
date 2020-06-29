@@ -13,7 +13,7 @@ let profile = JSON.parse(fs.readFileSync('./profile.json', 'utf8'))
 client.profile = profile
 
 client.settings = {
-  "prefix": "?", //prefix
+  "prefix": "c!", //prefix
   "oauthSecret": "rXncM4hPEgVyoQhWyuqBfXHMr3OZRN2l", // bot secreti
 	"callbackURL": "https://www.discords-bot-list.cf/callback", // change the urls of my site with "/ callback"!
 	"kayıt": "714504216370085929", // approved, rejected, you have applied, you will write the ID of the channel where the recordings will go

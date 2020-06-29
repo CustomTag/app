@@ -9,8 +9,8 @@ exports.run = async (client, message, args) => {
 	.addField("Add a bot?","[Click here](https://www.discords-bot-list.cf/botekle/)")
   .addField("Hosted by","[Glitch](https://glitch.com)")
   .addField("Website","[Click here](https://www.discords-bot-list.cf/)")
-  .addField("Search Bot","?search (botid)")
-  .addField("Help Cmds","?help")
+  .addField("Search Bot","c!search (botid)")
+  .addField("Help Cmds","c!help")
   message.channel.send({embed: embed})
   
 };
