@@ -228,11 +228,11 @@ client.users.get(db.fetch(`botlar.${ID}.ownerid`)).send(`Your Bot: \`${db.fetch(
 
 });
 
-app.get("/kullanicilar", (req, res) => {
-  renderTemplate(res, req, "kullanicilar.ejs")
+app.get("/users", (req, res) => {
+  renderTemplate(res, req, "users.ejs")
 });
 
-app.get("/kullanici/:userID", (req, res) => {
+app.get("/user/:userID", (req, res) => {
 
   request({
     url: `https://discordapp.com/api/v7/users/${req.params.userID}`,
@@ -244,13 +244,13 @@ app.get("/kullanici/:userID", (req, res) => {
     else if (!error) {
       var kisi = JSON.parse(body)
 
-      renderTemplate(res, req, "kullanici.ejs", {kisi})
+      renderTemplate(res, req, "user.ejs", {kisi})
     };
   });
 
 });
 
-app.get("/kullanici/:userID/profil", (req, res) => {
+app.get("/user/:userID/profile", (req, res) => {
 
   request({
     url: `https://discordapp.com/api/v7/users/${req.params.userID}`,
@@ -268,13 +268,13 @@ app.get("/kullanici/:userID/profil", (req, res) => {
 
 });
 
-app.get("/kullanici/:userID/profil/ayarla", checkAuth, (req, res) => {
+app.get("/user/:userID/profil/adjust", checkAuth, (req, res) => {
 
-  renderTemplate(res, req, "p-ayarla.ejs")
+  renderTemplate(res, req, "adjust.ejs")
 
 });
 
-app.post("/kullanici/:userID/profile/ayarla", checkAuth, (req, res) => {
+app.post("/user/:userID/profile/adjust", checkAuth, (req, res) => {
 
   if (req.params.userID !== req.user.id) return res.redirect('/');
 
@@ -402,12 +402,12 @@ client.users.get(req.user.id).send(`\`${sistem.username}#${sistem.discriminator}
 
 });
 
-app.get("/bot/:botID/rapor", checkAuth, (req, res) => {
+app.get("/bot/:botID/report", checkAuth, (req, res) => {
 
-renderTemplate (res, req, "rapor.ejs");
+renderTemplate (res, req, "report.ejs");
 });
 
-app.post("/bot/:botID/rapor", checkAuth, (req, res) => {
+app.post("/bot/:botID/report", checkAuth, (req, res) => {
 
 let ayar = req.body
 
@@ -513,7 +513,7 @@ client.users.get(db.fetch(`bots.${id}.ownerid`)).send(`\`${db.fetch(`bots.${id}.
 
 });
 
-app.get("/botyonetici/bekleme/:botID", checkAuth, (req, res) => {
+app.get("/botyonetici/wait/:botID", checkAuth, (req, res) => {
   if(!client.authorities.includes(req.user.id) ) return res.redirect('/authorized/error')
 let id = req.params.botID
 
@@ -529,12 +529,12 @@ client.users.get(db.fetch(`bots.${id}.ownerid`)).send(`\`${db.fetch(`bots.${id}.
 
 });
 
-app.get("/botyonetici/reddet/:botID", checkAuth, (req, res) => {
+app.get("/botyonetici/rejected/:botID", checkAuth, (req, res) => {
   if(!client.authorities.includes(req.user.id) ) return res.redirect('/authorized/error')
-  renderTemplate(res, req, "reddet.ejs")
+  renderTemplate(res, req, "rejected.ejs")
 });
 
-app.post("/botyonetici/reddet/:botID", checkAuth, (req, res) => {
+app.post("/botyonetici/rejected/:botID", checkAuth, (req, res) => {
   if(!client.authorities.includes(req.user.id) ) return res.redirect('/authorized/error')
   let id = req.params.botID
   

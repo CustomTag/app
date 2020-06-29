@@ -9,8 +9,8 @@ client.htmll = require('cheerio');
 client.useful = useful;
 client.tags = require('html-tags');
 
-let profil = JSON.parse(fs.readFileSync('./profil.json', 'utf8'))
-client.profil = profil
+let profile = JSON.parse(fs.readFileSync('./profile.json', 'utf8'))
+client.profile = profile
 
 client.settings = {
   "prefix": "?", //prefix
@@ -20,9 +20,9 @@ client.settings = {
   "color": "RANDOM" // get the color of the embeds from here, something like that
 };
 
-client.yetkililer = ["484010160981934100", "343793233815535626", "676710146277113877", "434721364507885568", "422456282948042753"]// ids of all authorities gelece array // ids of all authorities gelcek array
-client.webyetkililer = ["484010160981934100", "343793233815535626", "676710146277113877", "434721364507885568", "422456282948042753"]// ids of web officials future array
-client.sunucuyetkililer = ["484010160981934100", "343793233815535626", "676710146277113877", "434721364507885568", "422456282948042753"]// ids of server authorities future array
+client.authorities = ["484010160981934100", "343793233815535626", "676710146277113877", "434721364507885568", "422456282948042753"]// ids of all authorities gelece array // ids of all authorities gelcek array
+client.web_officials = ["484010160981934100", "343793233815535626", "676710146277113877", "434721364507885568", "422456282948042753"]// ids of web officials future array
+client.server_authorities = ["484010160981934100", "343793233815535626", "676710146277113877", "434721364507885568", "422456282948042753"]// ids of server authorities future array
 
 //["id", "id2"]
 
