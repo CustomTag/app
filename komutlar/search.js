@@ -7,7 +7,7 @@ exports.run = async (client, msg, args) => {
     if(!args[0]) {
       return msg.channel.send(new Discord.RichEmbed().setDescription('Please enter a bot ID!').setColor("RANDOM"))
     }
-    request(`https://www.discords-bot-list.cf/api/bots/${args[0]}`, function (error, response, body) {
+    request(`https://discord4bots.glitch.me/api/bots/${args[0]}`, function (error, response, body) {
     if (error) return msg.channel.send('Error:', error);
     else if (!error) {
       var a = JSON.parse(body).name
@@ -38,7 +38,7 @@ exports.run = async (client, msg, args) => {
       var n = JSON.parse(body).number_of_votes
     }
       
-      request(`https://www.discords-bot-list.cf/api/tumbots`, function (error, response, body) {
+      request(`https://discord4bots.glitch.me/api/tumbots`, function (error, response, body) {
     if (error) return msg.channel.send('Error:', error);
     else if (!error) {
     if (body.includes(args[0])=== false) return msg.reply("There is no bot in this ID system!")
@@ -59,7 +59,7 @@ exports.run = async (client, msg, args) => {
     .addField("Website", j)
     .addField('Github', k)
     .addField('Support Server', i)
-    .setFooter('https://www.discords-bot-list.cf/ is looking for bots in the system!')
+    .setFooter('https://discord4bots.glitch.me/ is looking for bots in the system!')
     msg.channel.send({embed})
   })
 };
