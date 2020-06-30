@@ -45,8 +45,8 @@ setInterval(() => {
 
 for (var i = 0; i < Object.keys(db.fetch('bots')).length; i++) {
 for (var x = 0; x < Object.keys(db.fetch('kbots')).length; x++) {
-var bot = Object.keys(db.fetch('kbots'))[x]
-var user = Object.keys(db.fetch('bots'))[i]
+var bot = Object.keys(db.fetch('bots'))[x]
+var user = Object.keys(db.fetch('kbots'))[i]
 if (db.has(`votes.${bot}.${user}`)) {
    setTimeout(() => {
         db.delete(`votes.${bot}.${user}`)
