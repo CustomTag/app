@@ -505,7 +505,7 @@ db.set(`bots.${id}.status`, 'Approved')
 
 res.redirect("/authorized")
 
-client.channels.get(client.settings.kayıt).send(`\`${db.fetch(`bots.${id}.owner`)}\` Bot: \`${db.fetch(`bots.${id}.name`)}\` Admin: \`${req.user.username}#${req.user.discriminator}\` Approved The Bot! https://discord4bots.glitch.me/bot/${db.fetch(`bots.${id}.id`)}`)
+client.channels.get(client.settings.kayıt).send(`\`${db.fetch(`bots.${id}.owner`)}\` Bot: \`${db.fetch(`bots.${id}.name`)}\` Was Approved https://discord4bots.glitch.me/bot/${db.fetch(`bots.${id}.id`)}`)
 
 if (client.users.has(db.fetch(`bots.${id}.owner`)) === true) {
 client.users.get(db.fetch(`bots.${id}.ownerid`)).send(`\`${db.fetch(`bots.${id}.name`)}\` Your bot has been approved! https://discord4bots.glitch.me/bot/${db.fetch(`bots.${id}.id`)}`)
