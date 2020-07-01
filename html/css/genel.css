@@ -1,11 +1,11 @@
 body {
-	background: #424346;
+	background: #4a4a4a;
 }
 
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600');
 
 .jumbotron {
-  background-color:#6589C2; 
+  background-color:#4a4a4a; 
   width:100%;
 }
 
@@ -16,7 +16,7 @@ h6:link, h6:visited {
 
 .topnav {
 	overflow: hidden;	
-	background-color: #6A6AD3;
+	background-color: #445DE8;
 }
 
 .topnav a {
@@ -30,12 +30,12 @@ h6:link, h6:visited {
 }
 
 .topnav a:hover {
-	background-color: #6481C7;
+	background-color: #445DE8;
 	color: white;
 }
 
 .active {
-	background-color: #638FFC;
+	background-color: #445DE8;
 	color: white;
 }
 
@@ -72,7 +72,7 @@ h6:link, h6:visited {
 }
 
 .footer {
-	background: #444444;
+	background: #666666;
 	width: 100%;
 	height: 269px;
 	float: left;
@@ -117,7 +117,7 @@ h6:link, h6:visited {
 	font-size: 12px;
 	margin-bottom: 8px;
 	clear: left;
-	color: #78B6CB;
+	color: #4E6EBF;
 }
 
 .footer ul li a {
@@ -136,14 +136,14 @@ input[type=text], input[type=url] {
     margin: 8px 0;
     box-sizing: border-box;
     border: none;
-    border-bottom: 2px solid #8E8E8E;
+    border-bottom: 2px solid #6C6C6C;
   border-radius: 40px;
-  background-color: #706E82;
+  background-color: #5B5A62;
   color: #3F60E8;
 }
 
 input[type=text]:focus, input[type=url]:focus {
-  border: 2px solid #D0D0D0;
+  border: 2px solid #7F7F7F;
   color: #3F60E8;
 }
 
@@ -153,19 +153,19 @@ textarea {
     margin: 8px 0;
     box-sizing: border-box;
     border: none;
-    border-bottom: 2px solid #D0D0D0;
+    border-bottom: 2px solid #7F7F7F;
   border-radius: 40px;
   background-color: #555;
   color: #3F60E8;
 }
 
 textarea:focus {
-  border: 2px solid #D0D0D0;
+  border: 2px solid #7F7F7F;
   color: #3F60E8;
 }
 
 .select-style {
-    border: 1px solid #E88F61;
+    border: 1px solid #FFFFFF;
     width: 50%;
     border-radius: 3px;
     overflow: hidden;
