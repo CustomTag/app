@@ -247,7 +247,7 @@ tr:nth-child(even) {background-color: #3E3E3E;}
 /*Bot Sayfası CSS'si*/
 
 .Owner {
-  color:#D72A2A;
+  color:#E35A5A;
 }
 
 .Vote {
@@ -255,16 +255,16 @@ tr:nth-child(even) {background-color: #3E3E3E;}
 }
 
 .Bot {
-  color:#676372;
+  color:#5461CA;
 }
 
 .short-description { 
-  color:#C3B8DC; 
+  color:#F7F7F7; 
 }
 
 .longexplanation {
-  color:#A092B8; 
-  background-color:#6487E7;
+  color:#F5F5F5; 
+  background-color:#3B4561;
   border-radius:40px;
   padding:0px 0px 15px;
 }
