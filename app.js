@@ -391,7 +391,7 @@ db.set(`bots.${ID}.support`, ayar['botsupport'])
 
 res.redirect("/user/"+req.params.userID+"/panel");
 
-client.channels.get(client.settings.kayıt).send(`\`${req.user.username}#${req.user.discriminator}\` Has Edited: \`${sistem.username}#${sistem.discriminator}\` https://discord4bots.glitch.me/bots/${db.fetch(`bots.${ID}.id`)}`)
+client.channels.get(client.settings.kayıt).send(`\`${req.user.username}#${req.user.discriminator}\` Has Edited: \`${sistem.username}#${sistem.discriminator}\` https://discord4bots.glitch.me/bot/${db.fetch(`bots.${ID}.id`)}`)
 
 if (client.users.has(req.user.id) === true) {
 client.users.get(req.user.id).send(`\`${sistem.username}#${sistem.discriminator}\` Your bot's profile / application has been successfully edited!`)
