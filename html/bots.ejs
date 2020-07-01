@@ -44,7 +44,7 @@
         <div class="card card-lg botcard" style="background-color:#fff; width:16rem;">
     <div value="<%=bot.useful.seg(bot.ayar.fetch(`bots.${idd}.name`), 5)%>" align="center" class="card-img">
   
-          <a name="aramaResim" id="aramaResim" href="/bot/<%=idd%>" style="color:#fff"><img value="<%=bot.ayar.fetch(`bots.${idd}.name`)%>" src="<%=bot.ayar.fetch(`bots.${idd}.avatar`)%>" style="width:100%" alt="<%=bot.ayar.fetch(`bots.${idd}.name`)%>"><%=bot.useful.seg(bot.ayar.fetch(`bots.${idd}.name`), 5)%></a>
+          <a name="Search Picture" id="Search Picture" href="/bot/<%=idd%>" style="color:#fff"><img value="<%=bot.ayar.fetch(`bots.${idd}.name`)%>" src="<%=bot.ayar.fetch(`bots.${idd}.avatar`)%>" style="width:100%" alt="<%=bot.ayar.fetch(`bots.${idd}.name`)%>"><%=bot.useful.seg(bot.ayar.fetch(`bots.${idd}.name`), 5)%></a>
         
           <% if(bot.ayar.has(`bots.${idd}.certificate`) === true) { %>
        
@@ -60,7 +60,7 @@
                                 <h6 style="font-size:17px; color:#222"><%=bot.ayar.fetch(`bots.${idd}.owner`)%></h6></div>         
                         
                               <p class="card-text" style="color:#222"><%=bot.ayar.fetch(`bots.${idd}.ShortDesc`)%></p>
-                              <span id="etiketler"><%=bot.ayar.fetch(`bots.${idd}.tag`).join(' | ')%></span>
+                              <span id="labels"><%=bot.ayar.fetch(`bots.${idd}.tag`).join(' | ')%></span>
                                <hr>
                               <h6 align="center"><a href="/bot/<%=idd%>" style="font-size:20px; color:#222; background-color:#fff">view</a> <b style="color:grey">|</b> 
                               <a href="https://discordapp.com/oauth2/authorize?client_id=<%=idd%>&scope=bot&permissions=8" style="font-size:20px; color:#222; background-color:#fff">Invite</a></h6>
@@ -86,7 +86,7 @@ $(document).ready(function(){
     });
   });
   //etiket filtresi
-  $("#etiketselect").change(function(){
+  $("#tag select").change(function(){
     var value = $(this).val();
     if (value === 'noneFilter') {
       window.location.reload(true);
