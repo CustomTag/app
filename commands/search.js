@@ -59,7 +59,7 @@ exports.run = async (client, msg, args) => {
     .addField("Website", j)
     .addField('Github', k)
     .addField('Support Server', i)
-    .setFooter('https://discord4bots.glitch.me/callback Is Looking For A Bot In Its System.')
+    .setFooter('https://discord4bots.glitch.me Is Looking For A Bot In Its System.')
     msg.channel.send({embed})
   })
 };
@@ -74,6 +74,6 @@ exports.conf = {
 
 exports.help = {
   name: 'search',
-  description: 'Lets You Search For Bots In The Discord4Bots System.',
-  usage: 'search [bot id]'
+  description: 'Lets You Search For Bots In The Discord4Bots System!',
+  usage: 'search (botid)'
 };

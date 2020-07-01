@@ -217,10 +217,10 @@ db.set(`kbots.${req.user.id}.${ID}`, db.fetch(`bots.${ID}`))
 
 res.redirect("/user/"+req.params.userID+"/panel");
 
-client.channels.get(client.settings.kayıt).send(`\`${req.user.username}#${req.user.discriminator}\` just added \`${sistem.username}#${sistem.discriminator}\` https://discord4bots.glitch.me/bots/${db.fetch(`bots.${ID}.id`)}`)
+client.channels.get(client.settings.kayıt).send(`\`${req.user.username}#${req.user.discriminator}\` just added \`${sistem.username}#${sistem.discriminator}\` https://discord4bots.glitch.me/bot/${db.fetch(`bots.${ID}.id`)}`)
 
 if (client.users.has(db.fetch(`bots.${ID}.ownerid`)) === true) {
-client.users.get(db.fetch(`bots.${ID}.ownerid`)).send(`\`${db.fetch(`bots.${ID}.name`)}\` Has Been Added To The Pending List https://discord4bots.glitch.me/bots/${db.fetch(`bots.${ID}.id`)}`)
+client.users.get(db.fetch(`bots.${ID}.ownerid`)).send(`\`${db.fetch(`bots.${ID}.name`)}\` Has Been Added To The Pending List https://discord4bots.glitch.me/bot/${db.fetch(`bots.${ID}.id`)}`)
 }
 
 }})
