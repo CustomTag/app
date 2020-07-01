@@ -34,7 +34,7 @@ client.on('ready', async () => {
   
    require("./app.js")(client);
   
-  client.user.setActivity(`${client.settings.prefix}help &  Discord4Bots`, { type:"WATCHING" })
+  client.user.setActivity(`${client.settings.prefix}help & Discord4Bots`, { type:"WATCHING" })
   
   console.log("Active!")
 });

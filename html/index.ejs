@@ -87,7 +87,8 @@ $(document).ready(function(){
     $(".col-12, .col-sm-6, .col-md-4 .card").filter(function() {
       $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
     });
-  });
+  });  });
+
   //etiket filtresi
   $("#tag select").change(function(){
     var value = $(this).val();
