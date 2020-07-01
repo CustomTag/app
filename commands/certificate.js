@@ -38,7 +38,7 @@ exports.run = async (client, message, args, msg) => {
   message.channel.send(`Successfully Added BotID: \`${args[0]}\` To Certificate System List!`)
   client.channels.get(client.settings.kayıt).send(`Admin: \`${message.author.tag}\` Just Added Bot: \`${db.fetch(`bots.${args[0]}.name`)}\` To Certificate System List https://www.discords-bot-list.cf/bot/${db.fetch(`bots.${args[0]}}.id`)}`)
 	
-  db.set(`bots.${args[0]}.certificate`, "Bulunuyor")
+  db.set(`bots.${args[0]}.certificate`, "Available")
   
 };
 

@@ -38,10 +38,10 @@ exports.run = async (client, msg, args) => {
       var n = JSON.parse(body).votes
     }
       
-      request(`https://discord4bots.glitch.me/api/tumbots`, function (errorr, responsee, bodyy) {
+      request(`https://discord4bots.glitch.me/api/allbots`, function (errorr, responsee, bodyy) {
     if (errorr) return msg.channel.send('Error:', errorr);
     else if (!errorr) {
-    if (bodyy.includes(args[0])=== false) return msg.reply("There is no bot in this ID system!")
+    if (bodyy.includes(args[0])=== true) return msg.reply("There is no bot in this ID system!")
     }
        })
       
@@ -66,7 +66,7 @@ exports.run = async (client, msg, args) => {
 
 exports.conf = {
   enabled: true,
-  guildOnly: false,
+  guildOnly: true,
   aliases: ['search-bot', 'find-bot', 'search'],
   permLevel: 0,
   kategori: 'general'

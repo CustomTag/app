@@ -71,11 +71,11 @@ const chalk = require('chalk')
 
 client.commands = new Discord.Collection()
 client.aliases = new Discord.Collection()
-fs.readdir(`./komutlar/`, (err, files) => {
+fs.readdir(`./commands/`, (err, files) => {
 	let jsfiles = files.filter(f => f.split(".").pop() === "js")
 
 	if(jsfiles.length <= 0) {
-		console.log("Discord Bots! I couldn't find any scripts!")
+		console.log("Discord4Bots! I couldn't find any scripts!")
 	} else {
 		if (err) {
 			console.error("Error! There is no name or aliases part of a command!")
@@ -83,7 +83,7 @@ fs.readdir(`./komutlar/`, (err, files) => {
 		console.log(`${jsfiles.length} command will be loaded`)
 
 		jsfiles.forEach(f => {
-			let props = require(`./komutlar/${f}`)
+			let props = require(`./commands/${f}`)
 			client.commands.set(props.help.name, props)
 			props.conf.aliases.forEach(alias => {
 				client.aliases.set(alias, props.help.name)

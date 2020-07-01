@@ -31,18 +31,18 @@
           </div>
       <div align="center">                    
   <% if (!user) { %>
-        <a href="/giris"><button class="oyy btn btn-primary oyver">You must log in to vote <i class="fa fa-lock"></i></button></a>
+        <a href="/login"><button class="oyy btn btn-primary vote">You must log in to vote <i class="fa fa-lock"></i></button></a>
                     <% } else { %>
-        <a href="/bot/<%=id%>/oyver"><button id="oy" href="/bot/<%=id%>/oyver" class="btn btn-primary oyver" type="sumbit"><i aria-hidden="true"></i>Vote</button></a>
+        <a href="/bot/<%=id%>/vote"><button id="oy" href="/bot/<%=id%>/vote" class="btn btn-primary vote" type="sumbit"><i aria-hidden="true"></i>Vote</button></a>
                       <% } %><br>
             
           <a href="https://discordapp.com/oauth2/authorize?client_id=<%=id%>&scope=bot&permissions=8"><button class="btn btn-success davetet"><i aria-hiddden="true"></i>Invite</button></a>
-        <a href="/bot/<%=id%>/rapor"><button class="btn btn-danger rapor"><i aria-hidden="true"></i>Report</button></a>
+        <a href="/bot/<%=id%>/report"><button class="btn btn-danger report"><i aria-hidden="true"></i>Report</button></a>
         
           <% if (user) { %>
           <% if(bot.ayar.fetch(`bots.${id}.ownerid`) === user.id) { %>
-          <a href="/kullanici/<%=user.id%>/panel/<%=id%>/duzenle"><button class="btn btn-primary duzenle"><i aria-hiddden="true"></i>Edit</button></a>
-        <a href="/kullanici/<%=user.id%>/panel/<%=id%>/sil"><button class="sil btn btn-danger"><i aria-hidden="true"></i>Clear</button></a>
+          <a href="/user/<%=user.id%>/panel/<%=id%>/edit"><button class="btn btn-primary edit"><i aria-hiddden="true"></i>Edit</button></a>
+        <a href="/user/<%=user.id%>/panel/<%=id%>/delete"><button class="delete btn btn-danger"><i aria-hidden="true"></i>RemoveBot</button></a>
           <% } %>
         <% } %>
                       
