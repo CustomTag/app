@@ -1,11 +1,11 @@
 body {
-	background: #6C84D4;
+	background: #424346;
 }
 
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600');
 
 .jumbotron {
-  background-color:#4568A0; 
+  background-color:#6589C2; 
   width:100%;
 }
 
@@ -16,7 +16,7 @@ h6:link, h6:visited {
 
 .topnav {
 	overflow: hidden;	
-	background-color: #5F89DE;
+	background-color: #6A6AD3;
 }
 
 .topnav a {
@@ -246,32 +246,32 @@ tr:nth-child(even) {background-color: #3E3E40;}
 
 /*Bot Sayfası CSS'si*/
 
-.producer {
-  color:#38C859;
+.Owner {
+  color:#D72A2A;
 }
 
-.vote {
-  color:#519DF9;
+.Vote {
+  color:#2C81E9;
 }
 
-.bot {
-  color:#443F4F;
+.Bot {
+  color:#676372;
 }
 
 .short-description { 
-  color:#443F4F; 
+  color:#C3B8DC; 
 }
 
 .longexplanation {
-  color:#6B6576; 
-  background-color:#8BA1DC;
+  color:#A092B8; 
+  background-color:#6487E7;
   border-radius:40px;
   padding:0px 0px 15px;
 }
 
 .label {
-  color:#6C9CD1;
-  background-color:#99B5D5; 
+  color:#446FE0;
+  background-color:#58799E; 
 }
 
 .edit {
@@ -330,6 +330,6 @@ input[type=search] {
   width: 100%;
   font-size: 16px;
   padding: 12px 20px 12px 40px;
-  border: 1px solid #EAB153;
+  border: 1px solid #CD806D;
   margin-bottom: 12px;
 }

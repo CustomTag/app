@@ -52,7 +52,7 @@
 <% if (bot.ayar.fetch(`bots.${id}.status`) === 'Pending' || bot.ayar.has(`bots.${id}.status`) === false) { %>
 <tr>
 <td><a class="btn btn-success" href="/botmanager/approve/<%=id%>">Approve<i aria-hidden="true"></i></a>
-<a class="btn btn-danger" href="/botmanager/rejected/<%=id%>">reject<i aria-hidden="true"></i></a>
+<a class="btn btn-danger" href="/botmanager/rejected/<%=id%>">Remove<i aria-hidden="true"></i></a>
 <a class="btn btn-primary" href="https://discordapp.com/oauth2/authorize?client_id=<%=id%>&scope=bot&permissions=0">Invite (Perm: 0)</a>
 <a class="btn btn-primary" href="https://discordapp.com/oauth2/authorize?client_id=<%=id%>&scope=bot&permissions=8">Invite (Perm: 8)</a></td>
 <td><%=bot.ayar.fetch(`bots.${id}.name`)%></td>
@@ -82,8 +82,8 @@
 		<% let id = Object.keys(bot.ayar.fetch('bots'))[i] %>
 		<% if (bot.ayar.fetch(`bots.${id}.status`) === 'Approved') { %>
 	  <tr>
-		<td><a class="btn btn-warning" href="/botmanager/wait/<%=id%>">Put on hold<i aria-hidden="true"></i></a>
-		<a class="btn btn-danger" href="/botmanager/rejected/<%=id%>">Reddet<i aria-hidden="true"></i></a>
+		<td><a class="btn btn-warning" href="/botmanager/wait/<%=id%>">Pending<i aria-hidden="true"></i></a>
+		<a class="btn btn-danger" href="/botmanager/rejected/<%=id%>">Remove<i aria-hidden="true"></i></a>
 		<a class="btn btn-primary" href="https://discordapp.com/oauth2/authorize?client_id=<%=id%>&scope=bot&permissions=0">Invite (Perm: 0)</a>
 		<a class="btn btn-primary" href="https://discordapp.com/oauth2/authorize?client_id=<%=id%>&scope=bot&permissions=8">Invite (Perm: 8)</a></td>
 		<td><%=bot.ayar.fetch(`bots.${id}.name`)%></td>
@@ -113,7 +113,7 @@
 		<% if (bot.ayar.fetch(`bots.${id}.status`) === 'Removed') { %>
 		<tr>
 		<td><a class="btn btn-success" href="/botmanager/approve/<%=id%>">Approve<i aria-hidden="true"></i></a>
-		<a class="btn btn-warning" href="/botmanager/wait/<%=id%>">Put on Pand<i aria-hidden="true"></i></a>
+		<a class="btn btn-warning" href="/botmanager/wait/<%=id%>">Pending<i aria-hidden="true"></i></a>
 		<a class="btn btn-primary" href="https://discordapp.com/oauth2/authorize?client_id=<%=id%>&scope=bot&permissions=0">Invite (Perm: 0)</a>
 		<a class="btn btn-primary" href="https://discordapp.com/oauth2/authorize?client_id=<%=id%>&scope=bot&permissions=8">Invite (Perm: 8)</a></td>
 		<td><%=bot.ayar.fetch(`bots.${id}.name`)%></td>
