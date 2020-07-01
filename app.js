@@ -268,7 +268,7 @@ app.get("/user/:userID/profile", (req, res) => {
 
 });
 
-app.get("/user/:userID/profil/adjust", checkAuth, (req, res) => {
+app.get("/user/:userID/profile/adjust", checkAuth, (req, res) => {
 
   renderTemplate(res, req, "adjust.ejs")
 
@@ -307,9 +307,9 @@ app.post("/user/:userID/profile/adjust", checkAuth, (req, res) => {
   "avatar": "https://cdn.discordapp.com/avatars/${kisi.id}/${kisi.avatar}.png"
   }`)
 
-  profil[req.user.id] = veri;
+  profile[req.user.id] = veri;
 
-  var obj = JSON.stringify(profil)
+  var obj = JSON.stringify(profile)
 
   fs.writeFile('./profile.json', obj)
 
@@ -497,15 +497,15 @@ app.get("/authorized", checkAuth, (req, res) => {
 renderTemplate(res, req, "authorized.ejs") 
 });
 
-app.get("/manager/vote/:botID", checkAuth, (req, res) => {
+app.get("/botmanager/approve/:botID", checkAuth, (req, res) => {
   if(!client.authorities.includes(req.user.id) ) return res.redirect('/authorized/error')
 let id = req.params.botID
 
-db.set(`bots.${id}.status`, 'approve')
+db.set(`bots.${id}.status`, 'Approved')
 
 res.redirect("/authorized")
 
-client.channels.get(client.settings.kayıt).send(`Owner: \`${db.fetch(`bots.${id}.owner`)}\` Bot: \`${db.fetch(`bots.${id}.name`)}\` Admin: \`${req.user.username}#${req.user.discriminator}\` Approved The Bot! https://discord4bots.glitch.me/bot/${db.fetch(`bots.${id}.id`)}`)
+client.channels.get(client.settings.kayıt).send(`\`${db.fetch(`bots.${id}.owner`)}\` Bot: \`${db.fetch(`bots.${id}.name`)}\` Admin: \`${req.user.username}#${req.user.discriminator}\` Approved The Bot! https://discord4bots.glitch.me/bot/${db.fetch(`bots.${id}.id`)}`)
 
 if (client.users.has(db.fetch(`bots.${id}.owner`)) === true) {
 client.users.get(db.fetch(`bots.${id}.ownerid`)).send(`\`${db.fetch(`bots.${id}.name`)}\` Your bot has been approved! https://discord4bots.glitch.me/bot/${db.fetch(`bots.${id}.id`)}`)
@@ -513,11 +513,11 @@ client.users.get(db.fetch(`bots.${id}.ownerid`)).send(`\`${db.fetch(`bots.${id}.
 
 });
 
-app.get("/manager/wait/:botID", checkAuth, (req, res) => {
+app.get("/botmanager/wait/:botID", checkAuth, (req, res) => {
   if(!client.authorities.includes(req.user.id) ) return res.redirect('/authorized/error')
 let id = req.params.botID
 
-db.set(`bots.${id}.status`, 'pending')
+db.set(`bots.${id}.status`, 'Pending')
 
 res.redirect("/authorized")
 
@@ -529,16 +529,16 @@ client.users.get(db.fetch(`bots.${id}.ownerid`)).send(`\`${db.fetch(`bots.${id}.
 
 });
 
-app.get("/manager/rejected/:botID", checkAuth, (req, res) => {
+app.get("/botmanager/rejected/:botID", checkAuth, (req, res) => {
   if(!client.authorities.includes(req.user.id) ) return res.redirect('/authorized/error')
   renderTemplate(res, req, "rejected.ejs")
 });
 
-app.post("/manager/rejected/:botID", checkAuth, (req, res) => {
+app.post("/botmanager/rejected/:botID", checkAuth, (req, res) => {
   if(!client.authorities.includes(req.user.id) ) return res.redirect('/authorized/error')
   let id = req.params.botID
   
-  db.set(`bots.${id}.status`, 'removed')
+  db.set(`bots.${id}.status`, 'Removed')
   
   res.redirect("/authorized")
   
