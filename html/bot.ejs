@@ -31,9 +31,9 @@
           </div>
       <div align="center">                    
   <% if (!user) { %>
-        <a href="/login"><button class="oyy btn btn-primary vote">You must log in to vote <i class="fa fa-lock"></i></button></a>
+        <a href="/login"><button class="vote btn btn-primary vote">You must login to vote <i class="fa fa-lock"></i></button></a>
                     <% } else { %>
-        <a href="/bot/<%=id%>/vote"><button id="oy" href="/bot/<%=id%>/vote" class="btn btn-primary vote" type="sumbit"><i aria-hidden="true"></i>Vote</button></a>
+        <a href="/bot/<%=id%>/vote"><button id="vote" href="/bot/<%=id%>/vote" class="btn btn-primary vote" type="sumbit"><i aria-hidden="true"></i>Vote</button></a>
                       <% } %><br>
             
           <a href="https://discordapp.com/oauth2/authorize?client_id=<%=id%>&scope=bot&permissions=8"><button class="btn btn-success davetet"><i aria-hiddden="true"></i>Invite</button></a>

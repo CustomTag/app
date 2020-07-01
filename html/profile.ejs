@@ -13,7 +13,6 @@
         <h6 style="color:#ffff">Favorite coding language: <%= bot.profile[kisi.id].favlib || "No" %></h6><br>
         <h6 style="color:#fff">Coding languages it knows: <%= bot.profile[kisi.id].libs || "No" %></h6>
        <% } else { %>
-        <h6 style="color:#fff">Profile information</h6>
        <% } %>
     
      <a href="/user/<%=kisi.id%>/profile/adjust" class="btn btn-default" style="background-color:#333; color:#fff">Edit Profile</a>
