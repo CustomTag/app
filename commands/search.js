@@ -7,7 +7,7 @@ exports.run = async (client, msg, args) => {
     if(!args[0]) {
       return msg.channel.send(new Discord.RichEmbed().setDescription('Please enter a bot ID!').setColor("RANDOM"))
     }
-    request(`https://discord4bots.glitch.me/api/bots/${args[0]}`, function (error, response, body) {
+    request(`https://discord4bots.glitch.me/api/bot/${args[0]}`, function (error, response, body) {
     if (error) return msg.channel.send('Error:', error);
     else if (!error) {
       var a = JSON.parse(body).name
@@ -41,7 +41,7 @@ exports.run = async (client, msg, args) => {
       request(`https://discord4bots.glitch.me/api/allbots`, function (errorr, responsee, bodyy) {
     if (errorr) return msg.channel.send('Error:', errorr);
     else if (!errorr) {
-    if (bodyy.includes(args[0])=== true) return msg.reply("There is no bot in this ID system!")
+    if (bodyy.includes(args[0])=== false) return msg.reply("There is no bot in this ID system!")
     }
        })
       
@@ -49,7 +49,7 @@ exports.run = async (client, msg, args) => {
     .setColor("RANDOM")
     .setThumbnail(c)
     .setTitle(`Discord4Bots - Search`)
-    .setDescription(`${a} (${b}) [${n} oy]`, c)
+    .setDescription(`${a} (${b}) [${n} Votes]`, c)
     .addField('Prefix', d)
     .addField('Owner', f)
     .addField('Short Description', g)
