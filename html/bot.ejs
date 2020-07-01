@@ -42,7 +42,7 @@
           <% if (user) { %>
           <% if(bot.ayar.fetch(`bots.${id}.ownerid`) === user.id) { %>
           <a href="/user/<%=user.id%>/panel/<%=id%>/edit"><button class="btn btn-primary edit"><i aria-hiddden="true"></i>Edit</button></a>
-        <a href="/user/<%=user.id%>/panel/<%=id%>/delete"><button class="delete btn btn-danger"><i aria-hidden="true"></i>RemoveBot</button></a>
+        <a href="/user/<%=user.id%>/panel/<%=id%>/delete"><button class="delete btn btn-danger"><i aria-hidden="true"></i>Delete</button></a>
           <% } %>
         <% } %>
                       

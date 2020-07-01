@@ -16,7 +16,7 @@
   <div align="center"><p>There are certified bots in the system.<br>All bots <a href="/bots">clicking here</a> You can see.<br>(The bots are ranked proportionally according to the number of votes.)</p></div>
   
   <div align="center">
-    <input type="search" placeholder="Search bot..." id="Search" name="Search">
+    <input type="search" placeholder="Search bot.." id="Search" name="Search">
     <br>
     <div class="select-style">
     <select id="tag select">
@@ -89,7 +89,7 @@ $(document).ready(function(){
     });
   });
   //etiket filtresi
-  $("#etiketselect").change(function(){
+  $("#tag select").change(function(){
     var value = $(this).val();
     if (value === 'noneFilter') {
       window.location.reload(true);
