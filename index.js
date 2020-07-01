@@ -43,8 +43,8 @@ setInterval(() => {
 
 	if (db.has('bots') && db.has('kbots')) {
 
-for (var i = 0; i < Object.keys(db.fetch('bots')).length; i++) {
-for (var x = 0; x < Object.keys(db.fetch('kbots')).length; x++) {
+for (var i = 0; i < Object.keys(db.fetch('kbots')).length; i++) {
+for (var x = 0; x < Object.keys(db.fetch('bots')).length; x++) {
 var bot = Object.keys(db.fetch('bots'))[x]
 var user = Object.keys(db.fetch('kbots'))[i]
 if (db.has(`votes.${bot}.${user}`)) {
@@ -58,6 +58,14 @@ if (db.has(`votes.${bot}.${user}`)) {
 	}
 
 }, 10000);
+
+client.on("guildMemberAdd", member => {
+      if (member.user.bot === true) {
+          member.addRole(member.guild.roles.find(r=>r.name==='Approved Bots').id) //bot rolü
+       } else {
+          member.addRole(member.guild.roles.find(r=>r.name==='User').id) //üye rolü
+       }
+});
 
 const chalk = require('chalk')
 
