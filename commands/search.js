@@ -7,15 +7,15 @@ exports.run = async (client, msg, args) => {
     if(!args[0]) {
       return msg.channel.send(new Discord.RichEmbed().setDescription('Please enter a bot ID!').setColor("RANDOM"))
     }
-    request(`https://discord4bots.glitch.me/api/bot/${args[0]}`, function (error, response, body) {
+    request(`https://discord4bots.glitch.me/api/bots/${args[0]}`, function (error, response, body) {
     if (error) return msg.channel.send('Error:', error);
     else if (!error) {
       var a = JSON.parse(body).name
       var b = JSON.parse(body).id
-      var c = `${JSON.parse(body).avatar}`
+      var c = JSON.parse(body).avatar
       var d = JSON.parse(body).prefix
       var e = JSON.parse(body).library
-      var f = `${JSON.parse(body).owner} (${JSON.parse(body).ownerid})`
+      var f = JSON.parse(body).owner (JSON.parse(body).ownerid)
       var g = JSON.parse(body).short_description
       var h = JSON.parse(body).labels
       if(JSON.parse(body).support_server === 'Unspecified') {
@@ -38,10 +38,10 @@ exports.run = async (client, msg, args) => {
       var n = JSON.parse(body).votes
     }
       
-      request(`https://discord4bots.glitch.me/api/allbots`, function (errorr, responsee, bodyy) {
-    if (errorr) return msg.channel.send('Error:', errorr);
-    else if (!errorr) {
-    if (bodyy.includes(args[0])=== false) return msg.reply("There is no bot in this ID system!")
+      request(`https://discord4bots.glitch.me/api/allbots`, function (error, response, body) {
+    if (error) return msg.channel.send('Error:', error);
+    else if (!error) {
+    if (body.includes(args[1])=== true) return msg.reply("There is no bot in this ID system!")
     }
        })
       
