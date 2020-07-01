@@ -63,7 +63,7 @@ client.on("guildMemberAdd", member => {
       if (member.user.bot === true) {
           member.addRole(member.guild.roles.find(r=>r.name==='Approved Bots').id) //bot rolü
        } else {
-          member.addRole(member.guild.roles.find(r=>r.name==='User').id) //üye rolü
+          member.addRole(member.guild.roles.find(r=>r.name==='Members').id) //üye rolü
        }
 });
 

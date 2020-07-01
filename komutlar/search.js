@@ -3,7 +3,7 @@ const db = require('quick.db')
 const request = require('request')
 
 exports.run = async (client, msg, args) => {
-    let prefix = await db.fetch(`${client.settings.prefix}`)
+    let prefix = await db.fetch(`${msg.guild.id}.prefix`) || client.settings.prefix
     if(!args[0]) {
       return msg.channel.send(new Discord.RichEmbed().setDescription('Please enter a bot ID!').setColor("RANDOM"))
     }
@@ -35,21 +35,21 @@ exports.run = async (client, msg, args) => {
       }
       var l = JSON.parse(body).certificate
       var m = JSON.parse(body).status
-      var n = JSON.parse(body).number_of_votes
+      var n = JSON.parse(body).votes
     }
       
-      request(`https://discord4bots.glitch.me/api/tumbots`, function (error, response, body) {
-    if (error) return msg.channel.send('Error:', error);
-    else if (!error) {
-    if (body.includes(args[0])=== false) return msg.reply("There is no bot in this ID system!")
+      request(`https://discord4bots.glitch.me/api/tumbots`, function (errorr, responsee, bodyy) {
+    if (errorr) return msg.channel.send('Error:', errorr);
+    else if (!errorr) {
+    if (bodyy.includes(args[0])=== false) return msg.reply("There is no bot in this ID system!")
     }
        })
       
     const embed = new Discord.RichEmbed()
     .setColor("RANDOM")
     .setThumbnail(c)
-    .setTitle(`Discord4Bots - Bot Search`)
-    .setDescription(`${a} (${b}) [${n} votes]`, c)
+    .setTitle(`Discord4Bots - Search`)
+    .setDescription(`${a} (${b}) [${n} oy]`, c)
     .addField('Prefix', d)
     .addField('Owner', f)
     .addField('Short Description', g)
@@ -59,14 +59,14 @@ exports.run = async (client, msg, args) => {
     .addField("Website", j)
     .addField('Github', k)
     .addField('Support Server', i)
-    .setFooter('https://discord4bots.glitch.me/ is looking for bots in the system!')
+    .setFooter('https://discord4bots.glitch.me/callback Is Looking For A Bot In Its System.')
     msg.channel.send({embed})
   })
 };
 
 exports.conf = {
   enabled: true,
-  guildOnly: true,
+  guildOnly: false,
   aliases: ['search-bot', 'find-bot', 'search'],
   permLevel: 0,
   kategori: 'general'
@@ -74,6 +74,6 @@ exports.conf = {
 
 exports.help = {
   name: 'search',
-  description: 'Allows you to search for bots in the Discord Bots system!',
+  description: 'Lets You Search For Bots In The Discord4Bots System.',
   usage: 'search [bot id]'
 };
