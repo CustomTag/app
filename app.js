@@ -217,10 +217,10 @@ db.set(`kbots.${req.user.id}.${ID}`, db.fetch(`bots.${ID}`))
 
 res.redirect("/user/"+req.params.userID+"/panel");
 
-client.channels.get(client.settings.kayıt).send(`\`${req.user.username}#${req.user.discriminator}\` just added \`${sistem.username}#${sistem.discriminator}\` https://www.discords-bot-list.cf/bot/${db.fetch(`bots.${ID}.id`)}`)
+client.channels.get(client.settings.kayıt).send(`\`${req.user.username}#${req.user.discriminator}\` just added \`${sistem.username}#${sistem.discriminator}\` https://discord4bots.glitch.me/bot/${db.fetch(`bots.${ID}.id`)}`)
 
 if (client.users.has(db.fetch(`bots.${ID}.ownerid`)) === true) {
-client.users.get(db.fetch(`bots.${ID}.ownerid`)).send(`\`${db.fetch(`bots.${ID}.name`)}\` Has Been Added To The Pending List https://www.discords-bot-list.cf/bot/${db.fetch(`bots.${ID}.id`)}`)
+client.users.get(db.fetch(`bots.${ID}.ownerid`)).send(`\`${db.fetch(`bots.${ID}.name`)}\` Has Been Added To The Pending List https://discord4bots.glitch.me/bot/${db.fetch(`bots.${ID}.id`)}`)
 }
 
 }})
@@ -391,7 +391,7 @@ db.set(`bots.${ID}.support`, ayar['botsupport'])
 
 res.redirect("/user/"+req.params.userID+"/panel");
 
-client.channels.get(client.settings.kayıt).send(`\`${req.user.username}#${req.user.discriminator}\` Has Edited: \`${sistem.username}#${sistem.discriminator}\` https://www.discords-bot-list.cf/bot/${db.fetch(`bots.${ID}.id`)}`)
+client.channels.get(client.settings.kayıt).send(`\`${req.user.username}#${req.user.discriminator}\` Has Edited: \`${sistem.username}#${sistem.discriminator}\` https://discord4bots.glitch.me/bot/${db.fetch(`bots.${ID}.id`)}`)
 
 if (client.users.has(req.user.id) === true) {
 client.users.get(req.user.id).send(`\`${sistem.username}#${sistem.discriminator}\` Your bot's profile / application has been successfully edited!`)
@@ -497,31 +497,31 @@ app.get("/authorized", checkAuth, (req, res) => {
 renderTemplate(res, req, "authorized.ejs") 
 });
 
-app.get("/botmanager/vote/:botID", checkAuth, (req, res) => {
+app.get("/manager/vote/:botID", checkAuth, (req, res) => {
   if(!client.authorities.includes(req.user.id) ) return res.redirect('/authorized/error')
 let id = req.params.botID
 
-db.set(`bots.${id}.status`, 'Approved')
+db.set(`bots.${id}.status`, 'approve')
 
 res.redirect("/authorized")
 
-client.channels.get(client.settings.kayıt).send(`Owner: \`${db.fetch(`bots.${id}.owner`)}\` Bot: \`${db.fetch(`bots.${id}.name`)}\` Admin: \`${req.user.username}#${req.user.discriminator}\` Approved The Bot! https://www.discords-bot-list.cf/bot/${db.fetch(`bots.${id}.id`)}`)
+client.channels.get(client.settings.kayıt).send(`Owner: \`${db.fetch(`bots.${id}.owner`)}\` Bot: \`${db.fetch(`bots.${id}.name`)}\` Admin: \`${req.user.username}#${req.user.discriminator}\` Approved The Bot! https://discord4bots.glitch.me/bot/${db.fetch(`bots.${id}.id`)}`)
 
 if (client.users.has(db.fetch(`bots.${id}.owner`)) === true) {
-client.users.get(db.fetch(`bots.${id}.ownerid`)).send(`\`${db.fetch(`bots.${id}.name`)}\` Your bot has been approved! https://www.discords-bot-list.cf/bot/${db.fetch(`bots.${id}.id`)}`)
+client.users.get(db.fetch(`bots.${id}.ownerid`)).send(`\`${db.fetch(`bots.${id}.name`)}\` Your bot has been approved! https://discord4bots.glitch.me/bot/${db.fetch(`bots.${id}.id`)}`)
 }
 
 });
 
-app.get("/botmanager/wait/:botID", checkAuth, (req, res) => {
+app.get("/manager/wait/:botID", checkAuth, (req, res) => {
   if(!client.authorities.includes(req.user.id) ) return res.redirect('/authorized/error')
 let id = req.params.botID
 
-db.set(`bots.${id}.status`, 'Pending')
+db.set(`bots.${id}.status`, 'pending')
 
 res.redirect("/authorized")
 
-client.channels.get(client.settings.kayıt).send(`\`${db.fetch(`bots.${id}.owner`)}\` just added \`${db.fetch(`bots.${id}.name`)}\` To standby https://www.discords-bot-list.cf/bot/${db.fetch(`bots.${id}.id`)}`)
+client.channels.get(client.settings.kayıt).send(`\`${db.fetch(`bots.${id}.owner`)}\` just added \`${db.fetch(`bots.${id}.name`)}\` To standby https://discord4bots.glitch.me/bot/${db.fetch(`bots.${id}.id`)}`)
 
 if (client.users.has(db.fetch(`bots.${id}.ownerid`)) === true) {
 client.users.get(db.fetch(`bots.${id}.ownerid`)).send(`\`${db.fetch(`bots.${id}.name`)}\` Your bot is under Review!`)
@@ -529,23 +529,23 @@ client.users.get(db.fetch(`bots.${id}.ownerid`)).send(`\`${db.fetch(`bots.${id}.
 
 });
 
-app.get("/botmanager/rejected/:botID", checkAuth, (req, res) => {
+app.get("/manager/rejected/:botID", checkAuth, (req, res) => {
   if(!client.authorities.includes(req.user.id) ) return res.redirect('/authorized/error')
   renderTemplate(res, req, "rejected.ejs")
 });
 
-app.post("/botmanager/rejected/:botID", checkAuth, (req, res) => {
+app.post("/manager/rejected/:botID", checkAuth, (req, res) => {
   if(!client.authorities.includes(req.user.id) ) return res.redirect('/authorized/error')
   let id = req.params.botID
   
-  db.set(`bots.${id}.status`, 'castaway')
+  db.set(`bots.${id}.status`, 'removed')
   
   res.redirect("/authorized")
   
-  client.channels.get(client.settings.kayıt).send(`\${req.user.username}#${req.user.discriminator}\` declined/removed Bot: \`${db.fetch(`bots.${id}.name`)}\` Reason: \`${req.body['red-sebep']}\``)
+  client.channels.get(client.settings.kayıt).send(`\${req.user.username}#${req.user.discriminator}\` declined/removed Bot: \`${db.fetch(`bots.${id}.name`)}\` Reason: \`${req.body['red-reason']}\``)
   
   if (client.users.has(db.fetch(`bots.${id}.ownerid`)) === true) {
-  client.users.get(db.fetch(`bots.${id}.ownerid`)).send(`\`${db.fetch(`bots.${id}.name`)}\` Was declined/removed due to: \`${req.body['red-sebep']}\``)
+  client.users.get(db.fetch(`bots.${id}.ownerid`)).send(`\`${db.fetch(`bots.${id}.name`)}\` Was declined/removed due to: \`${req.body['red-reason']}\``)
   }
 
   });
@@ -558,13 +558,13 @@ app.get("/api", (req, res) => {
 
 app.get("/api/bots", (req, res) => {
   res.json({
-    hata: 'Write a bot ID.'
+    error: 'Write a bot ID.'
   });
 });
 
 app.get("/api/bots/:botID/votes", (req, res) => {
   res.json({
-    hata: 'Write a user ID.'
+    error: 'Write a user ID.'
   });
 });
 
@@ -574,7 +574,7 @@ app.get("/api/bots/:botID", (req, res) => {
    if (db.has('bots')) {
       if (Object.keys(db.fetch('bots')).includes(id) === false) {
      res.json({
-       hata: 'A bot with the ID you typed is not in the system.'
+       error: 'A bot with the ID you typed is not in the system.'
      });
    }
   }
@@ -590,16 +590,16 @@ ownerid: db.fetch(`bots.${id}.ownerid`),
 short_description: db.fetch(`bots.${id}.ShortDesc`),
 long_explanation: db.fetch(`bots.${id}.longexplanation`),
 labels: db.fetch(`bots.${id}.tag`),
-support_server: db.fetch(`bots.${id}.destek`) || 'Unspecified',
-web_sitesi: db.fetch(`bots.${id}.site`) || 'Unspecified',
+support_server: db.fetch(`bots.${id}.support`) || 'Unspecified',
+website: db.fetch(`bots.${id}.site`) || 'Unspecified',
 github: db.fetch(`bots.${id}.github`) || 'Unspecified',
 status: db.has(`bots.${id}.status`) ? db.fetch(`bots.${id}.status`) : 'Pending',
-number_of_votes: db.fetch(`bots.${id}.vote`) || 0,
+votes: db.fetch(`bots.${id}.vote`) || 0,
 certificate: db.fetch(`bots.${id}.certificate`) || 'no'
     });
 });
 
-  app.get("/api/tumbots", (req, res) => {
+  app.get("/api/allbots", (req, res) => {
     res.json(Object.keys(db.fetch('bots')));
   });
   
@@ -617,7 +617,7 @@ app.get("/api/bots/:botID/votes/:userID", (req, res) => {
  
    res.json({
      vote_status: db.has(`votes.${id}.${user}`) ? `Voted today` : null,
-     number_of_votes: db.fetch(`bots.${id}.vote`) || 0
+     votes: db.fetch(`bots.${id}.vote`) || 0
    });
 
 });
