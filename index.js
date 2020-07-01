@@ -47,10 +47,10 @@ for (var i = 0; i < Object.keys(db.fetch('kbots')).length; i++) {
 for (var x = 0; x < Object.keys(db.fetch('bots')).length; x++) {
 var bot = Object.keys(db.fetch('bots'))[x]
 var user = Object.keys(db.fetch('kbots'))[i]
-if (db.has(`votes.${bot}.${user}`)) {
+if (db.has(`vote.${bot}.${user}`)) {
    setTimeout(() => {
-        db.delete(`votes.${bot}.${user}`)
-    }, require('ms')(`${client.useful.seg(db.fetch(`votes.${bot}.${user}`), 6)}h`));
+        db.delete(`vote.${bot}.${user}`)
+    }, require('ms')(`${client.useful.seg(db.fetch(`vote.${bot}.${user}`), 12)}h`));
 }
 }
 }
@@ -61,9 +61,9 @@ if (db.has(`votes.${bot}.${user}`)) {
 
 client.on("guildMemberAdd", member => {
       if (member.user.bot === true) {
-          member.addRole(member.guild.roles.find(r=>r.name==='Approved Bots').id) //bot rolü
+          member.addRole(member.guild.roles.find(r=>r.name==='Approved Bots').id) //bot role
        } else {
-          member.addRole(member.guild.roles.find(r=>r.name==='Members').id) //üye rolü
+          member.addRole(member.guild.roles.find(r=>r.name==='Members').id) //member role
        }
 });
 
