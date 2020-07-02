@@ -542,7 +542,7 @@ app.post("/botmanager/rejected/:botID", checkAuth, (req, res) => {
   
   res.redirect("/authorized")
   
-  client.channels.get(client.settings.kayıt).send(`\${req.user.username}#${req.user.discriminator}\` declined/removed Bot: \`${db.fetch(`bots.${id}.name`)}\` Reason: \`${req.body['red-reason']}\``)
+  client.channels.get(client.settings.kayıt).send(`\`${req.user.username}#${req.user.discriminator}\` declined/removed Bot: \`${db.fetch(`bots.${id}.name`)}\` Reason: \`${req.body['red-reason']}\``)
   
   if (client.users.has(db.fetch(`bots.${id}.ownerid`)) === true) {
   client.users.get(db.fetch(`bots.${id}.ownerid`)).send(`\`${db.fetch(`bots.${id}.name`)}\` Was declined/removed due to: \`${req.body['red-reason']}\``)
