@@ -3,11 +3,11 @@ const db = require('quick.db')
 const request = require('request')
 
 exports.run = async (client, msg, args) => {
-    let prefix = await db.fetch(`${msg.guild.id}.prefix`) || client.settings.prefix
+    let prefix = await db.fetch(`${client.settings.prefix}.prefix`)
     if(!args[0]) {
       return msg.channel.send(new Discord.RichEmbed().setDescription('Please enter a bot ID!').setColor("RANDOM"))
     }
-    request(`https://discord4bots.glitch.me/api/bots/${args[0]}`, function (error, response, body) {
+    request(`https://discord4bots.glitch.me/api/bots/${args[0].name}`, function (error, response, body) {
     if (error) return msg.channel.send('Error:', error);
     else if (!error) {
       var a = JSON.parse(body).name
@@ -41,7 +41,7 @@ exports.run = async (client, msg, args) => {
       request(`https://discord4bots.glitch.me/api/allbots`, function (error, response, body) {
     if (error) return msg.channel.send('Error:', error);
     else if (!error) {
-    if (body.includes(args[1])=== true) return msg.reply("There is no bot in this ID system!")
+    if (body.includes(args[0])=== true) return msg.reply("There is no bots with this ID in system!")
     }
        })
       

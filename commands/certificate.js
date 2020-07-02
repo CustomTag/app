@@ -20,7 +20,7 @@ exports.run = async (client, message, args, msg) => {
   
   if(!client.users.get(args[0]).bot) {
 		const embed = new Discord.RichEmbed()
-			.setDescription(`My dear, this person is not a bot, what's the head?!`)
+			.setDescription(`Sorry, this person is not a bot, what's the head?!`)
 			.setColor(client.settings.color)
 		message.channel.send({embed})
 		return
