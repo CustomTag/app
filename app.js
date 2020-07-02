@@ -220,7 +220,7 @@ res.redirect("/user/"+req.params.userID+"/panel");
 client.channels.get(client.settings.kayıt).send(`\`${req.user.username}#${req.user.discriminator}\` just added \`${sistem.username}#${sistem.discriminator}\` https://discord4bots.glitch.me/bot/${db.fetch(`bots.${ID}.id`)}`)
 
 if (client.users.has(db.fetch(`bots.${ID}.ownerid`)) === true) {
-client.users.get(db.fetch(`bots.${ID}.ownerid`)).send(`\`${db.fetch(`bots.${ID}.name`)}\` Has Been Added To The Pending List https://discord4bots.glitch.me/bot/${db.fetch(`bots.${ID}.id`)}`)
+client.users.get(db.fetch(`bots.${ID}.ownerid`)).send(`\`${db.fetch(`bots.${ID}.name`)}\` Has been added to pending https://discord4bots.glitch.me/bot/${db.fetch(`bots.${ID}.id`)}`)
 }
 
 }})
@@ -505,7 +505,7 @@ db.set(`bots.${id}.status`, 'Approved')
 
 res.redirect("/authorized")
 
-client.channels.get(client.settings.kayıt).send(`\`${db.fetch(`bots.${id}.owner`)}\` Bot: \`${db.fetch(`bots.${id}.name`)}\` Was Approved https://discord4bots.glitch.me/bot/${db.fetch(`bots.${id}.id`)}`)
+client.channels.get(client.settings.kayıt).send(`\`${db.fetch(`bots.${id}.name`)}\` Was Approved https://discord4bots.glitch.me/bot/${db.fetch(`bots.${id}.id`)}`)
 
 if (client.users.has(db.fetch(`bots.${id}.owner`)) === true) {
 client.users.get(db.fetch(`bots.${id}.ownerid`)).send(`\`${db.fetch(`bots.${id}.name`)}\` Your bot has been approved! https://discord4bots.glitch.me/bot/${db.fetch(`bots.${id}.id`)}`)
@@ -521,7 +521,7 @@ db.set(`bots.${id}.status`, 'Pending')
 
 res.redirect("/authorized")
 
-client.channels.get(client.settings.kayıt).send(`\`${db.fetch(`bots.${id}.owner`)}\` just added \`${db.fetch(`bots.${id}.name`)}\` To standby https://discord4bots.glitch.me/bot/${db.fetch(`bots.${id}.id`)}`)
+client.channels.get(client.settings.kayıt).send(`\`${db.fetch(`bots.${id}.owner`)}\` just added \`${db.fetch(`bots.${id}.name`)}\` To pending https://discord4bots.glitch.me/bot/${db.fetch(`bots.${id}.id`)}`)
 
 if (client.users.has(db.fetch(`bots.${id}.ownerid`)) === true) {
 client.users.get(db.fetch(`bots.${id}.ownerid`)).send(`\`${db.fetch(`bots.${id}.name`)}\` Your bot is under Review!`)
@@ -542,10 +542,10 @@ app.post("/botmanager/rejected/:botID", checkAuth, (req, res) => {
   
   res.redirect("/authorized")
   
-  client.channels.get(client.settings.kayıt).send(`\`${req.user.username}#${req.user.discriminator}\` declined/removed Bot: \`${db.fetch(`bots.${id}.name`)}\` Reason: \`${req.body['red-reason']}\``)
+  client.channels.get(client.settings.kayıt).send(`\`${req.user.username}#${req.user.discriminator}\` declined/removed \`${db.fetch(`bots.${id}.name`)}\` Reason: \`${req.body['red-reason']}\``)
   
   if (client.users.has(db.fetch(`bots.${id}.ownerid`)) === true) {
-  client.users.get(db.fetch(`bots.${id}.ownerid`)).send(`\`${db.fetch(`bots.${id}.name`)}\` Was declined/removed due to: \`${req.body['red-reason']}\``)
+  client.users.get(db.fetch(`bots.${id}.ownerid`)).send(`\`${db.fetch(`bots.${id}.name`)}\` Was declined/removed due to \`${req.body['red-reason']}\``)
   }
 
   });
