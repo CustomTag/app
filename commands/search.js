@@ -12,7 +12,7 @@ exports.run = async (client, msg, args) => {
     request(`https://discord4bots.glitch.me/api/bots/${args[0].id}`, function (error, response, body) {
     if (error) return msg.channel.send('Error:', error);
     else if (!error) {
-      var i = JSON.parse(body).support
+      var a = JSON.parse(body).name
       var b = JSON.parse(body).id
       var c = JSON.parse(body).avatar
       var d = JSON.parse(body).prefix
@@ -20,10 +20,10 @@ exports.run = async (client, msg, args) => {
       var f = JSON.parse(body).owner (JSON.parse(body).ownerid)
       var g = JSON.parse(body).short_description
       var h = JSON.parse(body).labels
-      if(JSON.parse(body).support === 'Unspecified') {
+      if(JSON.parse(body).support_server === 'Unspecified') {
         var i = 'Unspecified'
       } else {
-        var i = JSON.parse(body).support
+        var i = `[${a} Support Server](${JSON.parse(body).support_server})`
       }
       if(JSON.parse(body).website === 'Unspecified') {
         var j = 'Unspecified'
