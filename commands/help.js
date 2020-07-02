@@ -11,7 +11,6 @@ exports.run = async (client, message, args, msg) => {
 	.addField("Add a bot?","[Click here](https://discord4bots.glitch.me/addbot)")
   .addField("Hosted by","[Glitch](https://glitch.com)")
   .addField("Website","[Click here](https://discord4bots.glitch.me/)")
-  .addField("Search Bot","c!search (botid)")
   .addField("Help Cmds","c!help")
   message.channel.send({embed: embed})
   
