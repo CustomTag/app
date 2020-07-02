@@ -34,10 +34,10 @@ exports.run = async (client, message, args, msg) => {
   if (db.has(`bots.${args[0]}.certificate`) === true) return message.reply("Sorry, there are already Certified bots with this ID.")
   }
   
-  message.channel.send(`Successfully Added BotID: \`${args[0]}\` To Certificate System List!`)
-  client.channels.get(client.settings.kayıt).send(`\`${message.author.tag}\` Just Added \`${db.fetch(`bots.${args[0]}.name`)}\` To Certificate https://discord4bots.glitch.me/bot/${db.fetch(`bots.${args[0]}}.name`)}`)
+  message.channel.send(`Successfully Added \`${args[0]}\` To Certificate`)
+  client.channels.get(client.settings.kayıt).send(`\`${message.author.tag}\` Has added \`${db.fetch(`bots.${args[0]}.name`)}\` To Certificate https://discord4bots.glitch.me/bot/${db.fetch(`bots.${ID}.id`)}`)
 	
-  db.set(`bots.${args[0]}.certificate`, "Available")
+  db.set(`bots.${args[0]}.certificate`, "Available") // can i change something like what?
   
 };
 
