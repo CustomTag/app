@@ -214,7 +214,7 @@ tr:nth-child(even) {background-color: #3E3E3E;}
 }
 
 .card-space-20 {
-    margin-left: 20px;
+    margin-left: 50px;
 }
 
 .card-space-30 {
@@ -222,7 +222,7 @@ tr:nth-child(even) {background-color: #3E3E3E;}
 }
 
 .card-space-40 {
-    margin-left: 40px;
+    margin-left: 50px;
 }
 
 .card-space-50 {
@@ -230,11 +230,11 @@ tr:nth-child(even) {background-color: #3E3E3E;}
 }
 
 .card-space-60 {
-    margin-left: 60px;
+    margin-left: 50px;
 }
 
 .card-space-70 {
-    margin-left: 70px;
+    margin-left: 50px;
 }
 
 .image-responsive {

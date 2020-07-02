@@ -35,7 +35,7 @@ exports.run = async (client, message, args, msg) => {
   }
   
   message.channel.send(`Successfully Added \`${args[0]}\` To Certificate`)
-  client.channels.get(client.settings.kayıt).send(`\`${message.author.tag}\` Has added \`${db.fetch(`bots.${args[0]}.name`)}\` To Certificate https://discord4bots.glitch.me/bot/${db.fetch(`bots.${ID}.id`)}`)
+  client.channels.get(client.settings.kayıt).send(`\`${message.author.tag}\` Has added \`${db.fetch(`bots.${args[0]}.name`)}\` To Certificate https://discord4bots.glitch.me/bot/${args[0]}.name`)
 	
   db.set(`bots.${args[0]}.certificate`, "Available") // can i change something like what?
   
