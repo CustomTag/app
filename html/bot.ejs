@@ -6,7 +6,7 @@
                             <div align="center"><span class="Owner"><i class="fa fa-clock-o"></i> <strong>Owner: </strong><%=bot.ayar.fetch(`bots.${id}.owner`)%></span><a style="color:#222"> | </a>
                             <span class="Vote"><a class="Votes"><i class="fa fa-star"></i> <%=bot.ayar.fetch(`bots.${id}.vote`) || 0%> Votes</a></span>
                         <% if(bot.ayar.has(`bots.${id}.certificate`) === true) { %>
-                         | <span><img src="https://cdn2.iconfinder.com/data/icons/rewards-1/512/medal-512.png" width="20px" height="20px"> <a style="color:darkorange">Certified Bot</a></span>
+                         | <span><img src="https://cdn2.iconfinder.com/data/icons/rewards-1/512/medal-512.png" width="20px" height="20px"> <a style="color:darkorange">Certified</a></span>
                          <% } %>
                           </div>
                         </div><br>
@@ -17,8 +17,8 @@
         <div alig ="left">
           <button class="botprefix btn btn-default"><%=bot.ayar.fetch(`bots.${id}.prefix`)%></button>
           
-      <%if (bot.ayar.has(`bots.${id}.destek`)){%>
-                 <a href="<%=bot.ayar.fetch(`bots.${id}.destek`)%>"><button class="btn btn-warning destek">Support Server</button></a>
+      <%if (bot.ayar.has(`bots.${id}.support`)){%>
+                 <a href="<%=bot.ayar.fetch(`bots.${id}.support`)%>"><button class="btn btn-warning support">Support</button></a>
             <%} %>
           
           <%if (bot.ayar.has(`bots.${id}.site`)){%>
@@ -31,7 +31,7 @@
           </div>
       <div align="center">                    
   <% if (!user) { %>
-        <a href="/login"><button class="vote btn btn-primary vote">You must login to vote <i class="fa fa-lock"></i></button></a>
+        <a href="/login"><button class="vote btn btn-primary vote">Login To Vote <i class="fa fa-lock"></i></button></a>
                     <% } else { %>
         <a href="/bot/<%=id%>/vote"><button id="vote" href="/bot/<%=id%>/vote" class="btn btn-primary vote" type="sumbit"><i aria-hidden="true"></i>Vote</button></a>
                       <% } %><br>

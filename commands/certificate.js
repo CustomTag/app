@@ -27,11 +27,11 @@ exports.run = async (client, message, args, msg) => {
 	}
   
 	if (db.has('bots')) {
-			if (Object.keys(db.fetch('bots')).includes(args[0]) === false)  return message.reply("My dear, the bot that wrote the ID is missing in the system!")
+			if (Object.keys(db.fetch('bots')).includes(args[0]) === false)  return message.reply("Sorry, the bot that wrote the ID is missing in the system!")
 	}
   
   if (db.has('bots')) {
-  if (db.has(`bots.${args[0]}.certificate`) === true) return message.reply("Dear, there are already Certified bots with this ID.")
+  if (db.has(`bots.${args[0]}.certificate`) === true) return message.reply("Sorry, there are already Certified bots with this ID.")
   }
   
   message.channel.send(`Successfully Added BotID: \`${args[0]}\` To Certificate System List!`)
