@@ -14,13 +14,7 @@ exports.run = async (client, message, args, msg) => {
 		return
 	}
 	const code = args.join(' ');
-	/*if(code.match(/(client.token)/g)) {
-		const newEmbed = new Discord.RichEmbed()
-			.addField('Hata çıktı;', `\`\`\`xl\n${tokenwarning}\`\`\``)
-			.setColor('#FF0000');
-		message.channel.send(newEmbed);
-		return
-	}*/
+	
 
 	function clean(text) {
 		if (typeof text !== 'string')
