@@ -505,10 +505,10 @@ db.set(`bots.${id}.status`, 'Approved')
 
 res.redirect("/authorized")
 
-client.channels.get(client.settings.kayıt).send(`\`${db.fetch(`bots.${id}.owner`)}\` Bot: \`${db.fetch(`bots.${id}.name`)}\` Was Approved https://discord4bots.glitch.me/bots/${db.fetch(`bots.${id}.id`)}`)
+client.channels.get(client.settings.kayıt).send(`\`${db.fetch(`bots.${id}.owner`)}\` Bot: \`${db.fetch(`bots.${id}.name`)}\` Was Approved https://discord4bots.glitch.me/bot/${db.fetch(`bots.${id}.id`)}`)
 
 if (client.users.has(db.fetch(`bots.${id}.owner`)) === true) {
-client.users.get(db.fetch(`bots.${id}.ownerid`)).send(`\`${db.fetch(`bots.${id}.name`)}\` Your bot has been approved! https://discord4bots.glitch.me/bots/${db.fetch(`bots.${id}.id`)}`)
+client.users.get(db.fetch(`bots.${id}.ownerid`)).send(`\`${db.fetch(`bots.${id}.name`)}\` Your bot has been approved! https://discord4bots.glitch.me/bot/${db.fetch(`bots.${id}.id`)}`)
 }
 
 });
@@ -521,7 +521,7 @@ db.set(`bots.${id}.status`, 'Pending')
 
 res.redirect("/authorized")
 
-client.channels.get(client.settings.kayıt).send(`\`${db.fetch(`bots.${id}.owner`)}\` just added \`${db.fetch(`bots.${id}.name`)}\` To standby https://discord4bots.glitch.me/bots/${db.fetch(`bots.${id}.id`)}`)
+client.channels.get(client.settings.kayıt).send(`\`${db.fetch(`bots.${id}.owner`)}\` just added \`${db.fetch(`bots.${id}.name`)}\` To standby https://discord4bots.glitch.me/bot/${db.fetch(`bots.${id}.id`)}`)
 
 if (client.users.has(db.fetch(`bots.${id}.ownerid`)) === true) {
 client.users.get(db.fetch(`bots.${id}.ownerid`)).send(`\`${db.fetch(`bots.${id}.name`)}\` Your bot is under Review!`)
@@ -579,9 +579,9 @@ app.get("/api/bots/:botID", (req, res) => {
    }
   }
 
-    res.json({
-       name: db.fetch(`bots.${id}.name`),
-       id: id,
+res.json({
+name: db.fetch(`bots.${id}.name`),
+id: id,
 avatar: db.fetch(`bots.${id}.avatar`),
 prefix: db.fetch(`bots.${id}.prefix`),
 library: db.fetch(`bots.${id}.library`),
