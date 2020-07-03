@@ -96,10 +96,10 @@ next();
 passport.authenticate("discord"));
 
 app.get("/connection-error", (req, res) => {
-renderTemplate(res, req, "rejected.ejs");
+renderTemplate(res, req, "autherror.ejs");
 });
 
-app.get("/callback", passport.authenticate("discord", { failureRedirect: "/rejected" }), async (req, res) => {
+app.get("/callback", passport.authenticate("discord", { failureRedirect: "/autherror" }), async (req, res) => {
 if (req.session.backURL) {
 const url = req.session.backURL;
 req.session.backURL = null;
@@ -109,7 +109,7 @@ res.redirect("/");
 }
 });
 
-app.get("/logout", function(req, res) {
+app.get("/exit", function(req, res) {
 req.session.destroy(() => {
 req.logout();
 res.redirect("/");
@@ -616,8 +616,8 @@ app.get("/api/bots/:botID/votes/:userID", (req, res) => {
   }
  
    res.json({
-     vote_status: db.has(`vote.${id}.${user}`) ? `Voted today` : null,
-     votes: db.fetch(`bots.${id}.votes`) || 0
+     vote_status: db.has(`votes.${id}.${user}`) ? `Voted today` : null,
+     votes: db.fetch(`bots.${id}.vote`) || 0
    });
 
 });
