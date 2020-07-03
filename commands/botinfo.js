@@ -32,11 +32,14 @@ exports.run = async (client, message, args, msg) => { // who r u he jappe chill 
     return message.reply("No bots are in the system!")
   }
   
+  let id = ayar['botid']
+  
   const embed = new Discord.RichEmbed()
-  embed.setTitle("Bot Info")
-  embed.addField({name: "Bot Name", value:db.fetch(`bots.${args[0]}.name`)})
-  embed.addField({name: "Bot Owner", value:db.fetch(`bots.${args[0]}.owner`)})
-  embed.addField({name: "Short Description", value:db.fetch(`bots.${args[0]}.ShortDesc`)})
+  .setTitle("Bot Info")
+  .addField({name: "Bot Name", value:`${db.fetch(bots.${id}.name)}`)
+  .addField({name: "Bot Owner", value:db.fetch(`bots.${args[0]}.owner`)})
+  .addField({name: "Short Description", value:db.fetch(`bots.${args[0]}.ShortDesc`)})
+  
   message.channel.send(embed)
 };
 
