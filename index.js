@@ -114,7 +114,7 @@ client.on("message", async message => {
 					.setDescription(`Sorry, you are not a WebSite officer. Do not deal with silly things!`)
 					.setColor(client.settings.color)
 					.setTimestamp()
-				message.channel.send("Insufficient Authority.")
+				message.channel.send(embed)
 				return
       }
     }
@@ -125,7 +125,7 @@ client.on("message", async message => {
 					.setDescription(`You learn to manage messages first and then use this command.`)
 					.setColor(client.settings.color)
 					.setTimestamp()
-				message.channel.send("Insufficient authority.")
+				message.channel.send(embed)
 				return
 			}
 		}
@@ -135,7 +135,7 @@ client.on("message", async message => {
 					.setDescription(`You are not competent to discard members.`)
 					.setColor(client.settings.color)
 					.setTimestamp()
-				message.channel.send("You are not competent to discard members.")
+				message.channel.send(embed)
 				return
 			}
 		}
@@ -145,7 +145,7 @@ client.on("message", async message => {
 					.setDescription(`Insufficient authority.`)
 					.setColor(client.settings.color)
 					.setTimestamp()
-				message.channel.send("Insufficient authority.")
+				message.channel.send(embed)
 				return
 			}
 		}
@@ -157,7 +157,7 @@ client.on("message", async message => {
 					.setDescription(`Your competence is insufficient.`)
 					.setColor(client.settings.color)
 					.setTimestamp()
-				message.channel.send("Insufficient authority.")
+				message.channel.send(embed)
 				return
 			}
 		}
@@ -166,7 +166,7 @@ client.on("message", async message => {
 				.setDescription(`This command is disabled.`)
 				.setColor(client.settings.color)
 				.setTimestamp()
-			message.channel.send("This command is disabled.")
+			message.channel.send(embed)
 			return
 		}
 		if(message.channel.type === "dm") {
@@ -175,7 +175,7 @@ client.on("message", async message => {
 					.setDescription(`You cannot use this command in private messages.`)
 					.setColor(client.settings.color)
 					.setTimestamp()
-				message.channel.send("You cannot use this command in private messages.")
+				message.channel.send(embed)
 				return
 			}
 		}
