@@ -1,23 +1,21 @@
 <%- include('ek/header', {bot, user, path}) %>
 <!DOCTYPE html>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="msapplication-TileColor" content="#4679FF">
-<meta name="msapplication-TileImage" content="<%=bot.ayar.fetch(`bots.${id}.avatar`)%>">
-<meta name="theme-color" content="#4679FF">
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="<%=bot.ayar.fetch(`bots.${id}.ShortDesc`)%>">
-<meta name="keywords" content="bots, server, discord, English">
-<meta property="og:title" content="Discord4Bots | <%=bot.ayar.fetch(`bots.${id}.name`)%>" />
-<meta property="og:type" content="Website" />
-<meta property="og:url" content="https://discord4bots.glitch.me/bot/<%=id%>" />
-<meta property="og:description" content="<%=bot.ayar.fetch(`bots.${id}.ShortDesc`)%>" />
-<meta property="og:image" content="<%=bot.ayar.fetch(`bots.${id}.avatar`)%>" />
-<meta property="og:site_name" content="Discord4Bots | <%=bot.ayar.fetch(`bots.${id}.name`)%>">
-<meta itemprop="name" content="D4B">
-<meta itemprop="description" content="<%=bot.ayar.fetch(`bots.${id}.ShortDesc`)%>">
-<meta itemprop="image" content="<%=bot.ayar.fetch(`bots.${id}.avatar`)%>">
+<html>
 
-<div class="post post-single">
+<head>
+    <meta property="og:title" content="Discord4Bots" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="Just another bot list for discord" />
+    <meta name="description" content="Just another bot list for discord" />
+    <meta name="og:image" content="<%=bot.user.avatarURL%>" />
+    <meta name="theme-color" content="#4679FF" />
+    <link href="https://fonts.googleapis.com/icon?family=Markazi+Text" rel="stylesheet">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link rel="shortcut icon" type="image" href="<%=bot.user.avatarURL%>" />
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+</head>
+
+  <div class="post post-single">
                   <br>
                         <div class="post-meta">
                             <div align="center"><span class="Owner"><i class="fa fa-clock-o"></i> <strong>Owner: </strong><%=bot.ayar.fetch(`bots.${id}.owner`)%></span><a style="color:#222"> | </a>
@@ -107,5 +105,6 @@
               </div>
       </div>
 </div>
+<html>
 
 <% include ./ek/footer %>
