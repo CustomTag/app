@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const db = require('quick.db');
 
-exports.run = async (client, message, args, msg) => {
+exports.run = async (client, message, args, msg) => { // who r u
 	if(!args[0]) {
 		const embed = new Discord.RichEmbed()
 			.setDescription(`You must write an ID!`)
@@ -34,17 +34,17 @@ exports.run = async (client, message, args, msg) => {
   
   const embed = new Discord.RichEmbed()
   embed.setTitle("Bot Info")
-  embed.addFields(
-      {name: "Bot Name", value:db.fetch(`bots.${args[0]}.name`)},
-      {name: }
-  )
+  embed.addField({name: "Bot Name", value:db.fetch(`bots.${args[0]}.name`)})
+  embed.addField({name: "Bot Owner", value:db.fetch(`bots.${args[0]}.owner`)})
+  embed.addField({name: "Short Description", value:db.fetch(`bots.${args[0]}.ShortDesc`)})
+  message.channel.send(embed)
 };
 
 exports.conf = {
 	enabled: true,
 	guildOnly: true,
-	aliases: [],
-	permLevel: 'special',
+	aliases: ["info"],
+	permLevel: 0,
 	kategori: 'authorized'
 }
 
