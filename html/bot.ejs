@@ -1,5 +1,5 @@
 <%- include('ek/header', {bot, user, path}) %>
-
+<!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="msapplication-TileColor" content="#4679FF">
 <meta name="msapplication-TileImage" content="<%=bot.ayar.fetch(`bots.${id}.avatar`)%>">
@@ -7,12 +7,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="description" content="<%=bot.ayar.fetch(`bots.${id}.ShortDesc`)%>">
 <meta name="keywords" content="bots, server, discord, English">
-<meta property="og:title" content="Discord4Bots | <%=bot.ayar.fetch(`bots.${id}.name`)>" />
-<meta property="og:type" content="Website" >
-<meta property="og:url" content="" >
+<meta property="og:title" content="Discord4Bots | <%=bot.ayar.fetch(`bots.${id}.name`)%>" />
+<meta property="og:type" content="Website" />
+<meta property="og:url" content="https://discord4bots.glitch.me/bot/<%=id%>" />
 <meta property="og:description" content="<%=bot.ayar.fetch(`bots.${id}.ShortDesc`)%>" />
-<meta property="og:image" content="<%=bot.ayar.fetch(`bots.${id}.avatar`)%>" >
-<meta property="og:site_name" content="Discord4Bots | <%=bot.ayar.fetch(`bots.${id}.name)>">
+<meta property="og:image" content="<%=bot.ayar.fetch(`bots.${id}.avatar`)%>" />
+<meta property="og:site_name" content="Discord4Bots | <%=bot.ayar.fetch(`bots.${id}.name`)%>">
 <meta itemprop="name" content="D4B">
 <meta itemprop="description" content="<%=bot.ayar.fetch(`bots.${id}.ShortDesc`)%>">
 <meta itemprop="image" content="<%=bot.ayar.fetch(`bots.${id}.avatar`)%>">
