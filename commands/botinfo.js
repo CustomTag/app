@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const db = require('quick.db');
 
-exports.run = async (client, message, args, msg) => { // who r u
+exports.run = async (client, message, args, msg) => { // who r u he jappe chill he is fixing the domain
 	if(!args[0]) {
 		const embed = new Discord.RichEmbed()
 			.setDescription(`You must write an ID!`)

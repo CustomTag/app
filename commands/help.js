@@ -19,7 +19,7 @@ exports.run = async (client, message, args, msg) => {
 exports.conf = {
 	enabled: true,
 	guildOnly: true,
-	aliases: ['y', 'help', 'h', 'information', 'info'],
+	aliases: ['help', 'h', 'information', 'info'],
 	permLevel: 0,
 	kategori: 'general'
 }
