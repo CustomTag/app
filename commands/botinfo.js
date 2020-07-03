@@ -28,17 +28,16 @@ exports.run = async (client, message, args, msg) => {
   
 	if (db.has('bots')) {
 			if (Object.keys(db.fetch('bots')).includes(args[0]) === false)  return message.reply("Sorry, the bot that wrote the ID is missing in the system!")
-	}
-  
-  if (db.has('bots')) {
-  if (db.has(`bots.${args[0]}.certificate`) === true) return message.reply("Sorry, there are already Certified bots with this ID.")
+	} else {
+    return message.reply("No bots are in the system!")
   }
   
-  message.channel.send(`Successfully Added \`${args[0]}\` To Certificate`)
-  client.channels.get(client.settings.kayıt).send(`\`${message.author.tag}\` Has added \`${db.fetch(`bots.${args[0]}.name`)}\` To Certificate https://discord4bots.glitch.me/bot/${args[0]}`)
-	
-  db.set(`bots.${args[0]}.certificate`, "Available") // can i change something like what?
-  
+  const embed = new Discord.RichEmbed()
+  embed.setTitle("Bot Info")
+  embed.addFields(
+      {name: "Bot Name", value:db.fetch(`bots.${args[0]}.name`)},
+      {name: }
+  )
 };
 
 exports.conf = {
