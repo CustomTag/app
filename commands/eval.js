@@ -1,6 +1,6 @@
 const Discord = require('discord.js')
 const util = require('util');
-const tokenwarning = `SyntaxError: Unexpected token`
+const tokenwarning = `Error: Unexpected token`
 const db = require('quick.db');
 
 exports.run = async (client, message, args, msg) => {

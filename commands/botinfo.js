@@ -32,13 +32,14 @@ exports.run = async (client, message, args, msg) => { // who r u he jappe chill 
     return message.reply("No bots are in the system!")
   }
   
-  let id = ayar['botid']
+  let id = client.ayar['botid']
   
   const embed = new Discord.RichEmbed()
   .setTitle("Bot Info")
-  .addField({name: "Bot Name", value:`${db.fetch(bots.${id}.name)}`)
-  .addField({name: "Bot Owner", value:db.fetch(`bots.${args[0]}.owner`)})
-  .addField({name: "Short Description", value:db.fetch(`bots.${args[0]}.ShortDesc`)})
+  .setColor("RANDOM")
+  .addField({name: "Bot Name", value:db.fetch(`bots.${id}.name`)})
+  .addField({name: "Bot Owner", value:db.fetch(`bots.${id}.owner`)})
+  .addField({name: "Short Description", value:db.fetch(`bots.${id}.ShortDesc`)}) // yay yey
   
   message.channel.send(embed)
 };
@@ -46,7 +47,7 @@ exports.run = async (client, message, args, msg) => { // who r u he jappe chill 
 exports.conf = {
 	enabled: true,
 	guildOnly: true,
-	aliases: ["info"],
+	aliases: ["info", "search"],
 	permLevel: 0,
 	kategori: 'authorized'
 }
@@ -54,5 +55,5 @@ exports.conf = {
 exports.help = {
 	name: 'botinfo',
 	description: 'Get info for a bot!',
-	usage: 'botinfo [ID]'
+	usage: 'botinfo [botid]'
 }
