@@ -48,8 +48,8 @@ var bot = Object.keys(db.fetch('bots'))[x]
 var user = Object.keys(db.fetch('kbots'))[i]
 if (db.has(`vote.${bot}.${user}`)) {
    setTimeout(() => {
-        db.delete(`vote.${bot}.${user}`)
-    }, require('ms')(`${client.useful.seg(db.fetch(`vote.${bot}.${user}`), 12)}h`));
+      db.delete(`votes.${bot}.${user}`)
+    }, require('ms')(`${client.useful.seg(db.fetch(`vote.${bot}.${user}`), 3)}h`));
 }
 }
 }

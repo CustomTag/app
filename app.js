@@ -614,7 +614,7 @@ app.get("/api/bots/:botID/votes/:userID", (req, res) => {
  
    res.json({
      vote_status: db.has(`vote.${id}.${user}`) ? `Voted today` : null,
-     votes: db.fetch(`bots.${id}.vote`) || 0
+     votes: db.fetch(`bots.${id}.votes`) || 0
    });
 
 });
