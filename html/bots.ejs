@@ -48,7 +48,7 @@
         
           <% if(bot.ayar.has(`bots.${idd}.certificate`) === true) { %>
        
-<br><a style="color:darkorange"><img src="https://cdn.discordapp.com/emojis/522886304615366676.png" width="30px" height="30px"> </a><br>
+<br><a style="color:#F0BD36"><img src="https://cdn.discordapp.com/emojis/522886304615366676.png" width="30px" height="30px"> </a><br>
 <% } %>
 <div class="badge badge-primary"><strong style='color: white;'>Votes: </strong><span style='color:whitesmoke;text-transform: none;'><%=bot.ayar.fetch(`bots.${idd}.vote`)||0%></span></div>
                     <div class="badge badge-success"><%=bot.ayar.fetch(`bots.${idd}.library`)%></div>
@@ -56,7 +56,7 @@
       <div align="center" style="background-color:#fff" class="card-body">
                                <div class="card-title">
                                   <h4><a style="color:#222"><%=bot.useful.seg(bot.ayar.fetch(`bots.${idd}.name`), 5)%></a></h4>
-                                <h6 style="font-size:17px; color:#222"><%=bot.ayar.fetch(`bots.${idd}.owner`)%></h6></div>         
+                                <h6 style="font-size:16px; color:#222"><%=bot.ayar.fetch(`bots.${idd}.owner`)%></h6></div>         
                         
                               <p class="card-text" style="color:#222"><%=bot.ayar.fetch(`bots.${idd}.ShortDesc`)%></p>
                               <span id="labels"><%=bot.ayar.fetch(`bots.${idd}.tag`).join(' | ')%></span>
