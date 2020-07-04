@@ -3,7 +3,6 @@ const db = require('quick.db')
 
 exports.run = async (client, message, args, msg) => {
   let prefix = await db.fetch(`${client.settings.prefix}`)
-	// add your own URLs: D
   var embed = new Discord.RichEmbed()
   .setColor('RANDOM')
   .setAuthor("Discord4Bots - information", client.user.avatarURL)
@@ -19,7 +18,7 @@ exports.run = async (client, message, args, msg) => {
 exports.conf = {
 	enabled: true,
 	guildOnly: true,
-	aliases: ['help', 'h', 'information', 'info'],
+	aliases: ['help', 'information', 'info'],
 	permLevel: 0,
 	kategori: 'general'
 }
