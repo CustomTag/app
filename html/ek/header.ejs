@@ -143,11 +143,12 @@
       <a href="/bots">bots</a>
 			<a href="/api">API</a>
 			<a href="/about">About Us</a>
+      <a href="https://discord.gg/fWfPerr">Support</a>
 			<% if (!user) { %>
       <a href="/login">Login</a>
       <% } else { %>
       <a href="/addbot">Add Bot</a>
-			<a href="/logout">Sign out</a>
+			<a href="/logout">logout</a>
 			<a href="/user/<%=user.id%>">
       <img src="https://cdn.discordapp.com/avatars/<%=user.id%>/<%=user.avatar%>.gif?size=32" width="25" height="25" class="d-inline-block align-middle rounded-circle" alt="User Avatar">
       <%=user.username%>
