@@ -3,7 +3,7 @@
   <form method="POST">
   <div align="center" class="jumbotron" style="color:#fff">
 
-       <img src="https://cdn.discordapp.com/avatars/<%=user.id%>/<%=user.avatar%>.gif?size=512" class="rounded-circle panell">
+       <img src="https://cdn.discordapp.com/avatars/<%=user.id%>/<%=user.avatar%>.gif?size=512" class="rounded-circle panel">
        <h3 style="color:#fff"><%=user.username%>#<%=user.discriminator%></h3>
        <h5 style="color:#fff">Set Profile</h5>
 
@@ -15,13 +15,13 @@
 
     <div><i aria-hidden="true"></i>Your age:</div>
     <div>
-    <input type="text" style="text-align: center;" name="yas" id="yas">
+    <input type="text" style="text-align: center;" name="age" id="age">
     </div>
     <br>
 
     <div><i aria-hidden="true"></i>Biography:</div>
     <div>
-    <input type="text" style="text-align: center;" name="biyo" id="biyo" required="required">
+    <input type="text" style="text-align: center;" name="bio" id="bio" required="required">
     </div>
 </div>
     <br>
@@ -66,13 +66,12 @@
             </select>
         </div>
       <p>
-            <a style="color:red">Not: </a><a style="color:lightgrey">multiple labels can be selected. If you are on the computer, hold down the <i> ctrl </i> key and select the labels.</a>
+            <a style="color:red">Not:</a><a style="color:lightgrey"> multiple labels can be selected. If you are on the computer, hold down the <i> ctrl </i> key and select the labels.</a>
             </p>
     </div>
     <br>
 
-       
-        <div style="width: 100%; text-align: center; margin-top: 20px;">
+       <div style="width: 100%; text-align: center; margin-top: 20px;">
         <button style="border-radius: 100px; background-color:#00a1ff" type="submit" class="btn btn-primary"><i class="fa fa-save fa-fw"></i> Save<i aria-hidden='true'></i></button>
     </div>
 </div>
