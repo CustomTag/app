@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <head>
+ <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+ <meta name="msapplication-TileColor" content="#4D77CD">
+ <meta name="msapplication-TileImage" content="<%=bot.ayar.fetch(`bots.${id}.avatar`)%>">
+ <meta name="theme-color" content="#4D77CD">
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <meta name="description" content="<%=bot.ayar.fetch(`bots.${id}.ShortDesc`)%>">
+ <meta name="keywords" content="Bots, Discord, English">
  <meta property="og:title" content="Discord4Bots | <%=bot.ayar.fetch(`bots.${id}.name`)%>" />
  <meta property="og:type" content="Website" />
+ <meta property="og:url" content="" />
  <meta property="og:description" content="<%=bot.ayar.fetch(`bots.${id}.ShortDesc`)%>" />
- <meta name="description" content="<%=bot.ayar.fetch(`bots.${id}.ShortDesc`)%>" />
- <meta name="og:image" content="<%=bot.ayar.fetch(`bots.${id}.avatar`)%>" />
- <meta name="theme-color" content="#4D77CD" />
- <link href="https://fonts.googleapis.com/icon?family=Markazi+Text" rel="stylesheet">
- <meta content="width=device-width, initial-scale=1.0" name="viewport">
- <link rel="shortcut icon" type="image" href="<%=bot.ayar.fetch(`bots.${id}.avatar`)%>" />
- <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
-</head>
+ <meta property="og:image" content="<%=bot.ayar.fetch(`bots.${id}.avatar`)%>" />
+ <meta itemprop="description" content="<%=bot.ayar.fetch(`bots.${id}.ShortDesc`)%>">
+ <meta itemprop="image" content="<%=bot.ayar.fetch(`bots.${id}.avatar`)%>">
+<head>
 
 <%- include('ek/header', {bot, user, path}) %>
   
