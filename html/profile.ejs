@@ -32,7 +32,7 @@
   <div align="center" class="card-img">
       <a href="/bot/<%=idd%>"><img src="<%=bot.ayar.fetch(`bots.${idd}.avatar`)%>" class="card-img-top" alt="Bot Avatar"></a>
     <% if (bot.ayar.has(`bots.${idd}.certificate`) === true) { %>
-    <br><br><a style="color:darkorange"><img src="https://cdn.discordapp.com/emojis/522886304615366676.png" width="30px" height="30px"> Certificate Bot</a><br>
+    <br><br><a style="color:#DF7A45"><img src="https://cdn.discordapp.com/emojis/522886304615366676.png" width="30px" height="30px"></a><br>
     <% } %>
 
    <%  if(bot.ayar.fetch(`bots.${idd}.status`) === 'Pending' || !bot.ayar.has(`bots.${idd}.status`)) { %>
@@ -77,5 +77,7 @@
    </h5>
    <% } %>
 
-</div></div>
+     </div>
+   </div>
+ <br>
 <% include ./ek/footer %>
