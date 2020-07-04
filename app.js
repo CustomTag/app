@@ -391,7 +391,7 @@ db.set(`bots.${ID}.support`, ayar['botsupport'])
 
 res.redirect("/user/"+req.params.userID+"/panel");
 
-client.channels.get(client.settings.kayıt).send(`\`${req.user.username}#${req.user.discriminator}\` Has Edited: \`${sistem.username}#${sistem.discriminator}\` https://discord4bots.glitch.me/bot/${db.fetch(`bots.${ID}.id`)}`)
+client.channels.get(client.settings.kayıt).send(`\`${req.user.username}#${req.user.discriminator}\` Has Edited \`${sistem.username}#${sistem.discriminator}\` https://discord4bots.glitch.me/bot/${db.fetch(`bots.${ID}.id`)}`)
 }
 
 })
@@ -410,11 +410,11 @@ let ayar = req.body
 
 if(ayar['mesaj-1']) {
 db.push(`bots.${req.params.botID}.reports`, JSON.parse(`{ "report":"${ayar['mesaj-1']}" }`))
-client.channels.get('715618857946972191').send(`User Name: \`${req.user.username}#${req.user.discriminator}\` Reported bot: \`${db.fetch(`bots.${req.params.botID}.name`)}\` For Reason: \n**Reason:** \`${ayar['mesaj-1']}\``)
+client.channels.get('715618857946972191').send(`User Name: \`${req.user.username}#${req.user.discriminator}\` Reported bot \`${db.fetch(`bots.${req.params.botID}.name`)}\` For Reason \n**Reason:** \`${ayar['mesaj-1']}\``)
 }
 if(ayar['mesaj-2']) {
 db.push(`bots.${req.params.botID}.reports`, JSON.parse(`{ "report":"${ayar['mesaj-2']}" }`))
-client.channels.get('715618857946972191').send(`User Name: \`${req.user.username}#${req.user.discriminator}\` Reported bot: \`${db.fetch(`bots.${req.params.botID}.name`)}\` For Reason: \n**Reason:** \`${ayar['mesaj-2']}\``)
+client.channels.get('715618857946972191').send(`User Name: \`${req.user.username}#${req.user.discriminator}\` Reported bot \`${db.fetch(`bots.${req.params.botID}.name`)}\` For Reason \n**Reason:** \`${ayar['mesaj-2']}\``)
 }
 
 res.redirect('/bot/'+req.params.botID);
@@ -505,7 +505,7 @@ res.redirect("/authorized")
 client.channels.get(client.settings.kayıt).send(`\`${db.fetch(`bots.${id}.name`)}\` Was Approved https://discord4bots.glitch.me/bot/${db.fetch(`bots.${id}.id`)}`)
 
 if (client.users.has(db.fetch(`bots.${id}.ownerid`)) === true) {
-client.users.get(db.fetch(`bots.${id}.ownerid`)).send(`\`${db.fetch(`bots.${id}.name`)}\` Your bot has been approved! https://discord4bots.glitch.me/bot/${db.fetch(`bots.${id}.id`)}`)
+client.users.get(db.fetch(`bots.${id}.ownerid`)).send(`\`${db.fetch(`bots.${id}.name`)}\` Has been approved! https://discord4bots.glitch.me/bot/${db.fetch(`bots.${id}.id`)}`)
 }
 
 });
@@ -521,7 +521,7 @@ res.redirect("/authorized")
 client.channels.get(client.settings.kayıt).send(`\`${db.fetch(`bots.${id}.owner`)}\` just added \`${db.fetch(`bots.${id}.name`)}\` To pending https://discord4bots.glitch.me/bot/${db.fetch(`bots.${id}.id`)}`)
 
 if (client.users.has(db.fetch(`bots.${id}.ownerid`)) === true) {
-client.users.get(db.fetch(`bots.${id}.ownerid`)).send(`\`${db.fetch(`bots.${id}.name`)}\` Your bot is under Review!`)
+client.users.get(db.fetch(`bots.${id}.ownerid`)).send(`\`${db.fetch(`bots.${id}.name`)}\` Os under Pending/Review!`)
 }
 
 });
@@ -613,7 +613,7 @@ app.get("/api/bots/:botID/votes/:userID", (req, res) => {
   }
  
    res.json({
-     vote_status: db.has(`votes.${id}.${user}`) ? `Voted today` : null,
+     vote_status: db.has(`vote.${id}.${user}`) ? `Voted today` : null,
      votes: db.fetch(`bots.${id}.vote`) || 0
    });
 
