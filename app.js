@@ -278,7 +278,7 @@ app.post("/user/:userID/profile/adjust", checkAuth, (req, res) => {
 
   if (req.params.userID !== req.user.id) return res.redirect('/');
 
-  var profil = JSON.parse(fs.readFileSync('./profile.json', 'utf8'));
+  var profile = JSON.parse(fs.readFileSync('./profile.json', 'utf8'));
 
   var libs = ''
   if (Array.isArray(req.body['libs']) === true) {

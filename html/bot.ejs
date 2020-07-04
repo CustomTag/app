@@ -82,7 +82,7 @@
 <% if (x === false) { %>
   <p><%=bot.ayar.fetch(`bots.${id}.longexplanation`)%></p>
 <% } else if (x === true) { %>
-    <% let $ = bot.html.load(bot.ayar.fetch(`bots.${id}.longexplanation`)) %>
+    <% let $ = bot.htmll.load(bot.ayar.fetch(`bots.${id}.longexplanation`)) %>
   <%- $.html() %>
     <% } %>
     
