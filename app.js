@@ -471,19 +471,19 @@ app.get("/bot/:botID/vote", checkAuth, (req, res) => {
 var id = req.params.botID
 let user = req.user.id
 
-var hour = `${new Date().getHours() + 3}:${new Date().getMinutes()}:${new Date().getSeconds()}`
+var hour = `${new Date().getHours() + 12}:${new Date().getMinutes()}:${new Date().getSeconds()}`
 
 if (db.has(`votes.${id}.${user}`) === true) {
-  if (db.fetch(`votes.${id}.${user}`) !== hour) {
+  if (db.fetch(`vote.${id}.${user}`) !== hour) {
     res.redirect('/bot/'+req.params.botID+'/error')
     return
-  } else if (db.fetch(`votes.${id}.${user}`) === hour) {
+  } else if (db.fetch(`vote.${id}.${user}`) === hour) {
   db.add(`bots.${id}.vote`, 1)
   db.set(`votes.${id}.${user}`, hour)
   }
 } else {
   db.add(`bots.${id}.vote`, 1)
-  db.set(`votes.${id}.${user}`, hour)
+  db.set(`vote.${id}.${user}`, hour)
 }
 
 res.redirect('/bot/'+req.params.botID)
@@ -507,7 +507,7 @@ res.redirect("/authorized")
 
 client.channels.get(client.settings.kayıt).send(`\`${db.fetch(`bots.${id}.name`)}\` Was Approved https://discord4bots.glitch.me/bot/${db.fetch(`bots.${id}.id`)}`)
 
-if (client.users.has(db.fetch(`bots.${id}.owner`)) === true) {
+if (client.users.has(db.fetch(`bots.${id}.ownerid`)) === true) {
 client.users.get(db.fetch(`bots.${id}.ownerid`)).send(`\`${db.fetch(`bots.${id}.name`)}\` Your bot has been approved! https://discord4bots.glitch.me/bot/${db.fetch(`bots.${id}.id`)}`)
 }
 
@@ -623,11 +623,4 @@ app.get("/api/bots/:botID/votes/:userID", (req, res) => {
 });
 
 app.listen(3000);
-
-//Blog
-
-app.get("/blog", (req, res) => {
-  res.redirect('/');
-});
-  
 };
