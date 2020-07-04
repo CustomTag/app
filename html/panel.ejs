@@ -12,7 +12,7 @@
 
 <%for(var i = 0; i < Object.keys(bot.ayar.fetch('bots')).length; i++) {%>
 <% var idd = Object.keys(bot.ayar.fetch('bots'))[i] %>
- <%  if (bot.ayar.fetch(`bots.${id}.ownerid`) === user.id) { %>
+ <%  if (bot.ayar.fetch(`bots.${id}.owner`) === user.id) { %>
   <div class="col-12 col-sm-6 col-md-4">
         <div class="card card-lg botcard" style="background-color:#fff; width:16rem;">
      <div align="center" class="card-img">
