@@ -242,9 +242,9 @@ app.get("/user/:userID", (req, res) => {
   }, function(error, response, body) {
     if (error) return console.log(error)
     else if (!error) {
-      var user = JSON.parse(body)
+      var kisi = JSON.parse(body)
 
-      renderTemplate(res, req, "user.ejs", {user})
+      renderTemplate(res, req, "user.ejs", {kisi})
     };
   });
 
@@ -260,9 +260,9 @@ app.get("/user/:userID/profile", (req, res) => {
   }, function(error, response, body) {
     if (error) return console.log(error)
     else if (!error) {
-      var user = JSON.parse(body)
+      var kisi = JSON.parse(body)
 
-      renderTemplate(res, req, "profile.ejs", {user})
+      renderTemplate(res, req, "profile.ejs", {kisi})
     };
   });
 
@@ -278,7 +278,7 @@ app.post("/user/:userID/profile/adjust", checkAuth, (req, res) => {
 
   if (req.params.userID !== req.user.id) return res.redirect('/');
 
-  var profile = JSON.parse(fs.readFileSync('./profile.json', 'utf8'));
+  var profil = JSON.parse(fs.readFileSync('./profile.json', 'utf8'));
 
   var libs = ''
   if (Array.isArray(req.body['libs']) === true) {
@@ -295,16 +295,16 @@ app.post("/user/:userID/profile/adjust", checkAuth, (req, res) => {
   }, function(error, response, body) {
     if (error) return console.log(error)
     else if (!error) {
-      var user = JSON.parse(body)
+      var kisi = JSON.parse(body)
 
   var veri = JSON.parse(`{
-  "tag": "${user.username}#${user.discriminator}",
+  "tag": "${kisi.username}#${kisi.discriminator}",
   "name": "${req.body['name']}",
   "age": "${req.body['age']}",
   "bio": "${req.body['bio']}",
   "favlib": "${req.body['favlib']}",
   "libs": "${libs}",
-  "avatar": "https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png"
+  "avatar": "https://cdn.discordapp.com/avatars/${kisi.id}/${kisi.avatar}.png"
   }`)
 
   profile[req.user.id] = veri;
