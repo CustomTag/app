@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const db = require('quick.db')
+const fs = require('fs')
 
 exports.run = async (client, message, args, msg) => {
   let prefix = await db.fetch(`${client.settings.prefix}`)
