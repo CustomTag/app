@@ -110,7 +110,7 @@ client.on("message", async message => {
     if (cmd.conf.permLevel === 'special') { // you can use that command just by web officials
       if (client.authorities.includes(message.author.id) === false) {
         const embed = new Discord.RichEmbed()
-					.setDescription(`Sorry, you are not a WebSite officer. Do not deal with silly things!`)
+					.setDescription(`Sorry, you are not a authorities. Do not deal with silly things!`)
 					.setColor(client.settings.color)
 					.setTimestamp()
 				message.channel.send(embed)
