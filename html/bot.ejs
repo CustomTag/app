@@ -17,6 +17,7 @@
 <head>
 
 <%- include('ek/header', {bot, user, path}) %>
+<html>
   
  <div class="post post-single">
                   <br>
@@ -29,8 +30,8 @@
                           </div>
                         </div><br>
                         <div class="post-thumbnail">
-                            <div align="center"><img src="<%=bot.ayar.fetch(`bots.${id}.avatar`)%>"
-                                width="300" height="300" class="Bot avatar"><h3 class="Bot name"><%=bot.ayar.fetch(`bots.${id}.name`)%></h3><h5 class="ShortDesc"><%=bot.ayar.fetch(`bots.${id}.ShortDesc`)%></h5></div>
+                            <div align="center"><img src="<%=bot.ayar.fetch(`bots.${id}.avatar`)%>" class="rounded-circle"width="300" height="300">
+                              <h3 class="Bot name"><%=bot.ayar.fetch(`bots.${id}.name`)%></h3><h5 class="ShortDesc"><%=bot.ayar.fetch(`bots.${id}.ShortDesc`)%></h5></div>
                           
         <div alig ="left">
           <button class="botprefix btn btn-default"><%=bot.ayar.fetch(`bots.${id}.prefix`)%></button>
@@ -110,3 +111,4 @@
 </div>
 
 <% include ./ek/footer %>
+<html>
