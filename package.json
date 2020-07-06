@@ -27,7 +27,7 @@
     "mongoose": "^5.3.16",
     "ms": "^2.1.1",
     "mysql": "^2.16.0",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.3.0",
     "node-superfetch": "^0.1.9",
     "passport": "^0.4.0",
     "passport-discord": "^0.1.3",

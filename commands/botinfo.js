@@ -60,8 +60,8 @@ exports.run = async (client, msg, args) => {
     .addField('Github', k)
     .addField('Support Server', i)
     .setFooter('Searching for Bot in https://discord4bots.glitch.me/ System.')
-    msg.channel.send(embed)
-  }
+    msg.channel.send({embed})
+  })
 };
 
 exports.conf = {
