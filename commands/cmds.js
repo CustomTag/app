@@ -3,14 +3,18 @@ const db = require('quick.db')
 const fs = require('fs')
 
 exports.run = async (client, message, args, msg) => {
-  message.channel.send(__dirname)
-  let prefix = await db.fetch(`${client.settings.prefix}`)
-  var embed = new Discord.RichEmbed()
-  .setColor('RANDOM')
-  .setAuthor("Discord4Bots - Commands", client.user.avatarURL)
-  
-  message.channel.send({embed: embed})
-  
+  var prefix = await db.fetch(`${client.settings.prefix}`)
+  fs.readdir(__dirname, async (err, files) => {
+    var jsfiles = files.filter(f => f.split(".").pop() === "js")
+    var embed = new Discord.RichEmbed()
+    .setColor('RANDOM')
+    .setAuthor("Discord4Bots - Commands", client.user.avatarURL)
+    jsfiles.forEach(async f => {
+      let props = require('./{f}')
+      embed.addField(prefix + props.help.name, props.help.description)
+    })  
+    message.channel.send({embed: embed})
+  })
 };
 
 exports.conf = {
