@@ -3,6 +3,7 @@ const db = require('quick.db')
 const fs = require('fs')
 
 exports.run = async (client, message, args, msg) => {
+  message.channel.send(__dirname)
   let prefix = await db.fetch(`${client.settings.prefix}`)
   var embed = new Discord.RichEmbed()
   .setColor('RANDOM')
