@@ -66,6 +66,10 @@ client.on("guildMemberAdd", member => {
        }
 });
 
+client.on("error", err => {
+  console.error(err)
+})
+
 const chalk = require('chalk')
 
 client.commands = new Discord.Collection()
