@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const db = require('quick.db')
-const request = require('request')
+const node_fetch = require('request')
 
 exports.run = async (client, msg, args) => {
     let prefix = await db.fetch(`${msg.guild.id}.prefix`) || client.settings.prefix
@@ -60,7 +60,7 @@ exports.run = async (client, msg, args) => {
     .addField('Github', k)
     .addField('Support Server', i)
     .setFooter('Searching for Bot in https://discord4bots.glitch.me/ System.')
-    msg.channel.send({embed})
+    msg.channel.send(embed)
   })
 };
 
