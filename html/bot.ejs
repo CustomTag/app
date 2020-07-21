@@ -24,7 +24,7 @@
                         <div class="post-meta">
                             <div align="center"><span class="Owner"><i class="fa fa-clock-o"></i> <strong>Owner: </strong><%=bot.ayar.fetch(`bots.${id}.owner`)%></span><a style="color:#222"> | </a>
                             <span class="Vote"><a class="Votes"><i class="fa fa-star"></i> <%=bot.ayar.fetch(`bots.${id}.vote`) || 0%> Votes</a></span>
-                        <% if(bot.ayar.has(`bots.${id}.certificate`) === true) { %><!-- hi im haroon --->
+                        <% if(bot.ayar.has(`bots.${id}.certificate`) === true) { %>
                          | <span><img src="https://cdn.discordapp.com/emojis/522886304615366676.png" width="20px" height="20px"> <a style="color:#DF7A45">Certified</a></span>
                          <% } %>
                           </div>
