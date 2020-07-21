@@ -251,7 +251,7 @@ tr:nth-child(even) {background-color: #3E3E3E;}
 }
 
 .Vote {
-  color:#2C81E9;
+  color:#4F6CF1;
 }
 
 .Bot {
@@ -275,39 +275,39 @@ tr:nth-child(even) {background-color: #3E3E3E;}
 }
 
 .edit {
-  color:#3B83EC;
+  color:#fff;
 }
 
 .delete {
-  color:#E15959;
+  color:#fff;
 }
 
 .Invite {
-  color:#3B83EC;
+  color:#fff;
 }
 
 .vote {
-  color:#3B83EC;
+  color:#fff;
 }
 
 .support {
-  color:#E9947E;
+  color:#fff;
 }
 
 .website {
-  color:#E9947E;
+  color:#fff;
 }
 
 .github {
-  color:#E9947E;
+  color:#fff;
 }
 
 .report {
-  color:#E9947E;
+  color:#fff;
 }
 
 .botprefix {
-  color:#F7F7F7;
+  color:#fff;
   background-color:#6A7AE1; 
 }
 
