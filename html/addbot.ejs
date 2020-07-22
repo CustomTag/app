@@ -1,29 +1,28 @@
 <%- include('ek/header', {bot, user, path}) %>
 <div class="container is-fullhd">
 	<div class="row justify-content-md-center">
-		<h2 style="color: #ffffff;">Adding Bot</h2>
+		<h2 style="color:#fff;">Adding Bot</h2>
 	</div>
  <form method="post">
 				
-   <div align="center" class="jumbotron" style="color:#fff; font-size:20px;">
+   <div align="center" class="jumbotron" style="color:#fff; font-size:21px;">
      <br>
 		<div><i aria-hidden="true"></i>ClientID<a style="color:red"></a></div>
 		<div>
       <input type="text" style="text-align: center;" name="botid" id="botid"
-									placeholder="for example; <%=bot.user.id%>" required="required">
+									placeholder="Example: <%=bot.user.id%>" required="required">
      </div>
    <br>
 		<div><i aria-hidden="true"></i>Prefix<a style="color:red"></a></div>
 		<div>
       <input type="text" style="text-align: center;" name="prefix" id="prefix"
-									placeholder="!" required="required">
+									placeholder="Example: <%=bot.settings.prefix%>" required="required">
      </div>
      
      <div><i aria-hidden="true"></i>Library<a style="color:red"></a></div>
     <div class="select-style">
      <select id="library" name="library" required="required">
-       <option disabled selected>Please select a library.</option>
-       <option value="discordcr" >discordcr</option>
+          <option value="discordcr" >discordcr</option>
         
           <option value="Nyxx" >Nyxx</option>
         
@@ -91,11 +90,11 @@
         <option value="Moderation">Moderation</option>
         <option value="Music">Music</option>
         <option value="Settings">Settings</option>
-        <option value="Entertainment">Entertainment</option>
-        <option value="Web Panel">Web Panel</option>
+        <option value="Entertainment">Economy</option>
+        <option value="Web Panel">Dashboard</option>
        </select>
        <p>
-         <a style="color:red">Not: </a><a style="color:lightgrey">multiple labels can be selected. If you are on the computer <i>ctrl</i> Select the labels by holding down the key.</a>
+         <a style="color:red">Note:</a><a style="color:#EEEEEE"> Multiple labels can be selected. If you are on the computer <i>Ctrl</i> Select the labels by holding down the key.</a>
        </p>
      </div>
      <br>
@@ -119,7 +118,7 @@
 	
 
 				<div style="width: 100%; text-align: center; margin-top: 20px;">
-					<button style="border-radius: 100px; background-color:#00a1ff" type="submit" class="btn btn-primary"><i class="fa fa-save fa-fw"></i>Submit Application<i aria-hidden='true'></i></button>
+					<button style="border-radius: 100px; background-color:#71A8E7" type="submit" class="btn btn-primary"><i class="fa fa-save fa-fw"></i>Submit Application<i aria-hidden='true'></i></button>
 				</div>
    </div>
 			</form>
