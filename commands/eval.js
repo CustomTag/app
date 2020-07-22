@@ -32,8 +32,8 @@ exports.run = async (client, message, args, msg) => {
 		if (evaled.constructor.name === 'Promise') evalEmbed.setDescription(`\`\`\`\n${evaled}\n\`\`\``)
 		else evalEmbed.setDescription(`\`\`\`js\n${evaled}\n\`\`\``)
 		const newEmbed = new Discord.RichEmbed()
-			.addField('📥 Login', `\`\`\`javascript\n${code}\n\`\`\``)
-			.addField('📤 Exit', `\`\`\`js\n${evaled}\`\`\``)
+			.addField('📥 Input:', `\`\`\`javascript\n${code}\n\`\`\``)
+			.addField('📤 Output:', `\`\`\`js\n${evaled}\`\`\``)
 			.setColor(client.settings.color)
 		message.channel.send(newEmbed);
 	}
@@ -48,8 +48,8 @@ exports.conf = {
 	enabled: true,
 	guildOnly: true,
 	aliases: ["e"],
-	permLevel: 4,
-	kategori: 'owner'
+	permLevel: 'special',
+	kategori: 'authorized'
 }
 
 exports.help = {
