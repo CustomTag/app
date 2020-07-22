@@ -85,7 +85,7 @@ h6:link, h6:visited {
 }
 
 .footer #kutu b {
-	font-size: 15px;
+	font-size: 16px;
 }
 
 .footer {
@@ -160,7 +160,7 @@ textarea {
 }
 
 textarea:focus {
-  border: 2px solid #7F7F7F;
+  border: 2px solid #444444;
   color: #F5F5F5;
 }
 
