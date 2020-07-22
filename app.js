@@ -585,9 +585,9 @@ library: db.fetch(`bots.${id}.library`),
 owner: db.fetch(`bots.${id}.owner`),
 ownerid: db.fetch(`bots.${id}.ownerid`),
 short_description: db.fetch(`bots.${id}.ShortDesc`),
-long_explanation: db.fetch(`bots.${id}.longexplanation`),
+explanation: db.fetch(`bots.${id}.longexplanation`),
 labels: db.fetch(`bots.${id}.tag`),
-support_server: db.fetch(`bots.${id}.support`) || 'Unspecified',
+support: db.fetch(`bots.${id}.support`) || 'Unspecified',
 website: db.fetch(`bots.${id}.site`) || 'Unspecified',
 github: db.fetch(`bots.${id}.github`) || 'Unspecified',
 status: db.has(`bots.${id}.status`) ? db.fetch(`bots.${id}.status`) : 'Pending',
@@ -607,7 +607,7 @@ app.get("/api/bots/:botID/votes/:userID", (req, res) => {
   if (db.has('bots')) {
       if (Object.keys(db.fetch('bots')).includes(id) === false) {
      res.json({
-       hata: 'A bot with the ID you typed is not in the system.'
+       error: 'A bot with the ID you typed is not in the system.'
      });
    }
   }
