@@ -584,7 +584,7 @@ prefix: db.fetch(`bots.${id}.prefix`),
 library: db.fetch(`bots.${id}.library`),
 owner: db.fetch(`bots.${id}.owner`),
 ownerid: db.fetch(`bots.${id}.ownerid`),
-short_description: db.fetch(`bots.${id}.ShortDesc`),
+description: db.fetch(`bots.${id}.ShortDesc`),
 explanation: db.fetch(`bots.${id}.longexplanation`),
 labels: db.fetch(`bots.${id}.tag`),
 support: db.fetch(`bots.${id}.support`) || 'Unspecified',
@@ -613,7 +613,7 @@ app.get("/api/bots/:botID/votes/:userID", (req, res) => {
   }
  
    res.json({
-     vote_status: db.has(`vote.${id}.${user}`) ? `Voted today` : null,
+     vote: db.has(`vote.${id}.${user}`) ? `Voted today` : null,
      votes: db.fetch(`bots.${id}.votes`) || 0
    });
 

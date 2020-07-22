@@ -2,7 +2,7 @@
 
 <div class="container">
 
-<h3 align="center" style="color:#626262">
+<h3 align="center" style="color:#EEEEEE">
 <strong>Discord4Bots
   </strong></h3>
   <div align="center"><p>Here are all the bots in the system. <br> (The bots are ranked proportionally according to the votes!)</p></div>
@@ -12,8 +12,7 @@
     <input type="search" placeholder="Search" id="Search" name="Search">
     <br>
      <div class="select-style">
-    <select id="etiketselect">
-      <option disabled selected>Choose a label.</option>
+    <select id="tag select">
       <option value="Close filter">Close filter</option>
       <option value="Moderation">Moderation</option>
       <option value="Music">Music</option>
@@ -23,7 +22,7 @@
     </select>
 </div>
     
-    <p style="color:#F0F0F0">
+    <p style="color:#EEEEEE">
       <a style="color:red">Not:</a> You can search for bots by typing the bot name, library, short description, owner name and tags. <br> You can search for bots by selecting the bots' tags. 
     </p>
     
@@ -61,7 +60,7 @@
                               <p class="card-text" style="color:#222"><%=bot.ayar.fetch(`bots.${idd}.ShortDesc`)%></p>
                               <span id="labels"><%=bot.ayar.fetch(`bots.${idd}.tag`).join(' | ')%></span>
                                <hr>
-                              <h6 align="center"><a href="/bot/<%=idd%>" style="font-size:20px; color:#222; background-color:#fff">view</a> <b style="color:grey">|</b> 
+                              <h6 align="center"><a href="/bot/<%=idd%>" style="font-size:20px; color:#222; background-color:#fff">View</a> <b style="color:grey">|</b> 
                               <a href="https://discordapp.com/oauth2/authorize?client_id=<%=idd%>&scope=bot&permissions=8" style="font-size:20px; color:#222; background-color:#fff">Invite</a></h6>
                             </div>
                        </div><br>
@@ -70,17 +69,17 @@
     <% } %>
    <% } %>
    <% } else {%>
-   <center><h5 style="color:#EAEAEA">
+   <center><h5 style="color:#EC9898">
      Sorry, There is no Discord4Bots in System Right Now!
      </h5></center>
    <% } %>
-   </div></div></div></div>
+   </div></div></div>
 
 <script>
 $(document).ready(function(){
  $("#Search").keyup(function(){
     var value = $(this).val().toLowerCase();
-    $(".col-12, .col-sm-6, .col-md-4 .card").filter(function() {
+    $(".col-13, .col-sm-7, .col-md-5 .card").filter(function() {
       $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
     });
   });
@@ -91,12 +90,11 @@ $(document).ready(function(){
       window.location.reload(true);
       return
     }
-    $(".col-12, .col-sm-6, .col-md-4 .card").filter(function(){
+    $(".col-13, .col-sm-7, .col-md-5 .card").filter(function(){
       $(this).toggle($(this).text().indexOf(value) > -1)
     });
   })
   ;
 });
 </script>
-  
 <% include ./ek/footer %>

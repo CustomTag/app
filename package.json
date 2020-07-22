@@ -1,7 +1,7 @@
 {
   "name": "discord4bots",
   "version": "0.0.1",
-  "description": "Discord Bot List for my new Server!",
+  "description": "A Discord Bot List for people to add theres bot!",
   "main": "app.js",
   "scripts": {
     "start": "node index.js"
