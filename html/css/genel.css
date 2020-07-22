@@ -1,11 +1,11 @@
 body {
-	background: #3A3A3A;
+	background: #456AC5;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap:400,600');
 
 .jumbotron {
-  background-color:#3A3A3A; 
+  background-color:#456AC5; 
   width:100%;
 }
 
@@ -16,26 +16,26 @@ h6:link, h6:visited {
 
 .topnav {
 	overflow: hidden;	
-	background-color: #445DE8;
+	background-color: #454545;
 }
 
 .topnav a {
 	float: left;
 	display: block;
-	color: #DCDBDB;
+	color: #F0F0F0;
 	text-align: center;
-	padding: 14px 16px;
+	padding: 15px 17px;
 	text-decoration: none;
-	font-size: 17px;
+	font-size: 16px;
 }
 
 .topnav a:hover {
-	background-color: #445DE8;
+	background-color: #454545;
 	color: white;
 }
 
 .active {
-	background-color: #445DE8;
+	background-color: #454545;
 	color: white;
 }
 
