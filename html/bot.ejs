@@ -29,9 +29,10 @@
                         <% } %>
                         </div>
                       </div><br>
-                      <div class="post-thumbnail">
+                      
+   <div class="post-thumbnail">
                             
-                        <div align="center"><img style="background-color: transparent;" src="<%=bot.ayar.fetch(`bots.${id}.avatar`)%>" class="rounded-circle"width="300" height="300">
+                        <div align="center"><img style="background-color: transparent;" src="<%=bot.ayar.fetch(`bots.${id}.avatar`)%>" class="rounded-circle" width="300" height="300">
                               
                             <h3 class="Bot name"><%=bot.ayar.fetch(`bots.${id}.name`)%></h3><h5 class="ShortDesc"><%=bot.ayar.fetch(`bots.${id}.ShortDesc`)%></h5></div>
                           
@@ -116,4 +117,5 @@
               </div>
       </div>
 </div>
+
 <% include ./ek/footer %>
