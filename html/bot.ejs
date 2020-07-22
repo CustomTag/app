@@ -19,20 +19,25 @@
 <%- include('ek/header', {bot, user, path}) %>
   
  <div class="post post-single">
-                  <br>
-                        <div class="post-meta">
-                            <div align="center"><span class="Owner"><i class="fa fa-clock-o"></i> <strong>Owner: </strong><%=bot.ayar.fetch(`bots.${id}.owner`)%></span><a style="color:#222"> | </a>
-                            <span class="Vote"><a class="Votes"><i class="fa fa-star"></i> <%=bot.ayar.fetch(`bots.${id}.vote`) || 0%> Votes</a></span>
-                        <% if(bot.ayar.has(`bots.${id}.certificate`) === true) { %>
-                         | <span><img src="https://cdn.discordapp.com/emojis/522886304615366676.png" width="20px" height="20px"> <a style="color:#DF7A45">Certified</a></span>
-                         <% } %>
-                          </div>
-                        </div><br>
-                        <div class="post-thumbnail">
-                            <div align="center"><img src="<%=bot.ayar.fetch(`bots.${id}.avatar`)%>" class="rounded-circle"width="300" height="300">
-                              <h3 class="Bot name"><%=bot.ayar.fetch(`bots.${id}.name`)%></h3><h5 class="ShortDesc"><%=bot.ayar.fetch(`bots.${id}.ShortDesc`)%></h5></div>
+              <br>
+                    <div class="post-meta">
+                            
+                        <div align="center"><span class="Owner"><i class="fa fa-clock-o"></i> <strong>Created By: </strong><%=bot.ayar.fetch(`bots.${id}.owner`)%></span><a style="color:#222"> | </a>
+                            
+                          <span class="Vote"><a class="Votes"><i class="fa fa-star"></i> <%=bot.ayar.fetch(`bots.${id}.vote`) || 0%> Votes</a></span>
+                      <% if(bot.ayar.has(`bots.${id}.certificate`) === true) { %>
+                        | <span><img src="https://cdn.discordapp.com/emojis/522886304615366676.png" width="20px" height="20px"><a style="color:#E98754">Certified</a></span>
+                        <% } %>
+                        </div>
+                      </div><br>
+                      <div class="post-thumbnail">
+                            
+                        <div align="center"><img style="background-color: transparent;" src="<%=bot.ayar.fetch(`bots.${id}.avatar`)%>" class="rounded-circle"width="300" height="300">
+                              
+                            <h3 class="Bot name"><%=bot.ayar.fetch(`bots.${id}.name`)%></h3><h5 class="ShortDesc"><%=bot.ayar.fetch(`bots.${id}.ShortDesc`)%></h5></div>
                           
         <div alig ="left">
+          
           <button class="botprefix btn btn-default"><%=bot.ayar.fetch(`bots.${id}.prefix`)%></button>
           
       <%if (bot.ayar.has(`bots.${id}.support`)){%>
@@ -49,12 +54,15 @@
           </div>
       <div align="center">                    
   <% if (!user) { %>
+        
         <a href="/login"><button class="vote btn btn-primary vote">Login To Vote <i class="fa fa-lock"></i></button></a>
                     <% } else { %>
+        
         <a href="/bot/<%=id%>/vote"><button id="vote" href="/bot/<%=id%>/vote" class="btn btn-primary vote" type="sumbit"><i aria-hidden="true"></i>Vote</button></a>
                       <% } %><br>
             
-          <a href="https://discordapp.com/oauth2/authorize?client_id=<%=id%>&scope=bot&permissions=8"><button class="btn btn-success davetet"><i aria-hiddden="true"></i>Invite</button></a>
+          <a href="https://discordapp.com/oauth2/authorize?client_id=<%=id%>&scope=bot&permissions=8"><button class="btn btn-success davetet" style="cursor: pointer!important;"><i aria-hiddden="true"></i>Invite</button></a>
+        
         <a href="/bot/<%=id%>/report"><button class="btn btn-danger report"><i aria-hidden="true"></i>Report</button></a>
         
           <% if (user) { %>
