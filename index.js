@@ -30,7 +30,7 @@ client.on('ready', async () => {
    client.appInfo = await client.fetchApplication();
   setInterval( async () => {
     client.appInfo = await client.fetchApplication();
-  }, 6000);
+  }, 60000);
   
    require("./app.js")(client);
   
@@ -56,7 +56,7 @@ if (db.has(`vote.${bot}.${user}`)) {
 
 	}
 
-}, 1000);
+}, 10000);
 
 client.on("guildMemberAdd", member => {
       if (member.user.bot === true) {
