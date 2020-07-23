@@ -35,7 +35,7 @@ client.on('ready', async () => {
    require("./app.js")(client);
   
   client.user.setActivity(`${client.settings.prefix}help & Discord4Bots`, { type:"WATCHING" })
-  console.log("Active!")
+  console.log("Discord4Bots - Active!")
 });
 
 setInterval(() => {
@@ -186,4 +186,4 @@ client.on("message", async message => {
 	}
 });
 
-client.login(process.env.TOKEN);
+client.login(process.env.TOKEN)
