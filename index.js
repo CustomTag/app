@@ -30,7 +30,7 @@ client.on('ready', async () => {
    client.appInfo = await client.fetchApplication();
   setInterval( async () => {
     client.appInfo = await client.fetchApplication();
-  }, 60000);
+  }, 6000);
   
    require("./app.js")(client);
   
@@ -56,7 +56,7 @@ if (db.has(`vote.${bot}.${user}`)) {
 
 	}
 
-}, 10000);
+}, 1000);
 
 client.on("guildMemberAdd", member => {
       if (member.user.bot === true) {
@@ -186,4 +186,4 @@ client.on("message", async message => {
 	}
 });
 
-client.login(process.env.TOKEN)
+client.login(process.env.TOKEN);
