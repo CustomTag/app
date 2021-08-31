@@ -33,19 +33,18 @@ module.exports = class extends Command {
       .addField('Type:', `\`\`\`ts` + '\n' + `None` + `\n` + `\`\`\`` , true)
       .addField('Time:', `\`\`\`js` + '\n' + `${Number(end - start).toFixed(2)} ms` + `\n` + `\`\`\`` , true)
       .setTimestamp()
-      msg.sendMessage({embed: embed})
-	};
+      msg.sendMessage({embed: embed})}
       
-      
-      try {
 
-            let timetotal = "";
+let timetotal = "";
             let hidden = false
             let code = await args.join(" ");
             if(code.includes("--sh")) {
             hidden = true;
             code = code.replace("--sh","");
            }
+      
+      try {
 
 
             let timestart = performance()
