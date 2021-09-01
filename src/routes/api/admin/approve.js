@@ -24,11 +24,11 @@ route.post("/:id", auth, async function (req, res) {
         new MessageEmbed()
             .setTitle('Bot Approved')
             .addField(`Bot`, `<@${bot.botid}>`, true)
-            .addField(`Owner(s)`, owners.map(x => x ? `<@${x}>` : ""), true)
-            .addField("Mod", req.user.username, true)
-            .setThumbnail(botUser.displayAvatarURL({format: "png", size: 256}))
+            .addField("Owner(s)", owners.map(x => x ? `<@${x}>` : ""), true)
+            .addField("Reviewer", req.user.username.tag, true)
+            .setThumbnail(botUser.displayAvatarURL({format: "png", size: 2048}))
             .setTimestamp()
-            .setColor(0x26ff00)
+            .setColor("4b60ff")
         );
     modLog.send(owners.map(x => x ? `<@${x}>` : "")).then(m => { m.delete() });
 
