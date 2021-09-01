@@ -319,10 +319,12 @@ h2 {
 
 #botprefix {
   text-align: center;
+  background-color: var(--background-2);
 }
 
 #botprefix:before {
-  content: "Prefix: "
+  content: "Prefix: ";
+  background-color: var(--background-2);
 }
 
 #long {

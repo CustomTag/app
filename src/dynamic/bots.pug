@@ -7,11 +7,11 @@ body
             if (bot.nsfw)
                 img#bot-icon.nsfw(width='250px' height='250px' src=bot.logo)
                 #botprefix
-                    code.prefix #{bot.prefix}
+                  span.prefix #{bot.prefix}
             else
                 img#bot-icon(width='250px' height='250px' src=bot.logo)
                 #botprefix
-                    code.prefix #{bot.prefix}
+                  span.prefix #{bot.prefix}
         .right
             h2(style='display: inline;')
                 | #{bot.username}
@@ -53,5 +53,5 @@ body
         #owners
             each person in owners
                 a.owner(href=`/user/${person.id}`)
-                    img(height='30px' src=person.tag !== 'Unknown User'  ? person.displayAvatarURL({format: "png", size: 256}) : '/assets/default-avatar.png')
+                    img(height='30px' src=person.tag !== 'Unknown User'  ? person.displayAvatarURL({format: "gif", size: 256}) : '/assets/default-avatar.png')
                     span.tag #{person.tag}
