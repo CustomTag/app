@@ -31,6 +31,8 @@ body
                 a.bot-btns.button(target='_blank' href=bot.invite ? bot.invite : `https://discord.com/oauth2/authorize?client_id=${bot.botid}&scope=bot&permissions=8`)
                     | Invite
                 a.bot-btns.button(target='_blank' href=`/api/embed/${bot.botid}`) Embed
+
+                a.bot-btns.button(href=`/bots/like/${bot.botid}`) Vote
             .bot-buttons
                 if (bot.support)
                     a.small-link(target='_blank' href=`${bot.support}`) Support Server
