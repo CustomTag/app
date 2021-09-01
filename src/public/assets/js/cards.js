@@ -34,14 +34,14 @@ function loadMore(res) {
         <div class="card">
             <img src="${bot.logo}" class="icon">
             <h2 class="title">
-                ${bot.username}
-                <a class="likes" href="/bots/like/${bot.botid}">
+                 ${bot.username}
+                 <a class="likes" href="/bots/like/${bot.botid}">
                     <i class="far fa-heart"></i>${bot.likes || 0}
                 </a>
             </h2>
-            <p class="desc">${bot.description}</p>
-            <a href="/bots/${bot.botid}" class="buttons-case">View</a>
-            <a href="https://discord.com/oauth2/authorize?client_id=${bot.botid}&scope=bot&permissions=8" class="buttons-case">Invite</a>
+             <p class="desc">${bot.description}</p>
+             <a href="/bots/${bot.botid}" class="bot-btns button">View</a>
+             <a href="https://discord.com/oauth2/authorize?client_id=${bot.botid}&scope=bot&permissions=8" class="bot-btns button">Invite</a>
         </div>`
 
         document.getElementById('cards').insertAdjacentHTML("beforeend", html)
