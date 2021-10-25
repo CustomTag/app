@@ -85,7 +85,7 @@ function disableclick(event)
 <% } %>
     <nav class="navbar navbar-expand-lg navbar-dark p-2 pl-4 pr-4 bg-disbots z">
         <div class="container">
-        <a title="Disbots" class="navbar-brand logoholder"><img id="logoimg" style="height:55px; width:55px;" src="../../img/logo.png" alt="Disbots"/></a>
+        <a title="DiscordTown" class="navbar-brand logoholder"><img id="logoimg" style="height:55px; width:55px;" src="../../img/logo.png" alt="DiscordTown"/></a>
         <div class="sidebar-brand-text mx-3" style="text-shadow: 2px 2px 5px black;">DiscordTown <sup>xyz</sup></div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation" style="border: none">
           <span class="fad fa-bars fa-2x"></span>
@@ -95,36 +95,36 @@ function disableclick(event)
           <ul class="navbar-nav mainlink mr-auto">
             <% if(!req.originalUrl.includes('/server')) { %>
             <li class="nav-item">
-              <a title="Disbots" class="nav-link nvhome" href="/"><i class="fad fa-home mr-1"></i> Home</a>
+              <a title="DiscordTown" class="nav-link nvhome" href="/"><i class="fad fa-home mr-1"></i> Home</a>
             </li>
             <li class="nav-item">
-              <a title="Disbots" class="nav-link" href="/bots"><i class="fad fa-robot mr-1"></i> Bots</a>
+              <a title="DiscordTown" class="nav-link" href="/bots"><i class="fad fa-robot mr-1"></i> Bots</a>
             </li>
 
             <% if(user) {%>
             <li class="nav-item">
-                <a title="Disbots" class="nav-link" href="/addbot"><i class="fad fa-plus mr-1"></i> Add Bot</a>
+                <a title="DiscordTown" class="nav-link" href="/addbot"><i class="fad fa-plus mr-1"></i> Add Bot</a>
             </li>
             <% } %>
             <li class="nav-item">
-                <a title="Disbots" class="nav-link" href="/servers"><i class="fad fa-server mr-1"></i>Servers</a>
+                <a title="DiscordTown" class="nav-link" href="/servers"><i class="fad fa-server mr-1"></i>Servers</a>
             </li>
             <% } else { %>
             <li class="nav-item">
-              <a title="Disbots" class="nav-link nvhome" href="/servers"><i class="fad fa-home mr-1"></i> Home</a>
+              <a title="DiscordTown" class="nav-link nvhome" href="/servers"><i class="fad fa-home mr-1"></i> Home</a>
             </li>
             <li class="nav-item">
-                <a title="Disbots" class="nav-link" href="/servers/tags"><i class="fad fa-tags mr-1"></i> Tags</a>
+                <a title="DiscordTown" class="nav-link" href="/servers/tags"><i class="fad fa-tags mr-1"></i> Tags</a>
             </li>
             <li class="nav-item">
-                <a title="Disbots" class="nav-link" href="/"><i class="fad fa-robot mr-1"></i> Bots</a>
+                <a title="DiscordTown" class="nav-link" href="/"><i class="fad fa-robot mr-1"></i> Bots</a>
             </li>
             <li class="nav-item">
-                <a title="Disbots" class="nav-link" href="/dsl"><i class="fad fa-robot mr-1"></i> Invite DSL</a>
+                <a title="DiscordTown" class="nav-link" href="/dsl"><i class="fad fa-robot mr-1"></i> Invite DSL</a>
             </li>
             <% if(user) {%>
             <li class="nav-item"> 
-                <a title="Disbots" class="nav-link" href="/server/add"><i class="fad fa-plus mr-1"></i> Add Server</a>
+                <a title="DiscordTown" class="nav-link" href="/server/add"><i class="fad fa-plus mr-1"></i> Add Server</a>
             </li>
             <% } %>
             <% } %>
@@ -147,7 +147,7 @@ function disableclick(event)
                 if(guild) {
                 if(guild.roles.cache.get(roles.administrator) || guild.roles.cache.get(roles.moderator)) {
                 %>
-                    <a title="Disbots" class="dropdown-item" href="/admin"><i class="fad fa-magic mr-1"></i> Admin Panel</a>
+                    <a title="DiscordTown" class="dropdown-item" href="/admin"><i class="fad fa-magic mr-1"></i> Admin Panel</a>
 
                 <% }} %>
             <% } %>
@@ -165,7 +165,7 @@ function disableclick(event)
                   </a>
                 <div class="dropdown-menu dropdown-menu-right" style="max-width:220px!important;">
             <% languages.map(x => { %>
-                <a href="#" translate="no" onclick="doGTranslate('en|<%= x.code %>')" title="Disbots" class="dropdown-item">
+                <a href="#" translate="no" onclick="doGTranslate('en|<%= x.code %>')" title="DiscordTown" class="dropdown-item">
                 <img src="https://www.countryflags.io/<%= x.flag %>/flat/32.png">
                     &nbsp;<%= x.name %>
                 </a>
@@ -182,7 +182,7 @@ function disableclick(event)
               </li>
             <% } else { %>
             <li class="nav-item">
-                <a title="Disbots" class="btn btn-disbots" href="/login"><i class="fad fa-sign-in mr-1"></i> Login</a>
+                <a title="DiscordTown" class="btn btn-disbots" href="/login"><i class="fad fa-sign-in mr-1"></i> Login</a>
             </li>
 	    <% } %>
           </ul>

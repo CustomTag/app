@@ -176,17 +176,17 @@ module.exports = {
         bot: ["902232800839761982", "902232755360890941"],// Approved Bot Role ID
         boosted_bot: "", // Boosted Bot Role ID
         promoted_bot: "",// Promoted Bot Role ID
-        certified_bot: ""// Certified Bot Role ID
+        certified_bot: "902260990790492210"// Certified Bot Role ID
       }
     },
     channels: {
-      codelog: "", // Code Log
-      login: "",// Login Log
-      webstatus: "",// Website Status Log
-      uptimelog: "",// Uptime Log
-      botlog: "",// bot Log
-      reportlog: "",// bot report Log
-      votes: ""// Vote Log Log
+      codelog: "902211506119266334", // Code Log
+      login: "902261903965966376",// Login Log
+      webstatus: "902202343901241364",// Website Status Log
+      uptimelog: "902211506119266334",// Uptime Log
+      botlog: "902211301483356250",// bot Log
+      reportlog: "902261903965966376",// bot report Log
+      votes: "902211449772990564"// Vote Log Log
     }
   }
 
