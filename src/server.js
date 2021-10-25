@@ -168,13 +168,13 @@ module.exports = async (client) => {
   }
   app.get("/robots.txt", function(req, res) {
     res.set('Content-Type', 'text/plain');
-    res.send(`Sitemap: https://disbots.xyz/sitemap.xml`);
+    res.send(`Sitemap: https://discordtown.glitch.me/sitemap.xml`);
   });
   app.get("/sitemap.xml", async function(req, res) {
-    let link = "<url><loc>https://disbots.xyz/</loc></url>";
+    let link = "<url><loc>https://discordtown.glitch.me/</loc></url>";
     let botdataforxml = await botsdata.find()
     botdataforxml.forEach(bot => {
-      link += "\n<url><loc>https://disbots.xyz/bot/" + bot.botID + "</loc></url>";
+      link += "\n<url><loc>https://discordtown.glitch.me/bot/" + bot.botID + "</loc></url>";
     })
     res.set('Content-Type', 'text/xml');
     res.send(`<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="https://www.google.com/schemas/sitemap-image/1.1">${link}</urlset>`);
@@ -206,12 +206,12 @@ module.exports = async (client) => {
         dynamic: true
       })).setThumbnail(a.avatarURL({
         dynamic: true
-      })).setColor("RED").setDescription(`[**${a.username}**#${a.discriminator}](https://disbots.xyz/user/${a.id}) The user named **site** tried to log in but could not log in because he was blocked from the site.`).addField("Username", a.username).addField("User ID", a.id).addField("User Discriminator", a.discriminator))
+      })).setColor("RED").setDescription(`[**${a.username}**#${a.discriminator}](https://discordtown.glitch.me/user/${a.id}) The user named **site** tried to log in but could not log in because he was blocked from the site.`).addField("Username", a.username).addField("User ID", a.id).addField("User Discriminator", a.discriminator))
     })
     req.session.destroy(() => {
       res.json({
         login: false,
-        message: "You have been blocked from disbots.",
+        message: "You have been blocked from DiscordTown.",
         logout: true
       })
       req.logout();
@@ -236,7 +236,7 @@ module.exports = async (client) => {
         dynamic: true
       })).setThumbnail(a.avatarURL({
         dynamic: true
-      })).setColor("GREEN").setDescription(`[**${a.username}**#${a.discriminator}](https://disbots.xyz/user/${a.id}) User named **site** logged in.`).addField("Username", a.username).addField("User ID", a.id).addField("User Discriminator", a.discriminator))
+      })).setColor("GREEN").setDescription(`[**${a.username}**#${a.discriminator}](https://discordtown.glitch.me/user/${a.id}) User named **site** logged in.`).addField("Username", a.username).addField("User ID", a.id).addField("User Discriminator", a.discriminator))
 
     })
   }
@@ -844,7 +844,7 @@ app.use("/server", require('./routers/servers/server/delete.js'))
 app.use(async (req, res, next) => {
   if (req.path.includes('/admin')) {
     if (req.isAuthenticated()) {
-      if (client.guilds.cache.get(config.server.id).members.cache.get(req.user.id).roles.cache.get(global.config.server.roles.administrator) || client.guilds.cache.get(config.server.id).members.cache.get(req.user.id).roles.cache.get(global.config.server.roles.moderator) || req.user.id === "714451348212678658") {
+      if (client.guilds.cache.get(config.server.id).members.cache.get(req.user.id).roles.cache.get(global.config.server.roles.administrator) || client.guilds.cache.get(config.server.id).members.cache.get(req.user.id).roles.cache.get(global.config.server.roles.moderator) || req.user.id === "902213807605170176") {
         next();
       } else {
         res.redirect("/error?code=403&message=You is not competent to do this.")
