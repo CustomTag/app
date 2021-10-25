@@ -6,7 +6,7 @@ const roles = global.config.server.roles,
 const client = global.Client;
 const Discord = require("discord.js");
 
-console.log("[disbots.xyz]: Uptime/Delete router loaded.");
+console.log("[DiscordTown]: Uptime/Delete router loaded.");
 
 app.get("/:code/delete", global.checkAuth, async (req, res) => {
                 const dde = await uptimedata.findOne({

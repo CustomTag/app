@@ -1,7 +1,7 @@
 const app = require('express').Router();
 const botsdata = require("../database/models/botlist/bots.js");
 
-console.log("[disbots.xyz]: Mini pages router loaded.");
+console.log("[DiscordTown]: Mini pages router loaded.");
 
 app.get("/error", async (req,res) => {
     res.render("error.ejs", {

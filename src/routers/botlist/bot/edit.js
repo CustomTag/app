@@ -3,7 +3,7 @@ const botsdata = require("../../../database/models/botlist/bots.js");
 const client = global.Client;
 const channels = global.config.server.channels;
 
-console.log("[disbots.xyz]: Botlist/Edit router loaded.");
+console.log("[DiscordTown]: Botlist/Edit router loaded.");
 
 app.get("/bot/:botID/edit", global.checkAuth, async (req, res) => {
     let botdata = await botsdata.findOne({

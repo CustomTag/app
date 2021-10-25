@@ -3,12 +3,12 @@ const botsdata = require("../../database/models/botlist/bots.js");
 const channels = global.config.server.channels,
       roles = global.config.server.roles;
 
-console.log("[disbots.xyz]: Api router loaded.");
+console.log("[DiscordTown]: Api router loaded.");
 
 app.get("/api", async (req, res) => {
     res.json({
         "Hello": "World",
-        "Template By": "Disbots Team"
+        "Template By": "DiscordTown Team"
         });
 });
 app.get("/api/bots/:botID", async (req, res) => {

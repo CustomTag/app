@@ -4,7 +4,7 @@ const db = require("../database/models/servers/server.js");
 const maintenceSchema = require('../database/models/maintence.js');
 const profiledata = require("../database/models/profile.js");
 
-console.log("[disbots.xyz]: Index router loaded.");
+console.log("[DiscordTown]: Index router loaded.");
 
 
 app.get("/", async (req,res) => {
