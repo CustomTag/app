@@ -32,7 +32,7 @@ module.exports.run = async (client, message, args) => {
     let b = await bots.findOne({
       id: message.guild.id
     });
-    if (!b) return message.channel.send("This server was not added to our website.\nAdd server https://disbots.xyz/server/add")
+    if (!b) return message.channel.send("This server was not added to our website.\nAdd server https://discordtown.glitch.me/server/add")
     const targetGuild = client.guilds.cache.get(b.id)
     let invitelink = b.link ? " [Join Server](" + b.link + ")" : "";
     const embed = new Discord.MessageEmbed()
