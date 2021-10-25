@@ -135,24 +135,24 @@ module.exports = {
     invite: "https://discord.gg/nnfdQQaVhK",
     dblinvite: "https://discord.com/api/oauth2/authorize?client_id=902250854868987914&permissions=8&scope=bot",
     roles: {
-      yonetici: "", // Team roleid
-      manager: "",// Community Manager Role Id
+      yonetici: "902259388692185168", // Team roleid
+      manager: "902203523507310662",// Community Manager Role Id
       booster: "", // Server booster Role ID
       sponsor: "", // Sponsor Role id
       community: "", // Community Role id
       supporter: "",// Supporter Role id
       partnerRole: "", // Partner Role id
-      site_creator: "",// Site Creator Role id
-      administrator: "", // Team Role id Again
-      moderator: "", // bot tester Role id
-      moderatorrole: "", // Server Moderator Role id
+      site_creator: "902198720077107303",// Site Creator Role id
+      administrator: ["902208455996227584", "902208300848906240"], // Team Role id Again
+      moderator: ["902206560166612993", "902206423805608026"], // bot tester Role id
+      moderatorrole: ["902205926860263484","902203315910242414"], // Server Moderator Role id
       profile: {
-        sitecreator:"", // Site Creator Role id
+        sitecreator:"902198720077107303", // Site Creator Role id
         booster: "",// Server booster Role ID
         community: "",// Community Role id
         sponsor: "", // Sponsor Role id
         supporter: "", // Supporter Role id
-        manager: "", // Community Manager Role Id
+        manager: "902203523507310662", // Community Manager Role Id
         partnerRole: "" // Partner Role id
       },
       codeshare: {
@@ -168,12 +168,12 @@ module.exports = {
       },
       botlist: {
         ownerserver: "", // Server Owner Role ID
-        developer: "", // Bot Developer Role ID
-        certified_developer: "",// Certified Bot Developer Role ID
+        developer: "902206809316683796", // Bot Developer Role ID
+        certified_developer: "902207004188221500",// Certified Bot Developer Role ID
         boosted_developer: "", // Boosted Bot Developer Role ID
         promoted_developer: "",// Promoted Bot Developer Role ID
         premium_developer: "",// Premium Server Owner Role ID
-        bot: "",// Approved Bot Role ID
+        bot: ["902232800839761982", "902232755360890941"],// Approved Bot Role ID
         boosted_bot: "", // Boosted Bot Role ID
         promoted_bot: "",// Promoted Bot Role ID
         certified_bot: ""// Certified Bot Role ID
