@@ -93,7 +93,7 @@
             <% } }) %>
             <% } %> 
             <% if(bannedCheck) { %>
-            &nbsp;<span data-tooltip="Banned from Disbots" data-tooltip-location="top"> <i class="fad fa-ban has-text-danger" style="color: RED;bottom: -5px; font-size: 26px;"></i></span>
+            &nbsp;<span data-tooltip="Banned from DiscordTown" data-tooltip-location="top"> <i class="fad fa-ban has-text-danger" style="color: RED;bottom: -5px; font-size: 26px;"></i></span>
             <% } %>
             </div>
             <% if(pdata) {%>
@@ -116,18 +116,18 @@
             <% if(pdata.coins) { %>     
             <a href="https://disbots.xyz/user/<%= req.params.userID %>" class="is-flex mt-1">
                       <div style="background: rgb(8, 8, 8)" class="box-2-p"></div>
-                      <p style="background: rgb(8, 8, 8);color: #fff!important" class="box-2">Disbots Coins: <%=pdata.coins%></p>
+                      <p style="background: rgb(8, 8, 8);color: #fff!important" class="box-2">DiscordTown Coins: <%=pdata.coins%></p>
                     </a>        
             <% } else { %>
             <a href="https://disbots.xyz/user/<%= req.params.userID %>" class="is-flex mt-1">
                       <div style="background: rgb(8, 8, 8)" class="box-2-p"></div>
-                      <p style="background: rgb(8, 8, 8);color: #fff!important" class="box-2">Disbots Coins: 0</p>
+                      <p style="background: rgb(8, 8, 8);color: #fff!important" class="box-2">DiscordTown Coins: 0</p>
                     </a>        
             <% } %>
             <% } else { %>
             <a href="https://disbots.xyz/user/<%= req.params.userID %>" class="is-flex mt-1">
                       <div style="background: rgb(8, 8, 8)" class="box-2-p"></div>
-                      <p style="background: rgb(8, 8, 8);color: #fff!important" class="box-2">Disbots Coins: 0</p>
+                      <p style="background: rgb(8, 8, 8);color: #fff!important" class="box-2">DiscordTown Coins: 0</p>
                     </a>  
             <% } %>
             <% if(pdata) {%>
