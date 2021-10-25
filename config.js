@@ -143,9 +143,9 @@ module.exports = {
       supporter: "",// Supporter Role id
       partnerRole: "", // Partner Role id
       site_creator: "902198720077107303",// Site Creator Role id
-      administrator: ["902208455996227584", "902208300848906240"], // Team Role id Again
-      moderator: ["902206560166612993", "902206423805608026"], // bot tester Role id
-      moderatorrole: ["902205926860263484","902203315910242414"], // Server Moderator Role id
+      administrator: "902208300848906240", // Team Role id Again
+      moderator: "902206423805608026", // bot tester Role id
+      moderatorrole: "902203315910242414", // Server Moderator Role id
       profile: {
         sitecreator:"902198720077107303", // Site Creator Role id
         booster: "",// Server booster Role ID
@@ -173,7 +173,7 @@ module.exports = {
         boosted_developer: "", // Boosted Bot Developer Role ID
         promoted_developer: "",// Promoted Bot Developer Role ID
         premium_developer: "",// Premium Server Owner Role ID
-        bot: ["902232800839761982", "902232755360890941"],// Approved Bot Role ID
+        bot: "902232800839761982",// Approved Bot Role ID
         boosted_bot: "", // Boosted Bot Role ID
         promoted_bot: "",// Promoted Bot Role ID
         certified_bot: "902260990790492210"// Certified Bot Role ID
