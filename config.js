@@ -1,19 +1,19 @@
 module.exports = {
   bot: {
-    token: "",
-    prefix: "",
-    owners: ["",""],
-    mongourl: "",
+    token: "OTAyMjEzODA3NjA1MTcwMTc2.YXbKFg.cAfmKBRCwIpTmaKs7yRQsb7DlJE",
+    prefix: "dt!",
+    owners: ["493042603181342730","414075055023063040", "484010160981934100"],
+    mongourl: "mongodb+srv://DiscordTown-Manager:8CFpjWFy12167fAM@database.saobr.gcp.mongodb.net/DiscordTown",
     servers: {
-      token: "",
-      prefix: ""
+      token: "OTAyMjUwODU0ODY4OTg3OTE0.YXbslg.6U_QPy6LrmfARJCs1Q_FnkiG0KY",
+      prefix: "dts!"
     }
   },
 
   website: {
-    callback: "",
-    secret: "",
-    clientID: "", // Bot client id.
+    callback: "https://discordtown.glitch.me/callback",
+    secret: "H62aJ6Hkac-ssBaSt3731wy3IhjnPsnu",
+    clientID: "902213807605170176", // Bot client id.
     tags: ["Moderation", "Fun", "Minecraft", "Economy", "Guard", "NSFW", "Anime", "Invite", "Music", "Logging", "Web Dashboard", "Reddit", "Youtube", "Twitch", "Crypto", "Leveling", "Game", "Roleplay", "Utility", "Turkish"],
     reporttags: ["Choose one...","NSFW content","API abuse","Malicious use of bot page","Copycat","Doesn't work","Other"],
     languages: [
