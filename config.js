@@ -131,9 +131,9 @@ module.exports = {
   },
 
   server: {
-    id: "", // DisBots.xyz Server ID
-    invite: "https://discord.gg/YhTU6Akzmy",
-    dblinvite: "",
+    id: "902198115908603904", // DisBots.xyz Server ID
+    invite: "https://discord.gg/nnfdQQaVhK",
+    dblinvite: "https://discord.com/api/oauth2/authorize?client_id=902250854868987914&permissions=8&scope=bot",
     roles: {
       yonetici: "", // Team roleid
       manager: "",// Community Manager Role Id
