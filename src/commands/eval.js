@@ -10,7 +10,7 @@ exports.run = async (client, message, args) => {
       var evaled = eval(code);
  
       if (typeof evaled !== "string")
-        evaled = require("util").inspect(evaled);
+        evaled = require("util").inspect(evaled, {depth: 0, showHidden: false});
       let Embed = new Discord.MessageEmbed()
                             .addField("Code","```js\n" + code + "```")
                             .setDescription("```js\n" + clean(evaled) + "```")
@@ -25,7 +25,7 @@ if (Embed.description.length >= 2048)
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: [],
+  aliases: ["ev"],
   permLevel: 0
 };
  
