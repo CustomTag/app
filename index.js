@@ -24,7 +24,7 @@ client.on('presenceUpdate', async(oldPresence, newPresence) =>
         return
       }
 
-    if(newPresence.guild.id == "Your-Guild-ID")
+    if(newPresence.guild.id == "902198115908603904")
     {
      if(botdata.status == "UnApproved")
 
@@ -57,7 +57,7 @@ if(!uptimerate)
         return;
       }
          
-       client.channels.cache.get("Your-Guild-Uptime-Channel-ID").send(`<@${newPresence.userID}> is Offline And Uptime Rate - ${uptimerate}%`) 
+       client.channels.cache.get("902211506119266334").send(`<@${newPresence.userID}> is Offline And Uptime Rate - ${uptimerate}%`) 
 
       }
       
@@ -88,7 +88,7 @@ if(!uptimerate)
        var seconds = timeleft.seconds;
     
        db.set(`lastoffline`, newPresence.userID);
-       client.channels.cache.get("859637439576014888").send(`<@${newPresence.userID}> is Online And Uptime Rate - ${uptimerate}% And was Offline for ${hour}h ${minutes}m ${seconds}s`) 
+       client.channels.cache.get("902211506119266334").send(`<@${newPresence.userID}> is Online And Uptime Rate - ${uptimerate}% And was Offline for ${hour}h ${minutes}m ${seconds}s`) 
        db.set(`timefr_${newPresence.userID}`, Date.now())
     }
     }
@@ -139,7 +139,7 @@ client.on('voiceStateUpdate', async(oldState, newState) => {
             coins: '0'
         }
     }, function(err, docs) {})}
-    client.channels.cache.get('Your-Guild-General-Channel-ID').send(`Hey <@${newState.member.id}>, Thankyou for being active! You have got some **Disbots Coins** for being active!`)
+    client.channels.cache.get('902198115908603907').send(`Hey <@${newState.member.id}>, Thankyou for being active! You have got some **DiscordTown Coins** for being active!`)
     }
   }
 })
@@ -293,10 +293,10 @@ require("./src/database/connect.js")(client);
 
 client.login(config.bot.token);
 client.on('ready',async () => {
-    console.log("[disbots.xyz]: Bot successfully connected as "+client.user.tag+".");
+    console.log("[DiscordTown]: Bot successfully connected as "+client.user.tag+".");
     let botsSchema = require("./src/database/models/botlist/bots.js");
     const bots = await botsSchema.find();
-    client.user.setPresence({ activity: { type: 'WATCHING', name: 'disbots.xyz | '+bots.length+' bots' }, status: "online" });
+    client.user.setPresence({ activity: { type: 'WATCHING', name: 'DiscordTown | '+bots.length+' bots' }, status: "online" });
 });
 
 
