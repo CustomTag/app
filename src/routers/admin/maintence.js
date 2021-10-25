@@ -44,7 +44,7 @@ app.post("/admin/unmaintence", global.checkAuth, async (req, res) => {
         .setAuthor("DiscordTown", client.user.avatarURL())
         .setThumbnail(client.user.avatarURL())
         .setColor("GREEN")
-        .setDescription(`<a:online:833375738785824788> <a:dis_on:855688790391521290> DisBots are **active** again!\n[Click to redirect website](https://disbots.xyz)`)
+        .setDescription(`<a:online:833375738785824788> <a:dis_on:855688790391521290> DiscordTown are **active** again!\n[Click to redirect website](https://disbots.xyz)`)
         .setFooter("DiscordTown © All rights reserved.");
     await client.channels.cache.get(channels.webstatus).messages.fetch(bakimdata.bakimmsg).then(a => {
         a.edit(`~~ <a:online:833375738785824788> DiscordTown has been switched to __maintance__ due to **${bakimdata.reason}** ~~`, bakimsonaerdikardesdisbots)
