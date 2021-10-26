@@ -70,7 +70,7 @@ app.get("/:guildID", async (req,res) => {
         guildGet: checkGuild,
         page: page,
         sdb: sdb,
-        emotes:emojiArr,
+        emotes: emojiArr,
         rateAuthors: rateAuthors,
         moment: require("moment")
 	})
