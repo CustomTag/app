@@ -5,7 +5,7 @@ const channels = global.config.server.channels;
 console.log("[DiscordTown]: Botlist/Add Bot router loaded.");
 
     app.get("/addbot", global.checkAuth, async (req,res) => {
-      if(!client.guilds.cache.get(config.server.id).members.cache.get(req.user.id)) return res.redirect("/error?code=403&message=To do this, you have to join our discord server.");
+      if(!client.guilds.cache.get(global.config.server.id).members.cache.get(req.user.id)) return res.redirect("/error?code=403&message=To do this, you have to join our discord server.");
         res.render("botlist/addbot.ejs", {
 	        bot: global.Client,
 	        path: req.path,
