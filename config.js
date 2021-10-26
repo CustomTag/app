@@ -135,25 +135,25 @@ module.exports = {
     invite: "https://discord.gg/nnfdQQaVhK",
     dblinvite: "https://discord.com/api/oauth2/authorize?client_id=902250854868987914&permissions=8&scope=bot",
     roles: {
-      yonetici: "902259388692185168", // Team roleid
+      yonetici: "902198720077107303", // Team roleid
       manager: "902203523507310662",// Community Manager Role Id
       booster: "", // Server booster Role ID
-      sponsor: "", // Sponsor Role id
-      community: "", // Community Role id
-      supporter: "",// Supporter Role id
-      partnerRole: "", // Partner Role id
+      sponsor: "902507010585681920", // Sponsor Role id
+      community: "902507438039769129", // Community Role id
+      supporter: "902507618835243058",// Supporter Role id
+      partnerRole: "902507763995926559", // Partner Role id
       site_creator: "902198720077107303",// Site Creator Role id
       administrator: "902208300848906240", // Team Role id Again
       moderator: "902206423805608026", // bot tester Role id
       moderatorrole: "902203315910242414", // Server Moderator Role id
       profile: {
-        sitecreator:"902198720077107303", // Site Creator Role id
+        sitecreator: "902198720077107303", // Site Creator Role id
         booster: "",// Server booster Role ID
-        community: "",// Community Role id
-        sponsor: "", // Sponsor Role id
-        supporter: "", // Supporter Role id
+        community: "902507438039769129",// Community Role id
+        sponsor: "902507010585681920", // Sponsor Role id
+        supporter: "902507618835243058", // Supporter Role id
         manager: "902203523507310662", // Community Manager Role Id
-        partnerRole: "" // Partner Role id
+        partnerRole: "902507763995926559" // Partner Role id
       },
       codeshare: {
         python: "PY",

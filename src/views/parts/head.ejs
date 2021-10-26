@@ -2,7 +2,7 @@
 <head>
 <script>
     document.onmousedown=disableclick;
-status="Dis";
+status="DiscordTown has disabled this function for you";
 function disableclick(event)
 {
   if(event.button==2)
@@ -12,7 +12,7 @@ function disableclick(event)
    }
 }
     document.onkeydown = function (e) {
-        status="Stop trying to steal code";
+        status="DiscordTown has disabled this function for you";
         if (event.keyCode == 123) {
             return false;
         }
@@ -135,11 +135,11 @@ function disableclick(event)
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" onclick="location.href='/partners'"><i class="fad fa-handshake"></i>&nbsp;Partners</a>
             <a class="dropdown-item" onclick="location.href='/team'"><i class="fad fa-users mr-1"></i>&nbsp;Team</a>
-            <a class="dropdown-item" onclick="location.href='/rewards'"><i class="fad fa-coin mr-1"></i>&nbsp;Rewards</a>
+<!--             <a class="dropdown-item" onclick="location.href='/rewards'"><i class="fad fa-coin mr-1"></i>&nbsp;Rewards</a> -->
             <a class="dropdown-item" onclick="location.href='/promotion'"><i class="fad fa-stars"></i> Promotions</a>
             <a class="dropdown-item" onclick="location.href='certification'"><i class="fad fa-badge-check"></i>&nbsp;Certification</a>
-            <a class="dropdown-item" onclick="location.href='https://stats.uptimerobot.com/50DlwT0XxV'"><i class="fad fa-chart-bar mr-1"></i>&nbsp;Status</a>
-            <a class="dropdown-item" onclick="location.href='/codes/categories'"><i class="fad fa-code"></i>&nbsp;Code Share</a>
+<!--             <a class="dropdown-item" onclick="location.href='https://stats.uptimerobot.com/50DlwT0XxV'"><i class="fad fa-chart-bar mr-1"></i>&nbsp;Status</a> -->
+<!--             <a class="dropdown-item" onclick="location.href='/codes/categories'"><i class="fad fa-code"></i>&nbsp;Code Share</a> -->
             <a class="dropdown-item"  onclick="location.href='/uptime/links'"><i class="fad fa-sync-alt"></i>&nbsp;Uptime</a>
             <% if(user) { %>
                 <% 
