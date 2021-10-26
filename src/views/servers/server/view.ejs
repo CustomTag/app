@@ -1,7 +1,7 @@
 <%- include('../../parts/head', {bot, user, path}) %>
 <title><%= sdb.name %> | Discord Servers</title>
 <head>
-    <meta property="og:site_name" content="Powered by Disbots.xyz">
+    <meta property="og:site_name" content="Powered by Discordtown.com">
     <meta property="og:title" content="<%= sdb.name %>">
     <meta property="og:description" content="<%= sdb.shortDesc %>
     ­
@@ -200,7 +200,7 @@
                 <div class="row">
                     <div class="rating-cards col-md-12">
                         <div class="ml-4 media p-2" style="border-radius: 5px;">
-                          <img class="mr-3 rounded-circle" alt="disbots-xyz | Rating System" src="https://cdn.discordapp.com/avatars/<%= req.user.id %>/<%=req.user.avatar%>" />
+                          <img class="mr-3 rounded-circle" alt="discordtown-com | Rating System" src="https://cdn.discordapp.com/avatars/<%= req.user.id %>/<%=req.user.avatar%>" />
                             <div class="media-body">
                                 <div class="row">
                                     <div class="col-8 d-flex">
@@ -234,7 +234,7 @@
                                              title: 'Oops...',
                                              allowOutsideClick: false,
                                              text: "You forgot to write a review.",
-                                             footer: 'Copyright 2021 &copy Disbots.xyz - All right reserved.'
+                                             footer: 'Copyright 2021 &copy Discordtown.com - All right reserved.'
                                             })
                                       $("#myReview").html('<i class="fad fa-save"></i>&nbsp;Submit');
                                       $("#myReview").attr("disabled", false);
@@ -246,7 +246,7 @@
                                        title: 'Successful...',
                                        allowOutsideClick: false,
                                        text: "Evaluation has been successfully added to <%= sdb.username%>.",
-                                       footer: 'Copyright 2021 &copy Disbots.xyz - All right reserved.'
+                                       footer: 'Copyright 2021 &copy Discordtown.com - All right reserved.'
                                       }).then((result) => {
                                        if (result.isConfirmed) {
                                          return document.getElementById('myReviewForm').submit();
@@ -258,7 +258,7 @@
                                        title: 'Oops...',
                                        allowOutsideClick: false,
                                        text: "An unknown error has occurred.",
-                                       footer: 'Copyright 2021 &copy Disbots.xyz - All right reserved.'
+                                       footer: 'Copyright 2021 &copy Discordtown.com - All right reserved.'
                                       })
                                       $("#myReview").html('<i class="fad fa-save"></i>&nbsp;Submit');
                                       $("#myReview").attr("disabled", false);
@@ -281,7 +281,7 @@
                 <div class="row">
                     <div class="rating-cards col-md-12">
                         <div class="ml-4 media p-2" style="border-radius: 5px;">
-                          <img class="mr-3 rounded-circle" alt="disbots-xyz | Rating System" src="https://cdn.discordapp.com/avatars/<%= req.user.id %>/<%=req.user.avatar%>" />
+                          <img class="mr-3 rounded-circle" alt="discordtown-com | Rating System" src="https://cdn.discordapp.com/avatars/<%= req.user.id %>/<%=req.user.avatar%>" />
                             <div class="media-body">
                                 <div class="row">
                                     <div class="col-8 d-flex">
@@ -508,7 +508,7 @@
                     title: 'Oops...',
                     allowOutsideClick: false,
                     text: "You forgot to write a reply message.",
-                    footer: 'Copyright 2021 &copy Disbots.xyz - All right reserved.'
+                    footer: 'Copyright 2021 &copy Discordtown.com - All right reserved.'
                 })
                 $("#myReplyButton" + userID).html('<i class="fad fa-save"></i>&nbsp;Save');
                 $("#myReplyButton" + userID).attr("disabled", false);
@@ -520,7 +520,7 @@
                     title: 'Successful...',
                     allowOutsideClick: false,
                     text: "Your reply has been successfully added.",
-                    footer: 'Copyright 2021 &copy Disbots.xyz - All right reserved.'
+                    footer: 'Copyright 2021 &copy Discordtown.com - All right reserved.'
                 }).then((result) => {
                     if (result.isConfirmed) {
                         return document.getElementById('myReplyForm' + userID).submit();
@@ -532,7 +532,7 @@
                     title: 'Oops...',
                     allowOutsideClick: false,
                     text: "An unknown error has occurred.",
-                    footer: 'Copyright 2021 &copy Disbots.xyz - All right reserved.'
+                    footer: 'Copyright 2021 &copy Discordtown.com - All right reserved.'
                 })
                 $("#myReplyButton" + userID).html('<i class="fad fa-save"></i>&nbsp;Save');
                 $("#myReplyButton" + userID).attr("disabled", false);
@@ -550,7 +550,7 @@
                     title: 'Oops...',
                     allowOutsideClick: false,
                     text: "You forgot to write a new message.",
-                    footer: 'Copyright 2021 &copy Disbots.xyz - All right reserved.'
+                    footer: 'Copyright 2021 &copy Discordtown.com - All right reserved.'
                 })
                 $("#myEditButton" + userID).html('<i class="fad fa-save"></i>&nbsp;Save');
                 $("#myEditButton" + userID).attr("disabled", false);
@@ -562,7 +562,7 @@
                     title: 'Successful...',
                     allowOutsideClick: false,
                     text: "Your reply has been successfully added.",
-                    footer: 'Copyright 2021 &copy Disbots.xyz - All right reserved.'
+                    footer: 'Copyright 2021 &copy Discordtown.com - All right reserved.'
                 }).then((result) => {
                     if (result.isConfirmed) {
                         return document.getElementById('myEditForm' + userID).submit();
@@ -574,7 +574,7 @@
                     title: 'Oops...',
                     allowOutsideClick: false,
                     text: "An unknown error has occurred.",
-                    footer: 'Copyright 2021 &copy Disbots.xyz - All right reserved.'
+                    footer: 'Copyright 2021 &copy Discordtown.com - All right reserved.'
                 })
                 $("#myEditButton" + userID).html('<i class="fad fa-save"></i>&nbsp;Save');
                 $("#myEditButton" + userID).attr("disabled", false);
@@ -592,7 +592,7 @@
                     title: 'Oops...',
                     allowOutsideClick: false,
                     text: "You forgot to write a new message.",
-                    footer: 'Copyright 2021 &copy Disbots.xyz - All right reserved.'
+                    footer: 'Copyright 2021 &copy Discordtown.com - All right reserved.'
                 })
                 $("#clickOnEditReply" + userID).html('<i class="fad fa-save"></i>&nbsp;Save');
                 $("#clickOnEditReply" + userID).attr("disabled", false);
@@ -604,7 +604,7 @@
                     title: 'Successful...',
                     allowOutsideClick: false,
                     text: "Your reply has been successfully added.",
-                    footer: 'Copyright 2021 &copy Disbots.xyz - All right reserved.'
+                    footer: 'Copyright 2021 &copy Discordtown.com - All right reserved.'
                 }).then((result) => {
                     if (result.isConfirmed) {
                         return document.getElementById('myReplyEditForm' + userID).submit();
@@ -616,7 +616,7 @@
                     title: 'Oops...',
                     allowOutsideClick: false,
                     text: "An unknown error has occurred.",
-                    footer: 'Copyright 2021 &copy Disbots.xyz - All right reserved.'
+                    footer: 'Copyright 2021 &copy Discordtown.com - All right reserved.'
                 })
                 $("#clickOnEditReply" + userID).html('<i class="fad fa-save"></i>&nbsp;Save');
                 $("#clickOnEditReply" + userID).attr("disabled", false);
@@ -646,7 +646,7 @@
           title: 'Successful...',
           allowOutsideClick: false,
           text: "Your reply has been successfully deleted.",
-          footer: 'Copyright 2021 &copy Disbots.xyz - All right reserved.'
+          footer: 'Copyright 2021 &copy Discordtown.com - All right reserved.'
       })
       $.ajax({
         type: "POST",
@@ -688,7 +688,7 @@
           title: 'Successful...',
           allowOutsideClick: false,
           text: "Your review has been successfully deleted.",
-          footer: 'Copyright 2021 &copy Disbots.xyz - All right reserved.'
+          footer: 'Copyright 2021 &copy Discordtown.com - All right reserved.'
       })
       $.ajax({
         type: "POST",
