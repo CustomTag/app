@@ -131,7 +131,7 @@ module.exports = {
   },
 
   server: {
-    id: "902198115908603904", // DisBots.xyz Server ID
+    id: "902198115908603904", // DiscordTown Server ID
     invite: "https://discord.gg/nnfdQQaVhK",
     dblinvite: "https://discord.com/api/oauth2/authorize?client_id=902250854868987914&permissions=8&scope=bot",
     roles: {
