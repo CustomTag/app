@@ -14,7 +14,8 @@ module.exports.run = async (client, message, args) => {
   const embedPing = new Discord.MessageEmbed()
     .setAuthor(message.author.tag, message.author.avatarURL({ dynamic: true }))
     .setDescription("**Uptime:** " + uptime + " \n**Bot Latency:** ``" + Math.floor(Date.now() - message.createdTimestamp) + " ms``\n**API Latency:** ``" + Math.round(message.client.ws.ping) + " ms``")
-    .setColor("#206694")
+    .setColor("#5865F2")
+  
   await message.channel.send(embedPing)
 
 };

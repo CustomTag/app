@@ -14,7 +14,7 @@ exports.run = async (client, message, args) => {
     let timeObj = ms(cooldown - (Date.now() - lastDaily)); 
 	} else {
     let kod1 = client.makeid(6); 
-    let kod2 = client.makeid(6);
+    let kod2 = client.makeid(6); 
     let kod3 = client.makeid(6);
     const width = 400
     const height = 125

@@ -19,9 +19,9 @@ exports.run = async (client, message, args) => {
     const height = 125
     const canvas = createCanvas(width, height)
     const context = canvas.getContext('2d')
-    await registerFont('src/fonts/font.ttf', { family: 'Disbots' })
+    await registerFont('src/fonts/font.ttf', { family: 'Flowlist' })
     context.fillRect(0, 0, width, height)
-    context.font = 'bold 60pt Disbots'
+    context.font = 'bold 60pt Flowlist'
     context.textAlign = 'center'
     context.fillStyle = '#fff'
     context.fillText(kod1, 200, 90)
@@ -41,7 +41,7 @@ exports.run = async (client, message, args) => {
     let web = new MessageButton()
     .setLabel("Visit server page")
     .setStyle("url")
-    .setURL("https://disbots.xyz/server/"+message.guild.id)
+    .setURL("https://flowlist.xyz/server/"+message.guild.id)
 
     const incorrectButton = new Discord.MessageEmbed()
 	.setTitle("Wrong button selected.")

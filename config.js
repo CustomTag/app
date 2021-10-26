@@ -12,6 +12,7 @@ module.exports = {
 
   website: {
     callback: "https://flowlists.glitch.me/callback",
+    url: "https://www.flowlist.xyz/",
     secret: "H62aJ6Hkac-ssBaSt3731wy3IhjnPsnu",
     clientID: "902213807605170176", // Bot client id.
     tags: ["Moderation", "Fun", "Minecraft", "Economy", "Guard", "NSFW", "Anime", "Invite", "Music", "Logging", "Web Dashboard", "Reddit", "Youtube", "Twitch", "Crypto", "Leveling", "Game", "Roleplay", "Utility", "Turkish"],

@@ -22,7 +22,7 @@ module.exports.run = async (client, message, args) => {
   .setThumbnail(users.avatarURL({ dynamic: true }))
   message.channel.send(embed)
   }
-  if (!args[0]) {
+  if (!args[0]) { 
   var users = message.author
   let x = await botdata.find();
   let bots = await x.filter(a => a.ownerID ==users.id || a.coowners.includes(users.id))

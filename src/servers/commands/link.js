@@ -15,7 +15,7 @@ module.exports.run = async (client, message, args) => {
       .setAuthor(`${b.name} | ${b.id}`)
       .setDescription(b.shortDesc)
       .addField("ID", b.id, true)
-      .addField("Server Name", b.name, true)
+      .addField("Server Name", b.name, true) 
       .addField("Votes", b.votes, true) 
       .addField("Bumps", b.bumps, true)
       .addField("Member Count", client.guilds.cache.get(args[0]).memberCount
