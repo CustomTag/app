@@ -28,7 +28,7 @@ app.get("/admin/confirm/:botID", global.checkAuth, async (req, res) => {
         client.channels.cache.get(global.config.server.channels.botlog).send(`<:Approved:853262344636989450> <@${botdata.ownerID}>'s bot named **${bota.tag}** has been approved by <@${req.user.id}>.`)
         client.users.cache.get(botdata.ownerID).send(`<:Approved:853262344636989450> Your bot named **${bota.tag}** has been approved by <@${req.user.id}>.`)
     });
-    let guild = client.guilds.cache.get(config.server.id)
+    let guild = client.guilds.cache.get(global.config.server.id)
     guild.members.cache.get(botdata.botID).roles.add(global.config.server.roles.botlist.bot);
     guild.members.cache.get(botdata.ownerID).roles.add(global.config.server.roles.botlist.developer);
     if (botdata.coowners) {

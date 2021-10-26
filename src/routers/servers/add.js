@@ -4,10 +4,10 @@ const client = global.clientSL;
 const roles = global.config.server.roles;
 const channels = global.config.server.channels;
 
-console.log("[disbots.xyz/servers]: Add Server router loaded.");
+console.log("[DiscordTown/servers]: Add Server router loaded.");
 
 app.get("/add", global.checkAuth, async (req,res) => {
-  if(!client.guilds.cache.get(config.server.id).members.cache.get(req.user.id)) return res.redirect("/error?code=403&message=To do this, you have to join our discord server.");
+  if(!client.guilds.cache.get(global.config.server.id).members.cache.get(req.user.id)) return res.redirect("/error?code=403&message=To do this, you have to join our discord server.");
     res.render("servers/add.ejs", {
         bot: global.clientSL,
         path: req.path,
@@ -85,7 +85,7 @@ app.post("/add", global.checkAuth, async (req,res) => {
     let checkGuilds = await db.findOne({ id: guildID });
     let guilda = client.guilds.cache.get(global.config.server.id)
     guilda.members.cache.get(checkGuilds.ownerID).roles.add(global.config.server.roles.botlist.ownerserver);
-    client.channels.cache.get(global.config.server.channels.botlog).send(`<:add:853596640824655872> <@${checkGuilds.ownerID}> added **${guild.name}** \n https://disbots.xyz/server/${checkGuilds.id}/`)
+    client.channels.cache.get(global.config.server.channels.botlog).send(`<:add:853596640824655872> <@${checkGuilds.ownerID}> added **${guild.name}** \n https://discordtown.glitch.me/server/${checkGuilds.id}/`)
     return res.send({ success: true, message: "Server succesfuly added." });
 })
 

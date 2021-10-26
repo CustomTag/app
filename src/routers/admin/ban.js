@@ -4,10 +4,10 @@ const channels = global.config.server.channels,
       roles = global.config.server.roles;
 const client = global.Client;
 
-console.log("[disbots.xyz]: Admin/Ban router loaded.");
+console.log("[DiscordTown]: Admin/Ban router loaded.");
 
 app.get("/admin/userban", global.checkAuth, async (req, res) => {
-    if (!config.bot.owners.includes(req.user.id)) return res.redirect('../admin');
+    if (!global.config.bot.owners.includes(req.user.id)) return res.redirect('../admin');
     let bandata = await banSchema.find();
     res.render("admin/administrator/user-ban.ejs", {
         bot: global.Client,
@@ -21,7 +21,7 @@ app.get("/admin/userban", global.checkAuth, async (req, res) => {
     })
 });
 app.post("/admin/userban", global.checkAuth, async (req, res) => {
-    if (!config.bot.owners.includes(req.user.id)) return res.redirect('../admin');
+    if (!global.config.bot.owners.includes(req.user.id)) return res.redirect('../admin');
     new banSchema({
         user: req.body.userID,
         sebep: req.body.reason,
@@ -30,7 +30,7 @@ app.post("/admin/userban", global.checkAuth, async (req, res) => {
     return res.redirect('../admin/userban?success=true&message=User banned.');
 });
 app.post("/admin/userunban", global.checkAuth, async (req, res) => {
-    if (!config.bot.owners.includes(req.user.id)) return res.redirect('../admin');
+    if (!global.config.bot.owners.includes(req.user.id)) return res.redirect('../admin');
     banSchema.deleteOne({
         user: req.body.userID
     }, function(error, user) {

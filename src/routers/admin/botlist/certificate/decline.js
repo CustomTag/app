@@ -18,7 +18,7 @@ app.post("/admin/certificate/delete/:botID", global.checkAuth, async (req, res) 
             certificate: "None",
         }
     }, function(err, docs) {})
-    let botdata = await botsdata.findOne({
+    let botdata = await botsdata.findOne({ 
         botID: req.params.botID
     });
     client.users.fetch(botdata.botID).then(bota => {
@@ -28,7 +28,7 @@ app.post("/admin/certificate/delete/:botID", global.checkAuth, async (req, res) 
     await appsdata.deleteOne({
         botID: req.params.botID
     })
-    let guild = client.guilds.cache.get(config.server.id)
+    let guild = client.guilds.cache.get(global.config.server.id)
     guild.members.cache.get(botdata.botID).roles.remove(roles.botlist.certified_bot);
     guild.members.cache.get(botdata.ownerID).roles.remove(roles.botlist.certified_developer);
     return res.redirect(`/admin/certificate-apps?success=true&message=Certificate deleted.`)

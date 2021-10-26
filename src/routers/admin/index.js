@@ -9,12 +9,12 @@ const reportappsdata = require("../../database/models/botlist/report-apps.js");
 
 
 
-console.log("[disbots.xyz]: Admin/Index router loaded.");
+console.log("[DiscordTown]: Admin/Index router loaded.");
 app.get("/admin", global.checkAuth, async (req, res) => {
 	const botdata = await botsdata.find();
 	const codedata = await codesSchema.find();
 	const udata = await uptimedata.find();
-	let sites = await sitedatalari.findOne({ id: config.website.clientID });
+	let sites = await sitedatalari.findOne({ id: global.config.website.clientID });
   let server = await serversdata.find();
     res.render("admin/index.ejs", {
     	bot: global.Client,
@@ -58,7 +58,7 @@ app.get("/admin/approved", global.checkAuth, async (req, res) => {
         botdata: botdata, 
     })
 });
-app.get("/admin/certificate-apps", checkAuth, async (req, res) => {
+app.get("/admin/certificate-apps", global.checkAuth, async (req, res) => {
 	const botdata = await botsdata.find();
     const apps = await appsdata.find()
     res.render("admin/certificate-apps.ejs", {
@@ -73,7 +73,7 @@ app.get("/admin/certificate-apps", checkAuth, async (req, res) => {
         apps: apps
     })
 });
-app.get("/admin/report-apps", checkAuth, async (req, res) => {
+app.get("/admin/report-apps", global.checkAuth, async (req, res) => {
 	const botdata = await botsdata.find();
     const apps = await reportappsdata.find()
     res.render("admin/report-app.ejs", {

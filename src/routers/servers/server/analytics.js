@@ -3,7 +3,7 @@ const db = require("../../../database/models/servers/server.js");
 const client = global.clientSL;
 const channels = global.config.server.channels;
 
-console.log("[disbots.xyz/servers]: Analytics router loaded.");
+console.log("[DiscordTown/servers]: Analytics router loaded.");
 
 app.get("/:guildID/analytics", global.checkAuth, async (req, res) => {
     let serverData = await db.findOne({

@@ -19,7 +19,7 @@ app.get("/api/bots/:botID", async (req, res) => {
         "error": "You entered invalid bot id."
     })
     res.json({
-        avatar: botinfo.avatar,
+        avatar: botinfo.avatar, 
         botID: botinfo.botID,
         username: botinfo.username,
         discrim: botinfo.discrim,

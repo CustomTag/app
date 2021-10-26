@@ -7,7 +7,7 @@ const channels = global.config.server.channels,
 console.log("[disbots.xyz]: Admin/Maintence router loaded.");
 
 app.get("/admin/maintence", global.checkAuth, async (req, res) => {
-    if (!config.bot.owners.includes(req.user.id)) return res.redirect('../admin');
+    if (!global.config.bot.owners.includes(req.user.id)) return res.redirect('../admin');
     res.render("admin/administrator/maintence.ejs", {
         bot: global.Client,
         path: req.path,
@@ -19,14 +19,14 @@ app.get("/admin/maintence", global.checkAuth, async (req, res) => {
     })
 });
 app.post("/admin/maintence", global.checkAuth, async (req, res) => {
-    if (!config.bot.owners.includes(req.user.id)) return res.redirect('../admin');
+    if (!global.config.bot.owners.includes(req.user.id)) return res.redirect('../admin');
     let bakimdata = await maintenceSchema.findOne({
-        server: config.server.id
+        server: global.config.server.id
     });
     if (bakimdata) return res.redirect('../admin/maintence?error=true&message=Maintenance mode has already been activated for this site.');
     client.channels.cache.get(global.config.server.channels.webstatus).send(`<a:dis_off:855688791434985472> DisBots has been switched to __Maintenance__ due to **${req.body.reason}** [||<@&861221279080120371>||]`).then(a => {
         new maintenceSchema({
-            server: config.server.id,
+            server: global.config.server.id,
             reason: req.body.reason,
             bakimmsg: a.id
         }).save();
@@ -35,9 +35,9 @@ app.post("/admin/maintence", global.checkAuth, async (req, res) => {
 });
 app.post("/admin/unmaintence", global.checkAuth, async (req, res) => {
     const dc = require("discord.js");
-    if (!config.bot.owners.includes(req.user.id)) return res.redirect('../admin');
+    if (!global.config.bot.owners.includes(req.user.id)) return res.redirect('../admin');
     let bakimdata = await maintenceSchema.findOne({
-        server: config.server.id
+        server: global.config.server.id
     });
     if (!bakimdata) return res.redirect('../admin/maintence?error=true&message=The website is not in maintenance mode anyway.');
     const bakimsonaerdikardesdisbots = new dc.MessageEmbed()
@@ -55,7 +55,7 @@ app.post("/admin/unmaintence", global.checkAuth, async (req, res) => {
         })
     })
     await maintenceSchema.deleteOne({
-        server: config.server.id
+        server: global.config.server.id
     }, function(error, server) {
         if (error) console.log(error)
     });
