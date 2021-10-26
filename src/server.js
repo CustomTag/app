@@ -621,8 +621,8 @@ app.get("/admin/boost/give/:botID", checkMaintence, checkAdmin, checkAuth, async
   });
 
   client.users.fetch(botdata.botID).then(bota => {
-    client.channels.cache.get(channels.botlog).send(`<:check:853262343949254696> <@${botdata.ownerID}>'s bot  **${bota.tag}** has been **Boosted**.`)
-    client.users.cache.get(botdata.ownerID).send(`<:check:853262343949254696> Your bot named **${bota.tag}** has been **Boosted**.`)
+    client.channels.cache.get(channels.botlog).send(`<:Check:902467359854440468> <@${botdata.ownerID}>'s bot  **${bota.tag}** has been **Boosted**.`)
+    client.users.cache.get(botdata.ownerID).send(`<:Check:902467359854440468> Your bot named **${bota.tag}** has been **Boosted**.`)
   });
   let guild = client.guilds.cache.get(config.server.id)
   guild.members.cache.get(botdata.botID).roles.add(roles.botlist.boosted_bot);
@@ -649,8 +649,8 @@ app.get("/admin/promote/give/:botID", checkMaintence, checkAdmin, checkAuth, asy
   });
 
   client.users.fetch(botdata.botID).then(bota => {
-    client.channels.cache.get(channels.botlog).send(`<:check:853262343949254696> <@${botdata.ownerID}>'s bot  **${bota.tag}** has been **Promoted**.`)
-    client.users.cache.get(botdata.ownerID).send(`<:check:853262343949254696> Your bot named **${bota.tag}** has been **Promoted**.`)
+    client.channels.cache.get(channels.botlog).send(`<:Check:902467359854440468> <@${botdata.ownerID}>'s bot  **${bota.tag}** has been **Promoted**.`)
+    client.users.cache.get(botdata.ownerID).send(`<:Check:902467359854440468> Your bot named **${bota.tag}** has been **Promoted**.`)
   });
   let guild = client.guilds.cache.get(config.server.id)
   guild.members.cache.get(botdata.botID).roles.add(roles.botlist.promoted_bot);
@@ -760,7 +760,7 @@ const io = require('socket.io')(http);
 io.on('connection', socket => {
   io.emit("userCount", io.engine.clientsCount);
 });
-http.listen(3000, () => { console.log("[disbots.xyz]: Website running on 3000 port.") });
+http.listen(3000, () => { console.log("[DiscordTown]: Website running on 3000 port.") });
 
 //------------------- Routers -------------------//
 
@@ -783,7 +783,7 @@ console.log(`
 console.log("\x1b[32m", "System loading, please wait...")
 sleep(1050)
 console.clear();
-console.log('\x1b[36m%s\x1b[0m', "[disbots.xyz]: General routers loading...");
+console.log('\x1b[36m%s\x1b[0m', "[DiscordTown]: General routers loading...");
 sleep(500);
 app.use("/", require('./routers/index.js'))
 app.use("/", require('./routers/partners.js'))
@@ -791,7 +791,7 @@ app.use("/", require('./routers/mini.js'))
 
 /* Uptime System */
 console.log(" ")
-console.log('\x1b[36m%s\x1b[0m', "[disbots.xyz]: Uptime system routers loading...");
+console.log('\x1b[36m%s\x1b[0m', "[DiscordTown]: Uptime system routers loading...");
 sleep(500);
 app.use("/uptime", require('./routers/uptime/add.js'))
 app.use("/uptime", require('./routers/uptime/delete.js'))
@@ -799,14 +799,14 @@ app.use("/uptime", require('./routers/uptime/links.js'))
 
 /* Profile System */
 console.log(" ")
-console.log('\x1b[36m%s\x1b[0m', "[disbots.xyz]: Profile system routers loading...");
+console.log('\x1b[36m%s\x1b[0m', "[DiscordTown]: Profile system routers loading...");
 sleep(500);
 app.use("/user", require('./routers/profile/index.js'))
 app.use("/user", require('./routers/profile/edit.js'))
 
 /* Code Share System */
 console.log(" ")
-console.log('\x1b[36m%s\x1b[0m', "[disbots.xyz]: Code Share system routers loading...");
+console.log('\x1b[36m%s\x1b[0m', "[DiscordTown]: Code Share system routers loading...");
 sleep(500);
 app.use("/codes", require('./routers/codeshare/view.js'))
 app.use("/codes", require('./routers/codeshare/list.js'))
@@ -814,7 +814,7 @@ app.use("/codes", require('./routers/codeshare/categories.js'))
 
 /* Botlist System */
 console.log(" ")
-console.log('\x1b[36m%s\x1b[0m', "[disbots.xyz]: Botlist system routers loading...");
+console.log('\x1b[36m%s\x1b[0m', "[DiscordTown]: Botlist system routers loading...");
 sleep(500);
 app.use("/", require('./routers/botlist/addbot.js'))
 app.use("/", require('./routers/botlist/mini.js'))
