@@ -2,7 +2,7 @@ const app = require('express').Router();
 const botsdata = require("../../database/models/botlist/bots.js");
 const client = global.Client;
 const channels = global.config.server.channels;
-console.log("[disbots.xyz]: Botlist/Add Bot router loaded.");
+console.log("[DiscordTown]: Botlist/Add Bot router loaded.");
 
     app.get("/addbot", global.checkAuth, async (req,res) => {
       if(!client.guilds.cache.get(config.server.id).members.cache.get(req.user.id)) return res.redirect("/error?code=403&message=To do this, you have to join our discord server.");
