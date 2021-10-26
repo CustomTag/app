@@ -120,7 +120,7 @@ function disableclick(event)
                 <a title="Flowlist" class="nav-link" href="/"><i class="fad fa-robot mr-1"></i> Bots</a>
             </li>
             <li class="nav-item">
-                <a title="Flowlist" class="nav-link" href="/dsl"><i class="fad fa-robot mr-1"></i> Invite DSL</a>
+                <a title="Flowlist" class="nav-link" href="/dsl"><i class="fad fa-robot mr-1"></i> Invite FSL</a>
             </li>
             <% if(user) {%>
             <li class="nav-item"> 
@@ -133,13 +133,12 @@ function disableclick(event)
             <i class="fad fa-ellipsis-h"></i>&nbsp;More
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" onclick="location.href='/partners'"><i class="fad fa-handshake"></i>&nbsp;Partners</a>
             <a class="dropdown-item" onclick="location.href='/team'"><i class="fad fa-users mr-1"></i>&nbsp;Team</a>
-<!--             <a class="dropdown-item" onclick="location.href='/rewards'"><i class="fad fa-coin mr-1"></i>&nbsp;Rewards</a> -->
+            <a class="dropdown-item" onclick="location.href='/partners'"><i class="fad fa-handshake"></i>&nbsp;Partners</a>
             <a class="dropdown-item" onclick="location.href='/promotion'"><i class="fad fa-stars"></i> Promotions</a>
             <a class="dropdown-item" onclick="location.href='certification'"><i class="fad fa-badge-check"></i>&nbsp;Certification</a>
-<!--             <a class="dropdown-item" onclick="location.href='https://stats.uptimerobot.com/50DlwT0XxV'"><i class="fad fa-chart-bar mr-1"></i>&nbsp;Status</a> -->
-<!--             <a class="dropdown-item" onclick="location.href='/codes/categories'"><i class="fad fa-code"></i>&nbsp;Code Share</a> -->
+<!--        <a class="dropdown-item" onclick="location.href='https://stats.uptimerobot.com/50DlwT0XxV'"><i class="fad fa-chart-bar mr-1"></i>&nbsp;Status</a> -->
+<!--        <a class="dropdown-item" onclick="location.href='/codes/categories'"><i class="fad fa-code"></i>&nbsp;Code Share</a> -->
             <a class="dropdown-item"  onclick="location.href='/uptime/links'"><i class="fad fa-sync-alt"></i>&nbsp;Uptime</a>
             <% if(user) { %>
                 <% 
@@ -147,7 +146,7 @@ function disableclick(event)
                 if(guild) {
                 if(guild.roles.cache.get(roles.administrator) || guild.roles.cache.get(roles.moderator)) {
                 %>
-                    <a title="DiscordTown" class="dropdown-item" href="/admin"><i class="fad fa-magic mr-1"></i> Admin Panel</a>
+                    <a title="Flowlist" class="dropdown-item" href="/admin"><i class="fad fa-magic mr-1"></i> Admin Panel</a>
 
                 <% }} %>
             <% } %>
@@ -165,7 +164,7 @@ function disableclick(event)
                   </a>
                 <div class="dropdown-menu dropdown-menu-right" style="max-width:220px!important;">
             <% languages.map(x => { %>
-                <a href="#" translate="no" onclick="doGTranslate('en|<%= x.code %>')" title="DiscordTown" class="dropdown-item">
+                <a href="#" translate="no" onclick="doGTranslate('en|<%= x.code %>')" title="Flowlist" class="dropdown-item">
                 <img src="https://www.countryflags.io/<%= x.flag %>/flat/32.png">
                     &nbsp;<%= x.name %>
                 </a>
@@ -182,7 +181,7 @@ function disableclick(event)
               </li>
             <% } else { %>
             <li class="nav-item">
-                <a title="DiscordTown" class="btn btn-disbots" href="/login"><i class="fad fa-sign-in mr-1"></i> Login</a>
+                <a title="Flowlist" class="btn btn-disbots" href="/login"><i class="fad fa-sign-in mr-1"></i> Login</a>
             </li>
 	    <% } %>
           </ul>

@@ -211,7 +211,7 @@ module.exports = async (client) => {
     req.session.destroy(() => {
       res.json({
         login: false,
-        message: "You have been blocked from DiscordTown.",
+        message: "You have been blocked from Flowlist.xyz.",
         logout: true
       })
       req.logout();
@@ -443,7 +443,7 @@ app.post("/server/:id/review/:userID/delete", async (req, res) => {
   return res.redirect('/server/' + req.params.id);
 })
 
-app.get("/admin/premium/give/:botID", checkMaintence, checkAdmin, checkAuth, async (req, res) => {
+app.get("/admin/premium/give/:botID", checkMaintence, checkAdmin, global.checkAuth, async (req, res) => {
   await serversdata.findOneAndUpdate({
     id: req.params.botID
   }, {
@@ -463,7 +463,7 @@ app.get("/admin/premium/give/:botID", checkMaintence, checkAdmin, checkAuth, asy
   guild.members.cache.get(serverdata.ownerID).roles.add(roles.botlist.premium_developer);
   return res.redirect(`/admin/premium-servers?success=true&message=Promotion gived.&id=${req.params.botID}`)
 });
-app.get("/admin/premium/delete/:botID", checkMaintence, checkAdmin, checkAuth, async (req, res) => {
+app.get("/admin/premium/delete/:botID", checkMaintence, checkAdmin, global.checkAuth, async (req, res) => {
   let rBody = req.body;
   await serversdata.findOneAndUpdate({
     id: req.params.botID
@@ -486,7 +486,7 @@ app.get("/admin/premium/delete/:botID", checkMaintence, checkAdmin, checkAuth, a
   guild.members.cache.get(serverdata.ownerID).roles.remove(roles.botlist.premium_developer);
   return res.redirect(`/admin/premium-servers?success=true&message=Promotion deleted.`)
 });
-app.get("/admin/boost/delete/:botID", checkMaintence, checkAdmin, checkAuth, async (req, res) => {
+app.get("/admin/boost/delete/:botID", checkMaintence, checkAdmin, global.checkAuth, async (req, res) => {
   let rBody = req.body;
   await botsdata.findOneAndUpdate({
     botID: req.params.botID
@@ -517,7 +517,7 @@ app.get("/promotion", checkMaintence, (req, res) => {
     roles
   });
 });
-app.get("/rewards", checkMaintence,checkAuth, async (req, res) => {
+app.get("/rewards", checkMaintence, global.checkAuth, async (req, res) => {
   renderTemplate(res, req, "/botlist/rewards.ejs", {
     config,
     req,
@@ -525,7 +525,7 @@ app.get("/rewards", checkMaintence,checkAuth, async (req, res) => {
     roles
   });
 });
-app.get("/admin/approvedservers", checkMaintence, checkAdmin, checkAuth, async (req, res) => {
+app.get("/admin/approvedservers", checkMaintence, checkAdmin, global.checkAuth, async (req, res) => {
   const serverdata = await serversdata.find()
   renderTemplate(res, req, "admin/serverapproved.ejs", {
     req,
@@ -534,7 +534,7 @@ app.get("/admin/approvedservers", checkMaintence, checkAdmin, checkAuth, async (
     serverdata
   })
 });
-app.get("/admin/server/delete/:botID", checkMaintence, checkAdmin, checkAuth, async (req, res) => {
+app.get("/admin/server/delete/:botID", checkMaintence, checkAdmin, global.checkAuth, async (req, res) => {
   let botdata = await serversdata.findOne({ id: req.params.botID })
   if (!botdata) return res.redirect("/error?code=404&message=You entered an invalid server id.");
   let guild = client.guilds.cache.get(config.server.id)
@@ -548,7 +548,7 @@ app.get("/admin/server/delete/:botID", checkMaintence, checkAdmin, checkAuth, as
   }
   return res.redirect(`/admin/approvedservers?success=true&message=Server deleted.`)
 });
-app.get("/admin/promote/delete/:botID", checkMaintence, checkAdmin, checkAuth, async (req, res) => {
+app.get("/admin/promote/delete/:botID", checkMaintence, checkAdmin, global.checkAuth, async (req, res) => {
   let rBody = req.body;
   await botsdata.findOneAndUpdate({
     botID: req.params.botID
@@ -581,7 +581,7 @@ app.get("/admin/boost-bots", checkMaintence, checkAdmin, checkAuth, async (req, 
     botdata
   })
 });
-app.get("/admin/promote-bots", checkMaintence, checkAdmin, checkAuth, async (req, res) => {
+app.get("/admin/promote-bots", checkMaintence, checkAdmin, global.checkAuth, async (req, res) => {
   const botdata = await botsdata.find();
   renderTemplate(res, req, "admin/promoted-bots.ejs", {
     req,
@@ -590,7 +590,7 @@ app.get("/admin/promote-bots", checkMaintence, checkAdmin, checkAuth, async (req
     botdata
   })
 });
-app.get("/admin/boost-bots", checkMaintence, checkAdmin, checkAuth, async (req, res) => {
+app.get("/admin/boost-bots", checkMaintence, checkAdmin, global.checkAuth, async (req, res) => {
   const botdata = await botsdata.find();
   renderTemplate(res, req, "admin/boosted-bots.ejs", {
     req,
@@ -599,7 +599,7 @@ app.get("/admin/boost-bots", checkMaintence, checkAdmin, checkAuth, async (req, 
     botdata
   })
 });
-app.get("/admin/promote-bots", checkMaintence, checkAdmin, checkAuth, async (req, res) => {
+app.get("/admin/promote-bots", checkMaintence, checkAdmin, global.checkAuth, async (req, res) => {
   const botdata = await botsdata.find();
   renderTemplate(res, req, "admin/promoted-bots.ejs", {
     req,
@@ -608,7 +608,7 @@ app.get("/admin/promote-bots", checkMaintence, checkAdmin, checkAuth, async (req
     botdata
   })
 });
-app.get("/admin/boost/give/:botID", checkMaintence, checkAdmin, checkAuth, async (req, res) => {
+app.get("/admin/boost/give/:botID", checkMaintence, checkAdmin, global.checkAuth, async (req, res) => {
   await botsdata.findOneAndUpdate({
     botID: req.params.botID
   }, {
@@ -636,7 +636,7 @@ app.get("/admin/boost/give/:botID", checkMaintence, checkAdmin, checkAuth, async
   }
   return res.redirect(`/admin/boost-apps?success=true&message=Promotion gived.&botID=${req.params.botID}`)
 });
-app.get("/admin/promote/give/:botID", checkMaintence, checkAdmin, checkAuth, async (req, res) => {
+app.get("/admin/promote/give/:botID", checkMaintence, checkAdmin, global.checkAuth, async (req, res) => {
   await botsdata.findOneAndUpdate({
     botID: req.params.botID
   }, {
@@ -664,7 +664,7 @@ app.get("/admin/promote/give/:botID", checkMaintence, checkAdmin, checkAuth, asy
   }
   return res.redirect(`/admin/promote-bots?success=true&message=Promotion gived.&botID=${req.params.botID}`)
 });
-app.get("/admin/team", checkMaintence, checkAdmin, checkAuth, async (req, res) => {
+app.get("/admin/team", checkMaintence, checkAdmin, global.checkAuth, async (req, res) => {
   if (!config.bot.owners.includes(req.user.id)) return res.redirect('../admin');
   const Database = require("void.db");
   renderTemplate(res, req, "/admin/administrator/team.ejs", {
@@ -718,7 +718,7 @@ app.get("/bots/boosted", checkMaintence, async (req, res) => {
     page: page
   });
 })
-app.post("/admin/certificate/delete/:botID", checkMaintence, checkAdmin, checkAuth, async (req, res) => {
+app.post("/admin/certificate/delete/:botID", checkMaintence, checkAdmin, global.checkAuth, async (req, res) => {
   let rBody = req.body;
   await botsdata.findOneAndUpdate({
     botID: req.params.botID
@@ -783,7 +783,7 @@ console.log(`
 console.log("\x1b[32m", "System loading, please wait...")
 sleep(1050)
 console.clear();
-console.log('\x1b[36m%s\x1b[0m', "[DiscordTown]: General routers loading...");
+console.log('\x1b[36m%s\x1b[0m', "[flowlist.xyz]: General routers loading...");
 sleep(500);
 app.use("/", require('./routers/index.js'))
 app.use("/", require('./routers/partners.js'))
@@ -791,7 +791,7 @@ app.use("/", require('./routers/mini.js'))
 
 /* Uptime System */
 console.log(" ")
-console.log('\x1b[36m%s\x1b[0m', "[DiscordTown]: Uptime system routers loading...");
+console.log('\x1b[36m%s\x1b[0m', "[flowlist.xyz]: Uptime system routers loading...");
 sleep(500);
 app.use("/uptime", require('./routers/uptime/add.js'))
 app.use("/uptime", require('./routers/uptime/delete.js'))
@@ -799,14 +799,14 @@ app.use("/uptime", require('./routers/uptime/links.js'))
 
 /* Profile System */
 console.log(" ")
-console.log('\x1b[36m%s\x1b[0m', "[DiscordTown]: Profile system routers loading...");
+console.log('\x1b[36m%s\x1b[0m', "[flowlist.xyz]: Profile system routers loading...");
 sleep(500);
 app.use("/user", require('./routers/profile/index.js'))
 app.use("/user", require('./routers/profile/edit.js'))
 
 /* Code Share System */
 console.log(" ")
-console.log('\x1b[36m%s\x1b[0m', "[DiscordTown]: Code Share system routers loading...");
+console.log('\x1b[36m%s\x1b[0m', "[flowlist.xyz]: Code Share system routers loading...");
 sleep(500);
 app.use("/codes", require('./routers/codeshare/view.js'))
 app.use("/codes", require('./routers/codeshare/list.js'))
@@ -814,7 +814,7 @@ app.use("/codes", require('./routers/codeshare/categories.js'))
 
 /* Botlist System */
 console.log(" ")
-console.log('\x1b[36m%s\x1b[0m', "[DiscordTown]: Botlist system routers loading...");
+console.log('\x1b[36m%s\x1b[0m', "[flowlist.xyz]: Botlist system routers loading...");
 sleep(500);
 app.use("/", require('./routers/botlist/addbot.js'))
 app.use("/", require('./routers/botlist/mini.js'))
@@ -827,7 +827,7 @@ app.use("/", require('./routers/botlist/apps/report-app.js'))
 
 /* Server List System */
 console.log(" ")
-console.log('\x1b[36m%s\x1b[0m', "[DiscordTown]: Serverlist system routers loading...");
+console.log('\x1b[36m%s\x1b[0m', "[flowlist.xyz]: Serverlist system routers loading...");
 sleep(500);
 app.use("/servers", require('./routers/servers/index.js'))
 app.use("/server", require('./routers/servers/add.js'))
@@ -858,7 +858,7 @@ app.use(async (req, res, next) => {
   }
 })
 console.log(" ")
-console.log('\x1b[36m%s\x1b[0m', "[DiscordTown]: Admin Panel system routers loading...");
+console.log('\x1b[36m%s\x1b[0m', "[flowlist.xyz]: Admin Panel system routers loading...");
 sleep(500);
 app.use("/", require('./routers/admin/index.js'))
 app.use("/", require('./routers/admin/maintence.js'))
@@ -879,7 +879,7 @@ app.use("/", require('./routers/admin/uptime/index.js'))
 
 /* Bot System */
 console.log(" ")
-console.log('\x1b[36m%s\x1b[0m', "[DiscordTown]: Bot system loading...");
+console.log('\x1b[36m%s\x1b[0m', "[flowlist.xyz]: Bot system loading...");
 app.use("/", require('./routers/api/api.js'))
 sleep(500)
 
