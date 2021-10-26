@@ -2433,10 +2433,12 @@ color: #fff!important;
 }
 .dropdown-item {
   color: var(--body-text)!important;
+  cursor: pointer;
 }
 .dropdown-item:hover {
   background: var(--bg-section);
   color: var(--color-dropdown)!important;
+  
 }
 .dropdown-menu i {
     margin-right: 4px;
