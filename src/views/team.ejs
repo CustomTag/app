@@ -58,7 +58,7 @@
 </style>
 
 <div class="container">
-<br><br><br><br>  
+<br><br>
 <p class="has-text-white title is-large"><i class="fad fa-crown has-text-warning"></i>&nbsp;Founders</p>
 <div class="disbots_divider"></div>
 <div class="columns is-multiline is-desktop is-variable is-7 mt-3 pt-5">
@@ -69,8 +69,7 @@
 <h1><%=a.user.username%></h1>
 <h2 class="text-animation" ><%=bot.guilds.cache.get(config.server.id).roles.cache.get(roles.yonetici).name%></h2>
 </div>
-<div class="avatar">
-                     <img draggable="false" onerror="imgError(this);" src="<%=bot.users.cache.get(a.id).avatarURL({dynamic: true})%>">
+<div class="avatar"><img draggable="false" onerror="imgError(this);" src="<%=bot.users.cache.get(a.id).avatarURL({dynamic: true})%>">
                   </div>
 </div>
 </div>
