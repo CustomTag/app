@@ -13,7 +13,7 @@ exports.run = async (client, message, args) => {
     	return await msgError('This command is used only once every 30 minutes.', { channel: message.channel });
     let timeObj = ms(cooldown - (Date.now() - lastDaily)); 
 	} else {
-    let kod1 = client.makeid(6);
+    let kod1 = client.makeid(6); 
     let kod2 = client.makeid(6);
     let kod3 = client.makeid(6);
     const width = 400
