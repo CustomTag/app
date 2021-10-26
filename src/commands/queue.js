@@ -1,7 +1,8 @@
 const Discord = require('discord.js')
 const botdata = require("../database/models/botlist/bots.js")
 module.exports.run = async (client,message,args) => {
-   if (!message.member.roles.cache.some((role) => role.name === '| Bot Reviewer > BR')) return message.channel.send("Ah, I think you are not a bot tester");
+   let guild = client.guilds.cache.get(global.config.server.id).members.cache.get(message.author.id);
+   if (!guild.roles.cache.get(global.config.server.roles.administrator) || guild.roles.cache.get(global.config.server.roles.moderator)) return message.channel.send("Ah, I think you are not a bot tester");
    let x = await botdata.find();
    let bots = x.filter(x => x.status === "UnApproved")
    const embed = new Discord.MessageEmbed()
