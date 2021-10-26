@@ -150,7 +150,7 @@ client.komutlar = new Discord.Collection();
 client.aliases = new Discord.Collection();
 fs.readdir("./src/commands", (err, files) => {
     if (err) console.error(err);
-    console.log(`[disbots.xyz]: ${files.length} command loaded.`);
+    console.log(`[DiscordTown]: ${files.length} command loaded.`);
     files.forEach(f => {
         if (!f.endsWith('.js')) return
         let props = require(`./src/commands/${f}`);

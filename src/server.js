@@ -827,7 +827,7 @@ app.use("/", require('./routers/botlist/apps/report-app.js'))
 
 /* Server List System */
 console.log(" ")
-console.log('\x1b[36m%s\x1b[0m', "[disbots.xyz]: Serverlist system routers loading...");
+console.log('\x1b[36m%s\x1b[0m', "[DiscordTown]: Serverlist system routers loading...");
 sleep(500);
 app.use("/servers", require('./routers/servers/index.js'))
 app.use("/server", require('./routers/servers/add.js'))
@@ -858,7 +858,7 @@ app.use(async (req, res, next) => {
   }
 })
 console.log(" ")
-console.log('\x1b[36m%s\x1b[0m', "[disbots.xyz]: Admin Panel system routers loading...");
+console.log('\x1b[36m%s\x1b[0m', "[DiscordTown]: Admin Panel system routers loading...");
 sleep(500);
 app.use("/", require('./routers/admin/index.js'))
 app.use("/", require('./routers/admin/maintence.js'))
@@ -879,7 +879,7 @@ app.use("/", require('./routers/admin/uptime/index.js'))
 
 /* Bot System */
 console.log(" ")
-console.log('\x1b[36m%s\x1b[0m', "[disbots.xyz]: Bot system loading...");
+console.log('\x1b[36m%s\x1b[0m', "[DiscordTown]: Bot system loading...");
 app.use("/", require('./routers/api/api.js'))
 sleep(500)
 
